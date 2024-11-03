@@ -1,0 +1,79 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer utilities {
+  .dropdownScrollbar {
+    overflow: overlay;
+  }
+
+  .dropdownScrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 18px;
+  }
+
+  .dropdownScrollbar::-webkit-scrollbar-thumb {
+    background: #d7d7d7;
+    border-radius: 8px;
+    border: solid rgba(0, 0, 0, 0);
+    border-width: 8px 4px;
+    background-clip: padding-box;
+  }
+
+  .dropdownScrollbar::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+
+  .customScrollbar {
+    overflow-y: scroll;
+    overflow-x: visible;
+  }
+
+  .customScrollbar::-webkit-scrollbar {
+    width: 12px;
+    height: 18px;
+  }
+
+  .customScrollbar::-webkit-scrollbar-thumb {
+    background: #d7d7d7;
+    border-radius: 10px;
+    border: solid transparent;
+    background-clip: padding-box;
+  }
+
+  .hideScrollbar {
+    overflow: overlay;
+  }
+
+  .hideScrollbar::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+  }
+
+  .slider {
+    appearance: none;
+    transition: 0.2s;
+    height: 8px;
+    transition: opacity 0.2s;
+    border-radius: 5px;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: 1px solid #c7c9d9;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: 1px solid #c7c9d9;
+  }
+}

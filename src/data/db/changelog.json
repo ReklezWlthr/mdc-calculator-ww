@@ -1,0 +1,39 @@
+[
+  {
+    "version": "2.0.2-1",
+    "date": "November 1st, 2024",
+    "desc": [
+      "<b class=\"text-heal\">Fixed</b>: Incorrect <span class=\"text-desc\">Raiden Shogun</span>'s <b>Burst</b> formula"
+    ]
+  },
+  {
+    "version": "2.0.2",
+    "date": "October 28th, 2024",
+    "desc": [
+      "Content Version: <span class=\"text-desc\">v5.2v4</span>",
+      "Updated Wording: <span class=\"text-desc\">Chasca</span> and <span class=\"text-desc\">Ororon</span>",
+      "<b class=\"text-heal\">Fixed</b>: Error During <b>Enka Import</b>",
+      "<b class=\"text-heal\">Fixed</b>: Missing <span class=\"text-desc\">Mualani</span>'s <b>Wave Momentum</b> multiplier",
+      "<b class=\"text-heal\">Fixed</b>: Incorrect <span class=\"text-desc\">Xianyun</span>'s <b>A1</b> formula"
+    ]
+  },
+  {
+    "version": "2.0.1",
+    "date": "October 22th, 2024",
+    "desc": ["<b class=\"text-desc\">NEW</b>: <b>GOOD</b> JSON Import Supported"]
+  },
+  {
+    "version": "2.0.0",
+    "date": "October 22th, 2024",
+    "desc": [
+      "<b class=\"text-desc\">NEW</b>: Compare Builds",
+      "<b class=\"text-desc\">NEW</b>: ER Requirements",
+      "And a ton of minor features and bug fixes"
+    ]
+  },
+  {
+    "version": "1.0.0",
+    "date": "June 8th, 2024",
+    "desc": ["Public launch day"]
+  }
+]
