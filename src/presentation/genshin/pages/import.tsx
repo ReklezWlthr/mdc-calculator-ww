@@ -393,7 +393,7 @@ export const ImportExport = observer(() => {
                 <WeaponBlock {...char?.equipments?.weapon} />
                 <ArtifactBlock
                   index={selected}
-                  piece={5}
+                  slot={5}
                   aId={char?.equipments?.artifacts?.[2]}
                   override={importStore.artifacts}
                   canEdit={false}
@@ -409,14 +409,14 @@ export const ImportExport = observer(() => {
               <div className="w-1/5 space-y-5">
                 <ArtifactBlock
                   index={selected}
-                  piece={4}
+                  slot={4}
                   aId={char?.equipments?.artifacts?.[0]}
                   override={importStore.artifacts}
                   canEdit={false}
                 />
                 <ArtifactBlock
                   index={selected}
-                  piece={1}
+                  slot={1}
                   aId={char?.equipments?.artifacts?.[3]}
                   override={importStore.artifacts}
                   canEdit={false}
@@ -425,14 +425,14 @@ export const ImportExport = observer(() => {
               <div className="w-1/5 space-y-5">
                 <ArtifactBlock
                   index={selected}
-                  piece={2}
+                  slot={2}
                   aId={char?.equipments?.artifacts?.[1]}
                   override={importStore.artifacts}
                   canEdit={false}
                 />
                 <ArtifactBlock
                   index={selected}
-                  piece={3}
+                  slot={3}
                   aId={char?.equipments?.artifacts?.[4]}
                   override={importStore.artifacts}
                   canEdit={false}

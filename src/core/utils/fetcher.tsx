@@ -17,6 +17,6 @@ export const getTalentIcon = (path: string) => `/asset/talent/${path}.webp`
 
 export const getWeaponImage = (path: string) => (path ? `/asset/weapon/T_IconWeapon${path}_UI.webp` : '')
 
-export const getArtifactImage = (path: string, type: number) => `/asset/artifact/${path}_${type}.png`
+export const getEchoImage = (path: string) => `/asset/echo/T_IconMonsterGoods_${path}_UI.webp`
 
 export const getEnemyImage = (path: string) => `/asset/monster/${path}.png`

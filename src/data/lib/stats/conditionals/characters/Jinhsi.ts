@@ -366,9 +366,10 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
         {
           name: 'Purge of Light DMG',
           value: [
-            { scaling: calcScaling(2.514, lib) * (c >= 5 ? 2.2 : 1), multiplier: Stats.ATK },
-            { scaling: calcScaling(5.866, lib) * (c >= 5 ? 2.2 : 1), multiplier: Stats.ATK },
+            { scaling: calcScaling(2.514, lib), multiplier: Stats.ATK },
+            { scaling: calcScaling(5.866, lib), multiplier: Stats.ATK },
           ],
+          multiplier: c >= 5 ? 2.2 : 1,
           element: Element.SPECTRO,
           property: TalentProperty.LIB,
         },
@@ -386,9 +387,10 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
         },
         {
           name: 'Solar Flare DMG',
-          value: [{ scaling: calcScaling(0.1, forte) * (c >= 6 ? 1.45 : 1), multiplier: Stats.ATK, hits: 6 }],
+          value: [{ scaling: calcScaling(0.1, forte), multiplier: Stats.ATK, hits: 6 }],
           element: Element.SPECTRO,
           property: TalentProperty.SKILL,
+          multiplier: c >= 6 ? 1.45 : 1,
           bonus: form.jinhsi_c1 ? 0.2 * form.jinhsi_c1 : 0,
         },
         {

@@ -1,6 +1,6 @@
 import { toPercentage } from '@src/core/utils/converter'
 import { getMainStat, getRolls } from '@src/core/utils/data_format'
-import { findArtifactSet } from '@src/core/utils/finder'
+import { findEcho } from '@src/core/utils/finder'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { ArtifactPiece, MainStatOptions, StatIcons, Stats } from '@src/domain/constant'
 import { RarityGauge } from '@src/presentation/components/rarity_gauge'
@@ -10,7 +10,7 @@ import { useCallback, useMemo } from 'react'
 import { ArtifactListModal, ArtifactSetterT } from '@src/presentation/genshin/components/modals/artifact_list_modal'
 import classNames from 'classnames'
 import getConfig from 'next/config'
-import { getArtifactImage } from '@src/core/utils/fetcher'
+import { getEchoImage } from '@src/core/utils/fetcher'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -19,7 +19,7 @@ export const MiniArtifactBlock = observer(
     const { artifactStore, modalStore } = useStore()
 
     const artifact = _.find(artifactStore.artifacts, ['id', aId])
-    const setData = findArtifactSet(artifact?.setId)
+    const setData = findEcho(artifact?.setId)
 
     const mainStat = getMainStat(artifact?.main, artifact?.quality, artifact?.level)
 
@@ -48,7 +48,7 @@ export const MiniArtifactBlock = observer(
         {aId ? (
           <div className="flex items-center justify-between gap-4">
             <div className="relative flex flex-col items-center w-1/3 gap-1">
-              <img src={getArtifactImage(setData?.icon, artifact?.type)} className="w-11 h-11" />
+              <img src={getEchoImage(setData?.icon, artifact?.type)} className="w-11 h-11" />
               <RarityGauge rarity={artifact?.quality} textSize="text-xs" />
               <div className="flex items-center justify-between w-full gap-2 text-xs">
                 <img className="w-3.5" src={_.find(MainStatOptions, (item) => item.value === artifact?.main)?.img} />

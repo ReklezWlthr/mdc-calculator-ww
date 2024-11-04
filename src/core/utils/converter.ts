@@ -13,13 +13,18 @@ import {
 import _ from 'lodash'
 import { findCharacter } from './finder'
 import { CharacterKeyMap } from '@src/domain/scanner'
-import { ArtifactSets } from '@src/data/db/artifacts'
+import { Echoes } from '@src/data/db/artifacts'
 import { Weapons } from '@src/data/db/weapons'
 
 const travelerId = [503, 504, 506, 507, 508, 703, 704, 706, 707, 708]
 
-export const toPercentage = (value: number, precision: number = 1) => {
-  return _.floor(value * 100, precision).toLocaleString() + '%'
+export const toPercentage = (value: number, precision: number = 1, round?: boolean) => {
+  return (
+    (round
+      ? _.round(value * 100, precision)
+      : _.floor(_.round(value * 100, precision + 1), precision)
+    ).toLocaleString() + '%'
+  )
 }
 
 export const toLocalStructure = (rawData: Record<string, any>) => {
@@ -90,7 +95,7 @@ export const fromScanner = (rawData: Record<string, any>) => {
     }
   })
   const artifactData: IArtifactEquip[] = _.map<any, IArtifactEquip>(relics, (r) => {
-    const set = _.find(ArtifactSets, (item) => item.name.replaceAll(/\W/g, '') === r.setKey)
+    const set = _.find(Echoes, (item) => item.name.replaceAll(/\W/g, '') === r.setKey)
     return {
       id: r.id,
       setId: set?.id,

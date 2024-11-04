@@ -180,17 +180,10 @@ export const StatsModal = observer(
               />
             </div>
             <div className="space-y-2">
-              <AttributeBlock
-                stats={stats}
-                stat="Elemental Mastery"
-                array={[...stats[Stats.EM], ...stats[StatsObjectKeys.X_EM]]}
-                flat
-              />
-              <AttributeBlock stats={stats} stat="CRIT Rate" array={stats[Stats.CRIT_RATE]} />
-              <AttributeBlock stats={stats} stat="CRIT DMG" array={stats[Stats.CRIT_DMG]} />
+              <AttributeBlock stats={stats} stat="Crit. Rate" array={stats[Stats.CRIT_RATE]} />
+              <AttributeBlock stats={stats} stat="Crit. DMG" array={stats[Stats.CRIT_DMG]} />
               <AttributeBlock stats={stats} stat="Healing Bonus" array={stats[Stats.HEAL]} />
-              <AttributeBlock stats={stats} stat="Incoming Healing" array={stats[Stats.I_HEALING]} />
-              <AttributeBlock stats={stats} stat="Energy Recharge" array={stats[Stats.ER]} />
+              <AttributeBlock stats={stats} stat="Energy Regen" array={stats[Stats.ER]} />
             </div>
           </div>
         </Collapsible>
@@ -198,214 +191,40 @@ export const StatsModal = observer(
           <div className="grid grid-cols-2 gap-10">
             <div className="space-y-2">
               <AttributeBlock stats={stats} stat="All-Type DMG Bonus" array={stats[Stats.ALL_DMG]} />
-              <AttributeBlock stats={stats} stat="Physical DMG Bonus" array={stats[Stats.PHYSICAL_DMG]} />
-              <AttributeBlock
-                stats={stats}
-                stat="Pyro DMG Bonus"
-                array={[...stats[Stats.PYRO_DMG], ...stats[Stats.ELEMENTAL_DMG]]}
-              />
-              <AttributeBlock
-                stats={stats}
-                stat="Hydro DMG Bonus"
-                array={[...stats[Stats.HYDRO_DMG], ...stats[Stats.ELEMENTAL_DMG]]}
-              />
-              <AttributeBlock
-                stats={stats}
-                stat="Cryo DMG Bonus"
-                array={[...stats[Stats.CRYO_DMG], ...stats[Stats.ELEMENTAL_DMG]]}
-              />
-              <AttributeBlock
-                stats={stats}
-                stat="Electro DMG Bonus"
-                array={[...stats[Stats.ELECTRO_DMG], ...stats[Stats.ELEMENTAL_DMG]]}
-              />
-              <AttributeBlock
-                stats={stats}
-                stat="Anemo DMG Bonus"
-                array={[...stats[Stats.ANEMO_DMG], ...stats[Stats.ELEMENTAL_DMG]]}
-              />
-              <AttributeBlock
-                stats={stats}
-                stat="Geo DMG Bonus"
-                array={[...stats[Stats.GEO_DMG], ...stats[Stats.ELEMENTAL_DMG]]}
-              />
-              <AttributeBlock
-                stats={stats}
-                stat="Dendro DMG Bonus"
-                array={[...stats[Stats.DENDRO_DMG], ...stats[Stats.ELEMENTAL_DMG]]}
-              />
+              <AttributeBlock stats={stats} stat="Fusion DMG Bonus" array={stats[Stats.FUSION_DMG]} />
+              <AttributeBlock stats={stats} stat="Glacio DMG Bonus" array={stats[Stats.GLACIO_DMG]} />
+              <AttributeBlock stats={stats} stat="Electro DMG Bonus" array={stats[Stats.ELECTRO_DMG]} />
+              <AttributeBlock stats={stats} stat="Aero DMG Bonus" array={stats[Stats.AERO_DMG]} />
+              <AttributeBlock stats={stats} stat="Spectro DMG Bonus" array={stats[Stats.SPECTRO_DMG]} />
+              <AttributeBlock stats={stats} stat="Havoc DMG Bonus" array={stats[Stats.HAVOC_DMG]} />
             </div>
             <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Normal Attack Bonus" array={stats.BASIC_DMG} />
-              <AttributeBlock stats={stats} stat="Charged Attack Bonus" array={stats.CHARGE_DMG} />
-              <AttributeBlock stats={stats} stat="Plunging Attack Bonus" array={stats.PLUNGE_DMG} />
-              <AttributeBlock stats={stats} stat="Elemental Skill DMG Bonus" array={stats.SKILL_DMG} />
-              <AttributeBlock stats={stats} stat="Elemental Burst DMG Bonus" array={stats.BURST_DMG} />
+              <AttributeBlock stats={stats} stat="Normal Attack Bonus" array={stats[Stats.BASIC_DMG]} />
+              <AttributeBlock stats={stats} stat="Heavy Attack Bonus" array={stats[Stats.HEAVY_DMG]} />
+              <AttributeBlock stats={stats} stat="Res. Skill DMG Bonus" array={stats[Stats.SKILL_DMG]} />
+              <AttributeBlock stats={stats} stat="Res. Liberation DMG Bonus" array={stats[Stats.LIB_DMG]} />
             </div>
           </div>
         </Collapsible>
-        <Collapsible label="Reaction DMG">
-          <div className="grid grid-cols-2 gap-10">
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Vaporize DMG Bonus" array={stats.VAPE_DMG} />
-              <AttributeBlock stats={stats} stat="Melt DMG Bonus" array={stats.MELT_DMG} />
-              <AttributeBlock stats={stats} stat="Electro-Charged DMG Bonus" array={stats.TASER_DMG} />
-              <AttributeBlock stats={stats} stat="Overloaded DMG Bonus" array={stats.OVERLOAD_DMG} />
-              <AttributeBlock stats={stats} stat="Superconduct DMG Bonus" array={stats.SUPERCONDUCT_DMG} />
-              <AttributeBlock stats={stats} stat="Swirl DMG Bonus" array={stats.SWIRL_DMG} />
-              <AttributeBlock stats={stats} stat="Hydro Swirl DMG Bonus" array={stats.HYDRO_SWIRL_DMG} />
-            </div>
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Bloom DMG Bonus" array={stats.BLOOM_DMG} />
-              <AttributeBlock stats={stats} stat="Hyperbloom DMG Bonus" array={stats.HYPERBLOOM_DMG} />
-              <AttributeBlock stats={stats} stat="Burgeon DMG Bonus" array={stats.BURGEON_DMG} />
-              <AttributeBlock stats={stats} stat="Burning DMG Bonus" array={stats.BURNING_DMG} />
-              <AttributeBlock stats={stats} stat="Spread DMG Bonus" array={stats.SPREAD_DMG} />
-              <AttributeBlock stats={stats} stat="Aggravate DMG Bonus" array={stats.AGGRAVATE_DMG} />
-              <AttributeBlock stats={stats} stat="Shatter DMG Bonus" array={stats.SHATTER_DMG} />
-            </div>
-          </div>
-        </Collapsible>
-        <Collapsible
-          label={
-            <div className="flex items-center gap-2">
-              <p>RES PEN & Reduction</p>
-              <Tooltip
-                title="Regarding RES Reduction"
-                body={
-                  <p className="font-normal">
-                    This calculator treats RES Reduction on the target enemy as RES PEN to all party members due to both
-                    stats sharing the same multiplier.
-                  </p>
-                }
-                position="right"
-                style="w-[350px]"
-              >
-                <i className="text-normal fa-regular fa-question-circle text-gray" />
-              </Tooltip>
-            </div>
-          }
-        >
+        <Collapsible label="RES PEN">
           <div className="grid grid-cols-2 gap-10">
             <div className="space-y-2">
               <AttributeBlock stats={stats} stat="All-Type RES PEN" array={stats.ALL_TYPE_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Physical RES PEN" array={stats.PHYSICAL_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Pyro RES PEN" array={stats.PYRO_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Hydro RES PEN" array={stats.HYDRO_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Cryo RES PEN" array={stats.CRYO_RES_PEN} />
-            </div>
-            <div className="space-y-2">
+              <AttributeBlock stats={stats} stat="Fusion RES PEN" array={stats.FUSION_RES_PEN} />
+              <AttributeBlock stats={stats} stat="Glacio RES PEN" array={stats.GLACIO_RES_PEN} />
               <AttributeBlock stats={stats} stat="Electro RES PEN" array={stats.ELECTRO_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Anemo RES PEN" array={stats.ANEMO_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Geo RES PEN" array={stats.GEO_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Dendro RES PEN" array={stats.DENDRO_RES_PEN} />
-            </div>
-          </div>
-        </Collapsible>
-        <Collapsible label="Advanced CRIT">
-          <div className="grid grid-cols-3 gap-10">
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Normal Attack CRIT Rate" array={stats.BASIC_CR} />
-              <AttributeBlock stats={stats} stat="Charged Attack CRIT Rate" array={stats.CHARGE_CR} />
-              <AttributeBlock stats={stats} stat="Plunging Attack CRIT Rate" array={stats.PLUNGE_CR} />
-              <AttributeBlock stats={stats} stat="Elemental Skill CRIT Rate" array={stats.SKILL_CR} />
-              <AttributeBlock stats={stats} stat="Elemental Burst CRIT Rate" array={stats.BURST_CR} />
-              <AttributeBlock stats={stats} stat="Dendro Core CRIT Rate" array={stats.CORE_CR} />
             </div>
             <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Normal Attack CRIT DMG" array={stats.BASIC_CD} />
-              <AttributeBlock stats={stats} stat="Charged Attack CRIT DMG" array={stats.CHARGE_CD} />
-              <AttributeBlock stats={stats} stat="Plunging Attack CRIT DMG" array={stats.PLUNGE_CD} />
-              <AttributeBlock stats={stats} stat="Elemental Skill CRIT DMG" array={stats.SKILL_CD} />
-              <AttributeBlock stats={stats} stat="Elemental Burst CRIT DMG" array={stats.BURST_CD} />
-              <AttributeBlock stats={stats} stat="Dendro Core CRIT DMG" array={stats.CORE_CD} />
-            </div>
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Physical CRIT DMG" array={stats.PHYSICAL_CD} />
-              <AttributeBlock stats={stats} stat="Pyro CRIT DMG" array={stats.PYRO_CD} />
-              <AttributeBlock stats={stats} stat="Hydro CRIT DMG" array={stats.HYDRO_CD} />
-              <AttributeBlock stats={stats} stat="Cryo CRIT DMG" array={stats.CRYO_CD} />
-              <AttributeBlock stats={stats} stat="Electro CRIT DMG" array={stats.ELECTRO_CD} />
-              <AttributeBlock stats={stats} stat="Anemo CRIT DMG" array={stats.ANEMO_CD} />
-              <AttributeBlock stats={stats} stat="Geo CRIT DMG" array={stats.GEO_CD} />
-              <AttributeBlock stats={stats} stat="Dendro CRIT DMG" array={stats.DENDRO_CD} />
-            </div>
-          </div>
-        </Collapsible>
-        <Collapsible label="Flat DMG Bonus">
-          <div className="grid grid-cols-2 gap-10">
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Normal Attack Flat Bonus" array={stats.BASIC_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Charged Attack Flat Bonus" array={stats.CHARGE_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Plunging Attack Flat Bonus" array={stats.PLUNGE_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Elemental Skill Flat Bonus" array={stats.SKILL_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Elemental Burst Flat Bonus" array={stats.BURST_F_DMG} flat />
-            </div>
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Physical Flat Bonus" array={stats.PHYSICAL_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Pyro Flat Bonus" array={stats.PYRO_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Hydro Flat Bonus" array={stats.HYDRO_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Cryo Flat Bonus" array={stats.CRYO_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Electro Flat Bonus" array={stats.ELECTRO_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Anemo Flat Bonus" array={stats.ANEMO_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Geo Flat Bonus" array={stats.GEO_F_DMG} flat />
-              <AttributeBlock stats={stats} stat="Dendro Flat Bonus" array={stats.DENDRO_F_DMG} flat />
-            </div>
-          </div>
-        </Collapsible>
-        <Collapsible label="Elemental RES">
-          <div className="grid grid-cols-2 gap-10">
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="All-Type RES" array={stats[StatsObjectKeys.ALL_TYPE_RES]} />
-              <AttributeBlock stats={stats} stat="Physical RES" array={stats[StatsObjectKeys.PHYSICAL_RES]} />
-              <AttributeBlock stats={stats} stat="Pyro RES" array={stats[StatsObjectKeys.PYRO_RES]} />
-              <AttributeBlock stats={stats} stat="Hydro RES" array={stats[StatsObjectKeys.HYDRO_RES]} />
-              <AttributeBlock stats={stats} stat="Cryo RES" array={stats[StatsObjectKeys.CRYO_RES]} />
-            </div>
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Electro RES" array={stats[StatsObjectKeys.ELECTRO_RES]} />
-              <AttributeBlock stats={stats} stat="Anemo RES" array={stats[StatsObjectKeys.ANEMO_RES]} />
-              <AttributeBlock stats={stats} stat="Geo RES" array={stats[StatsObjectKeys.GEO_RES]} />
-              <AttributeBlock stats={stats} stat="Dendro RES" array={stats[StatsObjectKeys.DENDRO_RES]} />
+              <AttributeBlock stats={stats} stat="Aero RES PEN" array={stats.AERO_RES_PEN} />
+              <AttributeBlock stats={stats} stat="Spectro RES PEN" array={stats.SPECTRO_RES_PEN} />
+              <AttributeBlock stats={stats} stat="Havoc RES PEN" array={stats.HAVOC_RES_PEN} />
             </div>
           </div>
         </Collapsible>
         <Collapsible label="Advanced Attributes">
           <div className="grid grid-cols-2 gap-10">
             <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="CD Reduction" array={stats[StatsObjectKeys.CD_RED]} />
-              <AttributeBlock stats={stats} stat="ATK SPD" array={stats[StatsObjectKeys.ATK_SPD]} />
-              <AttributeBlock stats={stats} stat="Charge ATK SPD" array={stats[StatsObjectKeys.CHARGE_ATK_SPD]} />
               <AttributeBlock stats={stats} stat="DMG Reduction" array={stats.DMG_REDUCTION} />
-              {/* <div className="space-y-1">
-                <p className="font-bold text-white">
-                  eHP{' '}
-                  <span className="text-red">
-                    {_.round(
-                      stats.getHP() / defMult / (1 - stats.getValue(StatsObjectKeys.DMG_REDUCTION))
-                    ).toLocaleString()}
-                  </span>
-                  <Tooltip
-                    title="eHP: Effective HP"
-                    body="Represents the amount of raw damage a unit can sustain without considering their DEF and DMG Reduction. Useful when comparing a unit's tankiness."
-                    style="w-[350px] font-normal"
-                    containerStyle="inline-block ml-2"
-                  >
-                    <i className="fa-regular fa-question-circle" />
-                  </Tooltip>
-                </p>
-                <BulletPoint>
-                  <span className="text-xs">
-                    DEF Multiplier <span className="text-desc">{toPercentage(defMult)}</span>
-                  </span>
-                </BulletPoint>
-                <BulletPoint>
-                  <span className="text-xs">
-                    DMG Reduction Multiplier{' '}
-                    <span className="text-desc">{toPercentage(1 - stats.getValue(StatsObjectKeys.DMG_REDUCTION))}</span>
-                  </span>
-                </BulletPoint>
-              </div> */}
             </div>
           </div>
         </Collapsible>

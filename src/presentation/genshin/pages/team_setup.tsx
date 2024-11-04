@@ -12,7 +12,7 @@ import { GhostButton } from '@src/presentation/components/ghost.button'
 import { BuildModal } from '../components/modals/build_modal'
 import { findCharacter } from '@src/core/utils/finder'
 import { getResonanceCount, getSetCount } from '@src/core/utils/data_format'
-import { ArtifactSets } from '@src/data/db/artifacts'
+import { Echoes } from '@src/data/db/artifacts'
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { CommonModal } from '@src/presentation/components/common_modal'
 import { CharacterSelect } from '../components/character_select'
@@ -28,7 +28,7 @@ import { TeamModal } from '../components/modals/team_modal'
 import { AbilityBlock } from '../components/ability_block'
 
 export const SetToolTip = observer(({ item, set }: { item: number; set: string }) => {
-  const setDetail = _.find(ArtifactSets, ['id', set])
+  const setDetail = _.find(Echoes, ['id', set])
   const count = _.floor(item / 2) * 2
   return (
     item >= 2 && (
@@ -181,14 +181,14 @@ export const TeamSetup = observer(() => {
           <WeaponBlock index={selected} {...teamStore.characters[selected]?.equipments?.weapon} noClear />
           <ArtifactBlock
             index={selected}
-            piece={4}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[3]}
+            slot={2}
+            aId={teamStore.characters[selected]?.equipments?.artifacts?.[1]}
             setArtifact={teamStore.setArtifact}
           />
           <ArtifactBlock
             index={selected}
-            piece={1}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[0]}
+            slot={4}
+            aId={teamStore.characters[selected]?.equipments?.artifacts?.[3]}
             setArtifact={teamStore.setArtifact}
           />
           <div className="w-full px-3 py-2 space-y-1 rounded-lg bg-primary-dark">
@@ -202,20 +202,20 @@ export const TeamSetup = observer(() => {
         <div className="w-1/5 space-y-5">
           <ArtifactBlock
             index={selected}
-            piece={5}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[4]}
+            slot={1}
+            aId={teamStore.characters[selected]?.equipments?.artifacts?.[0]}
             setArtifact={teamStore.setArtifact}
           />
           <ArtifactBlock
             index={selected}
-            piece={2}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[1]}
-            setArtifact={teamStore.setArtifact}
-          />
-          <ArtifactBlock
-            index={selected}
-            piece={3}
+            slot={3}
             aId={teamStore.characters[selected]?.equipments?.artifacts?.[2]}
+            setArtifact={teamStore.setArtifact}
+          />
+          <ArtifactBlock
+            index={selected}
+            slot={5}
+            aId={teamStore.characters[selected]?.equipments?.artifacts?.[4]}
             setArtifact={teamStore.setArtifact}
           />
           <div className="grid grid-cols-2 gap-2">

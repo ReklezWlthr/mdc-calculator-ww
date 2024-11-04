@@ -3,8 +3,8 @@ import { observer } from 'mobx-react-lite'
 import _ from 'lodash'
 import { useMemo } from 'react'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
-import { getArtifactImage, getEmote, getWeaponImage } from '@src/core/utils/fetcher'
-import { findArtifactSet, findWeapon } from '@src/core/utils/finder'
+import { getEchoImage, getEmote, getWeaponImage } from '@src/core/utils/fetcher'
+import { findEcho, findWeapon } from '@src/core/utils/finder'
 import { findMaxLevel, getSetCount } from '@src/core/utils/data_format'
 import { DefaultWeaponImage, IBuild, WeaponType } from '@src/domain/constant'
 
@@ -47,7 +47,7 @@ export const BuildModalBlock = ({ build, button }: { build: IBuild; button: Reac
               (value, key) =>
                 value >= 2 && (
                   <div className="relative w-9 h-9">
-                    <img src={getArtifactImage(findArtifactSet(key)?.icon, 4)} className="w-full h-full" />
+                    <img src={getEchoImage(findEcho(key)?.icon, 4)} className="w-full h-full" />
                     <div className="absolute bottom-0 flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full -right-2.5 bg-primary-light">
                       {_.floor(value / 2) * 2}
                     </div>

@@ -52,7 +52,7 @@ export const WeaponConditionals: IWeaponContent[] = [
     scaling: (base, form, r) => {
       if (form['21020015']) {
         base[Stats.P_ATK].push({
-          value: calcRefinement(0.06, 0.015, r),
+          value: calcRefinement(0.06, 0.015, r) * form['21020015'],
           name: 'Passive',
           source: `Emerald of Genesis`,
         })

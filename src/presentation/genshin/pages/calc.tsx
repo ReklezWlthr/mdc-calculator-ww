@@ -158,6 +158,12 @@ export const Calculator = observer(({}: {}) => {
                     <ScalingSubRows key={item.name} scaling={item} />
                   ))}
                 </ScalingWrapper>
+                <div className="w-full my-2 border-t-2 border-primary-border" />
+                <ScalingWrapper talent={main?.talents?.outro} element={charData.element} level={1}>
+                  {_.map(mainComputed?.ECHO_SCALING, (item) => (
+                    <ScalingSubRows key={item.name} scaling={item} />
+                  ))}
+                </ScalingWrapper>
                 <div className="h-2" />
               </div>
             </>
@@ -212,12 +218,7 @@ export const Calculator = observer(({}: {}) => {
                   i={char.i}
                 />
               </div>
-              <ConsCircle
-                talents={main?.talents}
-                element={charData.element}
-                cons={char.cons}
-                name={charData.name}
-              />
+              <ConsCircle talents={main?.talents} element={charData.element} cons={char.cons} name={charData.name} />
             </>
           )}
         </div>

@@ -36,8 +36,10 @@ export const SelectTextInput = (props: SelectTextInputProps) => {
       disabled={props.disabled}
       as="div"
       className={classNames(
-        'group rounded-lg flex flex-col justify-center relative transition-colors px-2 py-0.5 duration-200 hover:border-primary-lighter border-primary-light border bg-primary-darker font-normal',
-        props.style || 'w-full'
+        'group rounded-lg flex flex-col justify-center relative transition-colors px-2 py-0.5 duration-200 font-normal border',
+        props.style || 'w-full',
+        { 'cursor-not-allowed bg-primary-bg border-primary text-primary-light': props.disabled },
+        { 'cursor-pointer hover:border-primary-lighter border-primary-light bg-primary-darker': !props.disabled }
       )}
     >
       <div className="flex items-center w-full">
@@ -46,9 +48,7 @@ export const SelectTextInput = (props: SelectTextInputProps) => {
             className={classNames(
               'w-full outline-none placeholder:text-primary-light text-gray transition-colors duration-200 bg-transparent text-sm truncate',
               {
-                'cursor-not-allowed': props.disabled,
-                'border-TextInput-colorBorderDefault text-TextInput-colorTextDisable bg-TextInput-colorBgDisable cursor-not-allowed':
-                  props.disabled,
+                'cursor-not-allowed placeholder:text-primary': props.disabled,
               }
             )}
             displayValue={(item: OptionType) => item?.name}
@@ -56,13 +56,15 @@ export const SelectTextInput = (props: SelectTextInputProps) => {
             onChange={(event) => setSearchWord(event.target.value)}
           />
         </Combobox.Button>
-        <i
-          className="text-sm duration-100 opacity-0 cursor-pointer fa-solid fa-times-circle text-primary-light group-hover:opacity-100 w-fit"
-          onClick={() => {
-            props.onChange(null)
-            setSearchWord('')
-          }}
-        />
+        {!props.disabled && (
+          <i
+            className="text-sm duration-100 opacity-0 cursor-pointer fa-solid fa-times-circle text-primary-light group-hover:opacity-100 w-fit"
+            onClick={() => {
+              props.onChange(null)
+              setSearchWord('')
+            }}
+          />
+        )}
       </div>
       <Transition
         enter="transition duration-150 ease-out origin-top"

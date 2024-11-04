@@ -1,5 +1,5 @@
 import { useStore } from '@src/data/providers/app_store_provider'
-import { compareWeight, findCharacter } from '../utils/finder'
+import { compareWeight, findCharacter, findEcho } from '../utils/finder'
 import { useEffect, useMemo, useState } from 'react'
 import { getTeamOutOfCombat } from '../utils/calculator'
 import ConditionalsObject from '@src/data/lib/stats/conditionals/conditionals'
@@ -18,7 +18,7 @@ import { Element, ITeamChar, Stats } from '@src/domain/constant'
 import { getSetCount } from '../utils/data_format'
 import { isFlat } from '@src/presentation/genshin/components/modals/custom_modal'
 import { StatsObject, StatsObjectKeysT } from '@src/data/lib/stats/baseConstant'
-import { ArtifactSets } from '@src/data/db/artifacts'
+import { Echoes } from '@src/data/db/artifacts'
 
 interface CalculatorOptions {
   enabled?: boolean
@@ -63,7 +63,7 @@ export const useCalculator = ({
       _.map(team, (item) =>
         _.find(ConditionalsObject, (c) => c?.id === item?.cId)?.conditionals(
           item.cons,
-          item.ascension,
+          item.i,
           {
             ...item.talents,
             normal: item.talents.normal + (_.includes(_.map(team, 'cId'), '10000033') ? 1 : 0),
@@ -238,19 +238,12 @@ export const useCalculator = ({
     )
     const postArtifactCallback = _.map(postCompute, (base, index) => {
       let x = base
-      const set = getSetCount(
-        _.map(team[index]?.equipments?.artifacts, (item) => _.find(artifactStore.artifacts, (a) => a.id === item))
-      )
-      _.forEach(set, (value, key) => {
-        if (value >= 2) {
-          const half = _.find(ArtifactSets, ['id', key])?.half
-          if (half) x = half(x)
-        }
-        if (value >= 4) {
-          const add = _.find(ArtifactSets, ['id', key])?.add
-          if (add) x = add(x, x?.WEAPON, team)
-        }
-      })
+      const mainEcho = team[index]?.equipments?.artifacts?.[0]
+      const echoData = _.find(artifactStore.artifacts, ['id', mainEcho])
+      const bonus = findEcho(echoData?.setId)?.bonus
+      if (bonus) {
+        x = bonus(x, echoData?.quality)
+      }
       return x
     })
     // Cleanup callbacks for buffs that should be applied last

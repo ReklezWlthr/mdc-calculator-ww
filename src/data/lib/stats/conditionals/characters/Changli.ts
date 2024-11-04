@@ -183,10 +183,10 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
       {
         type: 'toggle',
         id: 'changli_outro',
-        text: `Strategy of Duality`,
+        text: `Outro: Strategy of Duality`,
         ...talents.outro,
         show: true,
-        default: true,
+        default: false,
       },
     ],
     preCompute: (x: StatsObject, form: Record<string, any>) => {
@@ -323,11 +323,12 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
         {
           name: 'Flaming Sacrifice DMG',
           value: [
-            { scaling: calcScaling(0.1974, forte) * (c >= 5 ? 1.5 : 1), multiplier: Stats.ATK, hits: 5 },
-            { scaling: calcScaling(2.303, forte) * (c >= 5 ? 1.5 : 1), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.1974, forte), multiplier: Stats.ATK, hits: 5 },
+            { scaling: calcScaling(2.303, forte), multiplier: Stats.ATK },
           ],
           element: Element.FUSION,
           property: TalentProperty.SKILL,
+          multiplier: c >= 5 ? 1.5 : 1,
           bonus: (i.i2 ? 0.2 : 0) + (c >= 5 ? 0.5 : 0),
           defPen: i.i2 ? 0.15 : 0,
         },
@@ -359,7 +360,7 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
         })
       }
       if (c >= 1) {
-        base.SKILL_DMG.push({
+        base[Stats.SKILL_DMG].push({
           name: `Sequence Node 1`,
           source: 'Self',
           value: 0.1,
@@ -373,7 +374,7 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
         })
       }
       if (c >= 3) {
-        base.LIB_DMG.push({
+        base[Stats.LIB_DMG].push({
           name: `Sequence Node 3`,
           source: 'Self',
           value: 0.8,

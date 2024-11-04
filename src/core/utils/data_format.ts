@@ -1,4 +1,4 @@
-import { MainStatValue, SubStatMap } from '@src/domain/artifact'
+import { MainStatValue, QualityMultiplier } from '@src/domain/artifact'
 import { Element, IArtifactEquip, ICharacter, ITeamChar, Stats } from '@src/domain/constant'
 import { DefScaling, NormalScaling, TalentScaling, WeaponScaling, WeaponSecondaryScaling } from '@src/domain/scaling'
 import _ from 'lodash'
@@ -48,74 +48,12 @@ export const getWeaponBonus = (base: number, level: number) => {
   return base * scaling
 }
 
-export const getMainStat = (main: Stats, quality: number, level: number) => {
-  const entry = _.find(MainStatValue, (item) => item.rarity === quality && _.includes(item.stat, main))
-  return entry?.values?.[level]
-}
-
-export const findCoefficient = (min: number, bonus: number, value: number, precision: number) => {
-  const minSum = 1
-  const maxSum = 6
-
-  const margin = 0.02
-
-  const sumCo = (arr: number[]) => _.sum(_.map(arr, (item, index) => item * (min + bonus * index)))
-
-  const results: { value: number; co: { a: number; b: number; c: number; d: number } }[] = []
-
-  for (let a = 0; a <= maxSum; a++) {
-    for (let b = 0; b <= maxSum; b++) {
-      for (let c = 0; c <= maxSum; c++) {
-        for (let d = 0; d <= maxSum; d++) {
-          if (a + b + c + d >= minSum && a + b + c + d <= maxSum) {
-            const rd = _.floor(value, precision)
-            const rs = _.round(sumCo([a, b, c, d]), precision)
-            const fs = _.floor(sumCo([a, b, c, d]), precision)
-            results.push({ value: sumCo([a, b, c, d]), co: { a, b, c, d } })
-            if (_.includes([rs, fs], rd)) {
-              return { a, b, c, d }
-            }
-          }
-        }
-      }
-    }
-  }
-
-  const sorted = _.orderBy(results, ['value'], ['desc'])
-  const match = _.find(sorted, (v) => _.inRange(value, v.value * (1 - margin), v.value * (1 + margin)))
-  console.log(value, match)
-
-  return (
-    match?.co || {
-      a: 0,
-      b: 0,
-      c: 0,
-      d: 0,
-    }
-  )
-}
-
-export const getRolls = (stat: Stats, value: number) => {
-  const flat = _.includes([Stats.ATK, Stats.HP, Stats.DEF], stat)
-  const { min, bonus } = _.find(SubStatMap, (item) => item.stat === stat)
-
-  const roundValue = value / (flat ? 1 : 100)
-
-  return findCoefficient(min, bonus, roundValue, flat ? 0 : 3)
-}
-
-export const correctSubStat = (stat: Stats, value: number) => {
-  const data = _.find(SubStatMap, (item) => item.stat === stat)
-  const low = data?.min
-  const bonus = data?.bonus
-
-  const { a, b, c, d } = getRolls(stat, value)
-  const accLow = low * a
-  const accMed = (low + bonus) * b
-  const accHigh = (low + bonus * 2) * c
-  const accHighest = (low + bonus * 3) * d
-
-  return accLow + accMed + accHigh + accHighest
+export const getMainStat = (main: Stats, quality: number, level: number, cost: number) => {
+  const entry = _.find(MainStatValue, (item) => item.cost === cost && _.includes(item.stat, main))
+  const actualBase = entry?.values * QualityMultiplier[quality]
+  const maxValue = actualBase * 5
+  const step = (maxValue - actualBase) / 25
+  return actualBase + (step * level)
 }
 
 export const getSetCount = (artifacts: IArtifactEquip[]) => {
@@ -204,4 +142,45 @@ export const swapElement = (array: any[], index1: number, index2: number) => {
 
 export const padArray = (array: any[], length: number, fill: any) => {
   return length > array.length ? array.concat(Array(length - array.length).fill(fill)) : array
+}
+
+export const romanize = (num: number) => {
+  if (isNaN(num)) return NaN
+  var digits = String(+num).split(''),
+    key = [
+      '',
+      'C',
+      'CC',
+      'CCC',
+      'CD',
+      'D',
+      'DC',
+      'DCC',
+      'DCCC',
+      'CM',
+      '',
+      'X',
+      'XX',
+      'XXX',
+      'XL',
+      'L',
+      'LX',
+      'LXX',
+      'LXXX',
+      'XC',
+      '',
+      'I',
+      'II',
+      'III',
+      'IV',
+      'V',
+      'VI',
+      'VII',
+      'VIII',
+      'IX',
+    ],
+    roman = '',
+    i = 3
+  while (i--) roman = (key[+digits.pop() + i * 10] || '') + roman
+  return Array(+digits.join('') + 1).join('M') + roman
 }

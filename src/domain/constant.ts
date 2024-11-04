@@ -1,3 +1,4 @@
+import { Sonata } from '@src/data/db/artifacts'
 import { StatsObject, StatsObjectKeys } from '@src/data/lib/stats/baseConstant'
 
 export enum GenshinPage {
@@ -95,21 +96,20 @@ export interface IBuild {
 
 export interface IArtifact {
   id: string
+  icon: string,
   name: string
-  icon: string
-  rarity: (2 | 3 | 4 | 5)[]
-  bonus: { stat: Stats; value: number }[]
-  half?: (conditionals: StatsObject) => StatsObject
-  add?: (conditionals: StatsObject, weapon: WeaponType, team: ITeamChar[]) => StatsObject
-  desc: string[]
-  set?: string[]
+  sonata: Sonata[]
+  desc: string
+  properties: { base: number; growth: number }[]
+  bonus?: (conditionals: StatsObject, rarity: number) => StatsObject
+  cost: number
 }
 
 export interface IArtifactEquip {
   id: string
   setId: string
   level: number
-  type: number
+  cost: number
   main: Stats
   quality: number
   subList: { stat: Stats; value: number }[]
@@ -182,6 +182,7 @@ export enum TalentProperty {
   HEAL = 'Heal',
   SHIELD = 'Shield',
   COORD = 'Coordinated Attack',
+  ECHO = 'Echo Attack'
 }
 
 export enum Element {
@@ -209,8 +210,8 @@ export enum Stats {
   P_HP = 'HP%',
   P_ATK = 'ATK%',
   P_DEF = 'DEF%',
-  CRIT_RATE = 'CRIT Rate',
-  CRIT_DMG = 'CRIT DMG',
+  CRIT_RATE = 'Crit. Rate',
+  CRIT_DMG = 'Crit. DMG',
   ER = 'Energy Recharge',
   FUSION_DMG = 'Fusion DMG%',
   GLACIO_DMG = 'Glacio DMG%',
@@ -220,14 +221,16 @@ export enum Stats {
   HAVOC_DMG = 'Havoc DMG%',
   HEAL = 'Healing Bonus',
   ALL_DMG = 'DMG%',
+  BASIC_DMG = 'Basic Attack DMG%',
+  HEAVY_DMG = 'Heavy Attack DMG%',
+  SKILL_DMG = 'Res. Skill DMG%',
+  LIB_DMG = 'Res. Liberation DMG%',
 }
 
 export const StatIcons = {
   [Stats.P_HP]: 'stat_p_hp.png',
   [Stats.P_ATK]: 'stat_p_atk.png',
   [Stats.P_DEF]: 'stat_p_def.png',
-  [Stats.EM]: 'stat_em.png',
-  [Stats.PHYSICAL_DMG]: 'stat_physical.png',
   [Stats.ATK]: 'stat_atk.png',
   [Stats.HP]: 'stat_hp.png',
   [Stats.DEF]: 'stat_def.png',

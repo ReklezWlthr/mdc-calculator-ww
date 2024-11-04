@@ -8,12 +8,12 @@ import { useParams } from '@src/core/hooks/useParams'
 import { SelectTextInput } from '@src/presentation/components/inputs/select_text_input'
 import { ArtifactModal } from '../components/modals/artifact_modal'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
-import { ArtifactSets } from '@src/data/db/artifacts'
+import { Echoes } from '@src/data/db/artifacts'
 import { MainStatOptions, Stats, SubStatOptions } from '@src/domain/constant'
 import { TagSelectInput } from '@src/presentation/components/inputs/tag_select_input'
 import { isSubsetOf } from '@src/core/utils/finder'
 import getConfig from 'next/config'
-import { getArtifactImage } from '@src/core/utils/fetcher'
+import { getEchoImage } from '@src/core/utils/fetcher'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -52,8 +52,8 @@ export const ArtifactInventory = observer(() => {
     if (params.subs.length)
       result = _.filter(result, (artifact) => isSubsetOf(params.subs, _.map(artifact.subList, 'stat')))
     return _.orderBy(result, ['level', 'quality', 'type'], ['desc', 'desc', 'desc']).sort((a, b) => {
-      const ai = _.findIndex(ArtifactSets, (item) => item.id === a.setId)
-      const bi = _.findIndex(ArtifactSets, (item) => item.id === b.setId)
+      const ai = _.findIndex(Echoes, (item) => item.id === a.setId)
+      const bi = _.findIndex(Echoes, (item) => item.id === b.setId)
       return bi - ai
     })
   }, [params.set, params.types, params.subs, params.main, artifactStore.artifacts])
@@ -106,10 +106,10 @@ export const ArtifactInventory = observer(() => {
             </div>
             <SelectTextInput
               value={params.set}
-              options={_.map(ArtifactSets, (artifact) => ({
+              options={_.map(Echoes, (artifact) => ({
                 name: artifact.name,
                 value: artifact.id.toString(),
-                img: getArtifactImage(artifact.icon, 4),
+                img: getEchoImage(artifact.icon, 4),
               }))}
               placeholder="Artifact Set"
               onChange={(value) => setParams({ set: value?.value })}
@@ -140,7 +140,7 @@ export const ArtifactInventory = observer(() => {
               {_.map(
                 _.slice(filteredArtifacts, params.per_page * (params.page - 1), params.per_page * params.page),
                 (artifact) => (
-                  <ArtifactBlock key={artifact.id} piece={artifact?.type} aId={artifact?.id} />
+                  <ArtifactBlock key={artifact.id} slot={artifact?.type} aId={artifact?.id} />
                 )
               )}
             </div>

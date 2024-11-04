@@ -98,10 +98,15 @@ export const baseStatsObject = {
   HAVOC_RES: [] as StatsArray[],
 
   // Talent Boosts
-  BASIC_DMG: [] as StatsArray[],
-  HEAVY_DMG: [] as StatsArray[],
-  SKILL_DMG: [] as StatsArray[],
-  LIB_DMG: [] as StatsArray[],
+  [Stats.BASIC_DMG]: [] as StatsArray[],
+  [Stats.HEAVY_DMG]: [] as StatsArray[],
+  [Stats.SKILL_DMG]: [] as StatsArray[],
+  [Stats.LIB_DMG]: [] as StatsArray[],
+
+  BASIC_MULT: [] as StatsArray[],
+  HEAVY_MULT: [] as StatsArray[],
+  SKILL_MULT: [] as StatsArray[],
+  LIB_MULT: [] as StatsArray[],
 
   BASIC_AMP: [] as StatsArray[],
   HEAVY_AMP: [] as StatsArray[],
@@ -138,8 +143,7 @@ export const baseStatsObject = {
   FORTE_SCALING: [] as IScaling[],
   INTRO_SCALING: [] as IScaling[],
   OUTRO_SCALING: [] as IScaling[],
-  A1_SCALING: [] as IScaling[],
-  A4_SCALING: [] as IScaling[],
+  ECHO_SCALING: [] as IScaling[],
 
   getAtk: function (exclude?: boolean) {
     return (

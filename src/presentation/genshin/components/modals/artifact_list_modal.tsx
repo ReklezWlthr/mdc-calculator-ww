@@ -7,20 +7,19 @@ import { useParams } from '@src/core/hooks/useParams'
 import { useMemo } from 'react'
 import { SelectTextInput } from '@src/presentation/components/inputs/select_text_input'
 import { TagSelectInput } from '@src/presentation/components/inputs/tag_select_input'
-import { ArtifactSets } from '@src/data/db/artifacts'
+import { Echoes } from '@src/data/db/artifacts'
 import { MainStatOptions, SubStatOptions } from '@src/domain/constant'
 import { isSubsetOf } from '@src/core/utils/finder'
-import { getArtifactImage } from '@src/core/utils/fetcher'
+import { getEchoImage } from '@src/core/utils/fetcher'
 
 export type ArtifactSetterT = (index: number, type: number, aId: string) => void
 
 export const ArtifactListModal = observer(
-  ({ index, type, setArtifact }: { index: number; type: number; setArtifact?: ArtifactSetterT }) => {
+  ({ index, slot, setArtifact }: { index: number; slot: number; setArtifact?: ArtifactSetterT }) => {
     const { params, setParams } = useParams({
       main: [],
       subs: [],
       set: null,
-      type,
     })
 
     const { artifactStore, modalStore, teamStore } = useStore()
@@ -28,7 +27,7 @@ export const ArtifactListModal = observer(
     const set = setArtifact || teamStore.setArtifact
 
     const filteredArtifacts = useMemo(() => {
-      let result = _.filter(artifactStore.artifacts, (artifact) => params.type === artifact.type)
+      let result = _.cloneDeep(artifactStore.artifacts)
       if (params.set) result = _.filter(result, (artifact) => artifact.setId === params.set)
       if (params.main.length) result = _.filter(result, (artifact) => _.includes(params.main, artifact.main))
       if (params.subs.length)
@@ -43,10 +42,10 @@ export const ArtifactListModal = observer(
           <div className="flex items-center gap-3">
             <SelectTextInput
               value={params.set}
-              options={_.map(ArtifactSets, (artifact) => ({
+              options={_.map(Echoes, (artifact) => ({
                 name: artifact.name,
                 value: artifact.id.toString(),
-                img: getArtifactImage(artifact?.icon, 4),
+                img: getEchoImage(artifact?.icon),
               }))}
               placeholder="Artifact Set"
               onChange={(value) => setParams({ set: value?.value })}
@@ -78,13 +77,14 @@ export const ArtifactListModal = observer(
               className="hover:scale-[97%] duration-200 cursor-pointer"
               onClick={() => {
                 _.forEach(teamStore?.characters, (char, i) => {
-                  if (i !== index && _.includes(char.equipments?.artifacts, artifact.id)) set(i, type, null)
+                  if (_.includes(char.equipments?.artifacts, artifact.id))
+                    set(i, _.findIndex(char.equipments?.artifacts, ['id', artifact.id]), null)
                 })
-                set(index, type, artifact.id)
+                set(index, slot, artifact.id)
                 modalStore.closeModal()
               }}
             >
-              <ArtifactBlock piece={artifact?.type} aId={artifact?.id} showWearer canEdit={false} />
+              <ArtifactBlock slot={0} aId={artifact?.id} showWearer canEdit={false} />
             </div>
           ))}
         </div>

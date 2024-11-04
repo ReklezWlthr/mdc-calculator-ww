@@ -5,21 +5,21 @@ import { observer } from 'mobx-react-lite'
 import React, { useCallback, useMemo } from 'react'
 import { ArtifactModal } from './modals/artifact_modal'
 import { RarityGauge } from '@src/presentation/components/rarity_gauge'
-import { getMainStat, getRolls } from '@src/core/utils/data_format'
+import { getMainStat, romanize } from '@src/core/utils/data_format'
 import { toPercentage } from '@src/core/utils/converter'
 import { StatIcons } from '../../../domain/constant'
-import { findArtifactSet, findCharacter } from '@src/core/utils/finder'
+import { findEcho, findCharacter } from '@src/core/utils/finder'
 import classNames from 'classnames'
 import { CommonModal } from '@src/presentation/components/common_modal'
 import { ArtifactListModal, ArtifactSetterT } from './modals/artifact_list_modal'
 import getConfig from 'next/config'
-import { getArtifactImage, getSideAvatar } from '@src/core/utils/fetcher'
+import { getEchoImage, getSideAvatar } from '@src/core/utils/fetcher'
 
 const { publicRuntimeConfig } = getConfig()
 
 interface ArtifactBlockProps {
   index?: number
-  piece: number
+  slot: number
   aId: string
   showWearer?: boolean
   canEdit?: boolean
@@ -59,39 +59,38 @@ const MenuButton = ({
 }
 
 export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlockProps) => {
-  const pieceName = ArtifactPiece[props.piece]
+  const pieceName = ArtifactPiece[props.slot]
 
   const { modalStore, teamStore, artifactStore, buildStore, settingStore, toastStore } = useStore()
   const artifact = _.find(props.override || artifactStore.artifacts, ['id', props.aId])
-  const setData = findArtifactSet(artifact?.setId)
+  const setData = findEcho(artifact?.setId)
 
-  const mainStat = getMainStat(artifact?.main, artifact?.quality, artifact?.level)
+  const mainStat = getMainStat(artifact?.main, artifact?.quality, artifact?.level, artifact?.cost)
 
-  const subListWithRolls = useMemo(() => {
-    const rolls = _.map(artifact?.subList, (item) => _.sum(_.map(getRolls(item.stat, item.value))))
-    const sum = _.sum(rolls)
-    if (sum > 9) {
-      const max = _.max(rolls)
-      const index = _.findIndex(rolls, (item) => item === max)
-      rolls[index] -= 1
-    }
-    return _.map(artifact?.subList, (item, index) => ({ ...item, roll: rolls[index] }))
-  }, [artifact])
+  // const subListWithRolls = useMemo(() => {
+  //   const rolls = _.map(artifact?.subList, (item) => _.sum(_.map(getRolls(item.stat, item.value))))
+  //   const sum = _.sum(rolls)
+  //   if (sum > 9) {
+  //     const max = _.max(rolls)
+  //     const index = _.findIndex(rolls, (item) => item === max)
+  //     rolls[index] -= 1
+  //   }
+  //   return _.map(artifact?.subList, (item, index) => ({ ...item, roll: rolls[index] }))
+  // }, [artifact])
 
   const onUnEquip = useCallback(() => {
-    const oldType = _.find(artifactStore.artifacts, ['id', props.aId])?.type
-    props.setArtifact(props.index, oldType, null)
+    props.setArtifact(props.index, props.slot, null)
   }, [props.index, props.aId])
 
   const onOpenEditModal = useCallback(() => {
     modalStore.openModal(
-      <ArtifactModal type={props.piece} index={props.index} aId={props.aId} setArtifact={props.setArtifact} />
+      <ArtifactModal slot={props.slot} index={props.index} aId={props.aId} setArtifact={props.setArtifact} />
     )
-  }, [props.index, props.aId, props.setArtifact, artifact, props.piece])
+  }, [props.index, props.aId, props.setArtifact, artifact, props.slot])
 
   const onOpenSwapModal = useCallback(() => {
-    modalStore.openModal(<ArtifactListModal index={props.index} type={props.piece} setArtifact={props.setArtifact} />)
-  }, [props.index, props.aId, props.setArtifact, artifact, props.piece])
+    modalStore.openModal(<ArtifactListModal index={props.index} slot={props.slot} setArtifact={props.setArtifact} />)
+  }, [props.index, props.aId, props.setArtifact, artifact, props.slot])
 
   const onOpenConfirmModal = useCallback(() => {
     modalStore.openModal(
@@ -105,7 +104,6 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
   }, [props.index, props.aId])
 
   const onDelete = useCallback(() => {
-    const oldType = _.find(artifactStore.artifacts, ['id', props.aId])?.type
     artifactStore.deleteArtifact(props.aId)
     modalStore.closeModal()
     toastStore.openNotification({
@@ -116,7 +114,7 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
     const char = _.findIndex(teamStore.characters, (item) => _.includes(item.equipments?.artifacts, props.aId))
     const build = _.filter(buildStore.builds, (item) => _.includes(item.artifacts, props.aId))
     if (char >= 0) {
-      props.setArtifact(char, oldType, null)
+      props.setArtifact(char, props.slot, null)
     }
     _.forEach(build, (item) => {
       buildStore.editBuild(item.id, { artifacts: _.without(item.artifacts, props.aId) })
@@ -148,59 +146,62 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
       )}
     >
       <div className="absolute top-0 right-0 flex items-center justify-center h-8 pointer-events-none w-9 rounded-se-lg rounded-es-lg bg-primary-light">
-        <img src={`${publicRuntimeConfig.BASE_PATH}/asset/icons/${_.snakeCase(pieceName)}.png`} className="w-5 h-5" />
+        {props.slot - 1 ? <p>{romanize(props.slot)}</p> : <i className="fa-solid fa-star text-yellow" />}
       </div>
       {props.aId ? (
         <div className="relative w-full">
-          <div className="px-3 py-4 space-y-3">
-            <div className="flex gap-4">
-              <div className="relative w-14 h-14 shrink-0">
-                <img src={getArtifactImage(setData?.icon, artifact?.type)} className="w-full h-full" />
-                <div className="absolute flex items-center justify-center px-1.5 py-0.5 text-xs bg-opacity-75 rounded-full -bottom-0 -right-2 bg-primary-light">
+          <div className="px-3 py-4 space-y-2">
+            <div className="flex gap-4 pb-3 pl-2">
+              <div className="relative w-11 h-11 shrink-0">
+                <img
+                  src={getEchoImage(setData?.icon)}
+                  className="w-full h-full rounded-full ring-2 ring-gray ring-offset-[3px] ring-offset-primary-dark"
+                />
+                <div className="absolute flex items-center justify-center px-1.5 py-0.5 text-xs bg-opacity-75 rounded-full -bottom-3 -right-4 bg-primary">
                   +{artifact?.level}
                 </div>
-                {charData?.codeName && props.showWearer && (
-                  <div className="absolute flex items-center justify-center p-1 text-xs bg-opacity-75 rounded-full -top-1 w-7 h-7 -right-3 bg-primary-light">
-                    <img src={getSideAvatar(codeName)} className="absolute scale-125 bottom-1.5" />
-                  </div>
-                )}
+                <div className="absolute flex items-center justify-center px-1.5 py-0.5 text-xs bg-opacity-75 rounded-full -top-2 -right-7 bg-primary">
+                  <span className="mr-1 text-desc">{artifact?.cost}</span> Cost
+                </div>
               </div>
               <div className="flex flex-col items-center w-full gap-1">
                 <RarityGauge rarity={artifact?.quality} textSize="text-sm" />
-                <p className="text-xs text-center line-clamp-2">{setData?.set?.[artifact?.type - 1]}</p>
+                <p className="text-xs text-center line-clamp-2">{setData?.name}</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-xs">
+            <div className="flex items-center w-full gap-2 text-[11px]">
               <div className="flex items-center gap-1.5 shrink-0">
                 <img className="w-4 h-4" src={_.find(MainStatOptions, (item) => item.value === artifact?.main)?.img} />
                 {artifact?.main}
               </div>
               <hr className="w-full border border-primary-border" />
               <p className="font-normal text-gray">
-                {_.includes([Stats.HP, Stats.ATK, Stats.EM], artifact?.main)
+                {_.includes([Stats.HP, Stats.ATK], artifact?.main)
                   ? _.round(mainStat).toLocaleString()
                   : toPercentage(mainStat)}
               </p>
             </div>
-            <div className="border-t-2 border-dashed border-primary-light !my-4 opacity-40" />
-            {_.map(subListWithRolls, (item) => (
-              <div className="flex items-center gap-2 text-xs" key={item.stat}>
-                <div className="flex items-center gap-1.5 shrink-0">
-                  <img
-                    className="w-4 h-4"
-                    src={`${publicRuntimeConfig.BASE_PATH}/asset/icons/${StatIcons[item.stat]}`}
-                  />
-                  {item.stat}
+            <div className="border-t-2 border-dashed border-primary-light !my-2.5 opacity-40" />
+            <div className="space-y-2">
+              {_.map(artifact?.subList, (item) => (
+                <div className="flex items-center gap-2 text-[11px]" key={item.stat}>
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <img
+                      className="w-4 h-4"
+                      src={`${publicRuntimeConfig.BASE_PATH}/asset/icons/${StatIcons[item.stat]}`}
+                    />
+                    {item.stat}
+                  </div>
+                  {/* <div className="text-primary-lighter">{_.repeat('\u{2771}', item.roll)}</div> */}
+                  <hr className="w-full border border-primary-border" />
+                  <p className="font-normal text-gray">
+                    {_.includes([Stats.HP, Stats.ATK, Stats.DEF], item.stat)
+                      ? _.round(item.value).toLocaleString()
+                      : toPercentage(item.value / 100)}
+                  </p>
                 </div>
-                <div className="text-primary-lighter">{_.repeat('\u{2771}', item.roll)}</div>
-                <hr className="w-full border border-primary-border" />
-                <p className="font-normal text-gray">
-                  {_.includes([Stats.HP, Stats.ATK, Stats.DEF, Stats.EM], item.stat)
-                    ? _.round(item.value).toLocaleString()
-                    : toPercentage(item.value / 100)}
-                </p>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           {canEdit && (
             <div className="absolute flex flex-col gap-2 pr-2 pt-2 items-end top-px left-px w-[calc(100%-2px)] h-[248px] rounded-lg from-transparent group-hover:bg-opacity-80 bg-gradient-to-l group-hover:from-primary-darker from-30% duration-200 overflow-hidden">

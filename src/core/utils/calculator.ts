@@ -1,16 +1,8 @@
-import {
-  correctSubStat,
-  getBaseDef,
-  getBaseStat,
-  getMainStat,
-  getSetCount,
-  getWeaponBase,
-  getWeaponBonus,
-} from '../utils/data_format'
+import { getBaseDef, getBaseStat, getMainStat, getSetCount, getWeaponBase, getWeaponBonus } from '../utils/data_format'
 import _ from 'lodash'
 import { Element, IArtifactEquip, ITeamChar, IWeaponEquip, Stats, WeaponType } from '@src/domain/constant'
 import { findCharacter, findWeapon } from '../utils/finder'
-import { ArtifactSets } from '@src/data/db/artifacts'
+import { Echoes } from '@src/data/db/artifacts'
 import { baseStatsObject, StatsObject } from '@src/data/lib/stats/baseConstant'
 import WeaponBonus from '@src/data/lib/stats/conditionals/weapons/weapon_bonus'
 
@@ -77,7 +69,7 @@ export const addArtifactStats = (conditionals: StatsObject, artifacts: IArtifact
     artifacts,
     (acc, curr) => {
       if (!acc[curr?.main]) acc[curr?.main] = 0
-      acc[curr?.main] += getMainStat(curr.main, curr.quality, curr.level)
+      acc[curr?.main] += getMainStat(curr.main, curr.quality, curr.level, curr.cost)
       return acc
     },
     {} as Record<Stats, number>
@@ -93,7 +85,7 @@ export const addArtifactStats = (conditionals: StatsObject, artifacts: IArtifact
     _.flatMap(artifacts, (item) => item.subList),
     (acc, curr) => {
       if (!acc[curr?.stat]) acc[curr?.stat] = 0
-      acc[curr?.stat] += correctSubStat(curr.stat, curr.value)
+      acc[curr?.stat] += curr.value / (_.includes([Stats.ATK, Stats.HP], curr?.stat) ? 1 : 100)
       return acc
     },
     {} as Record<Stats, number>
@@ -104,19 +96,6 @@ export const addArtifactStats = (conditionals: StatsObject, artifacts: IArtifact
       source: 'Artifact',
       value: item,
     })
-  })
-  _.forEach(setBonus, (value, key) => {
-    const artifact = _.find(ArtifactSets, ['id', key])
-    const bonuses = artifact?.bonus
-    if (value >= 2) {
-      _.forEach(bonuses, (item) => {
-        conditionals[item.stat]?.push({
-          name: '2-Piece',
-          source: artifact?.name,
-          value: item.value,
-        })
-      })
-    }
   })
 
   return conditionals

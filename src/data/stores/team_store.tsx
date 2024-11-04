@@ -16,11 +16,11 @@ import { findCharacter } from '@src/core/utils/finder'
 
 enableStaticRendering(typeof window === 'undefined')
 
-export const DefaultWeapon = (type: WeaponType) => ({
+export const DefaultWeapon = (type?: WeaponType) => ({
   level: 1,
   ascension: 0,
   refinement: 1,
-  wId: DefaultWeaponId[type],
+  wId: DefaultWeaponId[type] || '',
 })
 
 export const DefaultCharacter = {
@@ -29,7 +29,7 @@ export const DefaultCharacter = {
   cons: 0,
   cId: null,
   equipments: {
-    weapon: DefaultWeapon,
+    weapon: DefaultWeapon(),
     artifacts: Array(5),
   },
   i: {
