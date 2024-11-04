@@ -110,7 +110,7 @@ export const TeamSetup = observer(() => {
 
   const talent = _.find(ConditionalsObject, ['id', char.cId])?.conditionals(
     char?.cons,
-    char?.ascension,
+    char?.i,
     char?.talents,
     teamStore.characters
   )
@@ -167,7 +167,9 @@ export const TeamSetup = observer(() => {
         </div>
         <div className="w-1/5 space-y-5">
           <div>
-            <p className="text-xl font-bold text-center text-white">Forte</p>
+            <p className="text-xl font-bold text-center text-white">
+              <span className="mr-2 text-desc">✦</span>Forte<span className="ml-2 text-desc">✦</span>
+            </p>
             <AbilityBlock
               char={char}
               talents={talent?.talents}

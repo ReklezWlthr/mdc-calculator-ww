@@ -37,9 +37,12 @@ export const damageStringConstruct = (
   const talentAmp = stats.getValue(`${TalentStatMap[scaling.property]}_AMP`) || 0
   const elementDmg = stats.getValue(`${element} DMG%`)
   const elementCd = stats.getValue(`${element.toUpperCase()}_CD`) || 0
-  const elementFlat = stats.getValue(`${element.toUpperCase()}_F_DMG`) || 0 // Faruzan & Shenhe
+  const elementFlat = stats.getValue(`${element.toUpperCase()}_F_DMG`) || 0
   const elementAmp = stats.getValue(`${element.toUpperCase()}_AMP`) || 0
-  const defPen = (stats.getValue(StatsObjectKeys.DEF_PEN) || 0) + (scaling.defPen || 0)
+  const defPen =
+    (stats.getValue(StatsObjectKeys.DEF_PEN) || 0) +
+    (scaling.defPen || 0) +
+    (stats.getValue(`${TalentStatMap[scaling.property]}_DEF_PEN`) || 0)
 
   const defMult = calculatorStore.getDefMult(level, defPen, stats.getValue(StatsObjectKeys.DEF_REDUCTION)) || 1
   const resMult = isDamage
@@ -65,6 +68,7 @@ export const damageStringConstruct = (
       : TalentProperty.HEAL === scaling.property
       ? healing
       : stats.getValue(Stats.ALL_DMG) + elementDmg + talentDmg)
+  const amp = isDamage ? talentAmp + elementAmp + stats.getValue(StatsObjectKeys.AMP) : 0
   const raw =
     _.sumBy(
       scaling.value,
@@ -77,7 +81,7 @@ export const damageStringConstruct = (
     raw *
     (1 + bonusDMG) *
     (scaling.multiplier || 1) *
-    (1 + talentAmp + elementAmp) *
+    (1 + amp) *
     enemyMod *
     (calculatorStore.dmgMode === 'total' ? scaling.hit || 1 : 1)
 
@@ -109,9 +113,17 @@ export const damageStringConstruct = (
     scaling.hit && calculatorStore.dmgMode === 'total'
       ? ` \u{00d7} <b class="text-desc">${scaling.hit}</b> <i class="text-[10px]">HITS</i>`
       : ''
-  }${bonusDMG > 0 ? ` \u{00d7} (1 + <b class="${ElementColor[scaling.element]}">${toPercentage(bonusDMG)}</b>)` : ''}${
-    scaling.multiplier > 0 ? ` \u{00d7} <b class="text-indigo-300">${toPercentage(scaling.multiplier, 2)}</b>` : ''
-  }${elementAmp > 1 ? ` \u{00d7} <b class="text-amber-400">${toPercentage(elementAmp, 2)}</b>` : ''}${
+  }${
+    bonusDMG > 0
+      ? ` \u{00d7} (1 + <b class="${ElementColor[scaling.element]}">${toPercentage(
+          bonusDMG
+        )}</b>  <i class="text-[10px]">BONUS</i>)`
+      : ''
+  }${
+    amp > 0 ? ` \u{00d7} (1 + <b class="text-lime-400">${toPercentage(amp)}</b>  <i class="text-[10px]">AMP</i> )` : ''
+  }${scaling.multiplier > 0 ? ` \u{00d7} <b class="text-indigo-300">${toPercentage(scaling.multiplier, 2)}</b>` : ''}${
+    elementAmp > 1 ? ` \u{00d7} <b class="text-amber-400">${toPercentage(elementAmp, 2)}</b>` : ''
+  }${
     isDamage
       ? ` \u{00d7} <b class="text-orange-300">${toPercentage(
           defMult,

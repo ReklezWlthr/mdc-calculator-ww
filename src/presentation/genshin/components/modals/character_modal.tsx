@@ -124,6 +124,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
                   talents: char?.talents || { normal: 1, skill: 1, lib: 1, forte: 1, intro: 1 },
                   equipments: build ? { weapon: build.weapon, artifacts: build.artifacts } : DefaultBuild(item.weapon),
                   cons: char?.cons || 0,
+                  i: char?.i || { i1: false, i2: false },
                 })
                 modalStore.closeModal()
               }}

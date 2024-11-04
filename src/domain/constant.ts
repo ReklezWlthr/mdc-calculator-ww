@@ -72,6 +72,7 @@ export interface ICharStoreBase {
   cons: number
   cId: string
   talents: ITalentLevel
+  i: { i1: boolean; i2: boolean }
 }
 
 export interface ICharStore extends ICharStoreBase {
@@ -165,10 +166,10 @@ export const DefaultWeaponId = {
 
 export const DefaultWeaponName = {
   [WeaponType.SWORD]: 'Training Sword',
-  [WeaponType.BROADBLADE]: "Training Broadblade",
+  [WeaponType.BROADBLADE]: 'Training Broadblade',
   [WeaponType.GAUNTLET]: 'Training Gauntlets',
-  [WeaponType.PISTOLS]: "Training Pistols",
-  [WeaponType.RECTIFIER]: "Training Rectifier",
+  [WeaponType.PISTOLS]: 'Training Pistols',
+  [WeaponType.RECTIFIER]: 'Training Rectifier',
 }
 
 export enum TalentProperty {

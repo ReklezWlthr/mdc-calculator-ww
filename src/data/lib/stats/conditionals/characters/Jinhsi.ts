@@ -7,7 +7,7 @@ import { toPercentage } from '@src/core/utils/converter'
 import { IContent, ITalent } from '@src/domain/conditional'
 import { calcScaling } from '@src/core/utils/data_format'
 
-const Jinhsi = (c: number, a: number, t: ITalentLevel, team: ITeamChar[]) => {
+const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team: ITeamChar[]) => {
   const { normal, skill, lib, forte, intro } = t
 
   const incarnation = `<b class="text-wuwa-spectro">Incarnation</b>
@@ -35,7 +35,7 @@ const Jinhsi = (c: number, a: number, t: ITalentLevel, team: ITeamChar[]) => {
       <br /><b>Heavy Attack</b>
       <br />Perform a charged attack at the cost of STA, dealing <b class="text-wuwa-spectro">Spectro DMG</b>.
       <br />
-      <br /><b>Mid-air Attack</b>
+      <br /><b>Mid-Air Attack</b>
       <br />Perform a Plunging Attack while in mid-air at the cost of STA, dealing <b class="text-wuwa-spectro">Spectro DMG</b>.
       <br />
       <br /><b>Dodge Counter</b>
@@ -106,49 +106,49 @@ const Jinhsi = (c: number, a: number, t: ITalentLevel, team: ITeamChar[]) => {
       trace: `Inherent Skill 1`,
       title: `Radiant Surge`,
       content: `Jinhsi's <b class="text-wuwa-spectro">Spectro DMG Bonus</b> is increased by <span class="text-desc">20%</span>.`,
-      image: 'UI_Talent_S_Xilonen_05',
+      image: 'SP_IconJinxiD1',
     },
     i2: {
       trace: `Inherent Skill 2`,
       title: `Converged Flash`,
       content: `DMG Multiplier of Intro Skill <b>Loong's Halo</b> is increased by <span class="text-desc">50%</span>.`,
-      image: 'UI_Talent_S_Xilonen_06',
+      image: 'SP_IconJinxiD2',
     },
     c1: {
       trace: `Sequence Node 1`,
       title: `Abyssal Ascension`,
       content: `When casting Basic Attack <b>Incarnation - Basic Attack</b> or Resonance Skill <b>Crescent Divinity</b>, Jinhsi gains <span class="text-desc">1</span> stack of <b class="text-desc">Herald of Revival</b>, stacking up to <span class="text-desc">4</span> times and lasting for <span class="text-desc">6</span>s. When casting Resonance Skill <b>Illuminous Epiphany</b>, Jinhsi consumes all stacks of <b class="text-desc">Herald of Revival</b>. Each stack increases the damage of Resonance Skill <b>Illuminous Epiphany</b> by <span class="text-desc">20%</span>.`,
-      image: 'UI_Talent_S_Xilonen_01',
+      image: 'T_IconDevice_JinxiM1_UI',
     },
     c2: {
       trace: `Sequence Node 2`,
       title: `Chronofrost Repose`,
       content: `Jinhsi restores <span class="text-desc">50</span> <b class="text-amber-200">Incandescence</b> while staying out of combat for more than <span class="text-desc">4</span>s. This effect can only be triggered <span class="text-desc">1</span> time(s) every <span class="text-desc">4</span>s.`,
-      image: 'UI_Talent_S_Xilonen_02',
+      image: 'T_IconDevice_JinxiM2_UI',
     },
     c3: {
       trace: `Sequence Node 3`,
       title: `Celestial Incarnate`,
       content: `Jinhsi gains <span class="text-desc">1</span> stack of <b class="text-desc">Immortal's Descendancy</b> after casting Intro Skill <b>Loong's Halo</b>. Each stack of <b class="text-desc">Immortal's Descendancy</b> increases Jinhsi's ATK by <span class="text-desc">25%</span>, stacking up to <span class="text-desc">2</span> time(s) and lasting for <span class="text-desc">20</span>s.`,
-      image: 'UI_Talent_U_Xilonen_01',
+      image: 'T_IconDevice_JinxiM3_UI',
     },
     c4: {
       trace: `Sequence Node 4`,
       title: `Benevolent Grace`,
       content: `When Jinhsi casts Resonance Liberation <b>Purge of Light</b> or Resonance Skill <b>Illuminous Epiphany</b>, all nearby Resonators on the team gain <span class="text-desc">20%</span> <b>Attribute DMG Bonus</b> for <span class="text-desc">20</span>s.`,
-      image: 'UI_Talent_S_Xilonen_03',
+      image: 'T_IconDevice_JinxiM4_UI',
     },
     c5: {
       trace: `Sequence Node 5`,
       title: `Frostfire Illumination`,
       content: `The DMG Multiplier of Resonance Liberation <b>Purge of Light</b> is increased by <span class="text-desc">120%</span>.`,
-      image: 'UI_Talent_U_Xilonen_02',
+      image: 'T_IconDevice_JinxiM5_UI',
     },
     c6: {
       trace: `Sequence Node 6`,
       title: `Thawing Triumph`,
       content: `The DMG Multiplier of Resonance Skill <b>Illuminous Epiphany</b> is increased by <span class="text-desc">45%</span> and the additional DMG Multiplier gained by consuming <b class="text-amber-200">Incandescence</b> is increased by <span class="text-desc">45%</span>.`,
-      image: 'UI_Talent_S_Xilonen_04',
+      image: 'T_IconDevice_JinxiM6_UI',
     },
   }
 

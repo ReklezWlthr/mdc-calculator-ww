@@ -204,23 +204,20 @@ export const Calculator = observer(({}: {}) => {
                 <PrimaryButton title="Stats Breakdown" onClick={onOpenStatsModal} />
               </div>
               <StatBlock stat={computedStats[selected]} />
-              {/* <div className="w-[252px] mt-2">
+              <div className="w-[252px] mt-2">
                 <AscensionIcons
                   talents={main?.talents}
-                  codeName={iconCodeName}
                   element={charData.element}
                   stats={computedStats[selected]}
-                  ascension={char.ascension}
+                  i={char.i}
                 />
               </div>
               <ConsCircle
                 talents={main?.talents}
-                codeName={charData.codeName}
                 element={charData.element}
-                name={charData.constellation}
                 cons={char.cons}
-                stats={computedStats[selected]}
-              /> */}
+                name={charData.name}
+              />
             </>
           )}
         </div>

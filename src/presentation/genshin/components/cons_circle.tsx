@@ -7,6 +7,7 @@ import { observer } from 'mobx-react-lite'
 import getConfig from 'next/config'
 import { ElementIconColor, TalentIcon } from './tables/scaling_wrapper'
 import { useStore } from '@src/data/providers/app_store_provider'
+import { ElementColor } from '@src/core/utils/damageStringConstruct'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -44,24 +45,8 @@ export const TooltipBody = ({
 }
 
 export const ConsCircle = observer(
-  ({
-    talents,
-    element,
-    codeName,
-    name,
-    cons,
-    stats,
-  }: {
-    talents: ITalent
-    element: Element
-    codeName: string
-    name: string
-    cons: number
-    stats?: StatsObject
-  }) => {
+  ({ talents, element, cons, name }: { talents: ITalent; element: Element; cons: number; name: string }) => {
     const { settingStore } = useStore()
-
-    if (codeName === 'Player') name = settingStore?.settings?.travelerGender === 'zhujuenan' ? 'Viator' : 'Viatrix'
 
     return (
       <div className="space-y-5">
@@ -98,18 +83,22 @@ export const ConsCircle = observer(
             </div>
           </div>
           <div className="relative flex items-center justify-center h-12 -z-50">
-            <p className="w-1/2 px-1 text-lg font-bold text-center">{name}</p>
+            <div className="w-1/2 px-1 font-bold text-center">
+              <p>Resonance Chain</p>
+              <p className={ElementColor[element]}>✦</p>
+              <p>{name}</p>
+            </div>
             <div
               className={classNames(
                 'absolute -translate-x-1/2 -translate-y-1/2 rounded-full w-[200px] h-[200px] ring top-1/2 left-1/2 bg-opacity-0 ring-opacity-50 pointer-events-none',
                 ElementIconColor[element]
               )}
             />
-            <img
-              src={`${publicRuntimeConfig.BASE_PATH}/asset/cons/${name.replaceAll(' ', '_')}_Shape.webp`}
-              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full opacity-80 h-[170px] top-1/2 left-1/2 -z-10 overflow-visible"
-              onError={(e) => (e.currentTarget.style.display = 'none')}
-              onLoad={(e) => (e.currentTarget.style.display = 'block')}
+            <div
+              className={classNames(
+                'absolute -translate-x-1/2 -translate-y-1/2 rounded-full w-[180px] h-[180px] ring top-1/2 left-1/2 bg-opacity-0 ring-opacity-25 pointer-events-none',
+                ElementIconColor[element]
+              )}
             />
           </div>
           <div className="flex justify-between px-3">

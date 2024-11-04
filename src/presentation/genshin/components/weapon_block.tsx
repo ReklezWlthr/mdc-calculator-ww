@@ -139,7 +139,7 @@ export const WeaponBlock = observer(
               onClear={noClear ? null : () => set(index, { wId: null, refinement: 1 })}
               value={weaponData?.name}
               disabled={!canEdit || !team[index]?.cId}
-              placeholder={DefaultWeaponName[weaponType]}
+              placeholder="Select a Weapon"
             />
             <SelectInput
               onChange={(value) =>
@@ -155,14 +155,17 @@ export const WeaponBlock = observer(
           </div>
           <div className="flex gap-2">
             <div className="relative flex flex-col justify-between w-1/2 gap-1">
-              <img
-                src={getWeaponImage(weaponData?.id)}
+              <div
                 className="w-full duration-200 border rounded-lg cursor-pointer bg-primary-darker border-primary-border aspect-square hover:border-primary-light"
                 onClick={onOpenModal}
-              />
-              <div className="absolute px-1 rounded-md pointer-events-none bottom-1 right-1 bg-primary-bg">
-                <RarityGauge rarity={rarity} />
+              >
+                <img src={getWeaponImage(weaponData?.id)} />
               </div>
+              {rarity && (
+                <div className="absolute px-1 rounded-md pointer-events-none bottom-1 right-1 bg-primary-bg">
+                  <RarityGauge rarity={rarity} />
+                </div>
+              )}
             </div>
             <div className="w-1/2 space-y-3">
               <div className="space-y-1">
@@ -172,7 +175,7 @@ export const WeaponBlock = observer(
                     onChange={(value) => set(index, { level: parseInt(value) || 0 })}
                     options={levels}
                     value={level?.toString()}
-                    disabled={!canEdit}
+                    disabled={!canEdit || !weaponData}
                   />
                   <SelectInput
                     onChange={(value) =>
@@ -184,7 +187,7 @@ export const WeaponBlock = observer(
                     options={AscensionOptions}
                     value={ascension?.toString()}
                     style="w-fit"
-                    disabled={!canEdit}
+                    disabled={!canEdit || !weaponData}
                   />
                 </div>
               </div>

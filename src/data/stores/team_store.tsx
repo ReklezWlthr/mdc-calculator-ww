@@ -12,6 +12,7 @@ import _ from 'lodash'
 import { makeAutoObservable } from 'mobx'
 import { enableStaticRendering } from 'mobx-react-lite'
 import { DefaultBuild } from './build_store'
+import { findCharacter } from '@src/core/utils/finder'
 
 enableStaticRendering(typeof window === 'undefined')
 
@@ -30,6 +31,10 @@ export const DefaultCharacter = {
   equipments: {
     weapon: DefaultWeapon,
     artifacts: Array(5),
+  },
+  i: {
+    i1: false,
+    i2: false,
   },
   talents: {
     normal: 1,
@@ -111,7 +116,7 @@ export class Team {
 
   unequipAll = (index: number) => {
     if (index < 0 || index > 4) return
-    this.characters[index].equipments = DefaultBuild
+    this.characters[index].equipments = DefaultBuild(findCharacter(this.characters[index].cId)?.weapon)
     this.characters[index] = { ...this.characters[index] }
   }
 

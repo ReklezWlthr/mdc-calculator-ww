@@ -6,8 +6,7 @@ import { TalentIcon } from './tables/scaling_wrapper'
 interface AscensionProps {
   talents: ITalent
   stats?: StatsObject
-  ascension: number
-  codeName: string
+  i: { i1: boolean; i2: boolean }
   element: Element
 }
 
@@ -15,19 +14,19 @@ export const AscensionIcons = (props: AscensionProps) => {
   return (
     <div className="flex items-center justify-around w-full gap-3">
       <TalentIcon
-        talent={props.talents?.a1}
+        talent={props.talents?.i1}
         element={props.element}
-        active={props.ascension >= 1}
+        active={props.i.i1}
         tooltipSize="w-[30vw]"
-        type={props.talents?.a1?.trace}
+        type={props.talents?.i1?.trace}
       />
-      <p className="text-sm font-bold">Ascension Passives</p>
+      <p className="text-sm font-bold">Inherent Skills</p>
       <TalentIcon
-        talent={props.talents?.a4}
+        talent={props.talents?.i2}
         element={props.element}
-        active={props.ascension >= 4}
+        active={props.i.i2}
         tooltipSize="w-[30vw]"
-        type={props.talents?.a4?.trace}
+        type={props.talents?.i2?.trace}
       />
     </div>
   )

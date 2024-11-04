@@ -49,6 +49,7 @@ export const baseStatsObject = {
   [Stats.HAVOC_DMG]: [] as StatsArray[],
   [Stats.ALL_DMG]: [] as StatsArray[],
 
+  AMP: [] as StatsArray[],
   FUSION_AMP: [] as StatsArray[],
   GLACIO_AMP: [] as StatsArray[],
   AERO_AMP: [] as StatsArray[],
@@ -73,6 +74,10 @@ export const baseStatsObject = {
   // Hidden Stats
   DEF_PEN: [] as StatsArray[],
   DEF_REDUCTION: [] as StatsArray[],
+  BASIC_DEF_PEN: [] as StatsArray[],
+  HEAVY_DEF_PEN: [] as StatsArray[],
+  SKILL_DEF_PEN: [] as StatsArray[],
+  LIB_DEF_PEN: [] as StatsArray[],
 
   // RES PEN
   ALL_TYPE_RES_PEN: [] as StatsArray[],

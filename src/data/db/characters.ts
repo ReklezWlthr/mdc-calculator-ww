@@ -332,7 +332,7 @@ export const Characters = [
   },
   {
     id: '1505',
-    name: 'The Shorekeeper',
+    name: 'Shorekeeper',
     stat: {
       baseAtk: 23,
       baseHp: 1337,

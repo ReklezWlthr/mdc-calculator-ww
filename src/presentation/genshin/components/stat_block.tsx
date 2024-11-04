@@ -53,8 +53,8 @@ export const StatBlock = observer(({ stat }: StatBlockProps) => {
         base={stat?.BASE_DEF}
         bonus={stat?.BASE_DEF * stat?.getValue(Stats.P_DEF) + stat?.getValue(Stats.DEF)}
       />
-      <DataRow title="CRIT Rate" value={toPercentage(stat?.getValue(Stats.CRIT_RATE))} />
-      <DataRow title="CRIT DMG" value={toPercentage(stat?.getValue(Stats.CRIT_DMG))} />
+      <DataRow title="Crit. Rate" value={toPercentage(stat?.getValue(Stats.CRIT_RATE))} />
+      <DataRow title="Crit. DMG" value={toPercentage(stat?.getValue(Stats.CRIT_DMG))} />
       <DataRow title="Basic ATK DMG%" value={toPercentage(stat?.getValue(StatsObjectKeys.BASIC_DMG))} />
       <DataRow title="Heavy ATK DMG%" value={toPercentage(stat?.getValue(StatsObjectKeys.HEAVY_DMG))} />
       <DataRow title="Skill DMG%" value={toPercentage(stat?.getValue(StatsObjectKeys.SKILL_DMG))} />
@@ -67,7 +67,7 @@ export const StatBlock = observer(({ stat }: StatBlockProps) => {
       <DataRow title="Havoc DMG%" value={toPercentage(stat?.getValue(Stats.HAVOC_DMG))} />
       <DataRow title="DMG%" value={toPercentage(stat?.getValue(Stats.ALL_DMG))} />
       <DataRow title="Healing Bonus" value={toPercentage(stat?.getValue(Stats.HEAL))} />
-      <DataRow title="Energy Recharge" value={toPercentage(stat?.getValue(Stats.ER))} />
+      <DataRow title="Energy Regen" value={toPercentage(stat?.getValue(Stats.ER))} />
     </div>
   )
 })
