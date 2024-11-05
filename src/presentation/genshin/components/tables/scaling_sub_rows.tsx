@@ -39,14 +39,14 @@ export const ScalingSubRows = observer(({ scaling }: ScalingSubRowsProps) => {
       <Tooltip title={scaling.name} body={DmgBody} style="w-[400px]">
         <p className="col-span-1 text-center text-gray">{_.round(dmg).toLocaleString()}</p>
       </Tooltip>
-      {_.includes([TalentProperty.HEAL, TalentProperty.SHIELD, TalentProperty.STATIC], scaling.property) ? (
+      {_.includes([TalentProperty.HEAL, TalentProperty.SHIELD], scaling.property) ? (
         <p className="col-span-1 text-center text-gray">-</p>
       ) : (
         <Tooltip title={'CRIT: ' + scaling.name} body={CritBody} style="w-[400px]">
           <p className="col-span-1 text-center text-gray">{totalCrit.toLocaleString()}</p>
         </Tooltip>
       )}
-      {_.includes([TalentProperty.HEAL, TalentProperty.SHIELD, TalentProperty.STATIC], scaling.property) ? (
+      {_.includes([TalentProperty.HEAL, TalentProperty.SHIELD], scaling.property) ? (
         <Tooltip title={scaling.name} body={DmgBody} style="w-[400px]">
           <p className={classNames('col-span-1 font-bold text-center', PropertyColor[scaling.property] || 'text-red')}>
             {_.round(dmg).toLocaleString()}

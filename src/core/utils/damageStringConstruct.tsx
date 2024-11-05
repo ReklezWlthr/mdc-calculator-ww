@@ -30,7 +30,7 @@ export const damageStringConstruct = (
   const element = scaling.element
   const isDamage = !_.includes([TalentProperty.SHIELD, TalentProperty.HEAL], scaling.property)
 
-  const talentDmg = stats.getValue(`${TalentStatMap[scaling.property]}_DMG`) || 0
+  const talentDmg = stats.getValue(Stats[`${TalentStatMap[scaling.property]}_DMG`]) || 0
   const talentFlat = stats.getValue(`${TalentStatMap[scaling.property]}_F_DMG`) || 0
   const talentCr = stats.getValue(`${TalentStatMap[scaling.property]}_CR`) || 0
   const talentCd = stats.getValue(`${TalentStatMap[scaling.property]}_CD`) || 0

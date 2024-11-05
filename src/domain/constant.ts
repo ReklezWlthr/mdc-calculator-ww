@@ -214,7 +214,7 @@ export enum Stats {
   P_DEF = 'DEF%',
   CRIT_RATE = 'Crit. Rate',
   CRIT_DMG = 'Crit. DMG',
-  ER = 'Energy Recharge',
+  ER = 'Energy Regen',
   FUSION_DMG = 'Fusion DMG%',
   GLACIO_DMG = 'Glacio DMG%',
   ELECTRO_DMG = 'Electro DMG%',

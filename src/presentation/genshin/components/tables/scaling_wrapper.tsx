@@ -11,7 +11,6 @@ interface ScalingWrapperProps {
   talent: ITalentDisplay
   element: Element
   level?: number
-  childeBuff?: boolean
 }
 
 interface TalentIconProps {
@@ -36,6 +35,7 @@ export const ElementIconColor = {
   [Element.SPECTRO]: 'bg-wuwa-spectro ring-wuwa-spectro',
   [Element.HAVOC]: 'bg-wuwa-havoc ring-wuwa-havoc',
   [Element.AERO]: 'bg-wuwa-aero ring-wuwa-aero',
+  'Echo': 'bg-primary ring-primary-light',
 }
 
 export const TalentIcon = observer(
@@ -137,7 +137,7 @@ export const TalentIcon = observer(
   }
 )
 
-export const ScalingWrapper = observer(({ children, talent, element, level, childeBuff }: ScalingWrapperProps) => {
+export const ScalingWrapper = observer(({ children, talent, element, level }: ScalingWrapperProps) => {
   return (
     <div className="flex w-full">
       <div className="flex flex-col items-center justify-center w-1/5 px-2 py-5">
@@ -146,7 +146,6 @@ export const ScalingWrapper = observer(({ children, talent, element, level, chil
         {level && (
           <p className="text-xs text-gray">
             Level <span className="text-gray">{level}</span>
-            {childeBuff && <span className="text-desc"> (+1)</span>}
           </p>
         )}
       </div>

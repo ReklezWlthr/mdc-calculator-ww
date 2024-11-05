@@ -52,6 +52,7 @@ export class CalculatorStore {
     this.selected = 0
     this.level = 1
     this.res = {
+      [Element.PHYSICAL]: 10,
       [Element.FUSION]: 10,
       [Element.GLACIO]: 10,
       [Element.ELECTRO]: 10,

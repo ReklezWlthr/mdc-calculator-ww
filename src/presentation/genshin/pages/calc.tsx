@@ -1,6 +1,5 @@
 import { findCharacter } from '@src/core/utils/finder'
 import { useStore } from '@src/data/providers/app_store_provider'
-import { Element, Stats, WeaponIcon } from '@src/domain/constant'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
 import React, { useCallback, useState } from 'react'
@@ -11,23 +10,20 @@ import { CharacterSelect } from '../components/character_select'
 import { ConsCircle } from '../components/cons_circle'
 import { ConditionalBlock } from '../components/conditionals/conditional_block'
 import classNames from 'classnames'
-import { Tooltip } from '@src/presentation/components/tooltip'
 import { AscensionIcons } from '../components/ascension_icons'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
 import { EnemyModal } from '../components/modals/enemy_modal'
-import { ReactionTooltip } from '../components/tables/reaction_tooltip'
 import { WeaponConditionalBlock } from '../components/conditionals/weapon_conditional_block'
 import { useCalculator } from '@src/core/hooks/useCalculator'
-import { CrystallizeTooltip } from '../components/tables/crystallize_tooltip'
 import { CustomConditionalBlock } from '../components/conditionals/custom_conditional_block'
 import { StatsModal } from '../components/modals/stats_modal'
-import { ElementColor } from '@src/core/utils/damageStringConstruct'
-import { BaseReactionDmg } from '@src/domain/scaling'
 import { SelectInput } from '@src/presentation/components/inputs/select_input'
-import { ReactionTable } from '../components/tables/reaction_table'
+import { Echoes } from '@src/data/db/artifacts'
+import { ITalentDisplay } from '@src/domain/conditional'
+import { formatWeaponString } from '@src/core/utils/data_format'
 
 export const Calculator = observer(({}: {}) => {
-  const { teamStore, modalStore, calculatorStore, settingStore } = useStore()
+  const { teamStore, modalStore, calculatorStore, settingStore, artifactStore } = useStore()
   const { selected, computedStats } = calculatorStore
 
   const [tab, setTab] = useState('mod')
@@ -43,6 +39,14 @@ export const Calculator = observer(({}: {}) => {
     () => modalStore.openModal(<StatsModal stats={mainComputed} weapon={charData.weapon} />),
     [mainComputed, charData, finalStats]
   )
+  const mainEchoData = _.find(artifactStore.artifacts, (item) => char?.equipments?.artifacts?.[0] === item.id)
+  const mainEcho = _.find(Echoes, (item) => item.id === mainEchoData?.setId)
+  const echoTalent: ITalentDisplay = {
+    trace: 'Echo Skill',
+    title: mainEcho?.name,
+    content: formatWeaponString(mainEcho?.desc, mainEcho?.properties, mainEchoData?.quality - 1),
+    image: mainEcho?.skill,
+  }
 
   return (
     <div className="w-full overflow-y-auto customScrollbar">
@@ -99,12 +103,7 @@ export const Calculator = observer(({}: {}) => {
                     <p className="col-span-2">DMG Component</p>
                   </div>
                 </div>
-                <ScalingWrapper
-                  talent={main?.talents?.normal}
-                  element={charData.element}
-                  level={char.talents?.normal}
-                  childeBuff={_.includes(_.map(teamStore.characters, 'cId'), '10000033')}
-                >
+                <ScalingWrapper talent={main?.talents?.normal} element={charData.element} level={char.talents?.normal}>
                   <div className="space-y-2">
                     <div className="space-y-0.5">
                       {_.map(mainComputed?.BASIC_SCALING, (item) => (
@@ -158,12 +157,16 @@ export const Calculator = observer(({}: {}) => {
                     <ScalingSubRows key={item.name} scaling={item} />
                   ))}
                 </ScalingWrapper>
-                <div className="w-full my-2 border-t-2 border-primary-border" />
-                <ScalingWrapper talent={main?.talents?.outro} element={charData.element} level={1}>
-                  {_.map(mainComputed?.ECHO_SCALING, (item) => (
-                    <ScalingSubRows key={item.name} scaling={item} />
-                  ))}
-                </ScalingWrapper>
+                {mainEcho && (
+                  <>
+                    <div className="w-full my-2 border-t-2 border-primary-border" />
+                    <ScalingWrapper talent={echoTalent} element={'Echo' as any}>
+                      {_.map(mainComputed?.ECHO_SCALING, (item) => (
+                        <ScalingSubRows key={item.name} scaling={item} />
+                      ))}
+                    </ScalingWrapper>
+                  </>
+                )}
                 <div className="h-2" />
               </div>
             </>

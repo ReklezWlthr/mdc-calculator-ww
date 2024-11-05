@@ -242,14 +242,14 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
             className="flex items-center justify-center w-full h-full transition-colors duration-200 rounded-t-lg cursor-pointer hover:bg-primary-darker"
             onClick={onOpenEditModal}
           >
-            Add New Artifact
+            Add New Echo
           </div>
           <div className="w-full h-0 border-t-2 border-primary-border" />
           <div
             className="flex items-center justify-center w-full h-full transition-colors duration-200 rounded-t-lg cursor-pointer hover:bg-primary-darker"
             onClick={onOpenSwapModal}
           >
-            Equip an Artifact
+            Equip an Echo
           </div>
         </div>
       ) : (
