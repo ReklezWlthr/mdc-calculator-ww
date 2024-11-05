@@ -171,7 +171,7 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
             </div>
             <div className="flex items-center w-full gap-2 text-[11px]">
               <div className="flex items-center gap-1.5 shrink-0">
-                <img className="w-4 h-4" src={_.find(MainStatOptions, (item) => item.value === artifact?.main)?.img} />
+                <img className="w-4 h-4" src={StatIcons[artifact?.main]} />
                 {artifact?.main}
               </div>
               <hr className="w-full border border-primary-border" />
@@ -186,10 +186,7 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
               {_.map(artifact?.subList, (item) => (
                 <div className="flex items-center gap-2 text-[11px]" key={item.stat}>
                   <div className="flex items-center gap-1.5 shrink-0">
-                    <img
-                      className="w-4 h-4"
-                      src={`${publicRuntimeConfig.BASE_PATH}/asset/icons/${StatIcons[item.stat]}`}
-                    />
+                    <img className="w-4 h-4" src={StatIcons[item.stat]} />
                     {item.stat}
                   </div>
                   {/* <div className="text-primary-lighter">{_.repeat('\u{2771}', item.roll)}</div> */}

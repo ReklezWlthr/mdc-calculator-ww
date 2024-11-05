@@ -96,7 +96,8 @@ export interface IBuild {
 
 export interface IArtifact {
   id: string
-  icon: string,
+  icon: string
+  skill: string
   name: string
   sonata: Sonata[]
   desc: string
@@ -182,10 +183,11 @@ export enum TalentProperty {
   HEAL = 'Heal',
   SHIELD = 'Shield',
   COORD = 'Coordinated Attack',
-  ECHO = 'Echo Attack'
+  ECHO = 'Echo Attack',
 }
 
 export enum Element {
+  PHYSICAL = 'Physical',
   FUSION = 'Fusion',
   GLACIO = 'Glacio',
   ELECTRO = 'Electro',
@@ -228,16 +230,22 @@ export enum Stats {
 }
 
 export const StatIcons = {
-  [Stats.P_HP]: 'stat_p_hp.png',
-  [Stats.P_ATK]: 'stat_p_atk.png',
-  [Stats.P_DEF]: 'stat_p_def.png',
-  [Stats.ATK]: 'stat_atk.png',
-  [Stats.HP]: 'stat_hp.png',
-  [Stats.DEF]: 'stat_def.png',
-  [Stats.CRIT_RATE]: 'stat_crit_rate.png',
-  [Stats.CRIT_DMG]: 'stat_crit_dmg.png',
-  [Stats.HEAL]: 'stat_heal.png',
-  [Stats.ER]: 'stat_er.png',
+  [Stats.P_HP]: '/asset/icons/T_Iconpropertygreenlife_UI.webp',
+  [Stats.P_ATK]: '/asset/icons/T_Iconpropertyredattack_UI.webp',
+  [Stats.P_DEF]: '/asset/icons/T_Iconpropertygreendefense_UI.webp',
+  [Stats.ATK]: '/asset/icons/T_Iconpropertyredattack_UI.webp',
+  [Stats.HP]: '/asset/icons/T_Iconpropertygreenlife_UI.webp',
+  [Stats.DEF]: '/asset/icons/T_Iconpropertygreendefense_UI.webp',
+  [Stats.CRIT_RATE]: '/asset/icons/T_Iconpropertyredbaoji_UI.webp',
+  [Stats.CRIT_DMG]: '/asset/icons/T_Iconpropertyredcrit_UI.webp',
+  [Stats.HEAL]: '/asset/icons/T_Iconpropertygreencure_UI.webp',
+  [Stats.ER]: '/asset/icons/T_Iconpropertyenergy_UI.webp',
+  [Stats.FUSION_DMG]: '/asset/icons/T_Iconpropertyredhot_UI.webp',
+  [Stats.GLACIO_DMG]: '/asset/icons/T_Iconpropertyredice_UI.webp',
+  [Stats.ELECTRO_DMG]: '/asset/icons/T_Iconpropertyredmine_UI.webp',
+  [Stats.AERO_DMG]: '/asset/icons/T_Iconpropertyredwind_UI.webp',
+  [Stats.SPECTRO_DMG]: '/asset/icons/T_Iconpropertyredlight_UI.webp',
+  [Stats.HAVOC_DMG]: '/asset/icons/T_Iconpropertyreddark_UI.webp',
 }
 
 export const Region = Object.freeze({
@@ -287,131 +295,34 @@ export const RefinementOptions = [
 ]
 
 export const MainStatOptions = [
-  { name: Stats.ATK, value: Stats.ATK, img: '/asset/icons/stat_atk.png' },
-  { name: Stats.HP, value: Stats.HP, img: '/asset/icons/stat_hp.png' },
-  { name: Stats.P_ATK, value: Stats.P_ATK, img: '/asset/icons/stat_p_atk.png' },
-  { name: Stats.P_HP, value: Stats.P_HP, img: '/asset/icons/stat_p_hp.png' },
-  { name: Stats.P_DEF, value: Stats.P_DEF, img: '/asset/icons/stat_p_def.png' },
-  { name: Stats.EM, value: Stats.EM, img: '/asset/icons/stat_em.png' },
-  { name: Stats.ER, value: Stats.ER, img: '/asset/icons/stat_er.png' },
-  { name: Stats.CRIT_RATE, value: Stats.CRIT_RATE, img: '/asset/icons/stat_crit_rate.png' },
-  { name: Stats.CRIT_DMG, value: Stats.CRIT_DMG, img: '/asset/icons/stat_crit_dmg.png' },
-  { name: Stats.HEAL, value: Stats.HEAL, img: '/asset/icons/stat_heal.png' },
-  { name: Stats.PHYSICAL_DMG, value: Stats.PHYSICAL_DMG, img: '/asset/icons/stat_physical.png' },
-  {
-    name: Stats.ANEMO_DMG,
-    value: Stats.ANEMO_DMG,
-    img: 'https://cdn.wanderer.moe/genshin-impact/elements/anemo.png',
-  },
-  {
-    name: Stats.PYRO_DMG,
-    value: Stats.PYRO_DMG,
-    img: 'https://cdn.wanderer.moe/genshin-impact/elements/pyro.png',
-  },
-  {
-    name: Stats.HYDRO_DMG,
-    value: Stats.HYDRO_DMG,
-    img: 'https://cdn.wanderer.moe/genshin-impact/elements/hydro.png',
-  },
-  {
-    name: Stats.CRYO_DMG,
-    value: Stats.CRYO_DMG,
-    img: 'https://cdn.wanderer.moe/genshin-impact/elements/cryo.png',
-  },
-  {
-    name: Stats.ELECTRO_DMG,
-    value: Stats.ELECTRO_DMG,
-    img: 'https://cdn.wanderer.moe/genshin-impact/elements/electro.png',
-  },
-  {
-    name: Stats.GEO_DMG,
-    value: Stats.GEO_DMG,
-    img: 'https://cdn.wanderer.moe/genshin-impact/elements/geo.png',
-  },
-  {
-    name: Stats.DENDRO_DMG,
-    value: Stats.DENDRO_DMG,
-    img: 'https://cdn.wanderer.moe/genshin-impact/elements/dendro.png',
-  },
+  { name: Stats.HP, value: Stats.HP, img: StatIcons[Stats.HP] },
+  { name: Stats.ATK, value: Stats.ATK, img: StatIcons[Stats.ATK] },
+  { name: Stats.P_HP, value: Stats.P_HP, img: StatIcons[Stats.P_HP] },
+  { name: Stats.P_ATK, value: Stats.P_ATK, img: StatIcons[Stats.P_ATK] },
+  { name: Stats.P_DEF, value: Stats.P_DEF, img: StatIcons[Stats.P_DEF] },
+  { name: Stats.ER, value: Stats.ER, img: StatIcons[Stats.ER] },
+  { name: Stats.CRIT_RATE, value: Stats.CRIT_RATE, img: StatIcons[Stats.CRIT_RATE] },
+  { name: Stats.CRIT_DMG, value: Stats.CRIT_DMG, img: StatIcons[Stats.CRIT_DMG] },
+  { name: Stats.HEAL, value: Stats.HEAL, img: StatIcons[Stats.HEAL] },
+  { name: Stats.FUSION_DMG, value: Stats.FUSION_DMG, img: StatIcons[Stats.FUSION_DMG] },
+  { name: Stats.GLACIO_DMG, value: Stats.GLACIO_DMG, img: StatIcons[Stats.GLACIO_DMG] },
+  { name: Stats.ELECTRO_DMG, value: Stats.ELECTRO_DMG, img: StatIcons[Stats.ATK] },
+  { name: Stats.AERO_DMG, value: Stats.AERO_DMG, img: StatIcons[Stats.AERO_DMG] },
+  { name: Stats.SPECTRO_DMG, value: Stats.SPECTRO_DMG, img: StatIcons[Stats.SPECTRO_DMG] },
+  { name: Stats.HAVOC_DMG, value: Stats.HAVOC_DMG, img: StatIcons[Stats.HAVOC_DMG] },
 ]
 
 export const SubStatOptions = [
-  { name: Stats.ATK, value: Stats.ATK, img: '/asset/icons/stat_atk.png' },
-  { name: Stats.HP, value: Stats.HP, img: '/asset/icons/stat_hp.png' },
-  { name: Stats.DEF, value: Stats.DEF, img: '/asset/icons/stat_def.png' },
-  { name: Stats.P_ATK, value: Stats.P_ATK, img: '/asset/icons/stat_p_atk.png' },
-  { name: Stats.P_HP, value: Stats.P_HP, img: '/asset/icons/stat_p_hp.png' },
-  { name: Stats.P_DEF, value: Stats.P_DEF, img: '/asset/icons/stat_p_def.png' },
-  { name: Stats.EM, value: Stats.EM, img: '/asset/icons/stat_em.png' },
-  { name: Stats.ER, value: Stats.ER, img: '/asset/icons/stat_er.png' },
-  { name: Stats.CRIT_RATE, value: Stats.CRIT_RATE, img: '/asset/icons/stat_crit_rate.png' },
-  { name: Stats.CRIT_DMG, value: Stats.CRIT_DMG, img: '/asset/icons/stat_crit_dmg.png' },
+  { name: Stats.HP, value: Stats.HP, img: StatIcons[Stats.HP] },
+  { name: Stats.ATK, value: Stats.ATK, img: StatIcons[Stats.ATK] },
+  { name: Stats.DEF, value: Stats.DEF, img: StatIcons[Stats.DEF] },
+  { name: Stats.P_HP, value: Stats.P_HP, img: StatIcons[Stats.P_HP] },
+  { name: Stats.P_ATK, value: Stats.P_ATK, img: StatIcons[Stats.P_ATK] },
+  { name: Stats.P_DEF, value: Stats.P_DEF, img: StatIcons[Stats.P_DEF] },
+  { name: Stats.ER, value: Stats.ER, img: StatIcons[Stats.ER] },
+  { name: Stats.CRIT_RATE, value: Stats.CRIT_RATE, img: StatIcons[Stats.CRIT_RATE] },
+  { name: Stats.CRIT_DMG, value: Stats.CRIT_DMG, img: StatIcons[Stats.CRIT_DMG] },
 ]
-
-export const PropMap = {
-  level: 4001,
-  ascension: 1002,
-}
-
-export const EnkaStatsMap = {
-  FIGHT_PROP_HP: Stats.HP,
-  FIGHT_PROP_ATTACK: Stats.ATK,
-  FIGHT_PROP_DEFENSE: Stats.DEF,
-  FIGHT_PROP_HP_PERCENT: Stats.P_HP,
-  FIGHT_PROP_ATTACK_PERCENT: Stats.P_ATK,
-  FIGHT_PROP_DEFENSE_PERCENT: Stats.P_DEF,
-  FIGHT_PROP_CRITICAL: Stats.CRIT_RATE,
-  FIGHT_PROP_CRITICAL_HURT: Stats.CRIT_DMG,
-  FIGHT_PROP_CHARGE_EFFICIENCY: Stats.ER,
-  FIGHT_PROP_HEAL_ADD: Stats.HEAL,
-  FIGHT_PROP_ELEMENT_MASTERY: Stats.EM,
-  FIGHT_PROP_PHYSICAL_ADD_HURT: Stats.PHYSICAL_DMG,
-  FIGHT_PROP_FIRE_ADD_HURT: Stats.PYRO_DMG,
-  FIGHT_PROP_ELEC_ADD_HURT: Stats.ELECTRO_DMG,
-  FIGHT_PROP_WATER_ADD_HURT: Stats.HYDRO_DMG,
-  FIGHT_PROP_WIND_ADD_HURT: Stats.ANEMO_DMG,
-  FIGHT_PROP_ICE_ADD_HURT: Stats.CRYO_DMG,
-  FIGHT_PROP_ROCK_ADD_HURT: Stats.GEO_DMG,
-  FIGHT_PROP_GRASS_ADD_HURT: Stats.DENDRO_DMG,
-}
-
-export const EnkaArtifactTypeMap = {
-  EQUIP_BRACER: 4,
-  EQUIP_NECKLACE: 2,
-  EQUIP_SHOES: 5,
-  EQUIP_RING: 1,
-  EQUIP_DRESS: 3,
-}
-
-export const ScannerStatsMap = {
-  hp: Stats.HP,
-  atk: Stats.ATK,
-  def: Stats.DEF,
-  hp_: Stats.P_HP,
-  atk_: Stats.P_ATK,
-  def_: Stats.P_DEF,
-  critRate_: Stats.CRIT_RATE,
-  critDMG_: Stats.CRIT_DMG,
-  enerRech_: Stats.ER,
-  heal_: Stats.HEAL,
-  eleMas: Stats.EM,
-  physical_dmg_: Stats.PHYSICAL_DMG,
-  anemo_dmg_: Stats.ANEMO_DMG,
-  geo_dmg_: Stats.GEO_DMG,
-  electro_dmg_: Stats.ELECTRO_DMG,
-  hydro_dmg_: Stats.HYDRO_DMG,
-  pyro_dmg_: Stats.PYRO_DMG,
-  cryo_dmg_: Stats.CRYO_DMG,
-  dendro_dmg_: Stats.DENDRO_DMG,
-}
-
-export const ScannerArtifactTypeMap = {
-  flower: 4,
-  plume: 2,
-  sands: 5,
-  goblet: 1,
-  circlet: 3,
-}
 
 export const CustomConditionalMap = {
   MELT_DMG: 'Melt DMG%',

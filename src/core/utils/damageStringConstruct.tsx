@@ -95,7 +95,7 @@ export const damageStringConstruct = (
   const scalingArray = _.map(
     scaling.value,
     (item) =>
-      `<span class="inline-flex items-center h-4">(<b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="/asset/icons/${
+      `<span class="inline-flex items-center h-4">(<b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="${
         StatIcons[item.multiplier]
       }" />${_.round(
         item.override || statForScale[item.multiplier]
@@ -139,19 +139,21 @@ export const damageStringConstruct = (
     dmg * totalCd
   ).toLocaleString()}</b> = <b>${_.round(
     dmg
-  ).toLocaleString()}</b> \u{00d7} <span class="inline-flex items-center h-4">(<b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="/asset/icons/stat_crit_dmg.png" />${toPercentage(
-    totalCd
-  )}</b>)</span>`
+  ).toLocaleString()}</b> \u{00d7} <span class="inline-flex items-center h-4">(<b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="${
+    StatIcons[Stats.CRIT_DMG]
+  }" />${toPercentage(totalCd)}</b>)</span>`
 
   const avgString = `<b class="${PropertyColor[scaling.property] || 'text-red'}">${_.round(
     dmg * (1 + (totalCd - 1) * totalCr)
   ).toLocaleString()}</b> = <b>${_.round(
     dmg
-  ).toLocaleString()}</b> \u{00d7} <span class="inline-flex items-center h-4">(<b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="/asset/icons/stat_crit_dmg.png" />${toPercentage(
+  ).toLocaleString()}</b> \u{00d7} <span class="inline-flex items-center h-4">(<b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="${
+    StatIcons[Stats.CRIT_DMG]
+  }" />${toPercentage(
     totalCd
-  )}</b><span class="ml-1"> \u{00d7} </span><b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="/asset/icons/stat_crit_rate.png" />${toPercentage(
-    totalCr
-  )}</b>)</span>`
+  )}</b><span class="ml-1"> \u{00d7} </span><b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="${
+    StatIcons[Stats.CRIT_RATE]
+  }" />${toPercentage(totalCr)}</b>)</span>`
 
   const DmgBody = (
     <div className="space-y-1">

@@ -204,7 +204,7 @@ export const WeaponBlock = observer(
           <div className="space-y-2.5">
             <div className="flex items-center gap-2 text-xs">
               <div className="flex items-center gap-1.5 shrink-0">
-                <img className="w-4 h-4" src={`${publicRuntimeConfig.BASE_PATH}/asset/icons/${StatIcons[Stats.ATK]}`} />
+                <img className="w-4 h-4" src={StatIcons[Stats.ATK]} />
                 <p>Base ATK</p>
               </div>
               <hr className="w-full border border-primary-border" />
@@ -213,10 +213,7 @@ export const WeaponBlock = observer(
             {weaponData && (
               <div className="flex items-center gap-2 text-xs">
                 <div className="flex items-center gap-1.5 shrink-0">
-                  <img
-                    className="w-4 h-4"
-                    src={`${publicRuntimeConfig.BASE_PATH}/asset/icons/${StatIcons[weaponData?.ascStat]}`}
-                  />
+                  <img className="w-4 h-4" src={StatIcons[weaponData?.ascStat]} />
                   {weaponData?.ascStat || 'N/A'}
                 </div>
                 <hr className="w-full border border-primary-border" />

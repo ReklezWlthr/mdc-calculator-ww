@@ -15,7 +15,7 @@ export const WeaponConditionals: IWeaponContent[] = [
     id: '21010026_1',
     scaling: (base, form, r) => {
       if (form['21010026_1']) {
-        base.SKILL_DMG.push({
+        base[Stats.SKILL_DMG].push({
           value: calcRefinement(0.24, 0.06, r),
           name: 'Ageless Marking',
           source: `Ages of Harvest`,
@@ -32,7 +32,7 @@ export const WeaponConditionals: IWeaponContent[] = [
     id: '21010026_2',
     scaling: (base, form, r) => {
       if (form['21010026_2']) {
-        base.SKILL_DMG.push({
+        base[Stats.SKILL_DMG].push({
           value: calcRefinement(0.24, 0.06, r),
           name: 'Ethereal Endowment',
           source: `Ages of Harvest`,

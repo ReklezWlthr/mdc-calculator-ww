@@ -242,7 +242,7 @@ export const useCalculator = ({
       const echoData = _.find(artifactStore.artifacts, ['id', mainEcho])
       const bonus = findEcho(echoData?.setId)?.bonus
       if (bonus) {
-        x = bonus(x, echoData?.quality)
+        x = bonus(x, echoData?.quality - 1)
       }
       return x
     })
