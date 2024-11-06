@@ -986,7 +986,7 @@ export const Echoes: IArtifact[] = [
     name: 'Gulpuff',
     icon: 'T_IconMonsterGoods_111_UI',
     skill: 'T_MstSkil_115_UI',
-    sonata: [Sonata.ICE, Sonata.WIND, Sonata.REGEN],
+    sonata: [Sonata.ICE, Sonata.LIGHT],
     desc: `Summon a Gulpuff that blows bubbles <span class="text-desc">5</span> times, each time dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.`,
     properties: [{ base: 16.56, growth: 2.16 }],
     bonus: (base, r) => {
@@ -1142,7 +1142,7 @@ export const Echoes: IArtifact[] = [
     name: 'Glacio Prism',
     icon: 'T_IconMonsterGoods_141_UI',
     skill: 'T_MstSkil_Z_Z6_UI',
-    sonata: [Sonata.ICE, Sonata.FIRE, Sonata.ATK],
+    sonata: [Sonata.ICE, Sonata.HAVOC, Sonata.REGEN],
     desc: `Summon a Glacio Prism that continuously fires three crystal shards, each dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.`,
     properties: [{ base: 27.6, growth: 3.8 }],
     bonus: (base, r) => {
@@ -1391,7 +1391,7 @@ export const Echoes: IArtifact[] = [
     name: 'Havoc Dreadmane',
     icon: 'T_IconMonsterGoods_984_UI',
     skill: 'T_MstSkil_984_UI',
-    sonata: [Sonata.ICE, Sonata.HAVOC],
+    sonata: [Sonata.FIRE, Sonata.HAVOC],
     desc: `Transform into a Havoc Dreadmane to perform up to <span class="text-desc">2</span> tail strikes. Each strike deals {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b> and inflicts an additional instance of {{1}}% <b class="text-wuwa-havoc">Havoc DMG</b> upon hitting the target.`,
     properties: [
       { base: 83.84, growth: 10.93 },

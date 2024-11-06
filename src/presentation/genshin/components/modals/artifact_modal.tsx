@@ -16,6 +16,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { getEchoImage } from '@src/core/utils/fetcher'
 import { ArtifactSetterT } from './artifact_list_modal'
+import { SonataColor, SonataIcons } from '../artifact_block'
 
 export const ArtifactModal = ({
   index,
@@ -40,6 +41,7 @@ export const ArtifactModal = ({
       level: 25,
       main: null,
       cost: 0,
+      sonata: null,
       subList: Array(5).fill({ stat: null, value: null }),
     },
   })
@@ -103,16 +105,21 @@ export const ArtifactModal = ({
           render={({ field }) => (
             <SelectTextInput
               value={field.value}
-              options={_.map(Echoes, (artifact) => ({
-                name: artifact.name,
-                value: artifact.id.toString(),
-                img: getEchoImage(artifact?.icon),
-              }))}
+              options={_.orderBy(
+                _.map(Echoes, (artifact) => ({
+                  name: artifact.name,
+                  value: artifact.id.toString(),
+                  img: getEchoImage(artifact?.icon),
+                })),
+                ['name'],
+                ['asc']
+              )}
               placeholder="Echo Name"
               onChange={(value) => {
                 field.onChange(value?.value)
                 setValue('cost', findEcho(value?.value)?.cost)
                 setValue('main', value ? Stats.P_HP : null)
+                setValue('sonata', value ? _.head(findEcho(value?.value)?.sonata) : null)
               }}
             />
           )}
@@ -154,6 +161,38 @@ export const ArtifactModal = ({
                 field.onChange(quality)
                 if (values.level > 20 - (5 - quality) * 4) setValue('level', 20 - (5 - quality) * 4)
               }}
+            />
+          )}
+        />
+      </div>
+      <div className="space-y-1">
+        <p className="text-xs">Sonata</p>
+        <Controller
+          name="sonata"
+          control={control}
+          rules={{ required: true }}
+          render={({ field }) => (
+            <SelectInput
+              value={field.value}
+              options={_.map(findEcho(values?.setId)?.sonata, (item) => ({
+                name: (
+                  <div className="flex items-center gap-2 py-1 ml-1">
+                    <div
+                      className={classNames(
+                        'flex items-center justify-center text-xs bg-opacity-75 rounded-full bg-primary ring-2',
+                        SonataColor[item]
+                      )}
+                    >
+                      <img src={SonataIcons[item]} className="w-4 h-4" />
+                    </div>
+                    <p>{item}</p>
+                  </div>
+                ),
+                value: item,
+              }))}
+              onChange={field.onChange}
+              placeholder="None"
+              disabled={!values.setId}
             />
           )}
         />

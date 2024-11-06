@@ -1,5 +1,4 @@
-import { StatsObjectKeys } from '@src/data/lib/stats/baseConstant'
-import { IArtifact, Stats } from './constant'
+import { Stats } from "./constant"
 
 export const SubStatQuality = {
   1: 0.7,

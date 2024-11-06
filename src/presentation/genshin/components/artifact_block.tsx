@@ -1,8 +1,8 @@
 import { useStore } from '@src/data/providers/app_store_provider'
-import { ArtifactPiece, IArtifactEquip, MainStatOptions, Stats } from '@src/domain/constant'
+import { ArtifactPiece, IArtifactEquip, Stats } from '@src/domain/constant'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
-import React, { useCallback, useMemo } from 'react'
+import React, { useCallback } from 'react'
 import { ArtifactModal } from './modals/artifact_modal'
 import { RarityGauge } from '@src/presentation/components/rarity_gauge'
 import { getMainStat, romanize } from '@src/core/utils/data_format'
@@ -12,10 +12,32 @@ import { findEcho, findCharacter } from '@src/core/utils/finder'
 import classNames from 'classnames'
 import { CommonModal } from '@src/presentation/components/common_modal'
 import { ArtifactListModal, ArtifactSetterT } from './modals/artifact_list_modal'
-import getConfig from 'next/config'
-import { getEchoImage, getSideAvatar } from '@src/core/utils/fetcher'
+import { getEchoImage } from '@src/core/utils/fetcher'
+import { Sonata } from '@src/data/db/artifacts'
 
-const { publicRuntimeConfig } = getConfig()
+export const SonataIcons = {
+  [Sonata.FIRE]: '/asset/icons/T_IconElementFire1.webp',
+  [Sonata.ICE]: '/asset/icons/T_IconElementIce1.webp',
+  [Sonata.THUNDER]: '/asset/icons/T_IconElementThunder1.webp',
+  [Sonata.WIND]: '/asset/icons/T_IconElementWind1.webp',
+  [Sonata.LIGHT]: '/asset/icons/T_IconElementLight1.webp',
+  [Sonata.HAVOC]: '/asset/icons/T_IconElementDark1.webp',
+  [Sonata.ATK]: '/asset/icons/T_Iconpropertyattacktag_UI.webp',
+  [Sonata.HEAL]: '/asset/icons/T_Iconpropertyhealingtag_UI.webp',
+  [Sonata.REGEN]: '/asset/icons/T_Iconpropertyswitchtag_UI.webp',
+}
+
+export const SonataColor = {
+  [Sonata.FIRE]: 'ring-wuwa-fusion',
+  [Sonata.ICE]: 'ring-wuwa-glacio',
+  [Sonata.THUNDER]: 'ring-wuwa-electro',
+  [Sonata.WIND]: 'ring-wuwa-aero',
+  [Sonata.LIGHT]: 'ring-wuwa-spectro',
+  [Sonata.HAVOC]: 'ring-wuwa-havoc',
+  [Sonata.ATK]: 'ring-rose-700',
+  [Sonata.HEAL]: 'ring-heal',
+  [Sonata.REGEN]: 'ring-gray',
+}
 
 interface ArtifactBlockProps {
   index?: number
@@ -157,11 +179,19 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
                   src={getEchoImage(setData?.icon)}
                   className="w-full h-full rounded-full ring-2 ring-gray ring-offset-[3px] ring-offset-primary-dark"
                 />
-                <div className="absolute flex items-center justify-center px-1.5 py-0.5 text-xs bg-opacity-75 rounded-full -bottom-3 -right-4 bg-primary">
+                <div className="absolute flex items-center justify-center px-1.5 py-0.5 text-xs bg-opacity-75 rounded-full -bottom-2 -right-5 bg-primary">
                   +{artifact?.level}
                 </div>
                 <div className="absolute flex items-center justify-center px-1.5 py-0.5 text-xs bg-opacity-75 rounded-full -top-2 -right-7 bg-primary">
                   <span className="mr-1 text-desc">{artifact?.cost}</span> Cost
+                </div>
+                <div
+                  className={classNames(
+                    'absolute flex items-center justify-center text-xs bg-opacity-75 rounded-full -bottom-2 -left-2 bg-primary ring-2',
+                    SonataColor[artifact?.sonata]
+                  )}
+                >
+                  <img src={SonataIcons[artifact?.sonata]} className="w-5 h-5" />
                 </div>
               </div>
               <div className="flex flex-col items-center w-full gap-1">

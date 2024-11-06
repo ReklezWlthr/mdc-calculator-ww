@@ -55,10 +55,10 @@ export const StatBlock = observer(({ stat }: StatBlockProps) => {
       />
       <DataRow title="Crit. Rate" value={toPercentage(stat?.getValue(Stats.CRIT_RATE))} />
       <DataRow title="Crit. DMG" value={toPercentage(stat?.getValue(Stats.CRIT_DMG))} />
-      <DataRow title="Basic ATK DMG%" value={toPercentage(stat?.getValue(StatsObjectKeys.BASIC_DMG))} />
-      <DataRow title="Heavy ATK DMG%" value={toPercentage(stat?.getValue(StatsObjectKeys.HEAVY_DMG))} />
-      <DataRow title="Skill DMG%" value={toPercentage(stat?.getValue(StatsObjectKeys.SKILL_DMG))} />
-      <DataRow title="Liberation DMG%" value={toPercentage(stat?.getValue(StatsObjectKeys.LIB_DMG))} />
+      <DataRow title="Basic ATK DMG%" value={toPercentage(stat?.getValue(Stats.BASIC_DMG))} />
+      <DataRow title="Heavy ATK DMG%" value={toPercentage(stat?.getValue(Stats.HEAVY_DMG))} />
+      <DataRow title="Skill DMG%" value={toPercentage(stat?.getValue(Stats.SKILL_DMG))} />
+      <DataRow title="Liberation DMG%" value={toPercentage(stat?.getValue(Stats.LIB_DMG))} />
       <DataRow title="Fusion DMG%" value={toPercentage(stat?.getValue(Stats.FUSION_DMG))} />
       <DataRow title="Glacio DMG%" value={toPercentage(stat?.getValue(Stats.GLACIO_DMG))} />
       <DataRow title="Electro DMG%" value={toPercentage(stat?.getValue(Stats.ELECTRO_DMG))} />

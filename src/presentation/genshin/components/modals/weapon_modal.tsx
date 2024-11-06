@@ -60,7 +60,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
         onClick={() => setParams({ stat: checked ? _.without(params.stat, stat) : [...params.stat, stat] })}
         title={stat}
       >
-        <img src={`${publicRuntimeConfig.BASE_PATH}/asset/icons/${StatIcons[stat]}`} className="p-1" />
+        <img src={StatIcons[stat]} className="p-1" />
       </div>
     )
   }
@@ -140,7 +140,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
               >
                 <div className="relative">
                   <img
-                    src={`${publicRuntimeConfig.BASE_PATH}/asset/icons/${StatIcons[item.ascStat]}`}
+                    src={StatIcons[item.ascStat]}
                     className="absolute w-6 h-6 p-1 rounded-full top-2 left-2 bg-primary"
                     title={item.ascStat}
                   />

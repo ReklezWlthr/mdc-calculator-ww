@@ -114,6 +114,7 @@ export interface IArtifactEquip {
   main: Stats
   quality: number
   subList: { stat: Stats; value: number }[]
+  sonata: Sonata
 }
 
 export interface IWeapon {

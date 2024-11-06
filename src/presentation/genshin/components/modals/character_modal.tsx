@@ -78,7 +78,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
         <TextInput
           onChange={(value) => setParams({ searchWord: value })}
           value={params.searchWord}
-          placeholder="Search Character Name"
+          placeholder="Search Resonator Name"
         />
         <div className="flex gap-2">
           <FilterIcon type="element" value={Element.FUSION} />
@@ -98,7 +98,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
         <TagSelectInput
           options={_.map(Tags, (item) => ({ name: item, value: item }))}
           onChange={(v) => setParams({ tags: v })}
-          placeholder="Select Tags (Match All)"
+          placeholder="Select Combat Roles (Match All)"
           small
           style="w-[250px]"
           values={params.tags}
