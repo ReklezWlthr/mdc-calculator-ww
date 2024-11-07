@@ -201,11 +201,11 @@ export const MyBuilds = observer(() => {
                 }
                 noClear
               />
-              <ArtifactBlock slot={4} aId={selectedBuild?.artifacts?.[3]} setArtifact={setArtifact} canSwap />
               <ArtifactBlock slot={2} aId={selectedBuild?.artifacts?.[1]} setArtifact={setArtifact} canSwap />
-              <ArtifactBlock slot={5} aId={selectedBuild?.artifacts?.[4]} setArtifact={setArtifact} canSwap />
+              <ArtifactBlock slot={4} aId={selectedBuild?.artifacts?.[3]} setArtifact={setArtifact} canSwap />
               <ArtifactBlock slot={1} aId={selectedBuild?.artifacts?.[0]} setArtifact={setArtifact} canSwap />
               <ArtifactBlock slot={3} aId={selectedBuild?.artifacts?.[2]} setArtifact={setArtifact} canSwap />
+              <ArtifactBlock slot={5} aId={selectedBuild?.artifacts?.[4]} setArtifact={setArtifact} canSwap />
             </div>
           </div>
         ) : (

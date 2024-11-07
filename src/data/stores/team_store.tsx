@@ -52,6 +52,7 @@ export interface TeamStoreType {
   setValue: <k extends keyof this>(key: k, value: this[k]) => void
   setMember: (index: number, character: ITeamChar) => void
   setTalentLevel: (index: number, type: 'normal' | 'skill' | 'burst', level: number) => void
+  setInherentSkill: (index: number, type: 'i1' | 'i2', toggle: boolean) => void
   setMemberInfo: (index: number, info: Partial<ITeamChar>) => void
   setWeapon: (index: number, info: Partial<IWeaponEquip>) => void
   setArtifact: (index: number, type: number, aId: string) => void
@@ -111,6 +112,12 @@ export class Team {
   setTalentLevel = (index: number, type: 'normal' | 'skill' | 'burst', level: number) => {
     if (!type) return
     this.characters[index].talents = { ...this.characters[index].talents, [type]: level }
+    this.characters[index] = { ...this.characters[index] }
+  }
+
+  setInherentSkill = (index: number, type: 'i1' | 'i2', toggle: boolean) => {
+    if (!type) return
+    this.characters[index].i = { ...this.characters[index].i, [type]: toggle }
     this.characters[index] = { ...this.characters[index] }
   }
 

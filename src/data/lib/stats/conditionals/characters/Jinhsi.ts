@@ -417,9 +417,17 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           value: [{ scaling: calcScaling(0.8, intro), multiplier: Stats.ATK }],
           element: Element.SPECTRO,
           property: TalentProperty.INTRO,
+          multiplier: i.i2 ? 1.5 : 1,
         },
       ]
 
+      if (i.i1) {
+        base[Stats.SPECTRO_DMG].push({
+          name: `Inherent Skill 1`,
+          source: 'Self',
+          value: 0.2,
+        })
+      }
       if (form.jinhsi_c3) {
         base[Stats.P_ATK].push({
           name: `Sequence Node 4`,

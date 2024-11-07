@@ -77,7 +77,10 @@ export const Calculator = observer(({}: {}) => {
               <div className="flex flex-col mb-5 text-sm rounded-lg bg-primary-darker h-fit">
                 <div className="flex items-center justify-between px-2 py-1 text-lg font-bold text-center rounded-t-lg bg-primary-light">
                   <div className="w-full" />
-                  <p className="shrink-0">Damage Calculation</p>
+                  <div className="shrink-0">
+                    <p>Damage Calculation</p>
+                    <p className='text-xs font-normal text-gray'>Click on <b>Skill Icon</b> for Description</p>
+                  </div>
                   <div className="flex items-center justify-end w-full gap-1">
                     <p className="text-sm font-semibold">Mode:</p>
                     <SelectInput

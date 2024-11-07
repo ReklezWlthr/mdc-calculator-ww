@@ -166,16 +166,12 @@ export const TeamSetup = observer(() => {
           <StatBlock stat={stats} />
         </div>
         <div className="w-1/5 space-y-5">
-          <div>
-            <p className="text-xl font-bold text-center text-white">
-              <span className="mr-2 text-desc">✦</span>Forte<span className="ml-2 text-desc">✦</span>
-            </p>
-            <AbilityBlock
-              char={char}
-              talents={talent?.talents}
-              onChange={(key, value) => teamStore.setTalentLevel(selected, key as any, value)}
-            />
-          </div>
+          <AbilityBlock
+            char={char}
+            talents={talent?.talents}
+            onChange={(key, value) => teamStore.setTalentLevel(selected, key as any, value)}
+            onChangeInherent={(key, value) => teamStore.setInherentSkill(selected, key as any, value)}
+          />
         </div>
         <div className="w-1/5 space-y-5">
           <WeaponBlock index={selected} {...teamStore.characters[selected]?.equipments?.weapon} noClear />

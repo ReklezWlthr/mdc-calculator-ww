@@ -144,7 +144,7 @@ const Chixia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       type: 'toggle',
       id: 'chixia_c3',
       text: `S3 Liberation DMG Bonus`,
-      ...talents.c43,
+      ...talents.c3,
       show: c >= 3,
       default: true,
     },

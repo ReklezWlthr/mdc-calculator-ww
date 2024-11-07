@@ -2,6 +2,7 @@ import { getTalentIcon } from '@src/core/utils/fetcher'
 import { ITalentDisplay } from '@src/domain/conditional'
 import { Element } from '@src/domain/constant'
 import { Tooltip } from '@src/presentation/components/tooltip'
+import { TooltipModal } from '@src/presentation/components/tooltip_modal'
 import classNames from 'classnames'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
@@ -26,6 +27,7 @@ interface TalentIconProps {
   type?: string
   energy?: number
   hideTip?: boolean
+  modal?: boolean
 }
 
 export const ElementIconColor = {
@@ -35,7 +37,7 @@ export const ElementIconColor = {
   [Element.SPECTRO]: 'bg-wuwa-spectro ring-wuwa-spectro',
   [Element.HAVOC]: 'bg-wuwa-havoc ring-wuwa-havoc',
   [Element.AERO]: 'bg-wuwa-aero ring-wuwa-aero',
-  'Echo': 'bg-primary ring-primary-light',
+  Echo: 'bg-primary ring-primary-light',
 }
 
 export const TalentIcon = observer(
@@ -52,6 +54,7 @@ export const TalentIcon = observer(
     active = true,
     energy,
     hideTip,
+    modal,
   }: TalentIconProps) => {
     if (!talent)
       return (
@@ -86,8 +89,9 @@ export const TalentIcon = observer(
 
     if (hideTip) return <IconComp />
 
+    const Wrapper = modal ? TooltipModal : Tooltip
     return (
-      <Tooltip
+      <Wrapper
         title={
           <div className="flex items-center justify-between">
             <div className="space-y-0.5">
@@ -132,7 +136,7 @@ export const TalentIcon = observer(
             </div>
           )}
         </div>
-      </Tooltip>
+      </Wrapper>
     )
   }
 )
@@ -141,7 +145,7 @@ export const ScalingWrapper = observer(({ children, talent, element, level }: Sc
   return (
     <div className="flex w-full">
       <div className="flex flex-col items-center justify-center w-1/5 px-2 py-5">
-        <TalentIcon talent={talent} element={element} level={level} type={talent?.trace} />
+        <TalentIcon talent={talent} element={element} level={level} type={talent?.trace} modal />
         <p className="w-full mt-2 font-bold text-center">{talent?.title}</p>
         {level && (
           <p className="text-xs text-gray">
