@@ -121,7 +121,7 @@ export const damageStringConstruct = (
       : ''
   }${
     amp > 0 ? ` \u{00d7} (1 + <b class="text-lime-400">${toPercentage(amp)}</b>  <i class="text-[10px]">AMP</i> )` : ''
-  }${scaling.multiplier > 0 ? ` \u{00d7} <b class="text-indigo-300">${toPercentage(scaling.multiplier, 2)}</b>` : ''}${
+  }${scaling.multiplier && scaling.multiplier !== 1 ? ` \u{00d7} <b class="text-indigo-300">${toPercentage(scaling.multiplier, 2)}</b>` : ''}${
     elementAmp > 1 ? ` \u{00d7} <b class="text-amber-400">${toPercentage(elementAmp, 2)}</b>` : ''
   }${
     isDamage

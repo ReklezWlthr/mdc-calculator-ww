@@ -182,16 +182,8 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
     },
     {
       type: 'toggle',
-      id: 'xly_c2',
-      text: `S2 Crit DMG Bonus`,
-      ...talents.c2,
-      show: c >= 2,
-      default: true,
-    },
-    {
-      type: 'toggle',
       id: 'lumi_c5',
-      text: `S5 Lasre DMG Bonus`,
+      text: `S5 Laser DMG Bonus`,
       ...talents.c5,
       show: c >= 5,
       default: true,
