@@ -289,6 +289,7 @@ const Yinlin = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           element: Element.ELECTRO,
           property: TalentProperty.SKILL,
           multiplier: c >= 3 ? 1.55 : 1,
+          coord: true
         },
       ]
       base.INTRO_SCALING = [

@@ -1,4 +1,4 @@
-import { findBaseLevel, findMaxLevel, getBaseStat } from '@src/core/utils/data_format'
+import { findBaseLevel, findMaxLevel, getBaseDef, getBaseStat } from '@src/core/utils/data_format'
 import { findCharacter } from '@src/core/utils/finder'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { observer } from 'mobx-react-lite'
@@ -8,12 +8,11 @@ import { RarityGauge } from '@src/presentation/components/rarity_gauge'
 import _ from 'lodash'
 import ConditionalsObject from '@src/data/lib/stats/conditionals/conditionals'
 import { TalentIcon } from './tables/scaling_wrapper'
-import { StatIcons, Stats, TravelerIconName } from '@src/domain/constant'
+import { StatIcons, Stats } from '@src/domain/constant'
 import { useParams } from '@src/core/hooks/useParams'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
 import { toPercentage } from '@src/core/utils/converter'
-import { getElementImage, getGachaAvatar, getTalentWeaponImage } from '@src/core/utils/fetcher'
-import { AscensionGrowth } from '@src/domain/scaling'
+import { getAvatar, getElementImage, getGachaAvatar, getTalentWeaponImage } from '@src/core/utils/fetcher'
 import getConfig from 'next/config'
 import { CharDetailModal } from './modals/char_detail_modal'
 
@@ -26,10 +25,9 @@ export const CharDetail = observer(() => {
   const charUpgrade = _.find(charStore.characters, ['cId', selected])
   const cond = _.find(ConditionalsObject, ['id', charStore.selected])?.conditionals(
     charUpgrade?.cons || 0,
-    charUpgrade?.ascension,
-    charUpgrade?.talents || { normal: 1, skill: 1, burst: 1 },
-    teamStore.characters,
-    settingStore.settings.travelerGender
+    charUpgrade?.i || { i1: false, i2: false },
+    charUpgrade?.talents || { normal: 1, skill: 1, lib: 1, forte: 1, intro: 1 },
+    teamStore.characters
   )
   const talent = cond.talents
 
@@ -74,16 +72,8 @@ export const CharDetail = observer(() => {
 
   const baseLevel = params.asc === 7 ? 90 : findBaseLevel(params.asc)
   const asc = _.min([params.asc, 6])
-  const ascStat = _.max([0, asc - 2]) * AscensionGrowth[data?.stat?.ascStat]?.[data?.rarity - 4]
 
-  const iconCodeName = data?.codeName === 'Player' ? TravelerIconName[data.element] : data?.codeName
   const fCodeName = data?.codeName === 'Player' ? settingStore.settings.travelerGender : data?.codeName
-  const conName =
-    data?.codeName === 'Player'
-      ? settingStore?.settings?.travelerGender === 'zhujuenan'
-        ? 'Viator'
-        : 'Viatrix'
-      : data?.constellation
 
   const onOpenEditModal = useCallback(
     () => modalStore.openModal(<CharDetailModal char={charUpgrade} cId={selected} />),
@@ -103,11 +93,11 @@ export const CharDetail = observer(() => {
             <i className="text-6xl animate-spin fa-solid fa-circle-notch text-gray" />
           </div>
           <img
-            src={getGachaAvatar(fCodeName)}
+            src={getAvatar(fCodeName)}
             className={
               loading
                 ? 'hidden'
-                : 'block h-full object-cover overflow-visible -z-20 relative object-[35%] pointer-events-none'
+                : 'block h-full object-cover overflow-visible -z-20 relative pointer-events-none mx-auto'
             }
             onLoad={() => setLoading(false)}
           />
@@ -117,7 +107,7 @@ export const CharDetail = observer(() => {
             <div className="flex gap-4">
               <img
                 src={getElementImage(data.element)}
-                className="w-10 h-10 p-1 bg-opacity-75 rounded-full shrink-0 bg-primary-bg"
+                className="w-10 h-10 rounded-full shrink-0"
               />
               <img
                 src={getTalentWeaponImage(data.weapon)}
@@ -155,38 +145,16 @@ export const CharDetail = observer(() => {
             </div>
           </div>
           <div className="relative grid grid-cols-2 gap-2 px-5 py-3 text-xs rounded-lg bg-opacity-80 bg-primary-dark">
-            <img
-              src={`${publicRuntimeConfig.BASE_PATH}/asset/cons/${conName?.replaceAll(' ', '_')}_Shape.webp`}
-              className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full opacity-45 h-[170px] top-1/2 left-1/2 saturate-0 brightness-150"
-              onError={(e) => (e.currentTarget.style.display = 'none')}
-              onLoad={(e) => (e.currentTarget.style.display = 'block')}
-            />
             <b>Base HP</b>
             <p className="text-center">
-              {_.round(
-                getBaseStat(data?.stat?.baseHp, baseLevel, data?.stat?.ascHp, asc, data?.rarity)
-              ).toLocaleString()}
+              {_.round(getBaseStat(Stats.HP, data?.stat?.baseHp, baseLevel, asc)).toLocaleString()}
             </p>
             <b>Base ATK</b>
             <p className="text-center">
-              {_.round(
-                getBaseStat(data?.stat?.baseAtk, baseLevel, data?.stat?.ascAtk, asc, data?.rarity)
-              ).toLocaleString()}
+              {_.round(getBaseStat(Stats.ATK, data?.stat?.baseAtk, baseLevel, asc)).toLocaleString()}
             </p>
             <b>Base DEF</b>
-            <p className="text-center">
-              {_.round(
-                getBaseStat(data?.stat?.baseDef, baseLevel, data?.stat?.ascDef, asc, data?.rarity)
-              ).toLocaleString()}
-            </p>
-            <b>Max Energy</b>
-            <p className="text-center">{data?.stat?.energy}</p>
-            <b>{data?.stat?.ascStat}</b>
-            <p className="text-center">{data?.stat?.ascStat === Stats.EM ? ascStat : toPercentage(ascStat)}</p>
-            <b>Nation</b>
-            <p className="text-center">{data?.region}</p>
-            <b>Constellation</b>
-            <p className="text-center">{conName}</p>
+            <p className="text-center">{_.round(getBaseDef(data?.stat?.baseDef, baseLevel, asc)).toLocaleString()}</p>
           </div>
           <div className="flex items-center justify-between">
             <div className="px-3 py-1 rounded-lg bg-opacity-80 bg-primary-dark">
@@ -213,21 +181,23 @@ export const CharDetail = observer(() => {
                 <div className="px-5 space-y-1">
                   <div className="flex justify-between">
                     <p>Normal Attack</p>
-                    <p className={cond.upgrade?.normal ? 'text-blue' : 'text-desc'}>
-                      {charUpgrade.talents?.normal + (cond.upgrade?.normal ? 3 : 0)}
-                    </p>
+                    <p className="text-desc">{charUpgrade.talents?.normal}</p>
                   </div>
                   <div className="flex justify-between">
-                    <p>Elemental Skill</p>
-                    <p className={cond.upgrade?.skill ? 'text-blue' : 'text-desc'}>
-                      {charUpgrade.talents?.skill + (cond.upgrade?.skill ? 3 : 0)}
-                    </p>
+                    <p>Resonance Skill</p>
+                    <p className="text-desc">{charUpgrade.talents?.skill}</p>
                   </div>
                   <div className="flex justify-between">
-                    <p>Elemental Burst</p>
-                    <p className={cond.upgrade?.burst ? 'text-blue' : 'text-desc'}>
-                      {charUpgrade.talents?.burst + (cond.upgrade?.burst ? 3 : 0)}
-                    </p>
+                    <p>Resonance Liberation</p>
+                    <p className="text-desc">{charUpgrade.talents?.lib}</p>
+                  </div>
+                  <div className="flex justify-between">
+                    <p>Forte Circuit</p>
+                    <p className="text-desc">{charUpgrade.talents?.forte}</p>
+                  </div>
+                  <div className="flex justify-between">
+                    <p>Intro Skill</p>
+                    <p className="text-desc">{charUpgrade.talents?.intro}</p>
                   </div>
                 </div>
               </div>
@@ -241,7 +211,7 @@ export const CharDetail = observer(() => {
         <span className="text-desc">✦</span> Talents <span className="text-desc">✦</span>
       </p>
       <div className="grid gap-6 ml-2">
-        {_.map(_.omit(talent, 'a1', 'a4', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6'), (item) => {
+        {_.map(_.omit(talent, 'i1', 'i2', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6'), (item) => {
           return (
             item && (
               <div className="flex gap-x-3" key={item.trace}>
@@ -288,7 +258,7 @@ export const CharDetail = observer(() => {
           <span className="text-desc">✦</span> Ascension Passives <span className="text-desc">✦</span>
         </p>
         <div className="flex flex-col gap-5">
-          {_.map([talent.a1, talent.a4], (item) => (
+          {_.map([talent.i1, talent.i2], (item) => (
             <div className="flex gap-x-3" key={item.trace}>
               <TalentIcon element={data.element} talent={item} size="w-10 h-10" hideTip />
               <div>
@@ -303,7 +273,7 @@ export const CharDetail = observer(() => {
           ))}
         </div>
         <p className="flex justify-center gap-2 mb-1 text-2xl font-bold">
-          <span className="text-desc">✦</span> Constellations <span className="text-desc">✦</span>
+          <span className="text-desc">✦</span> Resonance Chain <span className="text-desc">✦</span>
         </p>
         <div className="flex flex-col gap-5">
           {_.map([talent.c1, talent.c2, talent.c3, talent.c4, talent.c5, talent.c6], (item, i) => (

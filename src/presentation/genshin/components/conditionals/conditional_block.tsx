@@ -74,7 +74,7 @@ export const ConditionalBlock = observer(
                             <div className="space-y-0.5">
                               <p className="text-xs font-normal opacity-75 text-gray">
                                 {findCharacter(team[content.owner || content.index]?.cId)?.name} -{' '}
-                                {content.trace || 'Artifact'}
+                                {content.trace}
                               </p>
                               <p>{content.title}</p>
                             </div>
@@ -116,11 +116,7 @@ export const ConditionalBlock = observer(
                       <div className="flex items-center justify-center col-span-2">
                         <CheckboxInput
                           checked={form[content.index]?.[content.id]}
-                          onClick={(v) => {
-                            set(content.index, content.id, v)
-                            if (content.id === 'melt_forward') set(content.index, 'vape_reverse', false)
-                            if (content.id === 'vape_reverse') set(content.index, 'melt_forward', false)
-                          }}
+                          onClick={(v) => set(content.index, content.id, v)}
                         />
                       </div>
                     )}
@@ -128,16 +124,9 @@ export const ConditionalBlock = observer(
                       <div className="flex items-center justify-center col-span-4">
                         <SelectInput
                           value={form[content.index]?.[content.id]}
-                          options={
-                            content.options || [
-                              { name: Element.PYRO, value: Element.PYRO },
-                              { name: Element.HYDRO, value: Element.HYDRO },
-                              { name: Element.CRYO, value: Element.CRYO },
-                              { name: Element.ELECTRO, value: Element.ELECTRO },
-                            ]
-                          }
+                          options={content.options || []}
                           onChange={(value) => set(content.index, content.id, value)}
-                          placeholder='None'
+                          placeholder="None"
                           small
                         />
                       </div>
@@ -147,14 +136,7 @@ export const ConditionalBlock = observer(
                         <div className="w-full">
                           <TagSelectInput
                             values={form[content.index]?.[content.id]}
-                            options={
-                              content.options || [
-                                { name: Element.PYRO, value: Element.PYRO },
-                                { name: Element.HYDRO, value: Element.HYDRO },
-                                { name: Element.CRYO, value: Element.CRYO },
-                                { name: Element.ELECTRO, value: Element.ELECTRO },
-                              ]
-                            }
+                            options={content.options || []}
                             onChange={(value) => set(content.index, content.id, value)}
                             placeholder="None"
                             renderAsText

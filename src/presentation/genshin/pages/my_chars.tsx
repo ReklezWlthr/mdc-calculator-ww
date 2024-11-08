@@ -2,18 +2,14 @@ import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { useParams } from '@src/core/hooks/useParams'
-import React, { useCallback, useMemo, useState } from 'react'
-import { findCharacter } from '@src/core/utils/finder'
+import React, { useMemo } from 'react'
 import { Characters } from '@src/data/db/characters'
 import { RarityGauge } from '@src/presentation/components/rarity_gauge'
 import classNames from 'classnames'
-import conditionals from '@src/data/lib/stats/conditionals/conditionals'
-import { getBaseStat } from '@src/core/utils/data_format'
-import { AscensionGrowth } from '@src/domain/scaling'
-import { Element, TravelerIconName, WeaponIcon, WeaponType } from '@src/domain/constant'
+import { Element, WeaponType } from '@src/domain/constant'
 import { TextInput } from '@src/presentation/components/inputs/text_input'
 import { CharDetail } from '../components/char_detail'
-import { getAvatar, getElementImage, getTalentWeaponImage } from '@src/core/utils/fetcher'
+import { getElementImage, getSideAvatar, getTalentWeaponImage } from '@src/core/utils/fetcher'
 
 export const MyCharacters = observer(() => {
   const { charStore, settingStore } = useStore()
@@ -76,26 +72,25 @@ export const MyCharacters = observer(() => {
           </div>
           <div className="flex items-center gap-5">
             <div className="flex gap-1">
-              <FilterIcon type="element" value={Element.ANEMO} />
-              <FilterIcon type="element" value={Element.PYRO} />
-              <FilterIcon type="element" value={Element.HYDRO} />
-              <FilterIcon type="element" value={Element.CRYO} />
+              <FilterIcon type="element" value={Element.FUSION} />
+              <FilterIcon type="element" value={Element.GLACIO} />
               <FilterIcon type="element" value={Element.ELECTRO} />
-              <FilterIcon type="element" value={Element.GEO} />
-              <FilterIcon type="element" value={Element.DENDRO} />
+              <FilterIcon type="element" value={Element.AERO} />
+              <FilterIcon type="element" value={Element.SPECTRO} />
+              <FilterIcon type="element" value={Element.HAVOC} />
             </div>
             <div className="flex gap-1">
               <FilterIcon type="weapon" value={WeaponType.SWORD} />
-              <FilterIcon type="weapon" value={WeaponType.CLAYMORE} />
-              <FilterIcon type="weapon" value={WeaponType.POLEARM} />
-              <FilterIcon type="weapon" value={WeaponType.BOW} />
-              <FilterIcon type="weapon" value={WeaponType.CATALYST} />
+              <FilterIcon type="weapon" value={WeaponType.BROADBLADE} />
+              <FilterIcon type="weapon" value={WeaponType.PISTOLS} />
+              <FilterIcon type="weapon" value={WeaponType.GAUNTLET} />
+              <FilterIcon type="weapon" value={WeaponType.RECTIFIER} />
             </div>
           </div>
           <div className="grid grid-cols-4 gap-3 pr-2 mt-1 rounded-lg customScrollbar">
             {_.map(filteredChar, (item) => {
               const owned = _.includes(_.map(charStore.characters, 'cId'), item.id)
-              const codeName = item.codeName === 'Player' ? settingStore.settings.travelerGender : item.codeName
+              const codeName = item.order === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : item.order
               return (
                 <div
                   className={classNames(
@@ -106,13 +101,10 @@ export const MyCharacters = observer(() => {
                   key={item.name}
                 >
                   <div className={classNames('relative', owned ? 'opacity-100' : 'opacity-30')}>
-                    <img
-                      src={getElementImage(item.element)}
-                      className="absolute w-6 h-6 top-1 left-1"
-                    />
+                    <img src={getElementImage(item.element)} className="absolute w-6 h-6 top-1 left-1" />
                     {owned && (
                       <div className="absolute px-1.5 py-1 rounded-full top-1 right-1 bg-primary-light font-bold">
-                        C{_.find(charStore.characters, ['cId', item.id])?.cons || 0}
+                        S{_.find(charStore.characters, ['cId', item.id])?.cons || 0}
                       </div>
                     )}
                     {item.beta && (
@@ -121,10 +113,10 @@ export const MyCharacters = observer(() => {
                       </div>
                     )}
                     <div className="absolute bg-primary-darker px-1 rounded-full right-1 bottom-0.5">
-                      <RarityGauge rarity={item.rarity} isSpecial={item.region === 'Unknown'} textSize="text-[10px]" />
+                      <RarityGauge rarity={item.rarity} textSize="text-[10px]" />
                     </div>
                     <img
-                      src={getAvatar(codeName)}
+                      src={getSideAvatar(codeName)}
                       className="object-contain rounded-t-lg bg-primary-darker aspect-square"
                     />
                   </div>

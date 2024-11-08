@@ -16,6 +16,7 @@ export interface IScaling {
   self?: boolean //Define if self-heal
   sum?: number
   hit?: number
+  coord?: boolean
 }
 
 export interface IEnemyGroup {
@@ -51,6 +52,7 @@ export interface IContent {
   debuff?: boolean
   options?: { name: string; value: string }[]
   sync?: boolean
+  single?: boolean
 }
 
 export interface IWeaponContent {

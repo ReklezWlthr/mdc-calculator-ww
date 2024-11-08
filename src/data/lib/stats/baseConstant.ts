@@ -48,6 +48,7 @@ export const baseStatsObject = {
   [Stats.SPECTRO_DMG]: [] as StatsArray[],
   [Stats.HAVOC_DMG]: [] as StatsArray[],
   [Stats.ALL_DMG]: [] as StatsArray[],
+  [Stats.ATTR_DMG]: [] as StatsArray[],
 
   AMP: [] as StatsArray[],
   FUSION_AMP: [] as StatsArray[],
@@ -102,6 +103,8 @@ export const baseStatsObject = {
   [Stats.HEAVY_DMG]: [] as StatsArray[],
   [Stats.SKILL_DMG]: [] as StatsArray[],
   [Stats.LIB_DMG]: [] as StatsArray[],
+  [Stats.DODGE_DMG]: [] as StatsArray[],
+  [Stats.OUTRO_DMG]: [] as StatsArray[],
 
   BASIC_MULT: [] as StatsArray[],
   HEAVY_MULT: [] as StatsArray[],

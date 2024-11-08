@@ -59,12 +59,30 @@ export const StatBlock = observer(({ stat }: StatBlockProps) => {
       <DataRow title="Heavy ATK DMG%" value={toPercentage(stat?.getValue(Stats.HEAVY_DMG))} />
       <DataRow title="Skill DMG%" value={toPercentage(stat?.getValue(Stats.SKILL_DMG))} />
       <DataRow title="Liberation DMG%" value={toPercentage(stat?.getValue(Stats.LIB_DMG))} />
-      <DataRow title="Fusion DMG%" value={toPercentage(stat?.getValue(Stats.FUSION_DMG))} />
-      <DataRow title="Glacio DMG%" value={toPercentage(stat?.getValue(Stats.GLACIO_DMG))} />
-      <DataRow title="Electro DMG%" value={toPercentage(stat?.getValue(Stats.ELECTRO_DMG))} />
-      <DataRow title="Aero DMG%" value={toPercentage(stat?.getValue(Stats.AERO_DMG))} />
-      <DataRow title="Spectro DMG%" value={toPercentage(stat?.getValue(Stats.SPECTRO_DMG))} />
-      <DataRow title="Havoc DMG%" value={toPercentage(stat?.getValue(Stats.HAVOC_DMG))} />
+      <DataRow
+        title="Glacio DMG%"
+        value={toPercentage(stat?.getValue(Stats.GLACIO_DMG) + stat?.getValue(Stats.ATTR_DMG))}
+      />
+      <DataRow
+        title="Fusion DMG%"
+        value={toPercentage(stat?.getValue(Stats.FUSION_DMG) + stat?.getValue(Stats.ATTR_DMG))}
+      />
+      <DataRow
+        title="Electro DMG%"
+        value={toPercentage(stat?.getValue(Stats.ELECTRO_DMG) + stat?.getValue(Stats.ATTR_DMG))}
+      />
+      <DataRow
+        title="Aero DMG%"
+        value={toPercentage(stat?.getValue(Stats.AERO_DMG) + stat?.getValue(Stats.ATTR_DMG))}
+      />
+      <DataRow
+        title="Spectro DMG%"
+        value={toPercentage(stat?.getValue(Stats.SPECTRO_DMG) + stat?.getValue(Stats.ATTR_DMG))}
+      />
+      <DataRow
+        title="Havoc DMG%"
+        value={toPercentage(stat?.getValue(Stats.HAVOC_DMG) + stat?.getValue(Stats.ATTR_DMG))}
+      />
       <DataRow title="DMG%" value={toPercentage(stat?.getValue(Stats.ALL_DMG))} />
       <DataRow title="Healing Bonus" value={toPercentage(stat?.getValue(Stats.HEAL))} />
       <DataRow title="Energy Regen" value={toPercentage(stat?.getValue(Stats.ER))} />

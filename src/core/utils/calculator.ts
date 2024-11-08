@@ -2,7 +2,7 @@ import { getBaseDef, getBaseStat, getMainStat, getSetCount, getWeaponBase, getWe
 import _ from 'lodash'
 import { Element, IArtifactEquip, ITeamChar, IWeaponEquip, Stats, WeaponType } from '@src/domain/constant'
 import { findCharacter, findWeapon } from '../utils/finder'
-import { Echoes } from '@src/data/db/artifacts'
+import { Echoes, SonataDetail } from '@src/data/db/artifacts'
 import { baseStatsObject, StatsObject } from '@src/data/lib/stats/baseConstant'
 import WeaponBonus from '@src/data/lib/stats/conditionals/weapons/weapon_bonus'
 
@@ -49,7 +49,7 @@ export const calculateBase = (conditionals: StatsObject, char: ITeamChar, weapon
   conditionals.BASE_ATK_C = charBaseAtk
   conditionals.BASE_ATK_L = weaponBaseAtk
   conditionals.BASE_HP = getBaseStat(Stats.HP, character?.stat?.baseHp, char?.level, char?.ascension)
-  conditionals.BASE_DEF = getBaseDef(character?.stat?.baseDef, char?.level, char?.ascension, character?.rarity)
+  conditionals.BASE_DEF = getBaseDef(character?.stat?.baseDef, char?.level, char?.ascension)
 
   // Get Ascension
   conditionals[weaponData?.ascStat]?.push({
@@ -85,7 +85,7 @@ export const addArtifactStats = (conditionals: StatsObject, artifacts: IArtifact
     _.flatMap(artifacts, (item) => item.subList),
     (acc, curr) => {
       if (!acc[curr?.stat]) acc[curr?.stat] = 0
-      acc[curr?.stat] += curr.value / (_.includes([Stats.ATK, Stats.HP], curr?.stat) ? 1 : 100)
+      acc[curr?.stat] += curr.value
       return acc
     },
     {} as Record<Stats, number>
@@ -111,6 +111,26 @@ export const addArtifactStats = (conditionals: StatsObject, artifacts: IArtifact
         source: 'Echo',
         value: getMainStat(Stats.ATK, a?.quality, a?.level, a.cost),
       })
+    }
+  })
+  _.forEach(setBonus, (count, sonata) => {
+    if (count >= 2) {
+      const bonus = SonataDetail[sonata]?.[0]?.bonus
+      if (bonus)
+        conditionals[bonus.stat].push({
+          name: `2 Piece`,
+          source: sonata,
+          value: bonus.value,
+        })
+    }
+    if (count >= 5) {
+      const bonus = SonataDetail[sonata]?.[1]?.bonus
+      if (bonus)
+        conditionals[bonus.stat].push({
+          name: `5 Piece`,
+          source: sonata,
+          value: bonus.value,
+        })
     }
   })
 

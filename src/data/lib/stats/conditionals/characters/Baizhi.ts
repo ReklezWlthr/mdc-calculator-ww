@@ -224,7 +224,7 @@ const Baizhi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       base.HEAVY_SCALING = [
         {
           name: 'Heavy Attack DMG',
-          value: [{ scaling: calcScaling(0.2458, lib), multiplier: Stats.ATK }],
+          value: [{ scaling: calcScaling(0.2458, normal), multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.HA,
         },
@@ -276,6 +276,7 @@ const Baizhi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           ],
           element: Element.GLACIO,
           property: TalentProperty.LIB,
+          coord: true,
         },
         {
           name: 'Remnant Entities Healing',

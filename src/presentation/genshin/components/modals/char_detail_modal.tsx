@@ -39,13 +39,7 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
     [params.ascension]
   )
 
-  const talent = _.find(ConditionalsObject, ['id', cId])?.conditionals(
-    params?.cons,
-    params?.ascension,
-    params?.talents,
-    [],
-    settingStore.settings.travelerGender
-  )
+  const talent = _.find(ConditionalsObject, ['id', cId])?.conditionals(params?.cons, params?.i, params?.talents, [])
 
   const maxTalentLevel = (asc: number) => _.max([1, (asc - 1) * 2])
   const talentLevels = _.map(Array(maxTalentLevel(params.ascension)), (_, index) => ({
@@ -158,7 +152,6 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
             talent={talent?.talents?.normal}
             element={charData?.element}
             size="w-9 h-9"
-            upgraded={talent?.upgrade?.normal}
             showUpgrade
             hideTip
             type={talent?.talents?.basic?.trace}
@@ -179,14 +172,13 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
             talent={talent?.talents?.skill}
             element={charData?.element}
             size="w-9 h-9"
-            upgraded={talent?.upgrade?.skill}
             level={char?.talents?.skill}
             showUpgrade
             hideTip
             type={talent?.talents?.skill?.trace}
           />
           <div>
-            <p className="text-xs text-primary-lighter">Elemental Skill</p>
+            <p className="text-xs text-primary-lighter">Res. Skill</p>
             <SelectInput
               value={params?.talents?.skill?.toString()}
               onChange={(value) => setParams({ talents: { ...params.talents, skill: parseInt(value) } })}
@@ -196,22 +188,67 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
             />
           </div>
         </div>
+      </div>
+      <div className="flex items-center justify-center gap-5">
         <div className="flex items-center justify-center gap-4">
           <TalentIcon
-            talent={talent?.talents?.burst}
+            talent={talent?.talents?.forte}
             element={charData?.element}
             size="w-9 h-9"
-            upgraded={talent?.upgrade?.burst}
-            level={char?.talents?.burst}
+            level={char?.talents?.forte}
             showUpgrade
             hideTip
-            type={talent?.talents?.ult?.trace}
+            type={talent?.talents?.forte?.trace}
           />
           <div>
-            <p className="text-xs text-primary-lighter">Elemental Burst</p>
+            <p className="text-xs text-primary-lighter">Forte Circuit</p>
             <SelectInput
-              value={params?.talents?.burst?.toString()}
-              onChange={(value) => setParams({ talents: { ...params.talents, burst: parseInt(value) } })}
+              value={params?.talents?.forte?.toString()}
+              onChange={(value) => setParams({ talents: { ...params.talents, forte: parseInt(value) } })}
+              options={talentLevels}
+              style="w-14"
+              disabled={!charData}
+            />
+          </div>
+        </div>
+      </div>
+      <div className="flex items-center justify-center gap-5">
+        <div className="flex items-center justify-center gap-4">
+          <TalentIcon
+            talent={talent?.talents?.lib}
+            element={charData?.element}
+            size="w-9 h-9"
+            level={char?.talents?.lib}
+            showUpgrade
+            hideTip
+            type={talent?.talents?.lib?.trace}
+          />
+          <div>
+            <p className="text-xs text-primary-lighter">Liberation</p>
+            <SelectInput
+              value={params?.talents?.lib?.toString()}
+              onChange={(value) => setParams({ talents: { ...params.talents, lib: parseInt(value) } })}
+              options={talentLevels}
+              style="w-14"
+              disabled={!charData}
+            />
+          </div>
+        </div>
+        <div className="flex items-center justify-center gap-4">
+          <TalentIcon
+            talent={talent?.talents?.intro}
+            element={charData?.element}
+            size="w-9 h-9"
+            level={char?.talents?.intro}
+            showUpgrade
+            hideTip
+            type={talent?.talents?.intro?.trace}
+          />
+          <div>
+            <p className="text-xs text-primary-lighter">Intro Skill</p>
+            <SelectInput
+              value={params?.talents?.intro?.toString()}
+              onChange={(value) => setParams({ talents: { ...params.talents, intro: parseInt(value) } })}
               options={talentLevels}
               style="w-14"
               disabled={!charData}

@@ -262,6 +262,7 @@ const Mortefi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
           property: TalentProperty.LIB,
           bonus: form.mortefi_i2 ? 0.015 * form.mortefi_i2 : 0,
           cd: c >= 3 ? 0.3 : 0,
+          coord: true,
         },
       ]
       base.FORTE_SCALING = [
@@ -291,6 +292,7 @@ const Mortefi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
           bonus: form.mortefi_i2 ? 0.015 * form.mortefi_i2 : 0,
           cd: c >= 3 ? 0.3 : 0,
           multiplier: 0.5,
+          coord: true,
         })
       }
       if (form.mortefi_c6) {

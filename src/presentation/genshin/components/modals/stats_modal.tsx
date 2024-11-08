@@ -191,18 +191,44 @@ export const StatsModal = observer(
           <div className="grid grid-cols-2 gap-10">
             <div className="space-y-2">
               <AttributeBlock stats={stats} stat="All-Type DMG Bonus" array={stats[Stats.ALL_DMG]} />
-              <AttributeBlock stats={stats} stat="Fusion DMG Bonus" array={stats[Stats.FUSION_DMG]} />
-              <AttributeBlock stats={stats} stat="Glacio DMG Bonus" array={stats[Stats.GLACIO_DMG]} />
-              <AttributeBlock stats={stats} stat="Electro DMG Bonus" array={stats[Stats.ELECTRO_DMG]} />
-              <AttributeBlock stats={stats} stat="Aero DMG Bonus" array={stats[Stats.AERO_DMG]} />
-              <AttributeBlock stats={stats} stat="Spectro DMG Bonus" array={stats[Stats.SPECTRO_DMG]} />
-              <AttributeBlock stats={stats} stat="Havoc DMG Bonus" array={stats[Stats.HAVOC_DMG]} />
+              <AttributeBlock
+                stats={stats}
+                stat="Glacio DMG Bonus"
+                array={_.concat(stats[Stats.GLACIO_DMG], stats[Stats.ATTR_DMG])}
+              />
+              <AttributeBlock
+                stats={stats}
+                stat="Fusion DMG Bonus"
+                array={_.concat(stats[Stats.FUSION_DMG], stats[Stats.ATTR_DMG])}
+              />
+              <AttributeBlock
+                stats={stats}
+                stat="Electro DMG Bonus"
+                array={_.concat(stats[Stats.ELECTRO_DMG], stats[Stats.ATTR_DMG])}
+              />
+              <AttributeBlock
+                stats={stats}
+                stat="Aero DMG Bonus"
+                array={_.concat(stats[Stats.AERO_DMG], stats[Stats.ATTR_DMG])}
+              />
+              <AttributeBlock
+                stats={stats}
+                stat="Spectro DMG Bonus"
+                array={_.concat(stats[Stats.SPECTRO_DMG], stats[Stats.ATTR_DMG])}
+              />
+              <AttributeBlock
+                stats={stats}
+                stat="Havoc DMG Bonus"
+                array={_.concat(stats[Stats.HAVOC_DMG], stats[Stats.ATTR_DMG])}
+              />
             </div>
             <div className="space-y-2">
               <AttributeBlock stats={stats} stat="Normal Attack Bonus" array={stats[Stats.BASIC_DMG]} />
               <AttributeBlock stats={stats} stat="Heavy Attack Bonus" array={stats[Stats.HEAVY_DMG]} />
+              <AttributeBlock stats={stats} stat="Dodge Counter DMG Bonus" array={stats[Stats.DODGE_DMG]} />
               <AttributeBlock stats={stats} stat="Res. Skill DMG Bonus" array={stats[Stats.SKILL_DMG]} />
               <AttributeBlock stats={stats} stat="Res. Liberation DMG Bonus" array={stats[Stats.LIB_DMG]} />
+              <AttributeBlock stats={stats} stat="Outro Skill DMG Bonus" array={stats[Stats.OUTRO_DMG]} />
             </div>
           </div>
         </Collapsible>

@@ -31,8 +31,7 @@ export const getBaseStat = (type: string, base: number, level: number = 1, ascen
   return base * scaling[level - 1] + ascBonus
 }
 
-export const getBaseDef = (base: number, level: number = 1, ascension: number = 0, rarity: number) => {
-  if (rarity !== 4 && rarity !== 5) return 0
+export const getBaseDef = (base: number, level: number = 1, ascension: number = 0) => {
   const scaling = DefScaling
   const ascBonus = base * 0.6481
   return base * scaling[level - 1] + ascBonus * ascension
@@ -53,7 +52,7 @@ export const getMainStat = (main: Stats, quality: number, level: number, cost: n
   const actualBase = entry?.values * QualityMultiplier[quality]
   const maxValue = actualBase * 5
   const step = (maxValue - actualBase) / 25
-  return actualBase + (step * level)
+  return actualBase + step * level
 }
 
 export const getSetCount = (artifacts: IArtifactEquip[]) => {
@@ -61,7 +60,7 @@ export const getSetCount = (artifacts: IArtifactEquip[]) => {
     artifacts,
     (acc, curr) => {
       if (!curr) return acc
-      acc[curr.setId] ? (acc[curr.setId] += 1) : (acc[curr.setId] = 1)
+      acc[curr.sonata] ? (acc[curr.sonata] += 1) : (acc[curr.sonata] = 1)
       return acc
     },
     {}
@@ -122,12 +121,12 @@ export const formatWeaponString = (
         acc,
         curr[0],
         showMax
-          ? `<span class="text-blue">${properties[index].base + properties[index].growth * (r - 1)}${
+          ? `<span class="text-blue">${_.floor(properties[index].base + properties[index].growth * (r - 1), 2)}${
               isPercentage ? '%' : ''
-            }</span> <span class="text-desc">(${properties[index].base + properties[index].growth * 4}${
+            }</span> <span class="text-desc">(${_.floor(properties[index].base + properties[index].growth * 4, 2)}${
               isPercentage ? '%' : ''
             })</span>`
-          : `<span class="text-desc">${properties[index].base + properties[index].growth * (r - 1)}${
+          : `<span class="text-desc">${_.floor(properties[index].base + properties[index].growth * (r - 1), 2)}${
               isPercentage ? '%' : ''
             }</span>`
       )

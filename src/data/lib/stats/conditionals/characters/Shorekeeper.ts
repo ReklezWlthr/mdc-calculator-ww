@@ -53,7 +53,7 @@ const Shorekeeper = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel
       <br /><b class="text-purple">Inner Stellarealm</b> has all the effects of the <b class="text-blue">Outer Stellarealm</b>.
       <br />
       <br /><b class="text-wuwa-spectro">Supernal Stellarealm</b>
-      <br />When a party member uses Intro Skill within the <b class="text-purple">Inner Stellarealm</b>, it evolves into the Supernal Stellarealm. Within the effective range of the <b class="text-wuwa-spectro">Supernal Stellarealm</b>, for every <span class="text-desc">0.1%</span> of Shorekeeper's Energy Regen, all party members gain a <span class="text-desc">0.01%</span> increase of Crit. DMG, up to <span class="text-desc">25%</span>.
+      <br />When a party member uses Intro Skill within the <b class="text-purple">Inner Stellarealm</b>, it evolves into the <b class="text-wuwa-spectro">Supernal Stellarealm</b>. Within the effective range of the <b class="text-wuwa-spectro">Supernal Stellarealm</b>, for every <span class="text-desc">0.1%</span> of Shorekeeper's Energy Regen, all party members gain a <span class="text-desc">0.01%</span> increase of Crit. DMG, up to <span class="text-desc">25%</span>.
       <br /><b class="text-wuwa-spectro">Supernal Stellarealm</b> has all the effects of the <b class="text-purple">Inner Stellarealm</b>.
       `,
       image: 'SP_IconShouanrenC1',
@@ -172,7 +172,7 @@ const Shorekeeper = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel
     {
       type: 'toggle',
       id: 'sh_outro',
-      text: `Binary Butterfly Amp`,
+      text: `Binary Butterfly`,
       ...talents.outro,
       show: true,
       default: true,

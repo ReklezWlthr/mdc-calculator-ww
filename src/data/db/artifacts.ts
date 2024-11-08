@@ -1,6 +1,7 @@
 import { calcRefinement } from '@src/core/utils/data_format'
-import { Element, IArtifact, Stats, TalentProperty, WeaponType } from '@src/domain/constant'
+import { Element, IArtifact, Stats, TalentProperty } from '@src/domain/constant'
 import _ from 'lodash'
+import { StatsObject } from '../lib/stats/baseConstant'
 
 export enum Sonata {
   WIND = 'Sierra Gale',
@@ -12,6 +13,91 @@ export enum Sonata {
   ICE = 'Freezing Frost',
   LIGHT = 'Celestial Light',
   FIRE = 'Molten Rift',
+}
+
+export const SonataDetail = {
+  [Sonata.FIRE]: [
+    {
+      desc: `<b class="text-wuwa-fusion">Fusion DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.FUSION_DMG, value: 0.1 },
+    },
+    {
+      desc: `<b class="text-wuwa-fusion">Fusion DMG</b> + <span class="text-desc">30%</span> for <span class="text-desc">15</span>s after releasing Resonance Skill.`,
+    },
+  ],
+  [Sonata.THUNDER]: [
+    {
+      desc: `<b class="text-wuwa-electro">Electro DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.ELECTRO_DMG, value: 0.1 },
+    },
+    {
+      desc: `<b class="text-wuwa-electro">Electro DMG</b> + <span class="text-desc">15%</span> after releasing Heavy Attack or Resonance Skill. This effect stacks up to <span class="text-desc">2</span> times, each stack lasts <span class="text-desc">15</span>s.`,
+    },
+  ],
+  [Sonata.WIND]: [
+    {
+      desc: `<b class="text-wuwa-aero">Aero DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.AERO_DMG, value: 0.1 },
+    },
+    {
+      desc: `<b class="text-wuwa-aero">Aero DMG</b> + <span class="text-desc">30%</span> for <span class="text-desc">15</span>s after releasing Intro Skill.`,
+    },
+  ],
+  [Sonata.HAVOC]: [
+    {
+      desc: `<b class="text-wuwa-havoc">Havoc DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.HAVOC_DMG, value: 0.1 },
+    },
+    {
+      desc: `<b class="text-wuwa-havoc">Havoc DMG</b> + <span class="text-desc">7.5%</span> after releasing Basic Attack or Heavy Attack. This effect stacks up to <span class="text-desc">4</span> times, each stack lasts <span class="text-desc">15</span>s.`,
+    },
+  ],
+  [Sonata.LIGHT]: [
+    {
+      desc: `<b class="text-wuwa-spectro">Spectro DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.SPECTRO_DMG, value: 0.1 },
+    },
+    {
+      desc: `<b class="text-wuwa-spectro">Spectro DMG</b> + <span class="text-desc">30%</span> for <span class="text-desc">15</span>s after releasing Intro Skill.`,
+    },
+  ],
+  [Sonata.ICE]: [
+    {
+      desc: `<b class="text-wuwa-glacio">Glacio DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.GLACIO_DMG, value: 0.1 },
+    },
+    {
+      desc: `<b class="text-wuwa-glacio">Glacio DMG</b> + <span class="text-desc">10%</span> after releasing Basic Attack or Heavy Attack. This effect stacks up to <span class="text-desc">3</span> times, each stack lasts <span class="text-desc">15</span>s.`,
+    },
+  ],
+  [Sonata.HEAL]: [
+    {
+      desc: `Healing Bonus + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.HEAL, value: 0.1 },
+    },
+    {
+      desc: `Increases the ATK of all party members by <span class="text-desc">15%</span> for <span class="text-desc">30</span>s upon healing allies.`,
+    },
+  ],
+  [Sonata.REGEN]: [
+    {
+      desc: `Energy Regen + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.ER, value: 0.1 },
+    },
+    {
+      desc: `Upon using Outro Skill, increases the ATK of the next Resonator by <span class="text-desc">22.5%</span> for <span class="text-desc">15</span>s.`,
+    },
+  ],
+  [Sonata.ATK]: [
+    {
+      desc: `ATK + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.P_ATK, value: 0.1 },
+    },
+    {
+      desc: `While on the field, ATK increases by <span class="text-desc">5%</span> every <span class="text-desc">1.5</span>s. This effect stacks up to <span class="text-desc">4</span> times. Outro Skill DMG + <span class="text-desc">60%</span>.`,
+      bonus: { stat: Stats.OUTRO_DMG, value: 0.6 },
+    },
+  ],
 }
 
 export const Echoes: IArtifact[] = [

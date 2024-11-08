@@ -95,7 +95,7 @@ const Aalto = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
     },
     c2: {
       trace: `Sequence Node 2`,
-      title: `Mistweave'’s Debut`,
+      title: `Mistweave's Debut`,
       content: `<b>Mist Avatar</b> inherits <span class="text-desc">100%</span> more HP from Aalto. When Aalto attacks targets taunted by the <b>Mist Avatar(s)</b>, his ATK is increased by <span class="text-desc">15%</span>.`,
       image: 'T_IconDevice_QiuShuiM2_UI',
     },
@@ -222,11 +222,11 @@ const Aalto = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       base.HEAVY_SCALING = [
         {
           name: 'Aimed Shot DMG',
-          value: [{ scaling: calcScaling(0.18, lib), multiplier: Stats.ATK }],
+          value: [{ scaling: calcScaling(0.18, normal), multiplier: Stats.ATK }],
           element: Element.AERO,
           property: TalentProperty.HA,
           cr: form.aalto_i1 ? 1 : 0,
-          bonus: form.aalto_c6 ? 0.5 : 0
+          bonus: form.aalto_c6 ? 0.5 : 0,
         },
         {
           name: 'Fully Charged Aimed Shot DMG',
@@ -234,7 +234,7 @@ const Aalto = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           element: Element.AERO,
           property: TalentProperty.HA,
           cr: form.aalto_i1 ? 1 : 0,
-          bonus: form.aalto_c6 ? 0.5 : 0
+          bonus: form.aalto_c6 ? 0.5 : 0,
         },
       ]
       base.MID_AIR_SCALING = [
@@ -271,7 +271,15 @@ const Aalto = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           cr: c >= 6 ? 0.08 : 0,
         },
       ]
-      base.FORTE_SCALING = []
+      base.FORTE_SCALING = [
+        {
+          name: 'Mist Bullet DMG',
+          value: [{ scaling: calcScaling(0.3, forte), multiplier: Stats.ATK }],
+          element: Element.AERO,
+          property: TalentProperty.SKILL,
+          bonus: c >= 4 ? 0.3 : 0,
+        },
+      ]
       base.INTRO_SCALING = [
         {
           name: `Feint Shot DMG`,

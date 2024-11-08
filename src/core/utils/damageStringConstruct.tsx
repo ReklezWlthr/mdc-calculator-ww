@@ -35,7 +35,8 @@ export const damageStringConstruct = (
   const talentCr = stats.getValue(`${TalentStatMap[scaling.property]}_CR`) || 0
   const talentCd = stats.getValue(`${TalentStatMap[scaling.property]}_CD`) || 0
   const talentAmp = stats.getValue(`${TalentStatMap[scaling.property]}_AMP`) || 0
-  const elementDmg = stats.getValue(`${element} DMG%`)
+  const elementDmg =
+    stats.getValue(`${element} DMG%`) + (element !== Element.PHYSICAL ? stats?.getValue(Stats.ATTR_DMG) : 0)
   const elementCd = stats.getValue(`${element.toUpperCase()}_CD`) || 0
   const elementFlat = stats.getValue(`${element.toUpperCase()}_F_DMG`) || 0
   const elementAmp = stats.getValue(`${element.toUpperCase()}_AMP`) || 0
@@ -68,7 +69,12 @@ export const damageStringConstruct = (
       : TalentProperty.HEAL === scaling.property
       ? healing
       : stats.getValue(Stats.ALL_DMG) + elementDmg + talentDmg)
-  const amp = isDamage ? talentAmp + elementAmp + stats.getValue(StatsObjectKeys.AMP) : 0
+  const amp = isDamage
+    ? talentAmp +
+      elementAmp +
+      stats.getValue(StatsObjectKeys.AMP) +
+      (scaling.coord ? stats.getValue(StatsObjectKeys.COORD_AMP) : 0)
+    : 0
   const raw =
     _.sumBy(
       scaling.value,
@@ -121,9 +127,11 @@ export const damageStringConstruct = (
       : ''
   }${
     amp > 0 ? ` \u{00d7} (1 + <b class="text-lime-400">${toPercentage(amp)}</b>  <i class="text-[10px]">AMP</i> )` : ''
-  }${scaling.multiplier && scaling.multiplier !== 1 ? ` \u{00d7} <b class="text-indigo-300">${toPercentage(scaling.multiplier, 2)}</b>` : ''}${
-    elementAmp > 1 ? ` \u{00d7} <b class="text-amber-400">${toPercentage(elementAmp, 2)}</b>` : ''
   }${
+    scaling.multiplier && scaling.multiplier !== 1
+      ? ` \u{00d7} <b class="text-indigo-300">${toPercentage(scaling.multiplier, 2)}</b>`
+      : ''
+  }${elementAmp > 1 ? ` \u{00d7} <b class="text-amber-400">${toPercentage(elementAmp, 2)}</b>` : ''}${
     isDamage
       ? ` \u{00d7} <b class="text-orange-300">${toPercentage(
           defMult,

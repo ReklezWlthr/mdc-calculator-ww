@@ -224,7 +224,7 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
                   <p className="font-normal text-gray">
                     {_.includes([Stats.HP, Stats.ATK, Stats.DEF], item.stat)
                       ? _.round(item.value).toLocaleString()
-                      : toPercentage(item.value / 100)}
+                      : toPercentage(item.value)}
                   </p>
                 </div>
               ))}
@@ -238,15 +238,14 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
                 onClick={onOpenEditModal}
                 title="Edit"
               />
-              {props.index >= 0 ||
-                (props.canSwap && (
-                  <MenuButton
-                    icon="fa-solid fa-repeat"
-                    duration="duration-[250ms]"
-                    onClick={onOpenSwapModal}
-                    title="Swap"
-                  />
-                ))}
+              {(props.index >= 0 || props.canSwap) && (
+                <MenuButton
+                  icon="fa-solid fa-repeat"
+                  duration="duration-[250ms]"
+                  onClick={onOpenSwapModal}
+                  title="Swap"
+                />
+              )}
               {props.index >= 0 && (
                 <MenuButton
                   icon="fa-solid fa-arrow-right-from-bracket rotate-90"

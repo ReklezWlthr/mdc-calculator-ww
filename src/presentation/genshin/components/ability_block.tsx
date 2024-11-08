@@ -90,16 +90,19 @@ export const AbilityBlock = observer(({ char, onChange, talents, onChangeInheren
       </p>
       <div className="flex items-center justify-center gap-4 py-2">
         <TalentIcon talent={talents?.i1} element={charData?.element} size="w-9 h-9" hideTip />
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1.5 whitespace-nowrap">
           <p className="text-xs text-primary-lighter">Inherent 1</p>
           <CheckboxInput checked={char?.i?.i1} onClick={(value) => onChangeInherent('i1', value)} />
         </div>
         <TalentIcon talent={talents?.i2} element={charData?.element} size="w-9 h-9" hideTip />
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1.5 whitespace-nowrap">
           <p className="text-xs text-primary-lighter">Inherent 2</p>
           <CheckboxInput checked={char?.i?.i2} onClick={(value) => onChangeInherent('i2', value)} />
         </div>
       </div>
+      <p className="py-3 text-xl font-bold text-center text-white">
+        <span className="mr-2 text-desc">✦</span>Stat Bonus<span className="ml-2 text-desc">✦</span>
+      </p>
     </div>
   )
 })

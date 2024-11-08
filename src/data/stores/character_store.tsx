@@ -14,8 +14,14 @@ export const DefaultCharacterStore = {
   talents: {
     normal: 1,
     skill: 1,
-    burst: 1,
+    lib: 1,
+    forte: 1,
+    intro: 1
   },
+  i: {
+    i1: false,
+    i2: false
+  }
 }
 
 export const DefaultAccount = [

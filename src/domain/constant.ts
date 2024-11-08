@@ -228,6 +228,9 @@ export enum Stats {
   HEAVY_DMG = 'Heavy Attack DMG%',
   SKILL_DMG = 'Res. Skill DMG%',
   LIB_DMG = 'Res. Liberation DMG%',
+  DODGE_DMG = 'Dodge Counter DMG%',
+  ATTR_DMG = 'Attribute DMG%',
+  OUTRO_DMG = 'Outro DMG%',
 }
 
 export const StatIcons = {

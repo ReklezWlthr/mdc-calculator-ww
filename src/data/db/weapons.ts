@@ -400,8 +400,9 @@ export const Weapons = [
     type: WeaponType.SWORD,
     desc: {
       name: 'Beyond the Cycle',
-      detail: `Increase ATK by {{0}}%. When dealing Basic Attack DMG, the wielder gains {{0}}% Basic Attack DMG Bonus for <span class="text-desc">12</span>s. This effect can be triggered once per second, stacking up to <span class="text-desc">5</span> times.`,
-      properties: [{ base: 12, growth: 3 }],
+      detail: `Increase ATK by {{0}}%. When dealing Basic Attack DMG, the wielder gains {{0}}% Basic Attack DMG Bonus for <span class="text-desc">14</span>s. This effect can be triggered once per second, stacking up to <span class="text-desc">3</span> times.
+      <br />When the wielder's Concerto Energy is consumed, gain {{1}}% Basic DMG Bonus for <span class="text-desc">10</span>s. This effect can be triggered once per second and ends when the wielder is switched off the field.`,
+      properties: [{ base: 10, growth: 2.5 }, { base: 40, growth: 10 }],
     },
     beta: false,
   },
@@ -589,7 +590,7 @@ export const Weapons = [
     baseStat: 0.054,
     type: WeaponType.PISTOLS,
     desc: {
-      name: 'Alarcrity',
+      name: 'Alacrity',
       detail: `When Dodge Counter is cast, heals {{0}}% of the Resonator's Max HP. This effect can be triggered <span class="text-desc">1</span> time(s) every <span class="text-desc">6</span>s.`,
       properties: [{ base: 1.6, growth: 0.4 }],
     },
@@ -811,7 +812,7 @@ export const Weapons = [
     baseStat: 0.09,
     type: WeaponType.GAUNTLET,
     desc: {
-      name: 'Rejuvinate',
+      name: 'Rejuvenate',
       detail: `When dealing Basic Attack DMG, heals {{0}}% of the Resonator's Max HP. This effect can be triggered <span class="text-desc">1</span> time(s) every <span class="text-desc">3</span>s.`,
       properties: [{ base: 0.5, growth: 0.15 }],
     },

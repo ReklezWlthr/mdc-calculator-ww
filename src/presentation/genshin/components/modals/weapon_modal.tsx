@@ -36,7 +36,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
   const filteredWeapon = useMemo(
     () =>
       _.filter(
-        Weapons.sort((a, b) => a.name.localeCompare(b.name)),
+        _.orderBy(Weapons, ['rarity', 'name'], ['desc', 'asc']),
         (item) => {
           const regex = new RegExp(params.searchWord, 'i')
           const nameMatch = item.name.match(regex)

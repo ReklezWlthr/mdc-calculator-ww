@@ -15,6 +15,7 @@ export const Characters = [
     codeName: 'shanhua',
     order: '7',
     tags: [Tags.CONCERTO, Tags.BA_AMP],
+    growth: [Stats.P_ATK, Stats.GLACIO_DMG],
     beta: false,
   },
   {
@@ -31,6 +32,7 @@ export const Characters = [
     codeName: 'bailian',
     order: '6',
     tags: [Tags.SUPPORT, Tags.COORD, Tags.AMP],
+    growth: [Stats.P_HP, Stats.HEAL],
     beta: false,
   },
   {
@@ -47,6 +49,7 @@ export const Characters = [
     codeName: 'lingyang',
     order: '14',
     tags: [Tags.MAIN_DPS],
+    growth: [Stats.P_ATK, Stats.GLACIO_DMG],
     beta: false,
   },
   {
@@ -63,6 +66,7 @@ export const Characters = [
     codeName: 'zhezhi',
     order: '27',
     tags: [Tags.CONCERTO, Tags.BA, Tags.COORD, Tags.REGEN, Tags.GLACIO_AMP, Tags.LIB_AMP],
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: false,
   },
   {
@@ -80,6 +84,7 @@ export const Characters = [
     order: '31',
     tags: [Tags.SUPPORT, Tags.SKILL, Tags.VIBRATION, Tags.COORD_AMP],
     avatarAdjust: 'object-[0_30%]',
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: false,
   },
   {
@@ -96,6 +101,7 @@ export const Characters = [
     codeName: 'maxiaofang',
     order: '2',
     tags: [Tags.MAIN_DPS],
+    growth: [Stats.P_ATK, Stats.FUSION_DMG],
     beta: false,
   },
   {
@@ -113,6 +119,7 @@ export const Characters = [
     order: '8',
     tags: [Tags.MAIN_DPS, Tags.BA],
     avatarAdjust: 'object-[0_20%]',
+    growth: [Stats.P_ATK, Stats.FUSION_DMG],
     beta: false,
   },
   {
@@ -130,6 +137,7 @@ export const Characters = [
     order: '13',
     tags: [Tags.CONCERTO, Tags.LIB, Tags.COORD, Tags.HA_AMP],
     avatarAdjust: 'object-[0_-10%]',
+    growth: [Stats.P_ATK, Stats.FUSION_DMG],
     beta: false,
   },
   {
@@ -146,6 +154,7 @@ export const Characters = [
     codeName: 'changli',
     order: '26',
     tags: [Tags.MAIN_DPS, Tags.SKILL, Tags.FUSION_AMP, Tags.LIB_AMP],
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: false,
   },
   {
@@ -163,6 +172,7 @@ export const Characters = [
     order: '18',
     tags: [Tags.MAIN_DPS, Tags.LIB],
     avatarAdjust: 'object-[0_-5%]',
+    growth: [Stats.P_ATK, Stats.CRIT_DMG],
     beta: false,
   },
   {
@@ -179,6 +189,7 @@ export const Characters = [
     codeName: 'yinlin',
     order: '17',
     tags: [Tags.CONCERTO, Tags.SKILL, Tags.COORD, Tags.ELECTRO_AMP, Tags.LIB_AMP],
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: false,
   },
   {
@@ -196,6 +207,7 @@ export const Characters = [
     order: '15',
     tags: [Tags.CONCERTO, Tags.COORD, Tags.VIBRATION, Tags.INTERRUPT],
     avatarAdjust: 'object-[0_-5%]',
+    growth: [Stats.P_DEF, Stats.ELECTRO_DMG],
     beta: false,
   },
   {
@@ -212,6 +224,7 @@ export const Characters = [
     codeName: 'jinxi',
     order: '24',
     tags: [Tags.MAIN_DPS, Tags.SKILL],
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: false,
   },
   {
@@ -229,6 +242,7 @@ export const Characters = [
     order: '25',
     tags: [Tags.MAIN_DPS, Tags.LIB],
     avatarAdjust: 'object-[0_-5%]',
+    growth: [Stats.P_ATK, Stats.CRIT_DMG],
     beta: false,
   },
   {
@@ -245,6 +259,7 @@ export const Characters = [
     codeName: 'yangyang',
     order: '1',
     tags: [Tags.CONCERTO, Tags.TRACTION, Tags.REGEN],
+    growth: [Stats.P_ATK, Stats.AERO_DMG],
     beta: false,
   },
   {
@@ -262,6 +277,7 @@ export const Characters = [
     order: '12',
     tags: [Tags.CONCERTO, Tags.AERO_AMP],
     avatarAdjust: 'object-[0_-5%]',
+    growth: [Stats.P_ATK, Stats.AERO_DMG],
     beta: false,
   },
   {
@@ -279,6 +295,7 @@ export const Characters = [
     order: '11',
     tags: [Tags.MAIN_DPS, Tags.HA, Tags.TRACTION],
     avatarAdjust: 'object-[0_-10%]',
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: false,
   },
   {
@@ -295,6 +312,7 @@ export const Characters = [
     codeName: 'jiexin',
     order: '23',
     tags: [Tags.SUPPORT, Tags.HA, Tags.TRACTION, Tags.LIB_AMP],
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: false,
   },
   {
@@ -312,6 +330,7 @@ export const Characters = [
     order: '3',
     tags: [Tags.SUPPORT, Tags.COORD, Tags.AMP],
     avatarAdjust: 'object-[0_25%]',
+    growth: [Stats.P_ATK, Stats.HEAL],
     beta: false,
   },
   {
@@ -328,6 +347,7 @@ export const Characters = [
     codeName: 'dengdeng',
     order: '30',
     tags: [Tags.MAIN_DPS, Tags.BA, Tags.SKILL_AMP],
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: true,
   },
   {
@@ -344,6 +364,7 @@ export const Characters = [
     codeName: 'shouanren',
     order: '28',
     tags: [Tags.SUPPORT, Tags.TRACTION, Tags.AMP],
+    growth: [Stats.P_HP, Stats.HEAL],
     beta: false,
   },
   {
@@ -360,6 +381,7 @@ export const Characters = [
     codeName: 'taohua',
     order: '9',
     tags: [Tags.SUPPORT, Tags.LIB, Tags.SKILL_AMP],
+    growth: [Stats.P_DEF, Stats.HAVOC_DMG],
     beta: false,
   },
   {
@@ -376,6 +398,7 @@ export const Characters = [
     codeName: 'micai',
     order: '10',
     tags: [Tags.CONCERTO, Tags.HAVOC_AMP],
+    growth: [Stats.P_ATK, Stats.HAVOC_DMG],
     beta: false,
   },
   {
@@ -392,6 +415,7 @@ export const Characters = [
     codeName: 'chun',
     order: '29',
     tags: [Tags.MAIN_DPS, Tags.CONCERTO, Tags.BA],
+    growth: [Stats.P_ATK, Stats.CRIT_DMG],
     beta: true,
   },
 
@@ -411,6 +435,7 @@ export const Characters = [
     codeName: 'rover',
     order: '4',
     tags: [Tags.CONCERTO, Tags.STAGNATE],
+    growth: [Stats.P_ATK, Stats.SPECTRO_DMG],
     beta: false,
   },
   {
@@ -427,6 +452,7 @@ export const Characters = [
     codeName: 'rover',
     order: '4',
     tags: [Tags.MAIN_DPS],
+    growth: [Stats.P_ATK, Stats.HAVOC_DMG],
     beta: false,
   },
 ]

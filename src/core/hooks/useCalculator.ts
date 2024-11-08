@@ -79,9 +79,17 @@ export const useCalculator = ({
     () =>
       _.map(team, (item) => {
         const artifacts = _.map(item.equipments.artifacts, (a) => _.find(artifactStore.artifacts, (b) => b.id === a))
-        return getArtifactConditionals(artifacts)
+        return getArtifactConditionals(team[selected]?.cId, artifacts)
       }),
     [team, artifactStore.artifacts]
+  )
+  const artifactAllyConditionals = _.map(team, (item, index) =>
+    _.map(_.flatten(_.filter(_.map(artifactConditionals, 'allyContent'), (_i, i) => i !== index)), (cond) => ({
+      ...cond,
+      id: `${cond.id}_${index}`,
+      index: selected,
+      owner: index,
+    }))
   )
   const weaponConditionals = _.map(team, (item, index) =>
     _.map(
@@ -123,6 +131,7 @@ export const useCalculator = ({
             allyContents(index),
             artifactConditionals[index]?.content,
             artifactConditionals[index]?.teamContent,
+            artifactAllyConditionals[index],
             ...weaponSelectable(index)
           ),
           (acc, curr) => {
@@ -192,7 +201,7 @@ export const useCalculator = ({
       const setBonus = getSetCount(artifactData)
       if (setBonus['2276480763'] >= 4) emblem[index] = true
       _.forEach(forms, (form, i) => {
-        x = i === index ? calculateArtifact(x, form, team, index) : calculateTeamArtifact(x, form)
+        x = i === index ? calculateArtifact(x, form, team, index) : calculateTeamArtifact(x, form, index)
       })
       return x
     })
@@ -282,13 +291,16 @@ export const useCalculator = ({
   // Update: This is with the exception of single target buffs that will be put in allies' form instead of the giver so that the buff will not activate all at once
   const mainContent = _.filter(mapped, ['index', selected])
   const teamContent = [..._.filter(mapped, (item) => selected !== item.index), ...allyMapped]
+  const allyArtifact = _.map(artifactAllyConditionals[selected], (item) => ({ ...item, index: selected }))
   const artifactContents = (selected: number) =>
     _.uniqBy(
       _.flatMap(
         _.map(conditionals, (_i, index) =>
-          index === selected ? artifactConditionals[index]?.content : artifactConditionals[index]?.teamContent
+          index === selected
+            ? artifactConditionals[index]?.content
+            : [...artifactConditionals[index]?.teamContent, ...allyArtifact]
         ),
-        (item, index) => _.map(item, (inner) => ({ ...inner, index }))
+        (item, index) => _.map(item, (inner) => ({ ...inner, index: inner.single ? selected : index }))
       ),
       (item) => item.id
     )

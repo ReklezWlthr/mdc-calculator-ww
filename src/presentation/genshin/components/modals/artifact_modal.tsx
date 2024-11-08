@@ -3,7 +3,7 @@ import { getMainStat } from '@src/core/utils/data_format'
 import { findEcho } from '@src/core/utils/finder'
 import { Echoes } from '@src/data/db/artifacts'
 import { useStore } from '@src/data/providers/app_store_provider'
-import { MainStat, SubStat } from '@src/domain/artifact'
+import { MainStat, SubStat, SubStatRange } from '@src/domain/artifact'
 import { Stats } from '@src/domain/constant'
 import { SelectInput } from '@src/presentation/components/inputs/select_input'
 import { SelectTextInput } from '@src/presentation/components/inputs/select_text_input'
@@ -12,11 +12,45 @@ import { PrimaryButton } from '@src/presentation/components/primary.button'
 import { RarityGauge } from '@src/presentation/components/rarity_gauge'
 import classNames from 'classnames'
 import _ from 'lodash'
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { getEchoImage } from '@src/core/utils/fetcher'
 import { ArtifactSetterT } from './artifact_list_modal'
 import { SonataColor, SonataIcons } from '../artifact_block'
+import { observer } from 'mobx-react-lite'
+
+const EchoSlider = observer(
+  ({ id, stat, value, onChange }: { id: string; stat: Stats; value: number; onChange: (v: number) => void }) => {
+    const onCalcSlider = useCallback(() => {
+      const range = document.getElementById(id) as HTMLInputElement
+      if (range) {
+        const bg = getComputedStyle(range).getPropertyValue('--tw-gradient-to')
+        const slider = getComputedStyle(range).getPropertyValue('--tw-gradient-from')
+        const min = Number(range.min)
+        const max = Number(range.max) - min
+        const v = ((Number(range.value) - min) / max) * 100
+        range.setAttribute('style', `background:linear-gradient(to right,${slider},${slider} ${v}%,${bg} ${v}%)`)
+      }
+    }, [id])
+
+    useEffect(() => {
+      onCalcSlider()
+    }, [value])
+
+    return (
+      <input
+        id={id}
+        type="range"
+        className="h-2 col-span-10 slider bg-gradient-to-r from-primary-lighter to-gray shrink-0"
+        step={1}
+        min="0"
+        max={_.size(SubStatRange[stat]) - 1}
+        value={_.findIndex(SubStatRange[stat], (item) => item === value)}
+        onChange={(e) => onChange(+e.target.value)}
+      />
+    )
+  }
+)
 
 export const ArtifactModal = ({
   index,
@@ -229,27 +263,49 @@ export const ArtifactModal = ({
       </div>
       <div className="space-y-1">
         <p className="text-xs">Sub Stats</p>
-        <div className="space-y-2">
+        <div className="space-y-3">
           {_.map(subList.fields, (field, index) => (
-            <div className="flex items-center justify-center gap-3" key={index}>
-              <SelectTextInput
-                value={subList.fields[index]?.stat}
-                options={_.map(SubStat, (item) => ({
-                  name: item,
-                  value: item,
-                }))}
-                style="w-3/4"
-                onChange={(value) => subList.update(index, { ...subList.fields[index], stat: value?.name })}
-                placeholder={`Sub Stat ${index + 1}`}
-                disabled={_.floor(values.level / 5) < index + 1}
-              />
-              <TextInput
-                type="number"
-                value={subList.fields[index]?.value?.toString()}
-                onChange={(value) => subList.update(index, { ...subList.fields[index], value })}
-                disabled={!subList.fields[index]?.stat}
-                style="!w-1/4"
-              />
+            <div className="space-y-1.5" key={index}>
+              <div className="grid items-center grid-cols-7 gap-3">
+                <SelectTextInput
+                  value={subList.fields[index]?.stat}
+                  options={_.map(SubStat, (item) => ({
+                    name: item,
+                    value: item,
+                  }))}
+                  style="col-span-5"
+                  onChange={(value) =>
+                    subList.update(index, {
+                      ...subList.fields[index],
+                      stat: value?.name,
+                      value: SubStatRange[value?.name]?.[0],
+                    })
+                  }
+                  placeholder={`Sub Stat ${index + 1}`}
+                  disabled={_.floor(values.level / 5) < index + 1}
+                />
+                <div className="col-span-2 px-3 py-1 text-sm border rounded-lg text-gray border-primary-light bg-primary-darker">
+                  {subList.fields[index]?.stat
+                    ? _.includes([Stats.HP, Stats.ATK, Stats.DEF], subList.fields[index]?.stat)
+                      ? _.round(subList.fields[index]?.value).toLocaleString()
+                      : toPercentage(subList.fields[index]?.value, 1)
+                    : '-'}
+                </div>
+              </div>
+              <div className="grid items-center grid-cols-12 gap-2">
+                <p className="col-span-2 text-xs font-normal text-center text-gray">Value:</p>
+                <EchoSlider
+                  id={`slider_${index}`}
+                  stat={subList.fields[index]?.stat}
+                  value={subList.fields[index]?.value}
+                  onChange={(v) =>
+                    subList.update(index, {
+                      ...subList.fields[index],
+                      value: SubStatRange[subList.fields[index]?.stat]?.[v],
+                    })
+                  }
+                />
+              </div>
             </div>
           ))}
         </div>

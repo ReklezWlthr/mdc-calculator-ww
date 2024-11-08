@@ -12,7 +12,7 @@ import { GhostButton } from '@src/presentation/components/ghost.button'
 import { BuildModal } from '../components/modals/build_modal'
 import { findCharacter } from '@src/core/utils/finder'
 import { getResonanceCount, getSetCount } from '@src/core/utils/data_format'
-import { Echoes } from '@src/data/db/artifacts'
+import { Echoes, SonataDetail } from '@src/data/db/artifacts'
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { CommonModal } from '@src/presentation/components/common_modal'
 import { CharacterSelect } from '../components/character_select'
@@ -28,21 +28,21 @@ import { TeamModal } from '../components/modals/team_modal'
 import { AbilityBlock } from '../components/ability_block'
 
 export const SetToolTip = observer(({ item, set }: { item: number; set: string }) => {
-  const setDetail = _.find(Echoes, ['id', set])
-  const count = _.floor(item / 2) * 2
+  const setDetail = SonataDetail[set]
+  const count = item < 5 ? (item < 2 ? 0 : 2) : 5
   return (
     item >= 2 && (
       <Tooltip
-        title={setDetail?.name}
+        title={set}
         body={
           <div className="space-y-1">
             <p
               className={count < 2 && 'opacity-40'}
-              dangerouslySetInnerHTML={{ __html: `<b>2 Piece:</b> ${setDetail?.desc[0]}` }}
+              dangerouslySetInnerHTML={{ __html: `<b>2 Piece:</b> ${setDetail?.[0]?.desc}` }}
             />
             <p
-              className={count < 4 && 'opacity-40'}
-              dangerouslySetInnerHTML={{ __html: `<b>4 Piece:</b> ${setDetail?.desc[1]}` }}
+              className={count < 5 && 'opacity-40'}
+              dangerouslySetInnerHTML={{ __html: `<b>5 Piece:</b> ${setDetail?.[1]?.desc}` }}
             />
           </div>
         }
@@ -50,7 +50,7 @@ export const SetToolTip = observer(({ item, set }: { item: number; set: string }
         key={set}
       >
         <div className="flex items-center justify-between w-full gap-3 text-xs text-white cursor-default">
-          <p className="w-full line-clamp-2">{setDetail?.name}</p>
+          <p className="w-full line-clamp-2">{set}</p>
           <p className="px-2 py-0.5 rounded-lg bg-primary-lighter bg-opacity-40">{count}</p>
         </div>
       </Tooltip>
@@ -180,12 +180,14 @@ export const TeamSetup = observer(() => {
             slot={2}
             aId={teamStore.characters[selected]?.equipments?.artifacts?.[1]}
             setArtifact={teamStore.setArtifact}
+            canSwap
           />
           <ArtifactBlock
             index={selected}
             slot={4}
             aId={teamStore.characters[selected]?.equipments?.artifacts?.[3]}
             setArtifact={teamStore.setArtifact}
+            canSwap
           />
           <div className="w-full px-3 py-2 space-y-1 rounded-lg bg-primary-dark">
             {_.every(set, (item) => item < 2) ? (
@@ -201,18 +203,21 @@ export const TeamSetup = observer(() => {
             slot={1}
             aId={teamStore.characters[selected]?.equipments?.artifacts?.[0]}
             setArtifact={teamStore.setArtifact}
+            canSwap
           />
           <ArtifactBlock
             index={selected}
             slot={3}
             aId={teamStore.characters[selected]?.equipments?.artifacts?.[2]}
             setArtifact={teamStore.setArtifact}
+            canSwap
           />
           <ArtifactBlock
             index={selected}
             slot={5}
             aId={teamStore.characters[selected]?.equipments?.artifacts?.[4]}
             setArtifact={teamStore.setArtifact}
+            canSwap
           />
           <div className="grid grid-cols-2 gap-2">
             <PrimaryButton title="Equip Build" onClick={onOpenBuildModal} />
