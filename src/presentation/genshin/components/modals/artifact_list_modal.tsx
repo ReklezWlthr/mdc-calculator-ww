@@ -76,10 +76,6 @@ export const ArtifactListModal = observer(
               key={artifact.id}
               className="hover:scale-[97%] duration-200 cursor-pointer"
               onClick={() => {
-                _.forEach(teamStore?.characters, (char, i) => {
-                  if (_.includes(char.equipments?.artifacts, artifact.id))
-                    set(i, _.findIndex(char.equipments?.artifacts, ['id', artifact.id]), null)
-                })
                 set(index, slot, artifact.id)
                 modalStore.closeModal()
               }}

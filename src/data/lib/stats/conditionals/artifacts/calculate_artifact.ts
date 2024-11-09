@@ -203,18 +203,6 @@ export const calculateArtifact = (base: StatsObject, form: Record<string, any>, 
       value: 0.12,
     })
   }
-  if (form['390080007']) {
-    base[Stats.FUSION_DMG].push({
-      name: `Echo Skill`,
-      source: 'Inferno Rider',
-      value: 0.12,
-    })
-    base[Stats.BASIC_DMG].push({
-      name: `Echo Skill`,
-      source: 'Inferno Rider',
-      value: 0.12,
-    })
-  }
   if (form['6000053']) {
     base.CALLBACK.push(function (x) {
       _.map(x.ECHO_SCALING, (item) => ({ ...item, bonus: item.bonus + 0.5 }))

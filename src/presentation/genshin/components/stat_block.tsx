@@ -58,7 +58,7 @@ export const StatBlock = observer(({ stat }: StatBlockProps) => {
       <DataRow title="Basic ATK DMG%" value={toPercentage(stat?.getValue(Stats.BASIC_DMG))} />
       <DataRow title="Heavy ATK DMG%" value={toPercentage(stat?.getValue(Stats.HEAVY_DMG))} />
       <DataRow title="Res. Skill DMG%" value={toPercentage(stat?.getValue(Stats.SKILL_DMG))} />
-      <DataRow title="Res. Liberation DMG%" value={toPercentage(stat?.getValue(Stats.LIB_DMG))} />
+      <DataRow title="Liberation DMG%" value={toPercentage(stat?.getValue(Stats.LIB_DMG))} />
       <DataRow
         title="Glacio DMG%"
         value={toPercentage(stat?.getValue(Stats.GLACIO_DMG) + stat?.getValue(Stats.ATTR_DMG))}

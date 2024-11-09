@@ -167,9 +167,11 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
         }
       )}
     >
-      <div className="absolute top-0 right-0 flex items-center justify-center h-8 pointer-events-none w-9 rounded-se-lg rounded-es-lg bg-primary-light">
-        {props.slot - 1 ? <p>{romanize(props.slot)}</p> : <i className="fa-solid fa-star text-yellow" />}
-      </div>
+      {!!props.slot && (
+        <div className="absolute top-0 right-0 flex items-center justify-center h-8 pointer-events-none w-9 rounded-se-lg rounded-es-lg bg-primary-light">
+          {props.slot - 1 ? <p>{romanize(props.slot)}</p> : <i className="fa-solid fa-star text-yellow" />}
+        </div>
+      )}
       {props.aId ? (
         <div className="relative w-full">
           <div className="px-3 py-4 space-y-2">

@@ -247,7 +247,7 @@ export enum Stats {
   FUSION_DMG = 'Fusion DMG%',
   GLACIO_DMG = 'Glacio DMG%',
   ELECTRO_DMG = 'Electro DMG%',
-  AERO_DMG = 'Dendro DMG%',
+  AERO_DMG = 'Aero DMG%',
   SPECTRO_DMG = 'Spectro DMG%',
   HAVOC_DMG = 'Havoc DMG%',
   HEAL = 'Healing Bonus',
@@ -278,6 +278,10 @@ export const StatIcons = {
   [Stats.AERO_DMG]: '/asset/icons/T_Iconpropertyredwind_UI.webp',
   [Stats.SPECTRO_DMG]: '/asset/icons/T_Iconpropertyredlight_UI.webp',
   [Stats.HAVOC_DMG]: '/asset/icons/T_Iconpropertyreddark_UI.webp',
+  [Stats.BASIC_DMG]: '/asset/icons/SP_RoleLabelD7.webp',
+  [Stats.HEAVY_DMG]: '/asset/icons/SP_RoleLabelD8.webp',
+  [Stats.SKILL_DMG]: '/asset/icons/SP_RoleLabelD9.webp',
+  [Stats.LIB_DMG]: '/asset/icons/SP_RoleLabelD10.webp',
 }
 
 export const Region = Object.freeze({
@@ -327,8 +331,6 @@ export const RefinementOptions = [
 ]
 
 export const MainStatOptions = [
-  { name: Stats.HP, value: Stats.HP, img: StatIcons[Stats.HP] },
-  { name: Stats.ATK, value: Stats.ATK, img: StatIcons[Stats.ATK] },
   { name: Stats.P_HP, value: Stats.P_HP, img: StatIcons[Stats.P_HP] },
   { name: Stats.P_ATK, value: Stats.P_ATK, img: StatIcons[Stats.P_ATK] },
   { name: Stats.P_DEF, value: Stats.P_DEF, img: StatIcons[Stats.P_DEF] },
@@ -338,7 +340,7 @@ export const MainStatOptions = [
   { name: Stats.HEAL, value: Stats.HEAL, img: StatIcons[Stats.HEAL] },
   { name: Stats.FUSION_DMG, value: Stats.FUSION_DMG, img: StatIcons[Stats.FUSION_DMG] },
   { name: Stats.GLACIO_DMG, value: Stats.GLACIO_DMG, img: StatIcons[Stats.GLACIO_DMG] },
-  { name: Stats.ELECTRO_DMG, value: Stats.ELECTRO_DMG, img: StatIcons[Stats.ATK] },
+  { name: Stats.ELECTRO_DMG, value: Stats.ELECTRO_DMG, img: StatIcons[Stats.ELECTRO_DMG] },
   { name: Stats.AERO_DMG, value: Stats.AERO_DMG, img: StatIcons[Stats.AERO_DMG] },
   { name: Stats.SPECTRO_DMG, value: Stats.SPECTRO_DMG, img: StatIcons[Stats.SPECTRO_DMG] },
   { name: Stats.HAVOC_DMG, value: Stats.HAVOC_DMG, img: StatIcons[Stats.HAVOC_DMG] },
@@ -354,6 +356,10 @@ export const SubStatOptions = [
   { name: Stats.ER, value: Stats.ER, img: StatIcons[Stats.ER] },
   { name: Stats.CRIT_RATE, value: Stats.CRIT_RATE, img: StatIcons[Stats.CRIT_RATE] },
   { name: Stats.CRIT_DMG, value: Stats.CRIT_DMG, img: StatIcons[Stats.CRIT_DMG] },
+  { name: Stats.BASIC_DMG, value: Stats.BASIC_DMG, img: StatIcons[Stats.BASIC_DMG] },
+  { name: Stats.HEAVY_DMG, value: Stats.HEAVY_DMG, img: StatIcons[Stats.HEAVY_DMG] },
+  { name: Stats.SKILL_DMG, value: Stats.SKILL_DMG, img: StatIcons[Stats.SKILL_DMG] },
+  { name: Stats.LIB_DMG, value: Stats.LIB_DMG, img: StatIcons[Stats.LIB_DMG] },
 ]
 
 export const CustomConditionalMap = {

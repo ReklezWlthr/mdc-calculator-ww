@@ -83,13 +83,17 @@ export const damageStringConstruct = (
     (scaling.flat || 0) +
     elementFlat +
     talentFlat
-  const dmg =
-    raw *
-    (1 + bonusDMG) *
-    (scaling.multiplier || 1) *
-    (1 + amp) *
-    enemyMod *
-    (calculatorStore.dmgMode === 'total' ? scaling.hit || 1 : 1)
+  const dmg = raw * (1 + bonusDMG) * (scaling.multiplier || 1) * (1 + amp) * enemyMod
+  const dmgArray = _.map(
+    scaling.value,
+    (item) =>
+      item.scaling *
+      (item.override || statForScale[item.multiplier]) *
+      (1 + bonusDMG) *
+      (scaling.multiplier || 1) *
+      (1 + amp) *
+      enemyMod
+  )
 
   const totalCr = _.max([_.min([stats.getValue(Stats.CRIT_RATE) + (scaling.cr || 0) + talentCr, 1]), 0])
   const totalCd = stats.getValue(Stats.CRIT_DMG) + (scaling.cd || 0) + talentCd + elementCd
@@ -129,7 +133,10 @@ export const damageStringConstruct = (
     amp > 0 ? ` \u{00d7} (1 + <b class="text-lime-400">${toPercentage(amp)}</b>  <i class="text-[10px]">AMP</i> )` : ''
   }${
     scaling.multiplier && scaling.multiplier !== 1
-      ? ` \u{00d7} <b class="text-indigo-300">${toPercentage(scaling.multiplier, 2)}</b>`
+      ? ` \u{00d7} (1 + <b class="text-indigo-300">${toPercentage(
+          scaling.multiplier - 1,
+          2
+        )}</b>  <i class="text-[10px]">MULT</i> )`
       : ''
   }${elementAmp > 1 ? ` \u{00d7} <b class="text-amber-400">${toPercentage(elementAmp, 2)}</b>` : ''}${
     isDamage
@@ -163,6 +170,31 @@ export const damageStringConstruct = (
     StatIcons[Stats.CRIT_RATE]
   }" />${toPercentage(totalCr)}</b>)</span>`
 
+  const HitBreakdown = ({ format }: { format: (v: number) => number }) =>
+    isDamage ? (
+      <div className="pt-1 border-t border-primary-lighter">
+        <p className="font-bold text-white">
+          <span className="text-desc">✦</span> DMG Per Hit
+        </p>
+        <div className="flex">
+          {_.map(dmgArray, (item, index) => (
+            <div className="flex gap-1">
+              {index > 0 && <p className="pl-1">+</p>}
+              <p className="font-bold">{_.round(format(item)).toLocaleString()}</p>
+              {scaling.value[index].hits && (
+                <p>
+                  {` \u{00d7} `}
+                  <span className="text-desc">{scaling.value[index].hits}</span>
+                </p>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <></>
+    )
+
   const DmgBody = (
     <div className="space-y-1">
       <p dangerouslySetInnerHTML={{ __html: formulaString }} />
@@ -181,6 +213,7 @@ export const damageStringConstruct = (
           {scaling.property} Bonus: <span className="text-desc">{toPercentage(talentDmg)}</span>
         </p>
       )}
+      <HitBreakdown format={(v) => v} />
     </div>
   )
 
@@ -202,6 +235,7 @@ export const damageStringConstruct = (
           {scaling.property} CRIT DMG: <span className="text-desc">{toPercentage(talentCd)}</span>
         </p>
       )}
+      <HitBreakdown format={(v) => v * totalCd} />
     </div>
   )
 
@@ -218,6 +252,7 @@ export const damageStringConstruct = (
           {scaling.property} CRIT Rate: <span className="text-desc">{toPercentage(talentCr)}</span>
         </p>
       )}
+      <HitBreakdown format={(v) => v * (1 + (totalCd - 1) * totalCr)} />
     </div>
   )
 

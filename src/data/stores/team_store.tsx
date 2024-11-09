@@ -135,12 +135,16 @@ export class Team {
 
   setArtifact = (index: number, type: number, aId: string | null) => {
     if (index < 0) return
+    const replacedEcho = _.cloneDeep(this.characters[index].equipments.artifacts[type - 1]) || null
     _.forEach(this.characters, (character, i) => {
+      if (_.includes(character.equipments.artifacts, aId)) {
+        const oldIndex = _.findIndex(character.equipments.artifacts, (item) => item === aId)
+        if (oldIndex >= 0) {
+          character.equipments.artifacts[oldIndex] = replacedEcho
+        }
+      }
       if (i === index) {
         character.equipments.artifacts[type - 1] = aId
-      } else {
-        const i = _.findIndex(character.equipments.artifacts, (item) => item === aId)
-        if (i >= 0) character.equipments.artifacts[i] = null
       }
     })
     this.characters[index] = { ...this.characters[index] }

@@ -729,13 +729,13 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       base.ECHO_SCALING.push(
         {
-          name: 'Press Blast DMG',
+          name: 'Press DMG',
           value: [{ scaling: calcRefinement(0.114, 0.0148, r), multiplier: Stats.HP }],
           element: Element.SPECTRO,
           property: TalentProperty.ECHO,
         },
         {
-          name: 'Flurry DMG',
+          name: 'Hold Flurry DMG',
           value: [{ scaling: calcRefinement(0.0114, 0.0015, r), multiplier: Stats.HP }],
           element: Element.SPECTRO,
           property: TalentProperty.ECHO,

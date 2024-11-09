@@ -55,11 +55,11 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
       level: lib,
       trace: `Resonance Liberation`,
       title: `Radiance of Fealty`,
-      content: `Deal <b class="text-wuwa-fusion">Fusion DMG</b> to nearby targets, obtaining <span class="text-desc">4</span> stacks of <b class="text-rose-400">Enflamement</b>, and entering <b class="text-desc">Fiery Feather</b>.
+      content: `Deal <b class="text-wuwa-fusion">Fusion DMG</b> to nearby targets, obtaining <span class="text-desc">4</span> stacks of <b class="text-rose-400">Enflamement</b>, and entering <b class="text-wuwa-fusion">Fiery Feather</b>.
       <br />Can be cast in mid-air.
       <br />
-      <br /><b class="text-desc">Fiery Feather</b>
-      <br />When Changli releases Heavy Attack <b>Flaming Sacrifice</b> within 10s, her ATK is increased by <span class="text-desc">25%</span>, after which <b class="text-desc">Fiery Feather</b> ends.
+      <br /><b class="text-wuwa-fusion">Fiery Feather</b>
+      <br />When Changli releases Heavy Attack <b>Flaming Sacrifice</b> within <span class="text-desc">10</span>s, her ATK is increased by <span class="text-desc">25%</span>, after which <b class="text-desc">Fiery Feather</b> ends.
       `,
       image: 'SP_IconChangliC1',
     },
@@ -145,6 +145,14 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
   }
 
   const content: IContent[] = [
+    {
+      type: 'toggle',
+      id: 'fiery_feather',
+      text: `Fiery Feather`,
+      ...talents.lib,
+      show: true,
+      default: true,
+    },
     {
       type: 'number',
       id: 'changli_i1',
@@ -345,6 +353,13 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
         },
       ]
 
+      if (form.fiery_feather) {
+        base[Stats.P_ATK].push({
+          name: `Fiery Feather`,
+          source: 'Self',
+          value: 0.25,
+        })
+      }
       if (form.changli_i1) {
         base[Stats.FUSION_DMG].push({
           name: `Inherent Skill 1`,

@@ -75,26 +75,12 @@ export const Calculator = observer(({}: {}) => {
           {teamStore?.characters[selected]?.cId ? (
             <>
               <div className="flex flex-col mb-5 text-sm rounded-lg bg-primary-darker h-fit">
-                <div className="flex items-center justify-between px-2 py-1 text-lg font-bold text-center rounded-t-lg bg-primary-light">
-                  <div className="w-full" />
-                  <div className="shrink-0">
-                    <p>Damage Calculation</p>
-                    <p className='text-xs font-normal text-gray'>Click on <b>Skill Icon</b> for Description</p>
-                  </div>
-                  <div className="flex items-center justify-end w-full gap-1">
-                    <p className="text-sm font-semibold">Mode:</p>
-                    <SelectInput
-                      small
-                      options={[
-                        { name: 'Single-Hit', value: 'single' },
-                        { name: 'Total DMG', value: 'total' },
-                      ]}
-                      onChange={(v) => calculatorStore.setValue('dmgMode', v)}
-                      value={calculatorStore.dmgMode}
-                      style="w-fit"
-                      placeholder="Select Mode"
-                    />
-                  </div>
+                <div className="flex flex-col items-center justify-center px-2 py-1 text-lg font-bold text-center rounded-t-lg bg-primary-light">
+                  <p>Damage Calculation</p>
+                  <p className="text-xs font-normal text-gray">
+                    Click on <b>Skill Icon</b> for Description <span className="text-desc">✦</span> Hover on{' '}
+                    <b>Damage Number</b> for Formula Breakdown
+                  </p>
                 </div>
                 <div className="flex justify-end w-full mb-1.5 bg-primary-dark">
                   <div className="grid w-4/5 grid-cols-8 gap-2 py-0.5 pr-2 text-sm font-bold text-center bg-primary-dark">

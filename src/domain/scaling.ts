@@ -1,3 +1,4 @@
+import { Stats } from './constant'
 
 export const NormalScaling = [
   1, 1.0842, 1.1685, 1.2528, 1.337, 1.4213, 1.5056, 1.5898, 1.6741, 1.7584, 1.8426, 1.9269, 2.0112, 2.0955, 2.1797,
@@ -171,3 +172,18 @@ export const BaseCrystallizeShield = [
   1726.104684, 1754.671567, 1785.86656, 1817.137404, 1851.060358, 1885.067163, 1921.749303, 1958.523291, 2006.194108,
   2041.569007, 2054.472064, 2065.97498, 2174.7226, 2186.7682, 2198.81396,
 ]
+
+export const StatBonusValue = {
+  [Stats.P_ATK]: [0.018, 0.042],
+  [Stats.P_HP]: [0.018, 0.042],
+  [Stats.P_DEF]: [0.0228, 0.0532],
+  [Stats.CRIT_RATE]: [0.012, 0.028],
+  [Stats.CRIT_DMG]: [0.024, 0.056],
+  [Stats.FUSION_DMG]: [0.018, 0.042],
+  [Stats.GLACIO_DMG]: [0.018, 0.042],
+  [Stats.ELECTRO_DMG]: [0.018, 0.042],
+  [Stats.AERO_DMG]: [0.018, 0.042],
+  [Stats.SPECTRO_DMG]: [0.018, 0.042],
+  [Stats.HAVOC_DMG]: [0.018, 0.042],
+  [Stats.HEAL]: [0.018, 0.042],
+}

@@ -19,7 +19,7 @@ const { publicRuntimeConfig } = getConfig()
 
 export const ArtifactInventory = observer(() => {
   const { params, setParams } = useParams({
-    types: [],
+    cost: [],
     set: null,
     main: [],
     subs: [],
@@ -47,7 +47,7 @@ export const ArtifactInventory = observer(() => {
   const filteredArtifacts = useMemo(() => {
     let result = artifactStore.artifacts
     if (params.set) result = _.filter(result, (artifact) => artifact.setId === params.set)
-    if (params.types.length) result = _.filter(result, (artifact) => _.includes(params.types, artifact.type))
+    if (params.cost.length) result = _.filter(result, (artifact) => _.includes(params.cost, artifact.cost))
     if (params.main.length) result = _.filter(result, (artifact) => _.includes(params.main, artifact.main))
     if (params.subs.length)
       result = _.filter(result, (artifact) => isSubsetOf(params.subs, _.map(artifact.subList, 'stat')))
@@ -56,16 +56,16 @@ export const ArtifactInventory = observer(() => {
       const bi = _.findIndex(Echoes, (item) => item.id === b.setId)
       return bi - ai
     })
-  }, [params.set, params.types, params.subs, params.main, artifactStore.artifacts])
+  }, [params.set, params.cost, params.subs, params.main, artifactStore.artifacts])
 
   useEffect(() => {
     setParams({ page: 1 })
-  }, [params.set, params.types, params.subs, params.main])
+  }, [params.set, params.cost, params.subs, params.main])
 
   const maxPage = _.ceil(_.size(filteredArtifacts) / params.per_page)
 
   const onOpenModal = useCallback(() => {
-    modalStore.openModal(<ArtifactModal type={4} />)
+    modalStore.openModal(<ArtifactModal />)
   }, [modalStore])
 
   return (
@@ -109,7 +109,7 @@ export const ArtifactInventory = observer(() => {
               options={_.map(Echoes, (artifact) => ({
                 name: artifact.name,
                 value: artifact.id.toString(),
-                img: getEchoImage(artifact.icon, 4),
+                img: getEchoImage(artifact.icon),
               }))}
               placeholder="Artifact Set"
               onChange={(value) => setParams({ set: value?.value })}
@@ -119,7 +119,7 @@ export const ArtifactInventory = observer(() => {
               values={params.main}
               options={_.map(MainStatOptions, (item) => ({ ...item, img: publicRuntimeConfig.BASE_PATH + item.img }))}
               onChange={(main) => setParams({ main })}
-              placeholder="Main Stat"
+              placeholder="Main Stat - Match Any"
               renderAsText
               style="w-[300px]"
             />
@@ -127,9 +127,9 @@ export const ArtifactInventory = observer(() => {
               values={params.subs}
               options={_.map(SubStatOptions, (item) => ({ ...item, img: publicRuntimeConfig.BASE_PATH + item.img }))}
               onChange={(subs) => setParams({ subs })}
-              placeholder="Sub Stats"
+              placeholder="Sub Stats - Includes All (Max 5)"
               renderAsText
-              maxSelection={4}
+              maxSelection={5}
               style="w-[300px]"
             />
           </div>
@@ -140,7 +140,7 @@ export const ArtifactInventory = observer(() => {
               {_.map(
                 _.slice(filteredArtifacts, params.per_page * (params.page - 1), params.per_page * params.page),
                 (artifact) => (
-                  <ArtifactBlock key={artifact.id} slot={artifact?.type} aId={artifact?.id} />
+                  <ArtifactBlock key={artifact.id} slot={0} aId={artifact?.id} />
                 )
               )}
             </div>

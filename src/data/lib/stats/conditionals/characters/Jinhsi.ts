@@ -396,11 +396,11 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
         {
           name: 'Stella Glamor DMG',
           value: [
-            { scaling: calcScaling(1.75, forte) * (c >= 6 ? 1.45 : 1), multiplier: Stats.ATK },
+            { scaling: calcScaling(1.75, forte), multiplier: Stats.ATK },
             ...(form.incandescence
               ? [
                   {
-                    scaling: calcScaling(0.224, forte) * form.incandescence * (c >= 6 ? 1.45 : 1),
+                    scaling: calcScaling(0.224, forte) * form.incandescence,
                     multiplier: Stats.ATK,
                   },
                 ]
@@ -409,6 +409,7 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           element: Element.SPECTRO,
           property: TalentProperty.SKILL,
           bonus: form.jinhsi_c1 ? 0.2 * form.jinhsi_c1 : 0,
+          multiplier: c >= 6 ? 1.45 : 1,
         },
       ]
       base.INTRO_SCALING = [
@@ -436,7 +437,7 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
         })
       }
       if (form.jinhsi_c4) {
-        base[Stats.ALL_DMG].push({
+        base[Stats.ATTR_DMG].push({
           name: `Sequence Node 4`,
           source: 'Self',
           value: 0.2,
@@ -447,7 +448,7 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     },
     preComputeShared: (own: StatsObject, base: StatsObject, form: Record<string, any>, aForm: Record<string, any>) => {
       if (form.jinhsi_c4) {
-        base[Stats.ALL_DMG].push({
+        base[Stats.ATTR_DMG].push({
           name: `Sequence Node 4`,
           source: 'Jinhsi',
           value: 0.2,

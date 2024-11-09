@@ -102,6 +102,15 @@ export const ArtifactModal = ({
     }
   }, [aId])
 
+  const onChange = (v: string) => {
+    setValue('setId', v)
+    setValue('cost', findEcho(v)?.cost)
+    if (!_.includes(MainStat[findEcho(v)?.cost], values.main)) {
+      setValue('main', v ? Stats.P_HP : null)
+    }
+    setValue('sonata', v ? _.head(findEcho(v)?.sonata) : null)
+  }
+
   const onSubmit = handleSubmit(({ subList, ...rest }) => {
     if (rest.cost === 0) return setError('Invalid Echo Cost')
 
@@ -135,10 +144,7 @@ export const ArtifactModal = ({
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
         onSelect={(v) => {
-          setValue('setId', v)
-          setValue('cost', findEcho(v)?.cost)
-          setValue('main', v ? Stats.P_HP : null)
-          setValue('sonata', v ? _.head(findEcho(v)?.sonata) : null)
+          onChange(v)
           setFilterOpen(false)
         }}
       />
@@ -163,12 +169,7 @@ export const ArtifactModal = ({
                 ['asc']
               )}
               placeholder="Echo Name"
-              onChange={(value) => {
-                field.onChange(value?.value)
-                setValue('cost', findEcho(value?.value)?.cost)
-                setValue('main', value ? Stats.P_HP : null)
-                setValue('sonata', value ? _.head(findEcho(value?.value)?.sonata) : null)
-              }}
+              onChange={(value) => onChange(value?.value)}
             />
           )}
         />
