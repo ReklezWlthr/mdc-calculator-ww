@@ -105,18 +105,18 @@ export const AbilityBlock = observer(({ char, onChange, talents, onChangeInheren
       <p className="py-3 text-xl font-bold text-center text-white">
         <span className="mr-2 text-desc">✦</span>Stat Bonus<span className="ml-2 text-desc">✦</span>
       </p>
-      <div className="px-4 space-y-3">
+      <div className="px-4 space-y-5">
         {_.map(charData?.growth, (item) => (
           <div className="relative grid items-end grid-cols-3 gap-3 text-gray">
-            <div className="absolute w-[75%] border-t-4 border-primary left-1/2 -translate-x-1/2 bottom-2 -z-10" />
-            <div className="absolute w-[75%] border-t-4 border-primary left-1/2 -translate-x-1/2 top-8 -z-10" />
-            <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary ring ring-primary-light ring-offset-2 ring-offset-primary-bg">
-              <img src={StatIcons[item]} className="w-8 h-8" />
-            </div>
+            {/* <div className="absolute w-[75%] border-t-4 border-primary left-1/2 -translate-x-1/2 bottom-2 -z-10" />
+            <div className="absolute w-[75%] border-t-4 border-primary left-1/2 -translate-x-1/2 top-8 -z-10" /> */}
             <div className="flex flex-col items-center text-xs gap-y-3">
               <p>{toPercentage(StatBonusValue[item][0])}</p>
               <CheckboxInput checked onClick={() => {}} />
               <CheckboxInput checked onClick={() => {}} />
+            </div>
+            <div className="flex items-center justify-center w-12 h-12 mx-auto rounded-full bg-primary ring ring-primary-light ring-offset-2 ring-offset-primary-bg">
+              <img src={StatIcons[item]} className="w-8 h-8" />
             </div>
             <div className="flex flex-col items-center text-xs gap-y-3">
               <p>{toPercentage(StatBonusValue[item][1])}</p>
