@@ -60,14 +60,14 @@ export const AttributeBlock = ({ stat, array, stats, flat }: NormalBlockProps) =
                 {!!item.base && !!item.multiplier && (
                   <>
                     {' '}
-                    = {_.isNumber(item.base) ? _.round(item.base).toLocaleString() : item.base} {`\u{00d7}`}{' '}
+                    = {_.isNumber(item.base) ? _.round(item.base).toLocaleString() : item.base}
+                    {` \u{00d7} `}
                     <span className="text-blue">
                       {_.isNumber(item.multiplier) ? format(+item.multiplier) : item.multiplier}
                     </span>
                     {item.flat && (
                       <>
-                        {' '}
-                        +{' '}
+                        {` + `}
                         <span className="text-heal">
                           {_.isNumber(item.flat) ? _.round(item.flat).toLocaleString() : item.flat}
                         </span>

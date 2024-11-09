@@ -356,6 +356,13 @@ const Shorekeeper = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel
           value: 0.4,
         })
       }
+      if (form.stellarealm && i.i2 && _.includes(base.NAME, 'Rover')) {
+        base[Stats.ER].push({
+          name: `Inherent Skill 2`,
+          source: 'Shorekeeper',
+          value: 0.1,
+        })
+      }
 
       return base
     },
@@ -373,7 +380,7 @@ const Shorekeeper = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel
               name: `Inner Stellarealm`,
               source: index === i ? 'Self' : 'Shorekeeper',
               value: _.min([0.05 * base.getValue(Stats.ER), 0.125]),
-              base: base.getValue(Stats.ER),
+              base: toPercentage(base.getValue(Stats.ER)),
               multiplier: 0.05,
             })
           }
@@ -382,7 +389,7 @@ const Shorekeeper = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel
               name: `Supernal Stellarealm`,
               source: index === i ? 'Self' : 'Shorekeeper',
               value: _.min([0.1 * base.getValue(Stats.ER), 0.25]),
-              base: base.getValue(Stats.ER),
+              base: toPercentage(base.getValue(Stats.ER)),
               multiplier: 0.1,
             })
           }

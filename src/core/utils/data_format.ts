@@ -56,8 +56,9 @@ export const getMainStat = (main: Stats, quality: number, level: number, cost: n
 }
 
 export const getSetCount = (artifacts: IArtifactEquip[]) => {
+  const unique = _.uniqBy(artifacts, (item) => item?.setId)
   const setBonus: Record<string, number> = _.reduce(
-    artifacts,
+    unique,
     (acc, curr) => {
       if (!curr) return acc
       acc[curr.sonata] ? (acc[curr.sonata] += 1) : (acc[curr.sonata] = 1)

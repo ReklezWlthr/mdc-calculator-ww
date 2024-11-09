@@ -237,7 +237,7 @@ export const Weapons = [
     type: WeaponType.BROADBLADE,
     desc: {
       name: 'Edge Direction',
-      detail: `Increases ATK by 4% upon dealing Basic Attack DMG or Heavy Attack DMG, stacking up to <span class="text-desc">5</span> time(s). This effect lasts for <span class="text-desc">7</span>s and can be triggered <span class="text-desc">1</span> time(s) every <span class="text-desc">1</span>s.`,
+      detail: `Increases ATK by {{0}}% upon dealing Basic Attack DMG or Heavy Attack DMG, stacking up to <span class="text-desc">5</span> time(s). This effect lasts for <span class="text-desc">7</span>s and can be triggered <span class="text-desc">1</span> time(s) every <span class="text-desc">1</span>s.`,
       properties: [{ base: 4, growth: 1.2 }],
     },
     beta: false,
@@ -457,7 +457,7 @@ export const Weapons = [
   },
   {
     id: '21020053',
-    name: 'Commando of Conviction',
+    name: 'Guardian Sword',
     rarity: 3,
     baseAtk: 24,
     ascStat: Stats.P_HP,
@@ -978,7 +978,7 @@ export const Weapons = [
   {
     id: '21050013',
     name: 'Rectifier of Night',
-    rarity: 4,
+    rarity: 3,
     baseAtk: 26,
     ascStat: Stats.P_ATK,
     baseStat: 0.054,
@@ -1143,7 +1143,7 @@ export const Weapons = [
   },
   {
     id: '21050053',
-    name: 'Guardian Gauntlets',
+    name: 'Guardian Rectifier',
     rarity: 3,
     baseAtk: 26,
     ascStat: Stats.P_ATK,

@@ -1,4 +1,4 @@
-import { Element, ElementIcon, WeaponIcon, WeaponType } from '@src/domain/constant'
+import { Element, ElementIcon, TagsImage, WeaponIcon, WeaponType } from '@src/domain/constant'
 
 export const getEmote = (emote: string) => `https://cdn.wanderer.moe/genshin-impact/emotes/${emote}.png`
 
@@ -20,3 +20,5 @@ export const getWeaponImage = (path: string) => (path ? `/asset/weapon/T_IconWea
 export const getEchoImage = (path: string) => `/asset/echo/${path}.webp`
 
 export const getEnemyImage = (path: string) => `/asset/monster/${path}.png`
+
+export const getTagsImage = (path: string) => `/asset/icons/${TagsImage[path]}.webp`

@@ -12,7 +12,7 @@ import { StatIcons, Stats } from '@src/domain/constant'
 import { useParams } from '@src/core/hooks/useParams'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
 import { toPercentage } from '@src/core/utils/converter'
-import { getAvatar, getElementImage, getGachaAvatar, getTalentWeaponImage } from '@src/core/utils/fetcher'
+import { getAvatar, getElementImage, getGachaAvatar, getTagsImage, getTalentWeaponImage } from '@src/core/utils/fetcher'
 import getConfig from 'next/config'
 import { CharDetailModal } from './modals/char_detail_modal'
 
@@ -73,7 +73,7 @@ export const CharDetail = observer(() => {
   const baseLevel = params.asc === 7 ? 90 : findBaseLevel(params.asc)
   const asc = _.min([params.asc, 6])
 
-  const fCodeName = data?.codeName === 'Player' ? settingStore.settings.travelerGender : data?.codeName
+  const fCodeName = data?.codeName === 'rover' ? settingStore.settings.travelerGender : data?.codeName
 
   const onOpenEditModal = useCallback(
     () => modalStore.openModal(<CharDetailModal char={charUpgrade} cId={selected} />),
@@ -105,10 +105,7 @@ export const CharDetail = observer(() => {
           <div className="absolute top-0 left-0 w-[150%] h-full from-primary-bg bg-gradient-to-t via-30% via-transparent overflow-visible -z-10" />
           <div className="absolute left-0 flex flex-col space-y-1 bottom-10">
             <div className="flex gap-4">
-              <img
-                src={getElementImage(data.element)}
-                className="w-10 h-10 rounded-full shrink-0"
-              />
+              <img src={getElementImage(data.element)} className="w-10 h-10 rounded-full shrink-0" />
               <img
                 src={getTalentWeaponImage(data.weapon)}
                 className="w-10 h-10 p-1 bg-opacity-75 rounded-full shrink-0 bg-primary-bg"
@@ -155,6 +152,14 @@ export const CharDetail = observer(() => {
             </p>
             <b>Base DEF</b>
             <p className="text-center">{_.round(getBaseDef(data?.stat?.baseDef, baseLevel, asc)).toLocaleString()}</p>
+            <div className="space-y-1 col-span-full">
+              <b>Combat Roles</b>
+              <div className="flex flex-wrap items-center gap-1">
+                {_.map(data?.tags, (item) => (
+                  <img src={getTagsImage(item)} className="w-6 h-6" title={item} />
+                ))}
+              </div>
+            </div>
           </div>
           <div className="flex items-center justify-between">
             <div className="px-3 py-1 rounded-lg bg-opacity-80 bg-primary-dark">
@@ -177,8 +182,8 @@ export const CharDetail = observer(() => {
                     Constellation <span className="text-desc">{charUpgrade.cons}</span>
                   </p>
                 </div>
-                <p className="py-1.5 font-bold text-center">Talents</p>
-                <div className="px-5 space-y-1">
+                <p className="py-1.5 font-bold text-center">Forte Circuit</p>
+                <div className="px-2 space-y-1">
                   <div className="flex justify-between">
                     <p>Normal Attack</p>
                     <p className="text-desc">{charUpgrade.talents?.normal}</p>
@@ -208,7 +213,7 @@ export const CharDetail = observer(() => {
         </div>
       </div>
       <p className="flex justify-center gap-2 mt-5 mb-1 text-2xl font-bold">
-        <span className="text-desc">✦</span> Talents <span className="text-desc">✦</span>
+        <span className="text-desc">✦</span> Forte Circuit <span className="text-desc">✦</span>
       </p>
       <div className="grid gap-6 ml-2">
         {_.map(_.omit(talent, 'i1', 'i2', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6'), (item) => {
@@ -255,7 +260,7 @@ export const CharDetail = observer(() => {
           )
         })}
         <p className="flex justify-center gap-2 mb-1 text-2xl font-bold">
-          <span className="text-desc">✦</span> Ascension Passives <span className="text-desc">✦</span>
+          <span className="text-desc">✦</span> Inherent Skills <span className="text-desc">✦</span>
         </p>
         <div className="flex flex-col gap-5">
           {_.map([talent.i1, talent.i2], (item) => (

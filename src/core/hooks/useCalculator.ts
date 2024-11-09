@@ -191,15 +191,10 @@ export const useCalculator = ({
       })
       return x
     })
-    const emblem = [false, false, false, false]
+
     // Always loop; artifact buffs are either self or team-wide so everything is in each character's own form
     const postArtifact = _.map(postCustom, (base, index) => {
       let x = base
-      const artifactData = _.map(team[index].equipments.artifacts, (item) =>
-        _.find(artifactStore.artifacts, ['id', item])
-      )
-      const setBonus = getSetCount(artifactData)
-      if (setBonus['2276480763'] >= 4) emblem[index] = true
       _.forEach(forms, (form, i) => {
         x = i === index ? calculateArtifact(x, form, team, index) : calculateTeamArtifact(x, form, index)
       })

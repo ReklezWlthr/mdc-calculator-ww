@@ -206,6 +206,34 @@ export const ElementIcon = {
   [Element.HAVOC]: '/T_IconElementDark.webp',
 }
 
+export const TagsImage = {
+  [Tags.SUPPORT]: '/SP_RoleLabelA1',
+  [Tags.MAIN_DPS]: '/SP_RoleLabelA2',
+  [Tags.CONCERTO]: '/SP_RoleLabelA3',
+  [Tags.BA]: '/SP_RoleLabelB1',
+  [Tags.HA]: '/SP_RoleLabelB2',
+  [Tags.SKILL]: '/SP_RoleLabelB3',
+  [Tags.LIB]: '/SP_RoleLabelB4',
+  [Tags.TRACTION]: '/SP_RoleLabelC1',
+  [Tags.COORD]: '/SP_RoleLabelC2',
+  [Tags.STAGNATE]: '/SP_RoleLabelC3',
+  [Tags.REGEN]: '/SP_RoleLabelC4',
+  [Tags.VIBRATION]: '/SP_RoleLabelC5',
+  [Tags.INTERRUPT]: '/SP_RoleLabelC6',
+  [Tags.AMP]: '/SP_RoleLabelC7',
+  [Tags.AERO_AMP]: '/SP_RoleLabelD1',
+  [Tags.ELECTRO_AMP]: '/SP_RoleLabelD2',
+  [Tags.GLACIO_AMP]: '/SP_RoleLabelD3',
+  [Tags.HAVOC_AMP]: '/SP_RoleLabelD4',
+  [Tags.SPECTRO_AMP]: '/SP_RoleLabelD5',
+  [Tags.FUSION_AMP]: '/SP_RoleLabelD6',
+  [Tags.BA_AMP]: '/SP_RoleLabelD7',
+  [Tags.HA_AMP]: '/SP_RoleLabelD8',
+  [Tags.SKILL_AMP]: '/SP_RoleLabelD9',
+  [Tags.LIB_AMP]: '/SP_RoleLabelD10',
+  [Tags.COORD_AMP]: '/SP_RoleLabelD11',
+}
+
 export enum Stats {
   HP = 'HP',
   ATK = 'ATK',
