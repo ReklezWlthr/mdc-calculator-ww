@@ -18,6 +18,7 @@ import { getEchoImage } from '@src/core/utils/fetcher'
 import { ArtifactSetterT } from './artifact_list_modal'
 import { SonataColor, SonataIcons } from '../artifact_block'
 import { observer } from 'mobx-react-lite'
+import { EchoFilterModal } from './echo_filter_modal'
 
 const EchoSlider = observer(
   ({ id, stat, value, onChange }: { id: string; stat: Stats; value: number; onChange: (v: number) => void }) => {
@@ -41,7 +42,7 @@ const EchoSlider = observer(
       <input
         id={id}
         type="range"
-        className="h-2 col-span-10 slider bg-gradient-to-r from-primary-lighter to-gray shrink-0"
+        className="col-span-10 echo-slider bg-gradient-to-r from-primary-lighter to-gray shrink-0"
         step={1}
         min="0"
         max={_.size(SubStatRange[stat]) - 1}
@@ -126,8 +127,21 @@ export const ArtifactModal = ({
     modalStore.closeModal()
   })
 
+  const [filterOpen, setFilterOpen] = useState(false)
+
   return (
-    <div className="w-[300px] p-4 space-y-4 font-semibold text-white rounded-xl bg-primary-dark">
+    <div className="w-[300px] p-4 space-y-4 font-semibold text-white rounded-xl bg-primary-dark relative">
+      <EchoFilterModal
+        open={filterOpen}
+        onClose={() => setFilterOpen(false)}
+        onSelect={(v) => {
+          setValue('setId', v)
+          setValue('cost', findEcho(v)?.cost)
+          setValue('main', v ? Stats.P_HP : null)
+          setValue('sonata', v ? _.head(findEcho(v)?.sonata) : null)
+          setFilterOpen(false)
+        }}
+      />
       <div className="flex items-center gap-2">
         <div className="overflow-hidden border rounded-full w-9 h-9 bg-primary-darker border-primary-light shrink-0">
           {setData?.icon && <img src={getEchoImage(setData?.icon)} className="scale-105" />}
@@ -157,6 +171,10 @@ export const ArtifactModal = ({
               }}
             />
           )}
+        />
+        <i
+          className="flex items-center justify-center text-xs transition duration-200 rounded-full cursor-pointer w-7 h-7 fa-solid fa-filter bg-primary-light shrink-0 hover:bg-primary"
+          onClick={() => setFilterOpen(true)}
         />
       </div>
       <div className="flex items-center justify-center gap-3">
@@ -293,7 +311,7 @@ export const ArtifactModal = ({
                 </div>
               </div>
               <div className="grid items-center grid-cols-12 gap-2">
-                <p className="col-span-2 text-xs font-normal text-center text-gray">Value:</p>
+                <p className="col-span-2 text-[11px] font-normal text-center text-gray">Value:</p>
                 <EchoSlider
                   id={`slider_${index}`}
                   stat={subList.fields[index]?.stat}

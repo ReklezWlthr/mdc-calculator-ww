@@ -44,7 +44,7 @@ const Danjin = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       <br />After Basic Attack 2, Dodge Counter or Intro Skill <b>Vindication</b>, use Resonance Skill to perform up to 2 consecutive strikes, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />When <b>Crimson Erosion 2</b> hits a target, apply <b class="text-red">Incinerating Will</b> to it.
       <br />
-      <br /><b>Incinerating Will</b>
+      <br /><b class="text-red">Incinerating Will</b>
       <br />Danjin's damage dealt to targets marked with <b class="text-red">Incinerating Will</b> is increased by <span class="text-desc">20%</span>.
       <br />
       <br /><b>Sanguine Pulse</b>

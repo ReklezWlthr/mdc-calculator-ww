@@ -1568,7 +1568,7 @@ export const Echoes: IArtifact[] = [
     name: 'Bell-Borne Geochelone',
     icon: 'T_IconMonsterGoods_992_UI',
     skill: 'T_MstSkil_992_UI',
-    sonata: [Sonata.THUNDER],
+    sonata: [Sonata.REGEN, Sonata.HEAL],
     desc: `Activate the protection of Bell-Borne Geochelone. Deal <b class="text-wuwa-glacio">Glacio DMG</b> based on 145.92% of the current character's DEF to nearby enemies, and obtain a Bell-Borne Shield that lasts for <span class="text-desc">15</span>s
     <br />
     <br />The Bell-Borne Shield provides <span class="text-desc">50%</span> DMG Reduction and <span class="text-desc">10%</span> DMG Boost for the current team members, and disappears after the current character is hit for <span class="text-desc">3</span> times.`,

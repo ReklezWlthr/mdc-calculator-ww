@@ -76,4 +76,31 @@
     cursor: pointer;
     border: 1px solid #c7c9d9;
   }
+
+  .echo-slider {
+    appearance: none;
+    transition: 0.2s;
+    height: 6px;
+    transition: opacity 0.2s;
+    border-radius: 5px;
+  }
+  
+  .echo-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: 1px solid #c7c9d9;
+  }
+  
+  .echo-slider::-moz-range-thumb {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    border: 1px solid #c7c9d9;
+  }
 }
