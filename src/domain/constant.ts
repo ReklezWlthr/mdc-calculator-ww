@@ -74,6 +74,7 @@ export interface ICharStoreBase {
   cId: string
   talents: ITalentLevel
   i: { i1: boolean; i2: boolean }
+  growth: boolean[]
 }
 
 export interface ICharStore extends ICharStoreBase {

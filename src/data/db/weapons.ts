@@ -400,9 +400,13 @@ export const Weapons = [
     type: WeaponType.SWORD,
     desc: {
       name: 'Beyond the Cycle',
-      detail: `Increase ATK by {{0}}%. When dealing Basic Attack DMG, the wielder gains {{0}}% Basic Attack DMG Bonus for <span class="text-desc">14</span>s. This effect can be triggered once per second, stacking up to <span class="text-desc">3</span> times.
-      <br />When the wielder's Concerto Energy is consumed, gain {{1}}% Basic DMG Bonus for <span class="text-desc">10</span>s. This effect can be triggered once per second and ends when the wielder is switched off the field.`,
-      properties: [{ base: 10, growth: 2.5 }, { base: 40, growth: 10 }],
+      detail: `Increase ATK by {{0}}%. When dealing Basic Attack DMG, the wielder gains {{1}}% Basic Attack DMG Bonus for <span class="text-desc">14</span>s. This effect can be triggered once per second, stacking up to <span class="text-desc">3</span> times.
+      <br />When the wielder's Concerto Energy is consumed, gain {{2}}% Basic DMG Bonus for <span class="text-desc">10</span>s. This effect can be triggered once per second and ends when the wielder is switched off the field.`,
+      properties: [
+        { base: 12, growth: 3 },
+        { base: 10, growth: 2.5 },
+        { base: 40, growth: 10 },
+      ],
     },
     beta: false,
   },

@@ -70,9 +70,9 @@ const Youhu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       <br /><b>Poetic Essence</b>
       <br />Deal <b class="text-wuwa-glacio">Glacio DMG</b> to enemies within the range and additionally obtain one of the following effects based on the <b class="text-blue">Auspice</b> combination:
       <br />- <b class="text-wuwa-electro">Free Verse</b>: Four different types <b class="text-blue">Auspices</b>. Additionally reduce the Vibration Strength of hit enemies.
-      <br />- <b class="text-blue">Antithesis</b>: A pair of <b class="text-blue">Auspices</b>. Increase Poetic Essence's DMG by <span class="text-desc">70%</span>.
+      <br />- <b class="text-blue">Antithesis</b>: A pair of <b class="text-blue">Auspices</b>. Increase <b>Poetic Essence</b>'s DMG by <span class="text-desc">70%</span>.
       <br />- <b class="text-heal">Double Pun</b>: Two pairs of <b class="text-blue">Auspices</b>. Additionally restore HP for all nearby party members.
-      <br />- <b class="text-red">Triplet</b>: Three identical <b class="text-blue">Auspices</b>. Increase Poetic Essence's DMG by <span class="text-desc">175%</span>.
+      <br />- <b class="text-red">Triplet</b>: Three identical <b class="text-blue">Auspices</b>. Increase <b>Poetic Essence</b>'s DMG by <span class="text-desc">175%</span>.
       <br />- <b class="text-desc">Perfect Rhyme</b>: Four identical <b class="text-blue">Auspices</b>. Simultaneously activate the effects of <b class="text-wuwa-electro">Free Verse</b>, <b class="text-heal">Double Pun</b>, and <b class="text-red">Triplet</b>.
       <br />Casting Poetic Essence removes all <b class="text-blue">Auspices</b>.
       <br />
@@ -103,7 +103,7 @@ const Youhu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
     i2: {
       trace: `Inherent Skill 2`,
       title: `Rare Find`,
-      content: `Gain <span class="text-desc">15%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> for 14s upon casting Intro Skill <b>Scroll of Wonders</b>.`,
+      content: `Gain <span class="text-desc">15%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> for <span class="text-desc">14</span>s upon casting Intro Skill <b>Scroll of Wonders</b>.`,
       image: 'SP_IconYouhuD2',
     },
     c1: {

@@ -36,6 +36,7 @@ export const DefaultCharacter = {
     i1: false,
     i2: false,
   },
+  growth: Array(8).fill(false),
   talents: {
     normal: 1,
     skill: 1,
@@ -53,6 +54,7 @@ export interface TeamStoreType {
   setMember: (index: number, character: ITeamChar) => void
   setTalentLevel: (index: number, type: 'normal' | 'skill' | 'burst', level: number) => void
   setInherentSkill: (index: number, type: 'i1' | 'i2', toggle: boolean) => void
+  setStatBonus: (index: number, growthIndex: number, toggle: boolean) => void
   setMemberInfo: (index: number, info: Partial<ITeamChar>) => void
   setWeapon: (index: number, info: Partial<IWeaponEquip>) => void
   setArtifact: (index: number, type: number, aId: string) => void
@@ -118,6 +120,11 @@ export class Team {
   setInherentSkill = (index: number, type: 'i1' | 'i2', toggle: boolean) => {
     if (!type) return
     this.characters[index].i = { ...this.characters[index].i, [type]: toggle }
+    this.characters[index] = { ...this.characters[index] }
+  }
+
+  setStatBonus = (index: number, growthIndex: number, toggle: boolean) => {
+    this.characters[index].growth[growthIndex] = toggle
     this.characters[index] = { ...this.characters[index] }
   }
 

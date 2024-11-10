@@ -16,60 +16,19 @@ export const DefaultCharacterStore = {
     skill: 1,
     lib: 1,
     forte: 1,
-    intro: 1
+    intro: 1,
   },
   i: {
     i1: false,
-    i2: false
-  }
+    i2: false,
+  },
+  growth: Array(8).fill(false),
 }
 
-export const DefaultAccount = [
-  {
-    level: 1,
-    ascension: 0,
-    cons: 0,
-    cId: '10000005-504',
-    talents: {
-      normal: 1,
-      skill: 1,
-      burst: 1,
-    },
-  },
-  {
-    level: 1,
-    ascension: 0,
-    cons: 0,
-    cId: '10000015',
-    talents: {
-      normal: 1,
-      skill: 1,
-      burst: 1,
-    },
-  },
-  {
-    level: 1,
-    ascension: 0,
-    cons: 0,
-    cId: '10000006',
-    talents: {
-      normal: 1,
-      skill: 1,
-      burst: 1,
-    },
-  },
-  {
-    level: 1,
-    ascension: 0,
-    cons: 0,
-    cId: '10000021',
-    talents: {
-      normal: 1,
-      skill: 1,
-      burst: 1,
-    },
-  },
-]
+export const DefaultAccount = _.map(['1202', '1402', '1501', '1103'], (cId) => ({
+  ...DefaultCharacterStore,
+  cId,
+}))
 
 export interface CharacterStoreType {
   characters: ICharStore[]

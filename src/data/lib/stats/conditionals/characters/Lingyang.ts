@@ -106,7 +106,7 @@ const Lingyang = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     i2: {
       trace: `Inherent Skill 2`,
       title: `Diligent Practice`,
-      content: `Under the Forte Circuit <b class="text-desc">Striding Lion</b> state, within 3s after each Basic Attack, the next Forte Circuit <b>Mountain Roamer</b> will deal an additional <b class="text-wuwa-glacio">Glacio DMG</b>, equal to <span class="text-desc">150%</span> of <b>Mountain Roamer</b> DMG, considered as Resonance Skill DMG.`,
+      content: `Under the Forte Circuit <b class="text-desc">Striding Lion</b> state, within <span class="text-desc">3</span>s after each Basic Attack, the next Forte Circuit <b>Mountain Roamer</b> will deal an additional <b class="text-wuwa-glacio">Glacio DMG</b>, equal to <span class="text-desc">150%</span> of <b>Mountain Roamer</b> DMG, considered as Resonance Skill DMG.`,
       image: 'SP_IconLingyangD2',
     },
     c1: {

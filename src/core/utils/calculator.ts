@@ -5,6 +5,7 @@ import { findCharacter, findWeapon } from '../utils/finder'
 import { Echoes, SonataDetail } from '@src/data/db/artifacts'
 import { baseStatsObject, StatsObject } from '@src/data/lib/stats/baseConstant'
 import WeaponBonus from '@src/data/lib/stats/conditionals/weapons/weapon_bonus'
+import { StatBonusValue } from '@src/domain/scaling'
 
 export const calculateOutOfCombat = (
   conditionals: StatsObject,
@@ -56,6 +57,17 @@ export const calculateBase = (conditionals: StatsObject, char: ITeamChar, weapon
     value: weaponSecondary,
     source: weaponData?.name,
     name: 'Secondary Stat',
+  })
+
+  _.forEach(character?.growth, (g, i) => {
+    const [low, high] = StatBonusValue[g]
+    const sumLow = (+char?.growth?.[0 + i * 4] + +char?.growth?.[1 + i * 4]) * low
+    const sumHigh = (+char?.growth?.[2 + i * 4] + +char?.growth?.[3 + i * 4]) * high
+    conditionals[g]?.push({
+      value: sumLow + sumHigh,
+      source: 'Self',
+      name: 'Stat Bonus Node',
+    })
   })
 
   conditionals = weaponBonus?.scaling(conditionals, weapon?.refinement, team) || conditionals

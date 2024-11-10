@@ -56,9 +56,9 @@ const Sanhua = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       <br /><b class="text-wuwa-glacio">Frostbite Area</b>
       <br />The <b class="text-wuwa-glacio">Frostbite</b> area expands with every <span class="text-desc">1</span> stack of <b class="text-yellow">Clarity</b>. <b class="text-yellow">Clarity</b> stacks up to <span class="text-desc">2</span> times.
       <br />Sanhua obtains <span class="text-desc">1</span> stack of <b class="text-yellow">Clarity</b> upon performing Basic Attack 5.
-      <br />Sanhua obtains <span class="text-desc">1</span> stack of <b class="text-yellow">Clarity</b> upon casting Intro Skill Freezing Thorns.
-      <br />Sanhua obtains <span class="text-desc">1</span> stack of <b class="text-yellow">Clarity</b> upon casting Resonance Skill Eternal Frost.
-      <br />Sanhua obtains <span class="text-desc">2</span> stack(s) of <b class="text-yellow">Clarity</b> upon casting Resonance Liberation Glacial Gaze.
+      <br />Sanhua obtains <span class="text-desc">1</span> stack of <b class="text-yellow">Clarity</b> upon casting Intro Skill <b>Freezing Thorns</b>.
+      <br />Sanhua obtains <span class="text-desc">1</span> stack of <b class="text-yellow">Clarity</b> upon casting Resonance Skill <b>Eternal Frost</b>.
+      <br />Sanhua obtains <span class="text-desc">2</span> stack(s) of <b class="text-yellow">Clarity</b> upon casting Resonance Liberation <b>Glacial Gaze</b>.
       <br />Upon casting Heavy Attack <b>Detonate</b>, all <b class="text-yellow">Clarity</b> is removed.`,
       image: 'SP_IconSanhuaY',
     },

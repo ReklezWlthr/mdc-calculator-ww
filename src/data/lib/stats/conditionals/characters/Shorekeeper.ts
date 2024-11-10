@@ -46,7 +46,7 @@ const Shorekeeper = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel
       trace: `Resonance Liberation`,
       title: `End Loop`,
       content: `<b class="text-blue">Outer Stellarealm</b>
-      <br />Generate the <b class="text-blue">Outer Stellarealm</b> to restore HP for all party members within its effective range continuously. This effect can be triggered once every 3s.
+      <br />Generate the <b class="text-blue">Outer Stellarealm</b> to restore HP for all party members within its effective range continuously. This effect can be triggered once every <span class="text-desc">3</span>s.
       <br />
       <br /><b class="text-purple">Inner Stellarealm</b>
       <br />When a party member uses Intro Skill within the <b class="text-blue">Outer Stellarealm</b>, it evolves into the <b class="text-purple">Inner Stellarealm</b>. Within the effective range of the <b class="text-purple">Inner Stellarealm</b>, for every <span class="text-desc">0.2%</span> of Shorekeeper's Energy Regen, all party members gain a <span class="text-desc">0.01%</span> increase of Crit. Rate, up to <span class="text-desc">12.5%</span>.

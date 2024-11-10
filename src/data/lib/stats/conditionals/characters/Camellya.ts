@@ -81,7 +81,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       <br />
       <br /><b>Forte Circuit: Ephemeral</b>
       <br />When Concerto Energy is fully recovered, and <b>Ephemeral</b> is not on Cooldown, Resonance Skill is replaced with <b>Ephemeral</b>.
-      <br />Casting <b>Ephemeral</b> consumes <span class="text-desc">70</span> Concerto Energy and deals Havoc DMG to the targets. This damage is considered Basic Attack DMG.
+      <br />Casting <b>Ephemeral</b> consumes <span class="text-desc">70</span> Concerto Energy and deals <b class="text-wuwa-havoc">Havoc DMG</b> to the targets. This damage is considered Basic Attack DMG.
       <br />Camellya enters <b class="text-desc">Budding Mode</b> after casting <b>Ephemeral</b>.
       <br />
       <br />${buddingMode}

@@ -15,16 +15,16 @@ const Baizhi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       level: normal,
       trace: `Normal Attack`,
       title: `Destined Promise`,
-      content: `Basic Attack
+      content: `<b>Basic Attack</b>
       <br />Baizhi instructs You'tan to perform up to 4 consecutive attacks, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
       <br />
-      <br />Heavy Attack
+      <br /><b>Heavy Attack</b>
       <br />Baizhi continuously consumes STA to command You'tan to attack enemies, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. During Heavy Attack, Baizhi can command You'tan to move.
       <br />
-      <br />Mid-air Attack
+      <br /><b>Mid-Air Attack</b>
       <br />Baizhi consumes STA and summons You'tan in mid-air to perform a Plunging Attack, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
       <br />
-      <br />Dodge Counter
+      <br /><b>Dodge Counter</b>
       <br />Use Basic Attack after a successful Dodge to attack the target, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.`,
       image: 'SP_IconNorMagic',
     },

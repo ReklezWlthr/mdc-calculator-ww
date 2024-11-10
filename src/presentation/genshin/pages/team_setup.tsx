@@ -171,6 +171,7 @@ export const TeamSetup = observer(() => {
             talents={talent?.talents}
             onChange={(key, value) => teamStore.setTalentLevel(selected, key as any, value)}
             onChangeInherent={(key, value) => teamStore.setInherentSkill(selected, key as any, value)}
+            onChangeStats={(index, value) => teamStore.setStatBonus(selected, index, value)}
           />
         </div>
         <div className="w-1/5 space-y-5">

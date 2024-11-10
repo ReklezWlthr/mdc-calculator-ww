@@ -15,6 +15,7 @@ import { toPercentage } from '@src/core/utils/converter'
 import { getAvatar, getElementImage, getGachaAvatar, getTagsImage, getTalentWeaponImage } from '@src/core/utils/fetcher'
 import getConfig from 'next/config'
 import { CharDetailModal } from './modals/char_detail_modal'
+import { StatBonusValue } from '@src/domain/scaling'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -179,10 +180,10 @@ export const CharDetail = observer(() => {
                     </span>
                   </p>
                   <p>
-                    Constellation <span className="text-desc">{charUpgrade.cons}</span>
+                    Sequence <span className="text-desc">{charUpgrade.cons}</span>
                   </p>
                 </div>
-                <p className="py-1.5 font-bold text-center">Forte Circuit</p>
+                <p className="py-1.5 font-bold text-center">Forte</p>
                 <div className="px-2 space-y-1">
                   <div className="flex justify-between">
                     <p>Normal Attack</p>
@@ -193,17 +194,47 @@ export const CharDetail = observer(() => {
                     <p className="text-desc">{charUpgrade.talents?.skill}</p>
                   </div>
                   <div className="flex justify-between">
-                    <p>Resonance Liberation</p>
-                    <p className="text-desc">{charUpgrade.talents?.lib}</p>
-                  </div>
-                  <div className="flex justify-between">
                     <p>Forte Circuit</p>
                     <p className="text-desc">{charUpgrade.talents?.forte}</p>
+                  </div>
+                  <div className="flex justify-between">
+                    <p>Resonance Liberation</p>
+                    <p className="text-desc">{charUpgrade.talents?.lib}</p>
                   </div>
                   <div className="flex justify-between">
                     <p>Intro Skill</p>
                     <p className="text-desc">{charUpgrade.talents?.intro}</p>
                   </div>
+                </div>
+                <p className="py-1.5 font-bold text-center">Inherent Skills</p>
+                <div className="grid grid-cols-2">
+                  {_.map(charUpgrade.i, (item, index) => (
+                    <div className="flex items-center justify-around" key={index}>
+                      <p>{index.toUpperCase()}</p>
+                      <i
+                        className={classNames('font-bold fa-solid', item ? 'text-heal fa-check' : 'text-red fa-times')}
+                      />
+                    </div>
+                  ))}
+                </div>
+                <p className="py-1.5 font-bold text-center">Stat Bonus</p>
+                <div className="px-2 space-y-1">
+                  {_.map(data.growth, (g, i) => (
+                    <div className="flex justify-between">
+                      <div className="flex items-center gap-1.5">
+                        <img src={StatIcons[g]} className="w-4 h-4" />
+                        <p>{g}</p>
+                      </div>
+                      <p className="text-desc">
+                        {toPercentage(
+                          (+charUpgrade?.growth?.[0 + i * 4] + +charUpgrade?.growth?.[1 + i * 4]) *
+                            StatBonusValue[g][0] +
+                            (+charUpgrade?.growth?.[2 + i * 4] + +charUpgrade?.growth?.[3 + i * 4]) *
+                              StatBonusValue[g][1]
+                        )}
+                      </p>
+                    </div>
+                  ))}
                 </div>
               </div>
             ) : (

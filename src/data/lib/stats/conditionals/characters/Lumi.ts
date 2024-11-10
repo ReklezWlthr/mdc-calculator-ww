@@ -29,7 +29,7 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
       <br />
       <br /><b>Red Light: Heavy Attack</b>
       <br />Consume STA to strike the ground with Squeakie, causing an impact dealing <b class="text-wuwa-electro">Electro DMG</b>. The DMG dealt is considered Basic Attack DMG.
-
+      <br />
       <br /><b>Red Light: Plunging Attack</b>
       <br />Consume STA to perform a Plunging Attack, dealing <b class="text-wuwa-electro">Electro DMG</b>.
       <br />
@@ -86,7 +86,7 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
       <br />Lumi obtains <b class="text-desc">Yellow Light Spark</b> under the following conditions:
       <br />When <b>Yellow Light: Basic Attack</b> hits the target;
       <br />When <b>Glitter</b> hits the target;
-      <br />When Mb<Glare hits the target;
+      <br />When <b>Glare</b> hits the target;
       <br />When Resonance Skill <b>Energized Rebound</b> hits the target;
       <br />When casting Intro Skill <b>Special Delivery</b>.
       <br />

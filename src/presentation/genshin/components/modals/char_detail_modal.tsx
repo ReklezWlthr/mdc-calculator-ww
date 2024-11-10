@@ -2,7 +2,7 @@ import { useParams } from '@src/core/hooks/useParams'
 import { findBaseLevel, findMaxLevel } from '@src/core/utils/data_format'
 import { findCharacter } from '@src/core/utils/finder'
 import { DefaultCharacterStore } from '@src/data/stores/character_store'
-import { AscensionOptions, SequenceOptions, ICharStore } from '@src/domain/constant'
+import { AscensionOptions, SequenceOptions, ICharStore, StatIcons } from '@src/domain/constant'
 import { SelectInput } from '@src/presentation/components/inputs/select_input'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
@@ -13,6 +13,8 @@ import { CheckboxInput } from '@src/presentation/components/inputs/checkbox'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { CommonModal } from '@src/presentation/components/common_modal'
+import { toPercentage } from '@src/core/utils/converter'
+import { StatBonusValue } from '@src/domain/scaling'
 
 export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId: string }) => {
   const { charStore, toastStore, modalStore, settingStore } = useStore()
@@ -101,7 +103,7 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
   }, [params, cId])
 
   return (
-    <div className="w-[500px] p-4 text-white rounded-xl bg-primary-dark space-y-5 font-semibold">
+    <div className="w-[600px] p-4 text-white rounded-xl bg-primary-dark space-y-5 font-semibold">
       <div className="flex justify-between gap-x-4">
         <div className="grid w-full grid-cols-2 gap-4">
           <div>
@@ -143,116 +145,192 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
       </div>
       <div className="flex items-center gap-2 -mb-2">
         <div className="w-full border-t border-primary-border" />
-        <p className="text-lg font-bold text-center text-white">Talents</p>
+        <p className="text-lg font-bold text-center text-white">Forte</p>
         <div className="w-full border-t border-primary-border" />
       </div>
-      <div className="flex items-center justify-center gap-5">
-        <div className="flex items-center justify-center gap-4">
-          <TalentIcon
-            talent={talent?.talents?.normal}
-            element={charData?.element}
-            size="w-9 h-9"
-            showUpgrade
-            hideTip
-            type={talent?.talents?.basic?.trace}
-          />
-          <div>
-            <p className="text-xs text-primary-lighter">Normal Attack</p>
-            <SelectInput
-              value={params?.talents?.normal?.toString()}
-              onChange={(value) => setParams({ talents: { ...params.talents, normal: parseInt(value) } })}
-              options={talentLevels}
-              style="w-14"
-              disabled={!charData}
-            />
+      <div className="grid grid-cols-2 gap-5">
+        <div className="space-y-5">
+          <div className="flex items-center justify-center gap-5">
+            <div className="flex items-center justify-center gap-4">
+              <TalentIcon
+                talent={talent?.talents?.normal}
+                element={charData?.element}
+                size="w-9 h-9"
+                showUpgrade
+                hideTip
+                type={talent?.talents?.basic?.trace}
+              />
+              <div>
+                <p className="text-xs text-primary-lighter">Normal Attack</p>
+                <SelectInput
+                  value={params?.talents?.normal?.toString()}
+                  onChange={(value) => setParams({ talents: { ...params.talents, normal: parseInt(value) } })}
+                  options={talentLevels}
+                  style="w-14"
+                  disabled={!charData}
+                />
+              </div>
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <TalentIcon
+                talent={talent?.talents?.skill}
+                element={charData?.element}
+                size="w-9 h-9"
+                level={char?.talents?.skill}
+                showUpgrade
+                hideTip
+                type={talent?.talents?.skill?.trace}
+              />
+              <div>
+                <p className="text-xs text-primary-lighter">Res. Skill</p>
+                <SelectInput
+                  value={params?.talents?.skill?.toString()}
+                  onChange={(value) => setParams({ talents: { ...params.talents, skill: parseInt(value) } })}
+                  options={talentLevels}
+                  style="w-14"
+                  disabled={!charData}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center gap-5">
+            <div className="flex items-center justify-center gap-4">
+              <TalentIcon
+                talent={talent?.talents?.forte}
+                element={charData?.element}
+                size="w-9 h-9"
+                level={char?.talents?.forte}
+                showUpgrade
+                hideTip
+                type={talent?.talents?.forte?.trace}
+              />
+              <div>
+                <p className="text-xs text-primary-lighter">Forte Circuit</p>
+                <SelectInput
+                  value={params?.talents?.forte?.toString()}
+                  onChange={(value) => setParams({ talents: { ...params.talents, forte: parseInt(value) } })}
+                  options={talentLevels}
+                  style="w-14"
+                  disabled={!charData}
+                />
+              </div>
+            </div>
+          </div>
+          <div className="flex items-center justify-center gap-5">
+            <div className="flex items-center justify-center gap-4">
+              <TalentIcon
+                talent={talent?.talents?.lib}
+                element={charData?.element}
+                size="w-9 h-9"
+                level={char?.talents?.lib}
+                showUpgrade
+                hideTip
+                type={talent?.talents?.lib?.trace}
+              />
+              <div>
+                <p className="text-xs text-primary-lighter">Liberation</p>
+                <SelectInput
+                  value={params?.talents?.lib?.toString()}
+                  onChange={(value) => setParams({ talents: { ...params.talents, lib: parseInt(value) } })}
+                  options={talentLevels}
+                  style="w-14"
+                  disabled={!charData}
+                />
+              </div>
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <TalentIcon
+                talent={talent?.talents?.intro}
+                element={charData?.element}
+                size="w-9 h-9"
+                level={char?.talents?.intro}
+                showUpgrade
+                hideTip
+                type={talent?.talents?.intro?.trace}
+              />
+              <div>
+                <p className="text-xs text-primary-lighter">Intro Skill</p>
+                <SelectInput
+                  value={params?.talents?.intro?.toString()}
+                  onChange={(value) => setParams({ talents: { ...params.talents, intro: parseInt(value) } })}
+                  options={talentLevels}
+                  style="w-14"
+                  disabled={!charData}
+                />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="flex items-center justify-center gap-4">
-          <TalentIcon
-            talent={talent?.talents?.skill}
-            element={charData?.element}
-            size="w-9 h-9"
-            level={char?.talents?.skill}
-            showUpgrade
-            hideTip
-            type={talent?.talents?.skill?.trace}
-          />
-          <div>
-            <p className="text-xs text-primary-lighter">Res. Skill</p>
-            <SelectInput
-              value={params?.talents?.skill?.toString()}
-              onChange={(value) => setParams({ talents: { ...params.talents, skill: parseInt(value) } })}
-              options={talentLevels}
-              style="w-14"
-              disabled={!charData}
-            />
+        <div className="space-y-3">
+          <div className="flex items-center justify-center gap-4 py-2">
+            <TalentIcon talent={talent?.talents?.i1} element={charData?.element} size="w-9 h-9" hideTip />
+            <div className="flex flex-col gap-1.5 whitespace-nowrap">
+              <p className="text-xs text-primary-lighter">Inherent 1</p>
+              <CheckboxInput
+                checked={params?.i?.i1}
+                onClick={(value) => setParams({ i: { ...params.i, i1: value } })}
+              />
+            </div>
+            <TalentIcon talent={talent?.talents?.i2} element={charData?.element} size="w-9 h-9" hideTip />
+            <div className="flex flex-col gap-1.5 whitespace-nowrap">
+              <p className="text-xs text-primary-lighter">Inherent 2</p>
+              <CheckboxInput
+                checked={params?.i?.i2}
+                onClick={(value) => setParams({ i: { ...params.i, i2: value } })}
+              />
+            </div>
           </div>
-        </div>
-      </div>
-      <div className="flex items-center justify-center gap-5">
-        <div className="flex items-center justify-center gap-4">
-          <TalentIcon
-            talent={talent?.talents?.forte}
-            element={charData?.element}
-            size="w-9 h-9"
-            level={char?.talents?.forte}
-            showUpgrade
-            hideTip
-            type={talent?.talents?.forte?.trace}
-          />
-          <div>
-            <p className="text-xs text-primary-lighter">Forte Circuit</p>
-            <SelectInput
-              value={params?.talents?.forte?.toString()}
-              onChange={(value) => setParams({ talents: { ...params.talents, forte: parseInt(value) } })}
-              options={talentLevels}
-              style="w-14"
-              disabled={!charData}
-            />
-          </div>
-        </div>
-      </div>
-      <div className="flex items-center justify-center gap-5">
-        <div className="flex items-center justify-center gap-4">
-          <TalentIcon
-            talent={talent?.talents?.lib}
-            element={charData?.element}
-            size="w-9 h-9"
-            level={char?.talents?.lib}
-            showUpgrade
-            hideTip
-            type={talent?.talents?.lib?.trace}
-          />
-          <div>
-            <p className="text-xs text-primary-lighter">Liberation</p>
-            <SelectInput
-              value={params?.talents?.lib?.toString()}
-              onChange={(value) => setParams({ talents: { ...params.talents, lib: parseInt(value) } })}
-              options={talentLevels}
-              style="w-14"
-              disabled={!charData}
-            />
-          </div>
-        </div>
-        <div className="flex items-center justify-center gap-4">
-          <TalentIcon
-            talent={talent?.talents?.intro}
-            element={charData?.element}
-            size="w-9 h-9"
-            level={char?.talents?.intro}
-            showUpgrade
-            hideTip
-            type={talent?.talents?.intro?.trace}
-          />
-          <div>
-            <p className="text-xs text-primary-lighter">Intro Skill</p>
-            <SelectInput
-              value={params?.talents?.intro?.toString()}
-              onChange={(value) => setParams({ talents: { ...params.talents, intro: parseInt(value) } })}
-              options={talentLevels}
-              style="w-14"
-              disabled={!charData}
-            />
+          <div className="w-full border-t border-primary-border" />
+          <div className="px-2 space-y-8">
+            {_.map(charData?.growth, (item, index) => (
+              <div className="relative grid items-center h-12 grid-cols-5 gap-3 text-gray">
+                <div className="flex flex-col items-center">
+                  <p className="text-xs font-bold text-center text-white">{item}</p>
+                  <p className="text-xs">{toPercentage(StatBonusValue[item][0])}</p>
+                </div>
+                <div className="flex flex-col items-center justify-between h-full">
+                  <CheckboxInput
+                    checked={params?.growth?.[0 + index * 4]}
+                    onClick={(v) => {
+                      params.growth.splice(0 + index * 4, 1, v)
+                      setParams({ growth: params.growth })
+                    }}
+                  />
+                  <CheckboxInput
+                    checked={params?.growth?.[1 + index * 4]}
+                    onClick={(v) => {
+                      params.growth.splice(1 + index * 4, 1, v)
+                      setParams({ growth: params.growth })
+                    }}
+                  />
+                </div>
+                <div className="flex justify-center">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary ring ring-primary-light ring-offset-2 ring-offset-primary-bg shrink-0">
+                    <img src={StatIcons[item]} className="w-6 h-6" />
+                  </div>
+                </div>
+                <div className="flex flex-col items-center justify-between h-full">
+                  <CheckboxInput
+                    checked={params?.growth?.[2 + index * 4]}
+                    onClick={(v) => {
+                      params.growth.splice(2 + index * 4, 1, v)
+                      setParams({ growth: params.growth })
+                    }}
+                  />
+                  <CheckboxInput
+                    checked={params?.growth?.[3 + index * 4]}
+                    onClick={(v) => {
+                      params.growth.splice(3 + index * 4, 1, v)
+                      setParams({ growth: params.growth })
+                    }}
+                  />
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className="text-xs font-bold text-center text-white">{item}</p>
+                  <p className="text-xs">{toPercentage(StatBonusValue[item][1])}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
