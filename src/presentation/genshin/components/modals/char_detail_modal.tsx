@@ -292,15 +292,17 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
                   <CheckboxInput
                     checked={params?.growth?.[0 + index * 4]}
                     onClick={(v) => {
-                      params.growth.splice(0 + index * 4, 1, v)
-                      setParams({ growth: params.growth })
+                      const g = _.cloneDeep(params.growth)
+                      g.splice(0 + index * 4, 1, v)
+                      setParams({ growth: g })
                     }}
                   />
                   <CheckboxInput
                     checked={params?.growth?.[1 + index * 4]}
                     onClick={(v) => {
-                      params.growth.splice(1 + index * 4, 1, v)
-                      setParams({ growth: params.growth })
+                      const g = _.cloneDeep(params.growth)
+                      g.splice(1 + index * 4, 1, v)
+                      setParams({ growth: g })
                     }}
                   />
                 </div>
@@ -313,15 +315,17 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
                   <CheckboxInput
                     checked={params?.growth?.[2 + index * 4]}
                     onClick={(v) => {
-                      params.growth.splice(2 + index * 4, 1, v)
-                      setParams({ growth: params.growth })
+                      const g = _.cloneDeep(params.growth)
+                      g.splice(2 + index * 4, 1, v)
+                      setParams({ growth: g })
                     }}
                   />
                   <CheckboxInput
                     checked={params?.growth?.[3 + index * 4]}
                     onClick={(v) => {
-                      params.growth.splice(3 + index * 4, 1, v)
-                      setParams({ growth: params.growth })
+                      const g = _.cloneDeep(params.growth)
+                      g.splice(3 + index * 4, 1, v)
+                      setParams({ growth: g })
                     }}
                   />
                 </div>
