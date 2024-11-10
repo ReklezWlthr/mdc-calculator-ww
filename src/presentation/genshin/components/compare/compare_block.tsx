@@ -108,7 +108,7 @@ export const CompareBlock = observer(() => {
     [allStats, setupIndex, charIndex]
   )
 
-  const renderRow = (type: string, talent: TalentProperty) => (
+  const renderRow = (type: string) => (
     <div className="space-y-0.5">
       {_.map(getUniqueComponent(type), (item) => (
         <CompareSubRows
@@ -123,7 +123,6 @@ export const CompareBlock = observer(() => {
           name={item.name}
           property={item.property}
           element={item.element}
-          type={talent}
           setupNames={_.map([setupStore.main, ...setupStore.comparing], 'name')}
         />
       ))}
@@ -152,23 +151,8 @@ export const CompareBlock = observer(() => {
             </div>
             <PrimaryButton onClick={onOpenEnemyModal} title="Enemy Setting" style="whitespace-nowrap" />
           </div>
-          <div className="flex items-center justify-between px-2 py-1 text-lg font-bold text-center rounded-t-lg bg-primary-light">
-            <div className="w-full" />
-            <p className="shrink-0">Damage Calculation</p>
-            <div className="flex items-center justify-end w-full gap-1">
-              <p className="text-sm font-semibold">Mode:</p>
-              <SelectInput
-                small
-                options={[
-                  { name: 'Single-Hit', value: 'single' },
-                  { name: 'Total DMG', value: 'total' },
-                ]}
-                onChange={(v) => setupStore.setValue('dmgMode', v)}
-                value={setupStore.dmgMode}
-                style="w-fit"
-                placeholder="Select Mode"
-              />
-            </div>
+          <div className="flex items-center justify-center px-2 py-1 text-lg font-bold text-center rounded-t-lg bg-primary-light">
+            Damage Calculation
           </div>
           <div className="flex justify-end w-full bg-primary-dark">
             <div className="grid w-4/5 grid-cols-9 gap-2 py-0.5 pr-2 text-sm font-bold text-center bg-primary-dark">
@@ -182,47 +166,42 @@ export const CompareBlock = observer(() => {
             </div>
           </div>
           <div className="rounded-b-lg bg-primary-darker">
-            <ScalingWrapper
-              talent={main?.talents?.normal}
-              element={charData.element}
-              level={char.talents?.normal}
-              upgraded={main?.upgrade?.normal}
-            >
-              <div className="flex flex-col justify-between gap-4">
-                {renderRow(StatsObjectKeys.BASIC_SCALING, TalentProperty.NA)}
-                {/* <CompareTotalRows type={TalentProperty.NA} /> */}
-              </div>
+            <ScalingWrapper talent={main?.talents?.normal} element={charData.element} level={char.talents?.normal}>
+              <div className="flex flex-col justify-between gap-4">{renderRow(StatsObjectKeys.BASIC_SCALING)}</div>
               <div className="flex flex-col justify-between gap-4 !my-3">
-                {renderRow(StatsObjectKeys.HEAVY_SCALING, TalentProperty.CA)}
-                {/* <CompareTotalRows type={TalentProperty.CA} /> */}
+                {renderRow(StatsObjectKeys.HEAVY_SCALING)}
               </div>
-              <div className="flex flex-col justify-between gap-4">
-                {renderRow(StatsObjectKeys.MID_AIR_SCALING, TalentProperty.PA)}
-                {/* <CompareTotalRows type={TalentProperty.PA} /> */}
-              </div>
+              <div className="flex flex-col justify-between gap-4">{renderRow(StatsObjectKeys.MID_AIR_SCALING)}</div>
+              <div className="flex flex-col justify-between gap-4">{renderRow(StatsObjectKeys.DODGE_SCALING)}</div>
             </ScalingWrapper>
             <div className="w-full my-2 border-t-2 border-primary-border" />
-            <ScalingWrapper
-              talent={main?.talents?.skill}
-              element={charData.element}
-              level={char.talents?.skill}
-              upgraded={main?.upgrade?.skill}
-            >
+            <ScalingWrapper talent={main?.talents?.skill} element={charData.element} level={char.talents?.skill}>
               <div className="flex flex-col justify-between h-full gap-4">
-                {renderRow(StatsObjectKeys.SKILL_SCALING, TalentProperty.SKILL)}
-                {/* <CompareTotalRows type={TalentProperty.SKILL} /> */}
+                {renderRow(StatsObjectKeys.SKILL_SCALING)}
               </div>
             </ScalingWrapper>
             <div className="w-full my-2 border-t-2 border-primary-border" />
-            <ScalingWrapper
-              talent={main?.talents?.burst}
-              element={charData.element}
-              level={char.talents?.burst}
-              upgraded={main?.upgrade?.burst}
-            >
+            <ScalingWrapper talent={main?.talents?.lib} element={charData.element} level={char.talents?.lib}>
               <div className="flex flex-col justify-between h-full gap-4 pb-2">
-                {renderRow(StatsObjectKeys.LIB_SCALING, TalentProperty.BURST)}
-                {/* <CompareTotalRows type={TalentProperty.BURST} /> */}
+                {renderRow(StatsObjectKeys.LIB_SCALING)}
+              </div>
+            </ScalingWrapper>
+            <div className="w-full my-2 border-t-2 border-primary-border" />
+            <ScalingWrapper talent={main?.talents?.forte} element={charData.element} level={char.talents?.forte}>
+              <div className="flex flex-col justify-between h-full gap-4 pb-2">
+                {renderRow(StatsObjectKeys.FORTE_SCALING)}
+              </div>
+            </ScalingWrapper>
+            <div className="w-full my-2 border-t-2 border-primary-border" />
+            <ScalingWrapper talent={main?.talents?.intro} element={charData.element} level={char.talents?.intro}>
+              <div className="flex flex-col justify-between h-full gap-4 pb-2">
+                {renderRow(StatsObjectKeys.INTRO_SCALING)}
+              </div>
+            </ScalingWrapper>
+            <div className="w-full my-2 border-t-2 border-primary-border" />
+            <ScalingWrapper talent={main?.talents?.outro} element={charData.element} level={1}>
+              <div className="flex flex-col justify-between h-full gap-4 pb-2">
+                {renderRow(StatsObjectKeys.OUTRO_SCALING)}
               </div>
             </ScalingWrapper>
           </div>
@@ -265,7 +244,7 @@ export const CompareBlock = observer(() => {
                     setupStore.setValue('selected', [setupIndex, index])
                   }}
                   isSelected={index === charIndex}
-                  codeName={findCharacter(item.cId)?.codeName}
+                  order={findCharacter(item.cId)?.order}
                 />
               ))}
             </div>

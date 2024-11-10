@@ -10,6 +10,7 @@ import { useStore } from '@src/data/providers/app_store_provider'
 import { StringConstructor, damageStringConstruct } from '@src/core/utils/damageStringConstruct'
 import { CheckboxInput } from '@src/presentation/components/inputs/checkbox'
 import React, { useEffect, useState } from 'react'
+import { BaseElementColor } from './compare_total_row'
 
 interface ScalingSubRowsProps {
   scaling: IScaling[]
@@ -19,7 +20,6 @@ interface ScalingSubRowsProps {
   name: string
   setupNames: string[]
   property: string
-  type: TalentProperty
   element: string
 }
 
@@ -28,30 +28,18 @@ export const propertyColor = {
   [TalentProperty.SHIELD]: 'text-indigo-300',
 }
 
-export const BaseElementColor = {
-  [Element.PHYSICAL]: 'text-gray',
-  [Element.PYRO]: 'text-genshin-pyro',
-  [Element.HYDRO]: 'text-genshin-hydro',
-  [Element.CRYO]: 'text-genshin-cryo',
-  [Element.ELECTRO]: 'text-genshin-electro',
-  [Element.ANEMO]: 'text-genshin-anemo',
-  [Element.GEO]: 'text-genshin-geo',
-  [Element.DENDRO]: 'text-genshin-dendro',
-}
-
 export const ElementColor = {
   ...BaseElementColor,
   ...propertyColor,
 }
 
 export const CompareSubRows = observer(
-  ({ scaling, stats, allStats, level, name, property, type, element, setupNames }: ScalingSubRowsProps) => {
+  ({ scaling, stats, allStats, level, name, property, element, setupNames }: ScalingSubRowsProps) => {
     const { setupStore } = useStore()
-    const [sum, setSum] = useState(_.some(scaling, (item) => item?.sum))
 
     const mode = setupStore.mode
     const [main, sub1, sub2, sub3] = _.map(Array(4), (_v, index) =>
-      damageStringConstruct([], setupStore, scaling[index], stats[index], level[index].level[level[index].selected])
+      damageStringConstruct(setupStore, scaling[index], stats[index], level[index].level[level[index].selected])
     )
 
     const noCrit = _.includes([TalentProperty.HEAL, TalentProperty.SHIELD], property)
@@ -65,22 +53,6 @@ export const CompareSubRows = observer(
           : obj?.number.totalAvg) || 0
       )
     }
-
-    useEffect(() => {
-      const arr = [main, sub1, sub2, sub3]
-      _.forEach(scaling, (item, i) => {
-        item && setupStore.setTotal(type, i, item?.name, sum ? getDmg(arr[i]) : 0)
-      })
-      return () => {
-        _.forEach(scaling, (item, i) => {
-          item && setupStore.setTotal(type, i, item?.name, undefined)
-        })
-      }
-    }, [main, sub1, sub2, sub3, scaling, sum])
-
-    useEffect(() => {
-      setSum(_.some(scaling, (item) => item?.sum))
-    }, [scaling[0]])
 
     const Body = ({ obj }: { obj: StringConstructor }) => (
       <div className="space-y-1.5">

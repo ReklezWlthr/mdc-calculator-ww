@@ -19,7 +19,6 @@ export const ElementColor = {
 }
 
 export const damageStringConstruct = (
-  team: { name: string; stats: StatsObject }[],
   calculatorStore: CalculatorStore | SetupStore,
   scaling: IScaling,
   stats: StatsObject,

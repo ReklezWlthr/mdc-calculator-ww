@@ -12,18 +12,6 @@ export interface TSetup {
   id: string
 }
 
-export interface TSetupPlus extends TSetup {
-  total: TotalT
-}
-
-export const defaultTotal = {
-  [TalentProperty.NA]: {},
-  [TalentProperty.CA]: {},
-  [TalentProperty.PA]: {},
-  [TalentProperty.SKILL]: {},
-  [TalentProperty.BURST]: {},
-}
-
 export type CustomSetterT = (
   innerIndex: number,
   key: StatsObjectKeysT,
@@ -33,23 +21,15 @@ export type CustomSetterT = (
 ) => void
 export type CustomRemoverT = (_index: number, innerIndex: number) => void
 
-export type TotalT = {
-  [TalentProperty.NA]: Record<string, number>
-  [TalentProperty.CA]: Record<string, number>
-  [TalentProperty.PA]: Record<string, number>
-  [TalentProperty.SKILL]: Record<string, number>
-  [TalentProperty.BURST]: Record<string, number>
-}
-
 export interface SetupStoreType {
   mode: string
   dmgMode: string
   team: TSetup[]
   tab: string
   selected: number[]
-  main: TSetupPlus
+  main: TSetup
   mainChar: string
-  comparing: TSetupPlus[]
+  comparing: TSetup[]
   custom: {
     name: StatsObjectKeysT
     value: number
@@ -76,7 +56,6 @@ export interface SetupStoreType {
   setRes: (element: Element, value: number) => void
   getDefMult: (level: number, defPen: number, defRed: number) => number
   getResMult: (element: Element, resPen: number) => number
-  clearTotal: () => void
   clearComparing: () => void
   setCustomValue: CustomSetterT
   removeCustomValue: CustomRemoverT
@@ -94,9 +73,9 @@ export class SetupStore {
   selected: number[]
   tab: string
   team: TSetup[]
-  main: TSetupPlus
+  main: TSetup
   mainChar: string
-  comparing: TSetupPlus[]
+  comparing: TSetup[]
   custom: {
     name: StatsObjectKeysT
     value: number
@@ -128,13 +107,12 @@ export class SetupStore {
     this.scaling = '1'
     this.res = {
       [Element.PHYSICAL]: 0,
-      [Element.PYRO]: 0,
-      [Element.CRYO]: 0,
-      [Element.HYDRO]: 0,
+      [Element.FUSION]: 0,
+      [Element.GLACIO]: 0,
       [Element.ELECTRO]: 0,
-      [Element.ANEMO]: 0,
-      [Element.GEO]: 0,
-      [Element.DENDRO]: 0,
+      [Element.AERO]: 0,
+      [Element.SPECTRO]: 0,
+      [Element.HAVOC]: 0,
     }
     this.level = 1
     this.enemy = ''
@@ -177,29 +155,6 @@ export class SetupStore {
       }
     }
     this.forms = _.cloneDeep(this.forms)
-  }
-
-  setTotal = (key: TalentProperty, index: number, name: string, value: number) => {
-    if (index === 0) {
-      _.assign(this.main.total[key], { [name]: value })
-    } else {
-      this.comparing[index - 1] && _.assign(this.comparing[index - 1].total[key], { [name]: value })
-    }
-  }
-
-  clearTotal = () => {
-    if (this.main) this.main.total = defaultTotal
-    if (this.comparing[0]) this.comparing[0].total = defaultTotal
-    if (this.comparing[1]) this.comparing[1].total = defaultTotal
-    if (this.comparing[2]) this.comparing[2].total = defaultTotal
-  }
-
-  getTotal = (key: TalentProperty, index: number) => {
-    if (index === 0) {
-      return _.sum(_.map(this.main.total[key]))
-    } else {
-      return _.sum(_.map(this.comparing[index - 1]?.total[key]))
-    }
   }
 
   setRes = (element: Element, value: number) => {

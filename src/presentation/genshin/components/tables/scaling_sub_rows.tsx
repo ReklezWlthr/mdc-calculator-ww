@@ -30,7 +30,7 @@ export const ScalingSubRows = observer(({ scaling }: ScalingSubRowsProps) => {
     component: { AvgBody, CritBody, DmgBody },
     number: { dmg, totalAvg, totalCrit },
     element,
-  } = damageStringConstruct(team, calculatorStore, scaling, stats, teamStore.characters[index].level)
+  } = damageStringConstruct(calculatorStore, scaling, stats, teamStore.characters[index].level)
 
   return (
     <div className="grid items-center grid-cols-8 gap-2 pr-2">

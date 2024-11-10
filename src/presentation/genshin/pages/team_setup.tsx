@@ -131,29 +131,6 @@ export const TeamSetup = observer(() => {
               ))}
             </div>
             <div className="flex items-center justify-center gap-2">
-              <Tooltip
-                title="Regarding Character Placement"
-                body={
-                  <>
-                    <p>
-                      Some team-wide buffs that scale with a specific stat (notably Nahida's A1 and Sucrose's A4) will
-                      be applied from <span className="text-desc">left to right</span> in the character setup.
-                    </p>
-                    <p>
-                      This means placing Nahida before Sucrose here will make her A1 buff{' '}
-                      <b className="text-red">NOT</b> taking the EM gained from Sucrose's A4 into account.
-                    </p>
-                    <p>
-                      Although this kind of interactions are quite rare in real scenarios and team-building, please be
-                      wary of it.
-                    </p>
-                  </>
-                }
-                position="right"
-                style="w-[400px]"
-              >
-                <i className="text-xl fa-regular fa-question-circle" />
-              </Tooltip>
               <PrimaryButton
                 onClick={onOpenSetupModal}
                 icon="fa-solid fa-user-group text-sm"

@@ -10,7 +10,6 @@ import classNames from 'classnames'
 import { CompareBlock } from '@src/presentation/genshin/components/compare/compare_block'
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { swapElement } from '@src/core/utils/data_format'
-import { defaultTotal } from '@src/data/stores/setup_store'
 import { RenameModal } from '../components/modals/rename_modal'
 import { TeamModal, TeamModalProps } from '@src/presentation/genshin/components/modals/team_modal'
 
@@ -135,7 +134,7 @@ export const ComparePage = observer(() => {
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-3 px-2 py-2 rounded-lg bg-primary-dark h-[64px] w-[244px]">
               {setupStore.main?.char ? (
-                _.map(Array(4), (_item, index) => {
+                _.map(Array(3), (_item, index) => {
                   const main = setupStore.main?.char
                   return (
                     <CharacterSelect
@@ -160,7 +159,7 @@ export const ComparePage = observer(() => {
                           : null
                       }
                       isSelected={main[index]?.cId && main[index]?.cId === setupStore.mainChar}
-                      codeName={findCharacter(main[index]?.cId)?.codeName}
+                      order={findCharacter(main[index]?.cId)?.order}
                     />
                   )
                 })
@@ -177,7 +176,7 @@ export const ComparePage = observer(() => {
                 onOpenSaveModal({
                   onSelect: (team) => {
                     const handler = () => {
-                      setupStore.setValue('main', { ...team, total: defaultTotal })
+                      setupStore.setValue('main', team)
                       setupStore.setValue('mainChar', team.char[0].cId)
                       setupStore.setValue('selected', [0, 0])
                     }
@@ -287,7 +286,6 @@ export const ComparePage = observer(() => {
                         onOpenSaveModal({
                           onSelect: (team) => {
                             const newCompare = _.cloneDeep(setupStore.comparing)
-                            newCompare.splice(tI, 1, { ...team, total: defaultTotal })
                             const name = findValidName(
                               _.map([setupStore.main, ...setupStore.comparing], 'name'),
                               team.name
@@ -300,13 +298,13 @@ export const ComparePage = observer(() => {
                     }}
                   >
                     {setupStore.comparing?.[tI]?.char ? (
-                      _.map(Array(4), (_item, index) => {
+                      _.map(Array(3), (_item, index) => {
                         const team = setupStore.comparing?.[tI]?.char
                         return (
                           <CharacterSelect
                             key={`char_select_${index}`}
                             isSelected={team[index]?.cId === setupStore.mainChar}
-                            codeName={findCharacter(team[index]?.cId)?.codeName}
+                            order={findCharacter(team[index]?.cId)?.order}
                           />
                         )
                       })

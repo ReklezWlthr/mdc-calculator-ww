@@ -4,12 +4,12 @@ import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
 import { TSetup } from '@src/data/stores/setup_store'
 import classNames from 'classnames'
-import { ElementIconColor } from '../cons_circle'
 import { findCharacter } from '@src/core/utils/finder'
 import { useCallback, useMemo, useState } from 'react'
 import { TextInput } from '@src/presentation/components/inputs/text_input'
 import { CommonModal } from '@src/presentation/components/common_modal'
-import { getAvatar } from '@src/core/utils/fetcher'
+import { getAvatar, getSideAvatar } from '@src/core/utils/fetcher'
+import { ElementIconColor } from '../tables/scaling_wrapper'
 
 export interface TeamModalProps {
   onSelect: (team: TSetup) => void
@@ -21,8 +21,8 @@ export const TeamModalBlock = ({ team, button }: { team: TSetup; button: React.R
   const { settingStore, setupStore, toastStore } = useStore()
 
   const codeName = (id: string) => {
-    const c = findCharacter(id)?.codeName
-    return c === 'Player' ? settingStore.settings.travelerGender : c || ''
+    const c = findCharacter(id)?.order
+    return c === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : c
   }
 
   const [edit, setEdit] = useState(false)
@@ -85,7 +85,7 @@ export const TeamModalBlock = ({ team, button }: { team: TSetup; button: React.R
               key={item.cId}
             >
               {!!item.cId && (
-                <img src={getAvatar(codeName(item.cId))} className="absolute object-cover scale-[1.75] -mt-2" />
+                <img src={getSideAvatar(codeName(item.cId))} className="absolute object-cover -mt-3 scale-150" />
               )}
             </div>
           ))}

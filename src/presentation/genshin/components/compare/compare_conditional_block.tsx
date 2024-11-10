@@ -14,7 +14,6 @@ interface CompareConditionalBlockProps {
   content: {
     main: IContentIndex[]
     team: IContentIndex[]
-    reaction: IContentIndex[]
     weapon: (i: number) => IContentIndex[]
     artifact: (i: number) => IContentIndex[]
     customMain: (selected: number) => IContentIndex[]
@@ -28,14 +27,6 @@ export const CompareConditionalBlock = observer(({ team, stats, content }: Compa
 
   return (
     <div className="w-full space-y-3 text-white">
-      <ConditionalBlock
-        title="Elemental Reactions"
-        contents={_.filter(content.reaction, 'show')}
-        tooltipStyle="w-[20vw]"
-        formOverride={setupStore.forms[setupIndex]}
-        teamOverride={team}
-        setForm={(...params) => setupStore.setFormValue(setupIndex, ...params)}
-      />
       <ConditionalBlock
         title="Self Modifiers"
         contents={_.filter(content.customMain(charIndex), 'show')}
@@ -57,7 +48,7 @@ export const CompareConditionalBlock = observer(({ team, stats, content }: Compa
         setForm={(...params) => setupStore.setFormValue(setupIndex, ...params)}
       />
       <ConditionalBlock
-        title="Relic Modifiers"
+        title="Echo Modifiers"
         contents={content.artifact(charIndex)}
         formOverride={setupStore.forms[setupIndex]}
         teamOverride={team}
