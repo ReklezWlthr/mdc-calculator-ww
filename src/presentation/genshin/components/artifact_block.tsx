@@ -161,7 +161,7 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
   return (
     <div
       className={classNames(
-        'flex flex-col w-full font-bold text-white duration-200 rounded-lg bg-primary-dark h-[250px] group ring-inset ring-1 ring-primary-light relative',
+        'flex flex-col w-[230px] font-bold text-white duration-200 rounded-lg bg-primary-dark h-[250px] group ring-inset ring-1 ring-primary-light relative',
         {
           'hover:scale-[97%]': canEdit,
         }

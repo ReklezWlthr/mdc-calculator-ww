@@ -85,7 +85,7 @@ export const TeamModalBlock = ({ team, button }: { team: TSetup; button: React.R
               key={item.cId}
             >
               {!!item.cId && (
-                <img src={getSideAvatar(codeName(item.cId))} className="absolute object-cover -mt-3 scale-150" />
+                <img src={getSideAvatar(codeName(item.cId))} className="absolute object-cover ml-2 -mt-4 scale-150" />
               )}
             </div>
           ))}

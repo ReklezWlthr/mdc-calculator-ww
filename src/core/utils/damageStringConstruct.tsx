@@ -199,7 +199,7 @@ export const damageStringConstruct = (
       <p dangerouslySetInnerHTML={{ __html: formulaString }} />
       {!!scaling.bonus && (
         <p className="text-xs">
-          Talent-Exclusive Bonus: <span className="text-desc">{toPercentage(scaling.bonus)}</span>
+          Component Bonus: <span className="text-desc">{toPercentage(scaling.bonus)}</span>
         </p>
       )}
       {!!elementDmg && (
@@ -221,7 +221,7 @@ export const damageStringConstruct = (
       <p dangerouslySetInnerHTML={{ __html: critString }} />
       {!!scaling.cd && (
         <p className="text-xs">
-          Talent-Exclusive CRIT DMG: <span className="text-desc">{toPercentage(scaling.cd)}</span>
+          Component CRIT DMG: <span className="text-desc">{toPercentage(scaling.cd)}</span>
         </p>
       )}
       {!!elementCd && (
@@ -243,7 +243,7 @@ export const damageStringConstruct = (
       <p dangerouslySetInnerHTML={{ __html: avgString }} />
       {!!scaling.cr && (
         <p className="text-xs">
-          Talent-Exclusive CRIT Rate: <span className="text-desc">{toPercentage(scaling.cr)}</span>
+          Component CRIT Rate: <span className="text-desc">{toPercentage(scaling.cr)}</span>
         </p>
       )}
       {!!talentCr && (

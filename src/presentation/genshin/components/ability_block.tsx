@@ -107,7 +107,7 @@ export const AbilityBlock = observer(
         <p className="py-3 text-xl font-bold text-center text-white">
           <span className="mr-2 text-desc">✦</span>Stat Bonus<span className="ml-2 text-desc">✦</span>
         </p>
-        <div className="px-2 space-y-8">
+        <div className="px-2 space-y-8 max-w-[250px]">
           {_.map(charData?.growth, (item, index) => (
             <div className="relative grid items-center h-12 grid-cols-5 gap-3 text-gray">
               {/* <div className="absolute w-[75%] border-t-4 border-primary left-1/2 -translate-x-1/2 bottom-2 -z-10" />

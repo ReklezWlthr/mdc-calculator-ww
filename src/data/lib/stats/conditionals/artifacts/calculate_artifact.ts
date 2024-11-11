@@ -7,11 +7,10 @@ import { checkBuffExist, findCharacter, findEcho } from '@src/core/utils/finder'
 import { Sonata } from '@src/data/db/artifacts'
 import { IContent } from '@src/domain/conditional'
 
-export const getArtifactConditionals = (id: string, artifacts: IArtifactEquip[]) => {
-  const rover = ['1501', '1604']
+export const getArtifactConditionals = (artifacts: IArtifactEquip[]) => {
   const setBonus = getSetCount(artifacts)
   const mainEcho = artifacts?.[0]?.setId
-  const { content, teamContent, allyContent } = ArtifactForm(_.includes(rover, id))
+  const { content, teamContent, allyContent } = ArtifactForm()
   const set = _.findKey(setBonus, (item) => item >= 5)
 
   const format = (array: IContent[]) =>
@@ -205,7 +204,8 @@ export const calculateArtifact = (base: StatsObject, form: Record<string, any>, 
   }
   if (form['6000053']) {
     base.CALLBACK.push(function (x) {
-      _.map(x.ECHO_SCALING, (item) => ({ ...item, bonus: item.bonus + 0.5 }))
+      x.ECHO_SCALING = _.map(x.ECHO_SCALING, (item) => ({ ...item, bonus: (item.bonus || 0) + 0.5 }))
+      return x
     })
   }
 

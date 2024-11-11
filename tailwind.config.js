@@ -22,7 +22,7 @@ module.exports = {
         red: '#df6665',
         purple: '#b19fe6',
         blue: '#6fa8dd',
-        heal: "#84cf7c",
+        heal: '#84cf7c',
         wuwa: {
           aero: '#33ccb3',
           electro: '#d376f0',
@@ -32,6 +32,11 @@ module.exports = {
           cryo: '#92c8e8',
           havoc: '#de1d74',
         },
+      },
+      screens: {
+        desktop: { min: '1280px' },
+        tablet: { max: '1279px', min: '431px' },
+        mobile: { max: '430px' },
       },
     },
   },

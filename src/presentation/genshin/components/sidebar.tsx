@@ -36,7 +36,7 @@ export const Sidebar = ({
   const onOpenIntroModal = useCallback(() => modalStore.openModal(<IntroModal />), [])
 
   return (
-    <div className="flex flex-col justify-between w-1/6 p-2 bg-primary-darker shrink-0">
+    <div className="flex flex-col justify-between w-1/6 p-2 bg-primary-darker shrink-0 mobile:hidden">
       <div className="space-y-2">
         <Link href="/" className="flex flex-col items-end py-2 mx-3 text-white gap-x-2">
           <p className="flex items-center w-full text-2xl">
@@ -49,7 +49,7 @@ export const Sidebar = ({
         <Pill name="Team Setup" page={GenshinPage.TEAM} icon="fa-solid fa-user" />
         <Pill name="Damage Calculator" page={GenshinPage.DMG} icon="fa-solid fa-chart-simple" />
         <Pill name="Compare" page={GenshinPage.COMPARE} icon="fa-solid fa-arrow-right-arrow-left" />
-        <Pill name="ER Requirement" page={GenshinPage.ER} icon="fa-solid fa-rotate-right -rotate-90" />
+        {/* <Pill name="ER Requirement" page={GenshinPage.ER} icon="fa-solid fa-rotate-right -rotate-90" /> */}
         <Pill name="Import / Export" page={GenshinPage.IMPORT} icon="fa-solid fa-file-import" />
         <p className="p-2 font-bold text-white">Account</p>
         <Pill name="My Resonators" page={GenshinPage.CHAR} icon="fa-solid fa-user-group" />

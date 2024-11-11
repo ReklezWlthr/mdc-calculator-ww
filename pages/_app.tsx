@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
       </Head>
       <QueryClientProvider client={queryClient}>
         <Toast />
-        <div className="flex flex-col w-screen h-screen max-h-screen overflow-x-hidden min-w-[1440px]">
+        <div className="flex flex-col w-screen h-screen max-h-screen overflow-x-hidden desktop:min-w-[1440px]">
           <Modal />
           <Component {...pageProps} />
         </div>

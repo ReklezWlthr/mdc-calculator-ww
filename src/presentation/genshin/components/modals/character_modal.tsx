@@ -72,14 +72,16 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
   }
 
   return (
-    <div className="w-[1220px] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
-      <div className="flex items-center gap-6">
-        <p className="shrink-0">Select a Resonator</p>
-        <TextInput
-          onChange={(value) => setParams({ searchWord: value })}
-          value={params.searchWord}
-          placeholder="Search Resonator Name"
-        />
+    <div className="desktop:w-[1220px] tablet:w-[85vw] mobile:w-[85vw] mobile:h-[80vh] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
+      <div className="flex items-center gap-6 mobile:gap-2 mobile:flex-col">
+        <div className="flex items-center gap-6">
+          <p className="shrink-0">Select a Resonator</p>
+          <TextInput
+            onChange={(value) => setParams({ searchWord: value })}
+            value={params.searchWord}
+            placeholder="Search Resonator Name"
+          />
+        </div>
         <div className="flex gap-2">
           <FilterIcon type="element" value={Element.FUSION} />
           <FilterIcon type="element" value={Element.GLACIO} />
@@ -105,7 +107,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
           onlyShowCount
         />
       </div>
-      <div className="grid w-full grid-cols-10 gap-4 max-h-[70vh] overflow-y-auto hideScrollbar rounded-lg">
+      <div className="grid w-full grid-cols-10 tablet:grid-cols-7 mobile:grid-cols-3 gap-4 max-h-[70vh] mobile:h-[60vh] overflow-y-auto hideScrollbar rounded-lg">
         {_.map(filteredChar, (item) => {
           const owned = _.includes(_.map(charStore.characters, 'cId'), item.id)
           const codeName = item.order === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : item.order

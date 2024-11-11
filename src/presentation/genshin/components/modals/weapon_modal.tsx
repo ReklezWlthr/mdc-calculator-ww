@@ -35,18 +35,15 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
 
   const filteredWeapon = useMemo(
     () =>
-      _.filter(
-        _.orderBy(Weapons, ['rarity', 'name'], ['desc', 'asc']),
-        (item) => {
-          const regex = new RegExp(params.searchWord, 'i')
-          const nameMatch = item.name.match(regex)
-          const data = findCharacter(teamStore.characters[index]?.cId)
-          const typeMatch = (pathOverride || data?.weapon) === item.type
-          const statMatch = _.size(params.stat) ? _.includes(params.stat, item.ascStat) : true
+      _.filter(_.orderBy(Weapons, ['rarity', 'name'], ['desc', 'asc']), (item) => {
+        const regex = new RegExp(params.searchWord, 'i')
+        const nameMatch = item.name.match(regex)
+        const data = findCharacter(teamStore.characters[index]?.cId)
+        const typeMatch = (pathOverride || data?.weapon) === item.type
+        const statMatch = _.size(params.stat) ? _.includes(params.stat, item.ascStat) : true
 
-          return nameMatch && typeMatch && statMatch
-        }
-      ),
+        return nameMatch && typeMatch && statMatch
+      }),
     [params]
   )
 
@@ -67,14 +64,16 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
 
   return (
     <div className="w-[85vw] max-w-[1240px] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
-      <div className="flex items-center gap-6">
-        <p className="shrink-0">Select a Weapon</p>
-        <div className="w-1/3">
-          <TextInput
-            onChange={(value) => setParams({ searchWord: value })}
-            value={params.searchWord}
-            placeholder="Search Weapon Name"
-          />
+      <div className="flex items-center gap-6 mobile:gap-3 mobile:flex-col">
+        <div className="flex items-center gap-6">
+          <p className="shrink-0">Select a Weapon</p>
+          <div className="w-full">
+            <TextInput
+              onChange={(value) => setParams({ searchWord: value })}
+              value={params.searchWord}
+              placeholder="Search Weapon Name"
+            />
+          </div>
         </div>
         <div className="flex gap-2">
           <FilterIcon stat={Stats.P_HP} />
@@ -85,7 +84,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
           <FilterIcon stat={Stats.CRIT_DMG} />
         </div>
       </div>
-      <div className="grid w-full grid-cols-11 gap-4 max-h-[70vh] overflow-y-auto hideScrollbar rounded-lg">
+      <div className="grid w-full grid-cols-11 mobile:grid-cols-3 gap-4 max-h-[70vh] overflow-y-auto hideScrollbar rounded-lg">
         {_.map(filteredWeapon, (item) => {
           const minAtk = getWeaponBase(item?.baseAtk, 1, 1)
           const maxAtk = getWeaponBase(item?.baseAtk, 90, 6)

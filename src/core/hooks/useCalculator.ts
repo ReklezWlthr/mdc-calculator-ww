@@ -61,15 +61,7 @@ export const useCalculator = ({
   const conditionals = useMemo(
     () =>
       _.map(team, (item) =>
-        _.find(ConditionalsObject, (c) => c?.id === item?.cId)?.conditionals(
-          item.cons,
-          item.i,
-          {
-            ...item.talents,
-            normal: item.talents.normal + (_.includes(_.map(team, 'cId'), '10000033') ? 1 : 0),
-          },
-          team
-        )
+        _.find(ConditionalsObject, (c) => c?.id === item?.cId)?.conditionals(item.cons, item.i, item.talents, team)
       ),
     [team, settingStore.settings.travelerGender]
   )
@@ -79,7 +71,7 @@ export const useCalculator = ({
     () =>
       _.map(team, (item) => {
         const artifacts = _.map(item.equipments.artifacts, (a) => _.find(artifactStore.artifacts, (b) => b.id === a))
-        return getArtifactConditionals(team[selected]?.cId, artifacts)
+        return getArtifactConditionals(artifacts)
       }),
     [team, artifactStore.artifacts]
   )
@@ -92,22 +84,28 @@ export const useCalculator = ({
     }))
   )
   const weaponConditionals = _.map(team, (item, index) =>
-    _.map(
-      _.filter(WeaponConditionals, (weapon) => _.includes(weapon.id, item?.equipments?.weapon?.wId)),
-      (cond) => ({ ...cond, title: '', content: '', index })
-    )
+    item?.equipments?.weapon?.wId
+      ? _.map(
+          _.filter(WeaponConditionals, (weapon) => _.includes(weapon.id, item?.equipments?.weapon?.wId)),
+          (cond) => ({ ...cond, title: '', content: '', index })
+        )
+      : []
   )
   const weaponTeamConditionals = _.map(team, (item, index) =>
-    _.map(
-      _.filter(WeaponTeamConditionals, (weapon) => _.includes(weapon.id, item?.equipments?.weapon?.wId)),
-      (cond) => ({ ...cond, title: '', content: '', index })
-    )
+    item?.equipments?.weapon?.wId
+      ? _.map(
+          _.filter(WeaponTeamConditionals, (weapon) => _.includes(weapon.id, item?.equipments?.weapon?.wId)),
+          (cond) => ({ ...cond, title: '', content: '', index })
+        )
+      : []
   )
   const weaponAllyConditionals = _.map(team, (item, index) =>
-    _.map(
-      _.filter(WeaponAllyConditionals, (weapon) => _.includes(weapon.id, item?.equipments?.weapon?.wId)),
-      (cond) => ({ ...cond, id: `${cond.id}_${index}`, title: '', content: '', index: selected, owner: index })
-    )
+    item?.equipments?.weapon?.wId
+      ? _.map(
+          _.filter(WeaponAllyConditionals, (weapon) => _.includes(weapon.id, item?.equipments?.weapon?.wId)),
+          (cond) => ({ ...cond, id: `${cond.id}_${index}`, title: '', content: '', index: selected, owner: index })
+        )
+      : []
   )
   const weaponAllySelectable = (i: number) => _.flatten(_.filter(weaponAllyConditionals, (_, i2) => i !== i2))
   const weaponEligible = (i: number) => [...weaponConditionals[i], ..._.flatten(weaponTeamConditionals)]

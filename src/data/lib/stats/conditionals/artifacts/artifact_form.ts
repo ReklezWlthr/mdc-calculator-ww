@@ -5,7 +5,7 @@ import { IContent } from '@src/domain/conditional'
 import { findContentById, findEcho } from '@src/core/utils/finder'
 import { Sonata, SonataDetail } from '@src/data/db/artifacts'
 
-export const ArtifactForm = (rover: boolean) => {
+export const ArtifactForm = () => {
   const content: IContent[] = [
     {
       trace: 'Sonata',
@@ -213,13 +213,17 @@ export const ArtifactForm = (rover: boolean) => {
       text: 'Rover - Dreamless',
       title: 'Rover - Dreamless',
       content: findEcho('6000053')?.desc,
-      show: rover,
-      default: true,
+      show: true,
+      default: false,
       id: '6000053',
     },
   ]
 
-  const teamContent: IContent[] = [findContentById(content, Sonata.HEAL), findContentById(content, '6000061'), findContentById(content, '390080005')]
+  const teamContent: IContent[] = [
+    findContentById(content, Sonata.HEAL),
+    findContentById(content, '6000061'),
+    findContentById(content, '390080005'),
+  ]
 
   const allyContent: IContent[] = [
     {

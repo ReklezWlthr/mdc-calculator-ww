@@ -117,8 +117,8 @@ export const TeamSetup = observer(() => {
 
   return (
     <div className="w-full overflow-y-auto customScrollbar">
-      <div className="flex justify-center w-full gap-5 p-5 max-w-[1240px] mx-auto">
-        <div className="w-1/3">
+      <div className="grid grid-cols-12 tablet:grid-cols-7 justify-center w-full gap-5 p-5 tablet:max-w-[750px] max-w-[1240px] mx-auto mobile:flex-col">
+        <div className="col-span-4 mobile:w-full">
           <div className="flex items-center justify-between w-full gap-4 pt-1 pb-3">
             <div className="flex items-center justify-center w-full gap-4">
               {_.map(teamStore?.characters, (item, index) => (
@@ -142,7 +142,7 @@ export const TeamSetup = observer(() => {
           <div className="h-5" />
           <StatBlock stat={stats} />
         </div>
-        <div className="w-1/5 space-y-5">
+        <div className="col-span-3 space-y-5 mobile:w-full">
           <AbilityBlock
             char={char}
             talents={talent?.talents}
@@ -151,57 +151,59 @@ export const TeamSetup = observer(() => {
             onChangeStats={(index, value) => teamStore.setStatBonus(selected, index, value)}
           />
         </div>
-        <div className="w-1/5 space-y-5">
-          <WeaponBlock index={selected} {...teamStore.characters[selected]?.equipments?.weapon} noClear />
-          <ArtifactBlock
-            index={selected}
-            slot={2}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[1]}
-            setArtifact={teamStore.setArtifact}
-            canSwap
-          />
-          <ArtifactBlock
-            index={selected}
-            slot={4}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[3]}
-            setArtifact={teamStore.setArtifact}
-            canSwap
-          />
-          <div className="w-full px-3 py-2 space-y-1 rounded-lg bg-primary-dark">
-            {_.every(set, (item) => item < 2) ? (
-              <p className="text-xs text-white">No Set Bonus</p>
-            ) : (
-              _.map(set, (item, key) => <SetToolTip item={item} set={key} key={key} />)
-            )}
+        <div className="col-span-5 space-y-5 mobile:w-full">
+          <div className="grid grid-cols-2 gap-5 mobile:grid-cols-1">
+            <WeaponBlock index={selected} {...teamStore.characters[selected]?.equipments?.weapon} noClear />
+            <ArtifactBlock
+              index={selected}
+              slot={1}
+              aId={teamStore.characters[selected]?.equipments?.artifacts?.[0]}
+              setArtifact={teamStore.setArtifact}
+              canSwap
+            />
+            <ArtifactBlock
+              index={selected}
+              slot={2}
+              aId={teamStore.characters[selected]?.equipments?.artifacts?.[1]}
+              setArtifact={teamStore.setArtifact}
+              canSwap
+            />
+            <ArtifactBlock
+              index={selected}
+              slot={3}
+              aId={teamStore.characters[selected]?.equipments?.artifacts?.[2]}
+              setArtifact={teamStore.setArtifact}
+              canSwap
+            />
+            <ArtifactBlock
+              index={selected}
+              slot={4}
+              aId={teamStore.characters[selected]?.equipments?.artifacts?.[3]}
+              setArtifact={teamStore.setArtifact}
+              canSwap
+            />
+            <ArtifactBlock
+              index={selected}
+              slot={5}
+              aId={teamStore.characters[selected]?.equipments?.artifacts?.[4]}
+              setArtifact={teamStore.setArtifact}
+              canSwap
+            />
           </div>
-        </div>
-        <div className="w-1/5 space-y-5">
-          <ArtifactBlock
-            index={selected}
-            slot={1}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[0]}
-            setArtifact={teamStore.setArtifact}
-            canSwap
-          />
-          <ArtifactBlock
-            index={selected}
-            slot={3}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[2]}
-            setArtifact={teamStore.setArtifact}
-            canSwap
-          />
-          <ArtifactBlock
-            index={selected}
-            slot={5}
-            aId={teamStore.characters[selected]?.equipments?.artifacts?.[4]}
-            setArtifact={teamStore.setArtifact}
-            canSwap
-          />
-          <div className="grid grid-cols-2 gap-2">
-            <PrimaryButton title="Equip Build" onClick={onOpenBuildModal} />
-            <PrimaryButton title="Unequip All" onClick={onOpenConfirmModal} />
-            <PrimaryButton title="Save Build" onClick={onOpenSaveModal} />
-            <PrimaryButton title="Save Team" onClick={onOpenTeamModal} />
+          <div className="grid grid-cols-2 gap-5 mobile:grid-cols-1">
+            <div className="w-full px-3 py-2 space-y-1 rounded-lg bg-primary-dark h-fit">
+              {_.every(set, (item) => item < 2) ? (
+                <p className="text-xs text-white">No Set Bonus</p>
+              ) : (
+                _.map(set, (item, key) => <SetToolTip item={item} set={key} key={key} />)
+              )}
+            </div>
+            <div className="grid grid-cols-2 gap-2">
+              <PrimaryButton title="Equip Build" onClick={onOpenBuildModal} />
+              <PrimaryButton title="Unequip All" onClick={onOpenConfirmModal} />
+              <PrimaryButton title="Save Build" onClick={onOpenSaveModal} />
+              <PrimaryButton title="Save Team" onClick={onOpenTeamModal} />
+            </div>
           </div>
         </div>
       </div>

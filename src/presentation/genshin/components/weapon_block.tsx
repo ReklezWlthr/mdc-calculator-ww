@@ -130,7 +130,7 @@ export const WeaponBlock = observer(
     }, [modalStore, index, char, setWeapon])
 
     return (
-      <div className="w-full font-bold text-white rounded-lg bg-primary-dark h-[250px]">
+      <div className="w-[230px] font-bold text-white rounded-lg bg-primary-dark h-[250px]">
         <div className="flex justify-center px-5 py-1 text-sm rounded-t-lg bg-primary-light">Weapon</div>
         <div className="flex flex-col p-3 gap-y-3">
           <div className="flex items-center gap-2">
