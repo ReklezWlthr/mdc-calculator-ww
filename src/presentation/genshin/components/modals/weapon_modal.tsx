@@ -152,7 +152,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
                     <RarityGauge rarity={item.rarity} />
                   </div>
                   <img
-                    src={getWeaponImage(item?.id)}
+                    src={getWeaponImage(item?.image)}
                     className="object-contain rounded-t-lg bg-primary-darker aspect-square"
                   />
                 </div>

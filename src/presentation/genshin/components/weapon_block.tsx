@@ -159,7 +159,7 @@ export const WeaponBlock = observer(
                 className="w-full duration-200 border rounded-lg cursor-pointer bg-primary-darker border-primary-border aspect-square hover:border-primary-light"
                 onClick={onOpenModal}
               >
-                <img src={getWeaponImage(weaponData?.id)} />
+                <img src={getWeaponImage(weaponData?.image)} />
               </div>
               {rarity && (
                 <div className="absolute px-1 rounded-md pointer-events-none bottom-1 right-1 bg-primary-bg">

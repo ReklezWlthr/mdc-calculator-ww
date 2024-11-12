@@ -3,6 +3,7 @@ import { Stats, WeaponType } from '@src/domain/constant'
 export const Weapons = [
   {
     id: '21010011',
+    image: 'T_IconWeapon21010011_UI.webp',
     name: 'Training Broadblade',
     rarity: 1,
     baseAtk: 20,
@@ -18,6 +19,7 @@ export const Weapons = [
   },
   {
     id: '21010012',
+    image: 'T_IconWeapon21010012_UI.webp',
     name: 'Tyro Broadblade',
     rarity: 2,
     baseAtk: 22,
@@ -33,6 +35,7 @@ export const Weapons = [
   },
   {
     id: '21010013',
+    image: 'T_IconWeapon21010013_UI.webp',
     name: 'Broadblade of Night',
     rarity: 3,
     baseAtk: 26,
@@ -48,6 +51,7 @@ export const Weapons = [
   },
   {
     id: '21010015',
+    image: 'T_IconWeapon21010015_UI.webp',
     name: 'Lustrous Razor',
     rarity: 5,
     baseAtk: 47,
@@ -66,6 +70,7 @@ export const Weapons = [
   },
   {
     id: '21010016',
+    image: 'T_IconWeapon21010016_UI.webp',
     name: 'Verdant Summit',
     rarity: 5,
     baseAtk: 47,
@@ -84,6 +89,7 @@ export const Weapons = [
   },
   {
     id: '21010023',
+    image: 'T_IconWeapon21010023_UI.webp',
     name: 'Originite: Type I',
     rarity: 3,
     baseAtk: 24,
@@ -99,6 +105,7 @@ export const Weapons = [
   },
   {
     id: '21010024',
+    image: 'T_IconWeapon21010024_UI.webp',
     name: 'Discord',
     rarity: 4,
     baseAtk: 27,
@@ -114,6 +121,7 @@ export const Weapons = [
   },
   {
     id: '21010026',
+    image: 'T_IconWeapon21010026_UI.webp',
     name: 'Ages of Harvest',
     rarity: 5,
     baseAtk: 47,
@@ -132,6 +140,7 @@ export const Weapons = [
   },
   {
     id: '21010034',
+    image: 'T_IconWeapon21010034_UI.webp',
     name: 'Broadblade#41',
     rarity: 4,
     baseAtk: 33,
@@ -151,6 +160,7 @@ export const Weapons = [
   },
   {
     id: '21010043',
+    image: 'T_IconWeapon21010043_UI.webp',
     name: 'Dauntless Evernight',
     rarity: 4,
     baseAtk: 27,
@@ -169,6 +179,7 @@ export const Weapons = [
   },
   {
     id: '21010044',
+    image: 'T_IconWeapon21010044_UI.webp',
     name: 'Broadblade of Voyager',
     rarity: 3,
     baseAtk: 24,
@@ -184,6 +195,7 @@ export const Weapons = [
   },
   {
     id: '21010053',
+    image: 'T_IconWeapon21010053_UI.webp',
     name: 'Guardian Broadblade',
     rarity: 3,
     baseAtk: 26,
@@ -199,6 +211,7 @@ export const Weapons = [
   },
   {
     id: '21010063',
+    image: 'T_IconWeapon21010063_UI.webp',
     name: 'Beguiling Melody',
     rarity: 3,
     baseAtk: 24,
@@ -214,6 +227,7 @@ export const Weapons = [
   },
   {
     id: '21010064',
+    image: 'T_IconWeapon21010064_UI.webp',
     name: 'Helios Cleaver',
     rarity: 4,
     baseAtk: 33,
@@ -229,6 +243,7 @@ export const Weapons = [
   },
   {
     id: '21010074',
+    image: 'T_IconWeapon21010074_UI.webp',
     name: 'Autumntrace',
     rarity: 4,
     baseAtk: 33,
@@ -244,6 +259,7 @@ export const Weapons = [
   },
   {
     id: '21010084',
+    image: 'T_IconWeapon21010084_UI.webp',
     name: 'Waning Redshift',
     rarity: 4,
     baseAtk: 37,
@@ -262,6 +278,7 @@ export const Weapons = [
   },
   {
     id: '21020011',
+    image: 'T_IconWeapon21020011_UI.webp',
     name: 'Training Sword',
     rarity: 1,
     baseAtk: 20,
@@ -277,6 +294,7 @@ export const Weapons = [
   },
   {
     id: '21020012',
+    image: 'T_IconWeapon21020012_UI.webp',
     name: 'Tyro Sword',
     rarity: 2,
     baseAtk: 22,
@@ -292,6 +310,7 @@ export const Weapons = [
   },
   {
     id: '21020013',
+    image: 'T_IconWeapon21020013_UI.webp',
     name: 'Sword of Night',
     rarity: 3,
     baseAtk: 26,
@@ -307,6 +326,7 @@ export const Weapons = [
   },
   {
     id: '21020015',
+    image: 'T_IconWeapon21020015_UI.webp',
     name: 'Emerald of Genesis',
     rarity: 5,
     baseAtk: 47,
@@ -325,6 +345,7 @@ export const Weapons = [
   },
   {
     id: '21020016',
+    image: 'T_IconWeapon21020016_UI.webp',
     name: 'Blazing Brilliance',
     rarity: 5,
     baseAtk: 47,
@@ -343,6 +364,7 @@ export const Weapons = [
   },
   {
     id: '21020017',
+    image: 'T_IconWeapon21020019_UI.webp',
     name: 'Somnoir Anchor',
     rarity: 4,
     baseAtk: 37,
@@ -351,8 +373,8 @@ export const Weapons = [
     type: WeaponType.SWORD,
     desc: {
       name: 'Meow!',
-      detail: `Gain <span class="text-desc">1</span> stack of Hiss when dealing damage to the target, with <span class="text-desc">1</span> stack generated per <span class="text-desc">1</span>s.
-      <br />Hiss: each stack increases the wielder's ATK by {{0}}% for <span class="text-desc">3</span>s, stacking up to <span class="text-desc">10</span>. Switching off the wielder clears all layers. Gaining <span class="text-desc">10</span> layers increases the wielder's Crit. Rate by {{1}}%.`,
+      detail: `Gain <span class="text-desc">1</span> stack of <b>Hiss</b> when dealing damage to the target, with <span class="text-desc">1</span> stack generated per <span class="text-desc">1</span>s.
+      <br /><b>Hiss</b>: each stack increases the wielder's ATK by {{0}}% for <span class="text-desc">3</span>s, stacking up to <span class="text-desc">10</span>. Switching off the wielder clears all layers. Gaining <span class="text-desc">10</span> layers increases the wielder's Crit. Rate by {{1}}%.`,
       properties: [
         { base: 2, growth: 0.5 },
         { base: 6, growth: 1.5 },
@@ -362,6 +384,7 @@ export const Weapons = [
   },
   {
     id: '21020023',
+    image: 'T_IconWeapon21020023_UI.webp',
     name: 'Originite: Type II',
     rarity: 3,
     baseAtk: 26,
@@ -377,6 +400,7 @@ export const Weapons = [
   },
   {
     id: '21020024',
+    image: 'T_IconWeapon21020024_UI.webp',
     name: 'Overture',
     rarity: 4,
     baseAtk: 27,
@@ -392,6 +416,7 @@ export const Weapons = [
   },
   {
     id: '21020026',
+    image: 'T_IconWeapon21020017_UI.webp',
     name: 'Red Spring',
     rarity: 5,
     baseAtk: 47,
@@ -412,6 +437,7 @@ export const Weapons = [
   },
   {
     id: '21020034',
+    image: 'T_IconWeapon21020034_UI.webp',
     name: 'Sword#18',
     rarity: 4,
     baseAtk: 31,
@@ -431,6 +457,7 @@ export const Weapons = [
   },
   {
     id: '21020043',
+    image: 'T_IconWeapon21020043_UI.webp',
     name: 'Sword of Voyager',
     rarity: 3,
     baseAtk: 24,
@@ -446,6 +473,7 @@ export const Weapons = [
   },
   {
     id: '21020044',
+    image: 'T_IconWeapon21020044_UI.webp',
     name: 'Commando of Conviction',
     rarity: 4,
     baseAtk: 33,
@@ -461,6 +489,7 @@ export const Weapons = [
   },
   {
     id: '21020053',
+    image: 'T_IconWeapon21020053_UI.webp',
     name: 'Guardian Sword',
     rarity: 3,
     baseAtk: 24,
@@ -476,6 +505,7 @@ export const Weapons = [
   },
   {
     id: '21020064',
+    image: 'T_IconWeapon21020064_UI.webp',
     name: 'Lunar Cutter',
     rarity: 4,
     baseAtk: 33,
@@ -491,6 +521,7 @@ export const Weapons = [
   },
   {
     id: '21020074',
+    image: 'T_IconWeapon21020074_UI.webp',
     name: 'Lumingloss',
     rarity: 4,
     baseAtk: 31,
@@ -506,6 +537,7 @@ export const Weapons = [
   },
   {
     id: '21020084',
+    image: 'T_IconWeapon21020084_UI.webp',
     name: 'Endless Collapse',
     rarity: 4,
     baseAtk: 37,
@@ -524,6 +556,7 @@ export const Weapons = [
   },
   {
     id: '21030011',
+    image: 'T_IconWeapon21030011_UI.webp',
     name: 'Training Pistols',
     rarity: 1,
     baseAtk: 20,
@@ -539,6 +572,7 @@ export const Weapons = [
   },
   {
     id: '21030012',
+    image: 'T_IconWeapon21030012_UI.webp',
     name: 'Tyro Pistols',
     rarity: 2,
     baseAtk: 22,
@@ -554,6 +588,7 @@ export const Weapons = [
   },
   {
     id: '21030013',
+    image: 'T_IconWeapon21030013_UI.webp',
     name: 'Pistols of Night',
     rarity: 3,
     baseAtk: 26,
@@ -569,6 +604,7 @@ export const Weapons = [
   },
   {
     id: '21030015',
+    image: 'T_IconWeapon21030015_UI.webp',
     name: 'Static Mist',
     rarity: 5,
     baseAtk: 47,
@@ -587,6 +623,7 @@ export const Weapons = [
   },
   {
     id: '21030023',
+    image: 'T_IconWeapon210320023_UI.webp',
     name: 'Originite: Type III',
     rarity: 3,
     baseAtk: 26,
@@ -602,6 +639,7 @@ export const Weapons = [
   },
   {
     id: '21030024',
+    image: 'T_IconWeapon21030024_UI.webp',
     name: 'Cadenza',
     rarity: 4,
     baseAtk: 27,
@@ -617,6 +655,7 @@ export const Weapons = [
   },
   {
     id: '21030034',
+    image: 'T_IconWeapon21030034_UI.webp',
     name: 'Pistols#26',
     rarity: 4,
     baseAtk: 31,
@@ -635,6 +674,7 @@ export const Weapons = [
   },
   {
     id: '21030043',
+    image: 'T_IconWeapon21030043_UI.webp',
     name: 'Pistols of Voyager',
     rarity: 3,
     baseAtk: 24,
@@ -650,6 +690,7 @@ export const Weapons = [
   },
   {
     id: '21030044',
+    image: 'T_IconWeapon21020034_UI.webp',
     name: 'Undying Flame',
     rarity: 4,
     baseAtk: 33,
@@ -665,6 +706,7 @@ export const Weapons = [
   },
   {
     id: '21030053',
+    image: 'T_IconWeapon21030053_UI.webp',
     name: 'Guardian Pistols',
     rarity: 3,
     baseAtk: 24,
@@ -680,6 +722,7 @@ export const Weapons = [
   },
   {
     id: '21030064',
+    image: 'T_IconWeapon21030064_UI.webp',
     name: 'Novaburst',
     rarity: 4,
     baseAtk: 33,
@@ -695,6 +738,7 @@ export const Weapons = [
   },
   {
     id: '21030074',
+    image: 'T_IconWeapon21030074_UI.webp',
     name: 'Thunderbolt',
     rarity: 4,
     baseAtk: 31,
@@ -710,6 +754,7 @@ export const Weapons = [
   },
   {
     id: '21030084',
+    image: 'T_IconWeapon21030084_UI.webp',
     name: 'Relativistic Jet',
     rarity: 4,
     baseAtk: 37,
@@ -728,6 +773,7 @@ export const Weapons = [
   },
   {
     id: '21040011',
+    image: 'T_IconWeapon21040011_UI.webp',
     name: 'Training Gauntlets',
     rarity: 1,
     baseAtk: 20,
@@ -743,6 +789,7 @@ export const Weapons = [
   },
   {
     id: '21040012',
+    image: 'T_IconWeapon21040012_UI.webp',
     name: 'Tyro Gauntlets',
     rarity: 2,
     baseAtk: 22,
@@ -758,6 +805,7 @@ export const Weapons = [
   },
   {
     id: '21040013',
+    image: 'T_IconWeapon21040013_UI.webp',
     name: 'Gauntlets of Night',
     rarity: 4,
     baseAtk: 26,
@@ -773,6 +821,7 @@ export const Weapons = [
   },
   {
     id: '21040015',
+    image: 'T_IconWeapon21040015_UI.webp',
     name: 'Abyss Surge',
     rarity: 5,
     baseAtk: 47,
@@ -791,6 +840,7 @@ export const Weapons = [
   },
   {
     id: '21040016',
+    image: 'T_IconWeapon21040016_UI.webp',
     name: `Verity's Handle`,
     rarity: 5,
     baseAtk: 47,
@@ -809,6 +859,7 @@ export const Weapons = [
   },
   {
     id: '21040023',
+    image: 'T_IconWeapon21040023_UI.webp',
     name: 'Originite: Type IV',
     rarity: 3,
     baseAtk: 24,
@@ -824,6 +875,7 @@ export const Weapons = [
   },
   {
     id: '21040024',
+    image: 'T_IconWeapon21040024_UI.webp',
     name: 'Marcato',
     rarity: 4,
     baseAtk: 27,
@@ -839,6 +891,7 @@ export const Weapons = [
   },
   {
     id: '21040034',
+    image: 'T_IconWeapon21040034_UI.webp',
     name: 'Gauntlets#21',
     rarity: 4,
     baseAtk: 31,
@@ -858,6 +911,7 @@ export const Weapons = [
   },
   {
     id: '21040043',
+    image: 'T_IconWeapon21040043_UI.webp',
     name: 'Gauntlets of Voyager',
     rarity: 3,
     baseAtk: 24,
@@ -873,6 +927,7 @@ export const Weapons = [
   },
   {
     id: '21040044',
+    image: 'T_IconWeapon21040044_UI.webp',
     name: 'Amity Accord',
     rarity: 4,
     baseAtk: 33,
@@ -888,6 +943,7 @@ export const Weapons = [
   },
   {
     id: '21040053',
+    image: 'T_IconWeapon21040053_UI.webp',
     name: 'Guardian Gauntlets',
     rarity: 3,
     baseAtk: 24,
@@ -903,6 +959,7 @@ export const Weapons = [
   },
   {
     id: '21040064',
+    image: 'T_IconWeapon21040064_UI.webp',
     name: 'Hollow Mirage',
     rarity: 4,
     baseAtk: 33,
@@ -918,6 +975,7 @@ export const Weapons = [
   },
   {
     id: '21040074',
+    image: 'T_IconWeapon21040074_UI.webp',
     name: 'Stonard',
     rarity: 4,
     baseAtk: 33,
@@ -933,6 +991,7 @@ export const Weapons = [
   },
   {
     id: '21040084',
+    image: 'T_IconWeapon21040084_UI.webp',
     name: 'Celestial Spiral',
     rarity: 4,
     baseAtk: 37,
@@ -951,6 +1010,7 @@ export const Weapons = [
   },
   {
     id: '21050011',
+    image: 'T_IconWeapon21050011_UI.webp',
     name: 'Training Rectifier',
     rarity: 1,
     baseAtk: 20,
@@ -966,6 +1026,7 @@ export const Weapons = [
   },
   {
     id: '21050012',
+    image: 'T_IconWeapon21050012_UI.webp',
     name: 'Tyro Rectifier',
     rarity: 2,
     baseAtk: 22,
@@ -981,6 +1042,7 @@ export const Weapons = [
   },
   {
     id: '21050013',
+    image: 'T_IconWeapon21050013_UI.webp',
     name: 'Rectifier of Night',
     rarity: 3,
     baseAtk: 26,
@@ -996,6 +1058,7 @@ export const Weapons = [
   },
   {
     id: '21050015',
+    image: 'T_IconWeapon21050015_UI.webp',
     name: 'Cosmic Ripples',
     rarity: 5,
     baseAtk: 40,
@@ -1014,6 +1077,7 @@ export const Weapons = [
   },
   {
     id: '21050016',
+    image: 'T_IconWeapon21050016_UI.webp',
     name: `Stringmaster`,
     rarity: 5,
     baseAtk: 40,
@@ -1029,6 +1093,7 @@ export const Weapons = [
   },
   {
     id: '21050023',
+    image: 'T_IconWeapon21050023_UI.webp',
     name: 'Originite: Type V',
     rarity: 3,
     baseAtk: 24,
@@ -1044,6 +1109,7 @@ export const Weapons = [
   },
   {
     id: '21050024',
+    image: 'T_IconWeapon21050024_UI.webp',
     name: 'Variation',
     rarity: 4,
     baseAtk: 27,
@@ -1059,6 +1125,7 @@ export const Weapons = [
   },
   {
     id: '21050026',
+    image: 'T_IconWeapon21050026_UI.webp',
     name: 'Rime-Draped Sprout',
     rarity: 5,
     baseAtk: 40,
@@ -1076,7 +1143,27 @@ export const Weapons = [
     beta: false,
   },
   {
-    id: '21050027',
+    id: '21050034',
+    image: 'T_IconWeapon21050034_UI.webp',
+    name: 'Rectifier#25',
+    rarity: 4,
+    baseAtk: 27,
+    ascStat: Stats.ER,
+    baseStat: 0.1152,
+    type: WeaponType.RECTIFIER,
+    desc: {
+      name: 'Dawnbringer',
+      detail: `When Resonance Skill is cast, if the Resonator's HP is below <span class="text-desc">60%</span>, heals {{0}}% of their Max HP. This effect can be triggered <span class="text-desc">1</span> time(s) every <span class="text-desc">8</span>s. If the Resonator's HP is above <span class="text-desc">60%</span>, increases ATK by {{1}}%, lasting for <span class="text-desc">10</span>s.`,
+      properties: [
+        { base: 5, growth: 1.25 },
+        { base: 12, growth: 3 },
+      ],
+    },
+    beta: false,
+  },
+  {
+    id: '21050036',
+    image: 'T_IconWeapon21050027_UI.webp',
     name: 'Stellar Symphony',
     rarity: 5,
     baseAtk: 33,
@@ -1095,25 +1182,8 @@ export const Weapons = [
     beta: false,
   },
   {
-    id: '21050034',
-    name: 'Rectifier#25',
-    rarity: 4,
-    baseAtk: 27,
-    ascStat: Stats.ER,
-    baseStat: 0.1152,
-    type: WeaponType.RECTIFIER,
-    desc: {
-      name: 'Dawnbringer',
-      detail: `When Resonance Skill is cast, if the Resonator's HP is below <span class="text-desc">60%</span>, heals {{0}}% of their Max HP. This effect can be triggered <span class="text-desc">1</span> time(s) every <span class="text-desc">8</span>s. If the Resonator's HP is above <span class="text-desc">60%</span>, increases ATK by {{1}}%, lasting for <span class="text-desc">10</span>s.`,
-      properties: [
-        { base: 5, growth: 1.25 },
-        { base: 12, growth: 3 },
-      ],
-    },
-    beta: false,
-  },
-  {
     id: '21050043',
+    image: 'T_IconWeapon21050043_UI.webp',
     name: 'Rectifier of Voyager',
     rarity: 3,
     baseAtk: 24,
@@ -1129,6 +1199,7 @@ export const Weapons = [
   },
   {
     id: '21050044',
+    image: 'T_IconWeapon21050044_UI.webp',
     name: 'Jinzhou Keeper',
     rarity: 4,
     baseAtk: 31,
@@ -1147,6 +1218,7 @@ export const Weapons = [
   },
   {
     id: '21050053',
+    image: 'T_IconWeapon21050053_UI.webp',
     name: 'Guardian Rectifier',
     rarity: 3,
     baseAtk: 26,
@@ -1162,6 +1234,7 @@ export const Weapons = [
   },
   {
     id: '21050064',
+    image: 'T_IconWeapon21050064_UI.webp',
     name: 'Comet Flare',
     rarity: 4,
     baseAtk: 33,
@@ -1177,6 +1250,7 @@ export const Weapons = [
   },
   {
     id: '21050074',
+    image: 'T_IconWeapon21050074_UI.webp',
     name: 'Augment',
     rarity: 4,
     baseAtk: 33,
@@ -1192,6 +1266,7 @@ export const Weapons = [
   },
   {
     id: '21050084',
+    image: 'T_IconWeapon21050084_UI.webp',
     name: 'Fusion Accretion',
     rarity: 4,
     baseAtk: 37,

@@ -36,7 +36,7 @@ export const ArtifactListModal = observer(
     }, [params.set, params.subs, params.main])
 
     return (
-      <div className="w-[65vw] p-4 text-white rounded-xl bg-primary-darker space-y-4">
+      <div className="w-[60vw] p-4 text-white rounded-xl bg-primary-darker space-y-4">
         <div className="flex items-center justify-between w-full">
           <p className="text-lg font-bold">Choose an artifact</p>
           <div className="flex items-center gap-3">
