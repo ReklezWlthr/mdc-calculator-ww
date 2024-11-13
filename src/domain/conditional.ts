@@ -20,12 +20,10 @@ export interface IScaling {
 }
 
 export interface IEnemyGroup {
+  id: string
   name: string
-  options: { name: string; value: string }[]
-  res: (element: Element, stun: boolean, shield: boolean) => number[]
-  stun?: string
-  shield?: string
-  img: string
+  res: number[]
+  icon: string
 }
 
 export interface IWeaponContent {

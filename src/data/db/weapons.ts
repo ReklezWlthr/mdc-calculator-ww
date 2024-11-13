@@ -373,8 +373,8 @@ export const Weapons = [
     type: WeaponType.SWORD,
     desc: {
       name: 'Meow!',
-      detail: `Gain <span class="text-desc">1</span> stack of <b>Hiss</b> when dealing damage to the target, with <span class="text-desc">1</span> stack generated per <span class="text-desc">1</span>s.
-      <br /><b>Hiss</b>: each stack increases the wielder's ATK by {{0}}% for <span class="text-desc">3</span>s, stacking up to <span class="text-desc">10</span>. Switching off the wielder clears all layers. Gaining <span class="text-desc">10</span> layers increases the wielder's Crit. Rate by {{1}}%.`,
+      detail: `Gain <span class="text-desc">1</span> stack of <b>Hiss</b> when dealing damage to the target, with <span class="text-desc">1</span> stack generated every <span class="text-desc">1</span>s.
+      <br /><b>Hiss</b>: each stack increases the wielder's ATK by {{0}}% for <span class="text-desc">3</span>s, stacking up to <span class="text-desc">10</span>. Switching off the wielder clears all stacks. Gaining <span class="text-desc">10</span> stacks increases the wielder's Crit. Rate by {{1}}%.`,
       properties: [
         { base: 2, growth: 0.5 },
         { base: 6, growth: 1.5 },

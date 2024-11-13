@@ -15,6 +15,7 @@ export const propertyColor = {
 }
 
 export const BaseElementColor = {
+  [Element.PHYSICAL]: 'text-gray',
   [Element.FUSION]: 'text-wuwa-fusion',
   [Element.GLACIO]: 'text-wuwa-glacio',
   [Element.AERO]: 'text-wuwa-aero',

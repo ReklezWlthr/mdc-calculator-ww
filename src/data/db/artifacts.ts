@@ -1,7 +1,6 @@
 import { calcRefinement } from '@src/core/utils/data_format'
 import { Element, IArtifact, Stats, TalentProperty } from '@src/domain/constant'
 import _ from 'lodash'
-import { StatsObject } from '../lib/stats/baseConstant'
 
 export enum Sonata {
   WIND = 'Sierra Gale',
@@ -844,7 +843,7 @@ export const Echoes: IArtifact[] = [
   },
   {
     id: '390070065',
-    name: 'Havoc Predator',
+    name: 'Havoc Warrior',
     icon: 'T_IconMonsterGoods_051_UI',
     skill: 'T_MstSkil_Z_Z8_UI',
     sonata: [Sonata.HAVOC, Sonata.LIGHT],

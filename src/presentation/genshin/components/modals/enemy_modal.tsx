@@ -11,11 +11,11 @@ import { SelectInput } from '@src/presentation/components/inputs/select_input'
 import { EnemyGroups } from '@src/data/db/enemies'
 import { SelectTextInput } from '@src/presentation/components/inputs/select_text_input'
 import { findEnemy } from '@src/core/utils/finder'
-import { BaseElementColor } from '@src/core/utils/damageStringConstruct'
 import React from 'react'
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { ToggleSwitch } from '@src/presentation/components/inputs/toggle'
 import { getEnemyImage } from '@src/core/utils/fetcher'
+import { BaseElementColor } from '../tables/compare_total_row'
 
 export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; compare?: boolean }) => {
   const { calculatorStore, teamStore, setupStore } = useStore()
@@ -169,7 +169,7 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
                 </p>
               </div>
             </div>
-            <div className="pt-4 flex items-center gap-4 justify-between">
+            <div className="flex items-center justify-between gap-4 pt-4">
               <div className="w-full">
                 <p>Superconduct</p>
                 <p className="text-xs font-normal text-gray">
