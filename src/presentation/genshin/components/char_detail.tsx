@@ -16,6 +16,7 @@ import { getAvatar, getElementImage, getGachaAvatar, getTagsImage, getTalentWeap
 import getConfig from 'next/config'
 import { CharDetailModal } from './modals/char_detail_modal'
 import { StatBonusValue } from '@src/domain/scaling'
+import { ElementIcon } from './element_icon'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -105,11 +106,13 @@ export const CharDetail = observer(() => {
           <div className="absolute top-0 left-0 w-full h-full from-primary-bg bg-gradient-to-r via-10% via-transparent" />
           <div className="absolute top-0 left-0 w-[150%] h-full from-primary-bg bg-gradient-to-t via-30% via-transparent overflow-visible -z-10" />
           <div className="absolute left-0 flex flex-col space-y-1 bottom-10">
-            <div className="flex gap-4">
-              <img src={getElementImage(data.element)} className="w-10 h-10 rounded-full shrink-0" />
+            <div className="flex items-center gap-4">
+              <div className="shrink-0 p-0.5">
+                <ElementIcon element={data.element} size="w-8 h-8" transparent />
+              </div>
               <img
                 src={getTalentWeaponImage(data.weapon)}
-                className="w-10 h-10 p-1 bg-opacity-75 rounded-full shrink-0 bg-primary-bg"
+                className="p-0.5 bg-opacity-75 rounded-full w-9 h-9 shrink-0 bg-primary-bg"
               />
             </div>
             <p className="px-3 py-2 text-3xl font-semibold text-center break-words bg-opacity-75 rounded-lg bg-primary-bg">

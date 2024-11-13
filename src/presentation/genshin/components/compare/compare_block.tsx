@@ -21,6 +21,7 @@ import { MiniArtifactBlock } from '../mini_artifact_block'
 import { WeaponBlock } from '../weapon_block'
 import { CompareTraceBlock } from './compare_trace_block'
 import { CompareReactionTable } from './compare_reaction_table'
+import { ArtifactBlock } from '../artifact_block'
 
 export const CompareBlock = observer(() => {
   const { setupStore, modalStore } = useStore()
@@ -320,12 +321,12 @@ export const CompareBlock = observer(() => {
                 />
               </div>
               <div className="w-full space-y-1 text-white">
-                <p className="font-bold text-center">Artifacts</p>
+                <p className="font-bold text-center">Echoes</p>
                 <div className="grid grid-cols-2 gap-2.5">
-                  {_.map([3, 1, 4, 0, 2], (item) => (
-                    <MiniArtifactBlock
+                  {_.map([0, 1, 2, 3, 4], (item) => (
+                    <ArtifactBlock
                       key={item}
-                      type={item + 1}
+                      slot={item}
                       aId={focusedChar.equipments.artifacts[item]}
                       index={selected}
                       setArtifact={(i, t, a) => {

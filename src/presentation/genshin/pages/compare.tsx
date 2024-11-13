@@ -286,6 +286,7 @@ export const ComparePage = observer(() => {
                         onOpenSaveModal({
                           onSelect: (team) => {
                             const newCompare = _.cloneDeep(setupStore.comparing)
+                            newCompare.splice(tI, 1, _.cloneDeep(team))
                             const name = findValidName(
                               _.map([setupStore.main, ...setupStore.comparing], 'name'),
                               team.name

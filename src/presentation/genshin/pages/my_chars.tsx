@@ -10,6 +10,7 @@ import { Element, WeaponType } from '@src/domain/constant'
 import { TextInput } from '@src/presentation/components/inputs/text_input'
 import { CharDetail } from '../components/char_detail'
 import { getElementImage, getSideAvatar, getTalentWeaponImage } from '@src/core/utils/fetcher'
+import { ElementIcon } from '../components/element_icon'
 
 export const MyCharacters = observer(() => {
   const { charStore, settingStore } = useStore()
@@ -49,10 +50,11 @@ export const MyCharacters = observer(() => {
         onClick={() => setParams({ [type]: checked ? _.without(array, value) : [...array, value] })}
         title={value}
       >
-        <img
-          src={type === 'element' ? getElementImage(value) : getTalentWeaponImage(value)}
-          className={classNames({ 'scale-[80%]': type === 'element' })}
-        />
+        {type === 'element' ? (
+          <ElementIcon element={value as Element} size="w-4 h-4" />
+        ) : (
+          <img src={getTalentWeaponImage(value)} />
+        )}
       </div>
     )
   }
@@ -62,18 +64,18 @@ export const MyCharacters = observer(() => {
       <div className="flex w-full h-full gap-x-10">
         <div className="flex flex-col w-[30%] h-full gap-y-2 shrink-0">
           <div className="flex items-center justify-between">
-            <p className="text-2xl font-bold text-white">My Characters</p>
+            <p className="text-2xl font-bold text-white">My Resonators</p>
             <TextInput
               onChange={(value) => setParams({ searchWord: value })}
               value={params.searchWord}
-              placeholder="Search Character Name"
+              placeholder="Search Resonator Name"
               style="!w-1/2"
             />
           </div>
           <div className="flex items-center gap-5">
             <div className="flex gap-1">
-              <FilterIcon type="element" value={Element.FUSION} />
               <FilterIcon type="element" value={Element.GLACIO} />
+              <FilterIcon type="element" value={Element.FUSION} />
               <FilterIcon type="element" value={Element.ELECTRO} />
               <FilterIcon type="element" value={Element.AERO} />
               <FilterIcon type="element" value={Element.SPECTRO} />
@@ -90,7 +92,8 @@ export const MyCharacters = observer(() => {
           <div className="grid grid-cols-4 gap-3 pr-2 mt-1 rounded-lg customScrollbar">
             {_.map(filteredChar, (item) => {
               const owned = _.includes(_.map(charStore.characters, 'cId'), item.id)
-              const codeName = item.order === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : item.order
+              const codeName =
+                item.order === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : item.order
               return (
                 <div
                   className={classNames(
@@ -101,7 +104,9 @@ export const MyCharacters = observer(() => {
                   key={item.name}
                 >
                   <div className={classNames('relative', owned ? 'opacity-100' : 'opacity-30')}>
-                    <img src={getElementImage(item.element)} className="absolute w-6 h-6 top-1 left-1" />
+                    <div className="absolute top-1.5 left-1.5">
+                      <ElementIcon element={item.element} size="w-4 h-4" />
+                    </div>
                     {owned && (
                       <div className="absolute px-1.5 py-1 rounded-full top-1 right-1 bg-primary-light font-bold">
                         S{_.find(charStore.characters, ['cId', item.id])?.cons || 0}

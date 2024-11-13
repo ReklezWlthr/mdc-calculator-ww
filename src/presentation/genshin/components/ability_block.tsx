@@ -29,7 +29,7 @@ export const AbilityBlock = observer(
     const charData = findCharacter(char.cId)
 
     return (
-      <div>
+      <div className='flex flex-col items-center'>
         <p className="text-xl font-bold text-center text-white">
           <span className="mr-2 text-desc">✦</span>Forte<span className="ml-2 text-desc">✦</span>
         </p>

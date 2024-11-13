@@ -13,6 +13,7 @@ import { DefaultCharacter } from '@src/data/stores/team_store'
 import { findCharacter } from '@src/core/utils/finder'
 import { getAvatar, getElementImage, getSideAvatar, getTalentWeaponImage } from '@src/core/utils/fetcher'
 import classNames from 'classnames'
+import { ElementIcon } from './element_icon'
 
 interface CharacterBlockProps {
   index: number
@@ -61,9 +62,9 @@ export const CharacterBlock = observer((props: CharacterBlockProps) => {
           {characterData && (
             <>
               <img src={getSideAvatar(codeName)} className="object-cover aspect-square" />
-              <div className="flex gap-0.5 absolute top-10 right-1">
+              <div className="flex gap-0.5 absolute top-8 right-1">
                 <div
-                  className="flex items-center justify-center w-8 h-8 p-1 bg-opacity-75 rounded-full bg-primary-darker"
+                  className="flex items-center justify-center w-6 h-6 p-0.5 bg-opacity-75 rounded-full bg-primary-darker"
                   title={characterData?.weapon}
                 >
                   <img src={getTalentWeaponImage(characterData?.weapon)} />
@@ -72,10 +73,8 @@ export const CharacterBlock = observer((props: CharacterBlockProps) => {
               <div className="absolute px-1.5 py-0.5 rounded-lg bottom-1 right-1 bg-primary-darker">
                 <RarityGauge rarity={rarity} textSize="text-xs" />
               </div>
-              <div className="flex gap-0.5 absolute top-1 right-1">
-                <div className="flex items-center justify-center w-8 h-8" title={characterData?.element}>
-                  <img src={getElementImage(characterData?.element)} />
-                </div>
+              <div className="flex gap-0.5 absolute top-1.5 right-1.5">
+                <ElementIcon element={characterData?.element} />
               </div>
             </>
           )}

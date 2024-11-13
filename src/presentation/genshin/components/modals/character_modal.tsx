@@ -16,6 +16,7 @@ import { TagSelectInput } from '@src/presentation/components/inputs/tag_select_i
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { BulletPoint } from '@src/presentation/components/collapsible'
 import { getAvatar, getElementImage, getSideAvatar, getTalentWeaponImage } from '@src/core/utils/fetcher'
+import { ElementIcon } from '../element_icon'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -59,14 +60,14 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
     const checked = _.includes(array, value)
     return (
       <div
-        className={classNames('w-8 h-8 duration-200 rounded-full cursor-pointer hover:bg-primary-lighter', {
+        className={classNames('w-8 h-8 duration-200 rounded-full cursor-pointer hover:bg-primary-lighter shrink-0 flex items-center justify-center', {
           'bg-primary-lighter': checked,
           'p-0.5': type === 'weapon',
         })}
         onClick={() => setParams({ [type]: checked ? _.without(array, value) : [...array, value] })}
         title={value}
       >
-        <img src={type === 'element' ? getElementImage(value) : getTalentWeaponImage(value)} />
+        {type === 'element' ? <ElementIcon element={value as Element} /> : <img src={getTalentWeaponImage(value)} />}
       </div>
     )
   }
@@ -83,8 +84,8 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
           />
         </div>
         <div className="flex gap-2">
-          <FilterIcon type="element" value={Element.FUSION} />
           <FilterIcon type="element" value={Element.GLACIO} />
+          <FilterIcon type="element" value={Element.FUSION} />
           <FilterIcon type="element" value={Element.ELECTRO} />
           <FilterIcon type="element" value={Element.AERO} />
           <FilterIcon type="element" value={Element.SPECTRO} />
@@ -134,7 +135,9 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
               key={item.name}
             >
               <div className="relative">
-                <img src={getElementImage(item.element)} className="absolute w-7 h-7 top-1.5 left-1.5 z-[1]" />
+                <div className="absolute top-2 left-2 z-[1]">
+                  <ElementIcon element={item.element} />
+                </div>
                 {owned && (
                   <div className="absolute px-1.5 py-1 text-xs rounded-lg top-1 right-1 bg-primary font-bold z-[1]">
                     S{_.find(charStore.characters, ['cId', item.id])?.cons || 0}

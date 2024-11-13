@@ -232,12 +232,32 @@ export const StatsModal = observer(
             </div>
           </div>
         </Collapsible>
+        <Collapsible label="DMG Amplification (AMP)">
+          <div className="grid grid-cols-2 gap-10">
+            <div className="space-y-2">
+              <AttributeBlock stats={stats} stat="All-Type AMP" array={stats.AMP} />
+              <AttributeBlock stats={stats} stat="Glacio AMP" array={stats.GLACIO_AMP} />
+              <AttributeBlock stats={stats} stat="Fusion AMP" array={stats.FUSION_AMP} />
+              <AttributeBlock stats={stats} stat="Electro AMP" array={stats.ELECTRO_AMP} />
+              <AttributeBlock stats={stats} stat="Aero AMP" array={stats.AERO_AMP} />
+              <AttributeBlock stats={stats} stat="Spectro AMP" array={stats.SPECTRO_AMP} />
+              <AttributeBlock stats={stats} stat="Havoc AMP" array={stats.HAVOC_AMP} />
+            </div>
+            <div className="space-y-2">
+              <AttributeBlock stats={stats} stat="Basic ATK AMP" array={stats.BASIC_AMP} />
+              <AttributeBlock stats={stats} stat="Heavy ATK AMP" array={stats.HEAVY_AMP} />
+              <AttributeBlock stats={stats} stat="Res. Skill AMP" array={stats.SKILL_AMP} />
+              <AttributeBlock stats={stats} stat="Res. Liberation AMP" array={stats.LIB_AMP} />
+              <AttributeBlock stats={stats} stat="Coordinated ATK AMP" array={stats.COORD_AMP} />
+              </div>
+          </div>
+        </Collapsible>
         <Collapsible label="RES PEN">
           <div className="grid grid-cols-2 gap-10">
             <div className="space-y-2">
               <AttributeBlock stats={stats} stat="All-Type RES PEN" array={stats.ALL_TYPE_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Fusion RES PEN" array={stats.FUSION_RES_PEN} />
               <AttributeBlock stats={stats} stat="Glacio RES PEN" array={stats.GLACIO_RES_PEN} />
+              <AttributeBlock stats={stats} stat="Fusion RES PEN" array={stats.FUSION_RES_PEN} />
               <AttributeBlock stats={stats} stat="Electro RES PEN" array={stats.ELECTRO_RES_PEN} />
             </div>
             <div className="space-y-2">

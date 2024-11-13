@@ -12,10 +12,6 @@ export interface CalculatorStoreType {
   selected: number
   res: Record<Element, number>
   level: number
-  variant: string
-  superconduct: boolean
-  stun: boolean
-  shielded: boolean
   dmgMode: string
   custom: { name: StatsObjectKeysT; value: number; debuff: boolean }[][]
   setValue: <k extends keyof this>(key: k, value: this[k]) => void
@@ -30,23 +26,16 @@ export interface CalculatorStoreType {
 export class CalculatorStore {
   form: Record<string, any>[]
   enemy: string
-  variant: string
-  stun: boolean
-  shielded: boolean
   dmgMode: string
   computedStats: StatsObject[]
   res: Record<Element, number>
   level: number | string
-  superconduct: boolean
   selected: number
   custom: { name: StatsObjectKeysT; value: number; debuff: boolean; toggled: boolean }[][]
 
   constructor() {
     this.form = Array(4)
     this.enemy = ''
-    this.variant = ''
-    this.stun = false
-    this.shielded = false
     this.computedStats = Array(4)
     this.dmgMode = 'total'
     this.selected = 0
@@ -61,7 +50,6 @@ export class CalculatorStore {
       [Element.HAVOC]: 10,
     }
     this.custom = Array(4)
-    this.superconduct = false
 
     makeAutoObservable(this)
   }

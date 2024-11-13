@@ -2,13 +2,13 @@ import { useCallback, useEffect, useMemo } from 'react'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
 import classNames from 'classnames'
-import { ArtifactBlock } from '../components/artifact_block'
+import { ArtifactBlock, SonataColor, SonataIcons } from '../components/artifact_block'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { useParams } from '@src/core/hooks/useParams'
 import { SelectTextInput } from '@src/presentation/components/inputs/select_text_input'
 import { ArtifactModal } from '../components/modals/artifact_modal'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
-import { Echoes } from '@src/data/db/artifacts'
+import { Echoes, Sonata } from '@src/data/db/artifacts'
 import { MainStatOptions, Stats, SubStatOptions } from '@src/domain/constant'
 import { TagSelectInput } from '@src/presentation/components/inputs/tag_select_input'
 import { isSubsetOf } from '@src/core/utils/finder'
@@ -20,6 +20,7 @@ const { publicRuntimeConfig } = getConfig()
 export const ArtifactInventory = observer(() => {
   const { params, setParams } = useParams({
     cost: [],
+    sonata: [],
     set: null,
     main: [],
     subs: [],
@@ -29,17 +30,28 @@ export const ArtifactInventory = observer(() => {
 
   const { artifactStore, modalStore } = useStore()
 
-  const TypeButton = ({ field, icon, value }: { field: string; icon: string; value: string | number }) => {
+  const TypeButton = ({
+    field,
+    children,
+    value,
+  }: {
+    field: string
+    children: React.ReactNode
+    value: string | number
+  }) => {
     const checked = _.includes(params[field], value)
 
     return (
       <div
-        className={classNames('w-10 h-10 p-2 duration-200 rounded-full cursor-pointer hover:bg-primary-light', {
-          'bg-primary-light': _.includes(params[field], value),
-        })}
+        className={classNames(
+          'w-8 h-8 flex items-center justify-center duration-200 rounded-full cursor-pointer hover:bg-primary-light',
+          {
+            'bg-primary-light': _.includes(params[field], value),
+          }
+        )}
         onClick={() => setParams({ [field]: checked ? _.without(params[field], value) : [...params[field], value] })}
       >
-        <img src={icon} />
+        {children}
       </div>
     )
   }
@@ -48,6 +60,7 @@ export const ArtifactInventory = observer(() => {
     let result = artifactStore.artifacts
     if (params.set) result = _.filter(result, (artifact) => artifact.setId === params.set)
     if (params.cost.length) result = _.filter(result, (artifact) => _.includes(params.cost, artifact.cost))
+    if (params.sonata.length) result = _.filter(result, (artifact) => _.includes(params.sonata, artifact.sonata))
     if (params.main.length) result = _.filter(result, (artifact) => _.includes(params.main, artifact.main))
     if (params.subs.length)
       result = _.filter(result, (artifact) => isSubsetOf(params.subs, _.map(artifact.subList, 'stat')))
@@ -56,7 +69,7 @@ export const ArtifactInventory = observer(() => {
       const bi = _.findIndex(Echoes, (item) => item.id === b.setId)
       return bi - ai
     })
-  }, [params.set, params.cost, params.subs, params.main, artifactStore.artifacts])
+  }, [params.set, params.cost, params.sonata, params.subs, params.main, artifactStore.artifacts])
 
   useEffect(() => {
     setParams({ page: 1 })
@@ -70,48 +83,46 @@ export const ArtifactInventory = observer(() => {
 
   return (
     <div className="w-full h-full overflow-y-auto">
-      <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1200px] mx-auto h-full">
+      <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1240px] mx-auto h-full">
         <div className="flex items-center justify-between w-full">
-          <p className="text-2xl font-bold text-white w-fit">Artifact Inventory</p>
-          <PrimaryButton title="Add New Artifact" onClick={onOpenModal} />
+          <p className="text-2xl font-bold text-white w-fit">Data Bank</p>
+          <PrimaryButton title="Add New Echo" onClick={onOpenModal} />
         </div>
         <div className="w-full space-y-1">
           <div className="flex items-center w-full gap-3">
-            <div className="flex justify-center gap-2">
-              <TypeButton
-                field="types"
-                icon={`${publicRuntimeConfig.BASE_PATH}/asset/icons/flower_of_life.png`}
-                value={4}
-              />
-              <TypeButton
-                field="types"
-                icon={`${publicRuntimeConfig.BASE_PATH}/asset/icons/plume_of_death.png`}
-                value={2}
-              />
-              <TypeButton
-                field="types"
-                icon={`${publicRuntimeConfig.BASE_PATH}/asset/icons/sands_of_eon.png`}
-                value={5}
-              />
-              <TypeButton
-                field="types"
-                icon={`${publicRuntimeConfig.BASE_PATH}/asset/icons/goblet_of_eonothem.png`}
-                value={1}
-              />
-              <TypeButton
-                field="types"
-                icon={`${publicRuntimeConfig.BASE_PATH}/asset/icons/circlet_of_logos.png`}
-                value={3}
-              />
+            <div className="flex items-center gap-3">
+              <div className="flex gap-2">
+                {_.map(Sonata, (item) => (
+                  <TypeButton value={item} field="sonata">
+                    <div
+                      className={classNames(
+                        'flex items-center justify-center text-xs bg-opacity-75 w-5 h-5 rounded-full bg-primary ring-2',
+                        SonataColor[item]
+                      )}
+                    >
+                      <img src={SonataIcons[item]} className="w-5 h-5" />
+                    </div>
+                  </TypeButton>
+                ))}
+              </div>
+              <div className="flex gap-2">
+                {_.map([4, 3, 1], (item) => (
+                  <TypeButton value={item} field="cost">
+                    <div className="flex items-center justify-center w-5 h-5 text-xs text-white bg-opacity-75 rounded-full bg-primary ring-2 ring-primary-light">
+                      {item}
+                    </div>
+                  </TypeButton>
+                ))}
+              </div>
             </div>
             <SelectTextInput
               value={params.set}
-              options={_.map(Echoes, (artifact) => ({
+              options={_.map(_.orderBy(Echoes, 'name', 'asc'), (artifact) => ({
                 name: artifact.name,
                 value: artifact.id.toString(),
                 img: getEchoImage(artifact.icon),
               }))}
-              placeholder="Artifact Set"
+              placeholder="Echo Name"
               onChange={(value) => setParams({ set: value?.value })}
               style="w-[300px]"
             />
@@ -121,7 +132,7 @@ export const ArtifactInventory = observer(() => {
               onChange={(main) => setParams({ main })}
               placeholder="Main Stat - Match Any"
               renderAsText
-              style="w-[300px]"
+              style="w-[200px]"
             />
             <TagSelectInput
               values={params.subs}
@@ -130,13 +141,13 @@ export const ArtifactInventory = observer(() => {
               placeholder="Sub Stats - Includes All (Max 5)"
               renderAsText
               maxSelection={5}
-              style="w-[300px]"
+              style="w-[250px]"
             />
           </div>
         </div>
         {_.size(filteredArtifacts) ? (
           <>
-            <div className="grid w-full grid-cols-5 gap-4 overflow-y-auto rounded-lg hideScrollbar">
+            <div className="grid w-full grid-cols-5 gap-3 overflow-y-auto rounded-lg hideScrollbar">
               {_.map(
                 _.slice(filteredArtifacts, params.per_page * (params.page - 1), params.per_page * params.page),
                 (artifact) => (

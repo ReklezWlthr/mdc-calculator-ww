@@ -172,11 +172,12 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       ...talents.skill,
       show: true,
       default: true,
+      sync: true,
     },
     {
       type: 'toggle',
       id: 'budding',
-      text: `Budding Mode - Sweet Dream`,
+      text: `Budding Mode`,
       ...talents.forte,
       content: buddingMode,
       show: true,
@@ -412,7 +413,10 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
         },
         {
           name: `Enhanced Twining DMG`,
-          value: [{ scaling: 7.88, multiplier: Stats.ATK }],
+          value: [
+            { scaling: 3.29, multiplier: Stats.ATK },
+            { scaling: 4.59, multiplier: Stats.ATK },
+          ],
           element: Element.HAVOC,
           property: TalentProperty.OUTRO,
           multiplier: c >= 4 ? 1.68 : 1,
@@ -428,14 +432,14 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       }
       if (i.i1) {
         base[Stats.HAVOC_DMG].push({
-          name: `Inherent SKill 1`,
+          name: `Inherent Skill 1`,
           source: 'Self',
           value: 0.15,
         })
       }
       if (i.i2) {
         base[Stats.HAVOC_DMG].push({
-          name: `Inherent SKill 2`,
+          name: `Inherent Skill 2`,
           source: 'Self',
           value: 0.15,
         })

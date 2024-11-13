@@ -6,7 +6,7 @@ import { observer } from 'mobx-react-lite'
 import { useState } from 'react'
 import { BuildModalBlock } from './modals/build_modal'
 import _ from 'lodash'
-import { getAvatar } from '@src/core/utils/fetcher'
+import { getAvatar, getSideAvatar } from '@src/core/utils/fetcher'
 
 interface BuildBlockProps {
   owner: string
@@ -23,7 +23,7 @@ export const BuildBlock = observer(({ build, owner, onClick, selected }: BuildBl
   const [open, setOpen] = useState(false)
   const characterData = findCharacter(owner)
   const codeName =
-    characterData?.codeName === 'Player' ? settingStore.settings.travelerGender : characterData?.codeName || ''
+    characterData?.order === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : characterData?.order
 
   return (
     <div>
@@ -33,7 +33,10 @@ export const BuildBlock = observer(({ build, owner, onClick, selected }: BuildBl
       >
         <div className="relative w-16 h-full overflow-hidden shrink-0">
           <div className="absolute top-0 left-0 z-10 w-full h-full from-8% to-40% bg-gradient-to-l from-primary-dark to-transparent" />
-          <img src={getAvatar(codeName)} className="object-cover h-16 aspect-square scale-[300%] -ml-0.5 -mt-0.5" />
+          <img
+            src={getSideAvatar(codeName)}
+            className={classNames('object-cover h-16 aspect-square scale-[200%] ml-2 -mt-4')}
+          />
         </div>
         <div className="flex items-center justify-between w-full px-2">
           <div className="flex items-center justify-center gap-2">

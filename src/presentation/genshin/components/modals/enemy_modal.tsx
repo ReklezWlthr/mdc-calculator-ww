@@ -14,26 +14,26 @@ import { findEnemy } from '@src/core/utils/finder'
 import React from 'react'
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { ToggleSwitch } from '@src/presentation/components/inputs/toggle'
-import { getEnemyImage } from '@src/core/utils/fetcher'
+import { getEchoImage } from '@src/core/utils/fetcher'
 import { BaseElementColor } from '../tables/compare_total_row'
 
 export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; compare?: boolean }) => {
   const { calculatorStore, teamStore, setupStore } = useStore()
   const store = compare ? setupStore : calculatorStore
-  const { res, level, enemy, superconduct } = store
+  const { res, level, enemy } = store
   const setValue: (key: string, value: any) => void = store.setValue
   const charLevel = compare
     ? setupStore.selected[0] === 0
       ? setupStore.main.char[setupStore.selected[1]].level
       : setupStore.team[setupStore.selected[0] - 1].char[setupStore.selected[1]].level
     : teamStore.characters[calculatorStore.selected]?.level
-  const rawDef = 5 * +level + 500
+  const rawDef = 8 * +level + 792
   const pen = stats?.getValue(StatsObjectKeys.DEF_PEN)
   const red = stats?.getValue(StatsObjectKeys.DEF_REDUCTION)
   const def = rawDef * (1 - pen) * (1 - red)
   const defMult = store.getDefMult(charLevel, pen, red)
 
-  const enemyGroups = EnemyGroups
+  const enemyGroups = _.orderBy(EnemyGroups, 'name', 'asc')
   const enemyData = findEnemy(enemy)
 
   const reduceRes = (arr: number[]) =>
@@ -49,21 +49,19 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
   return (
     <div className="w-[35vw] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
       <p>Target Enemy Setting</p>
-      <div className="flex gap-3">
+      <div className="flex w-full gap-3">
         <div className="w-full space-y-1">
           <p className="text-sm">Enemy Preset</p>
           <SelectTextInput
             options={_.map(enemyGroups, (item) => ({
               name: item.name,
               value: item.name,
-              img: getEnemyImage(item.img),
+              img: getEchoImage(item.icon),
             }))}
             onChange={(v) => {
               const enemyData = findEnemy(v?.name)
-              const variant = _.head(enemyData?.options)?.value || ''
-              const arr = enemyData?.res(variant as Element, false, false)
+              const arr = enemyData?.res
               setValue('enemy', v?.value || '')
-              setValue('variant', variant || '')
               setValue('stun', false)
               setValue('shielded', false)
               if (v) setValue('res', reduceRes(arr))
@@ -72,59 +70,15 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
             placeholder="Custom"
           />
         </div>
-        <div className="space-y-1 w-[37%] shrink-0">
-          <p className="text-sm">Enemy Variant</p>
-          <SelectInput
-            placeholder="None"
-            options={enemyData?.options}
-            onChange={(v) => {
-              setValue('variant', v)
-              const arr = enemyData?.res(v as Element, store.stun, store.shielded)
-              setValue('res', reduceRes(arr))
-            }}
-            value={store.variant}
-            disabled={!_.size(enemyData?.options)}
-          />
-        </div>
-      </div>
-      <div className="flex items-center justify-between gap-x-3">
-        <div className="flex items-center gap-x-3">
+        <div className="space-y-1 shrink-0">
           <p className="text-sm">Level</p>
           <TextInput
             type="number"
             min={1}
             value={level.toString()}
             onChange={(value) => setValue('level', parseFloat(value) || 0)}
-            style="!w-[60px]"
+            style="!w-[100px]"
           />
-        </div>
-        <div className="flex items-center gap-x-3">
-          {enemyData?.stun && (
-            <>
-              <p className="text-sm">{enemyData?.stun}</p>
-              <CheckboxInput
-                checked={store.stun}
-                onClick={(v) => {
-                  const arr = enemyData?.res(store.variant as Element, v, store.shielded)
-                  setValue('stun', v)
-                  setValue('res', reduceRes(arr))
-                }}
-              />
-            </>
-          )}
-          {enemyData?.shield && (
-            <>
-              <p className="text-sm">{enemyData?.shield}</p>
-              <CheckboxInput
-                checked={store.shielded}
-                onClick={(v) => {
-                  const arr = enemyData?.res(store.variant as Element, store.stun, v)
-                  setValue('shielded', v)
-                  setValue('res', reduceRes(arr))
-                }}
-              />
-            </>
-          )}
         </div>
       </div>
       <div className="flex justify-between gap-8">
@@ -135,7 +89,7 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
               <p className="font-bold text-yellow">{_.round(def).toLocaleString()}</p>
               <p>=</p>
               <p>
-                (500 + 5 &#215; <b className="text-red">{level}</b>)
+                (792 + 8 &#215; <b className="text-red">{level}</b>)
               </p>
               {!!pen && (
                 <p>
@@ -165,18 +119,9 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
                 <div className="h-0 border-[1.5px] border-primary-border" />
                 <p className="text-center">
                   <b className="text-yellow">{_.round(def).toLocaleString()}</b> + (
-                  <b className="text-blue">{charLevel}</b> &#215; 5) + 500
+                  <b className="text-blue">{charLevel}</b> &#215; 8) + 800
                 </p>
               </div>
-            </div>
-            <div className="flex items-center justify-between gap-4 pt-4">
-              <div className="w-full">
-                <p>Superconduct</p>
-                <p className="text-xs font-normal text-gray">
-                  Reduces the enemy's <b>Physical RES</b> by <span className="text-desc">40%</span>.
-                </p>
-              </div>
-              <ToggleSwitch enabled={superconduct} onClick={(v) => setValue('superconduct', v)} />
             </div>
           </div>
         </div>
@@ -193,10 +138,9 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
                   </p>
                   <p>
                     RES can become negative but will also become only <span className="text-desc">half</span> as
-                    effective. Similarly, RES above <span className="text-desc">75%</span> will gradually become less
+                    effective. Similarly, RES above <span className="text-desc">80%</span> will gradually become less
                     effective as the value increases.
                   </p>
-                  <p>You can use the toggle to the right of each Element to make the enemy immune to said Element.</p>
                 </div>
               }
               style="w-[400px]"
@@ -213,11 +157,6 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
                 onChange={(value) => store.setRes(key, value as any as number)}
                 style="!w-[75px] shrink-0"
                 disabled={res[key] === Infinity || !!enemyData}
-              />
-              <CheckboxInput
-                checked={res[key] === Infinity}
-                onClick={(v) => store.setRes(key, v ? Infinity : 10)}
-                disabled={!!enemyData}
               />
             </div>
           ))}

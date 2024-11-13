@@ -60,7 +60,7 @@ export const TalentIcon = observer(
       return (
         <div
           className={classNames(
-            'rounded-full bg-opacity-35 ring-2 ring-offset-2 ring-offset-primary-darker bg-primary-light ring-primary-lighter opacity-50',
+            'rounded-full bg-opacity-25 ring-2 ring-offset-2 ring-offset-primary-darker bg-primary-light ring-primary-lighter opacity-50',
             size || 'w-12 h-12'
           )}
         />

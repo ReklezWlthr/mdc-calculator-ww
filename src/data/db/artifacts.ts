@@ -3,15 +3,15 @@ import { Element, IArtifact, Stats, TalentProperty } from '@src/domain/constant'
 import _ from 'lodash'
 
 export enum Sonata {
-  WIND = 'Sierra Gale',
-  ATK = 'Lingering Tunes',
+  ICE = 'Freezing Frost',
+  FIRE = 'Molten Rift',
   THUNDER = 'Void Thunder',
+  WIND = 'Sierra Gale',
+  LIGHT = 'Celestial Light',
+  HAVOC = 'Sun-sinking Eclipse',
   HEAL = 'Rejuvenating Glow',
   REGEN = 'Moonlit Clouds',
-  HAVOC = 'Sun-sinking Eclipse',
-  ICE = 'Freezing Frost',
-  LIGHT = 'Celestial Light',
-  FIRE = 'Molten Rift',
+  ATK = 'Lingering Tunes',
 }
 
 export const SonataDetail = {
