@@ -66,7 +66,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     lib: {
       level: lib,
       trace: `Resonance Liberation`,
-      title: `Embers of Corolla`,
+      title: `Fervor Efflorescent`,
       content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />This attack can be performed in mid-air.
       `,
@@ -96,7 +96,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     intro: {
       level: intro,
       trace: `Intro Skill`,
-      title: `Everblooming Flower`,
+      title: `Everblooming`,
       content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       `,
       image: 'SP_IconChunQTE',
@@ -104,57 +104,57 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     outro: {
       trace: `Outro Skill`,
       title: `Twining`,
-      content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">329%</span> of Camellya's ATK.
-      <br />After activating Forte Circuit's <b>Ephemeral</b>, the next Outro Skill <b>Twining</b> deals additional <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">459%</span> of Camellya's ATK.
+      content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">329.24%</span> of Camellya's ATK.
+      <br />After activating Forte Circuit's <b>Ephemeral</b>, the next Outro Skill <b>Twining</b> deals additional <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">459.09%</span> of Camellya's ATK.
       `,
       image: 'SP_IconChunT',
     },
     i1: {
       trace: `Inherent Skill 1`,
       title: `Seedbed`,
-      content: `Gain <span class="text-desc">15%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b>. Heavy Attack <b>Pruning</b> now deals Basic Attack DMG.`,
+      content: `Gain <span class="text-desc">15%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b>. DMG dealt by Heavy Attack <b>Pruning</b> is now considered Basic Attack DMG.`,
       image: 'SP_IconChunD1',
     },
     i2: {
       trace: `Inherent Skill 2`,
       title: `Epiphyte`,
-      content: `Gain <span class="text-desc">15%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b>. Basic Attack and Basic Attack <b>Vining Waltz</b> gain increased resistance to interruption.`,
+      content: `Gain <span class="text-desc">15%</span> Basic Attack DMG Bonus. Gain increased resistance to interruption when casting Basic Attack, and Basic Attack <b>Vining Waltz</b>, and Basic Attack <b>Blazing Waltz</b>.`,
       image: 'SP_IconChunD2',
     },
     c1: {
       trace: `Sequence Node 1`,
-      title: `A Secret Path No Eyes Have Seen`,
-      content: `Casting Intro Skill <b>Everblooming Flower</b> increases Camellya's Crit. DMG by <span class="text-desc">28%</span> for <span class="text-desc">18</span>s. This effect can be triggered every <span class="text-desc">25</span>s.
+      title: `Somewhere No One Travelled`,
+      content: `Casting Intro Skill <b>Everblooming</b> increases Camellya's Crit. DMG by <span class="text-desc">28%</span> for <span class="text-desc">18</span>s. This effect can be triggered every <span class="text-desc">25</span>s.
       <br />Immune to interruptions while casting <b>Ephemeral</b>.`,
       image: 'T_IconDevice_ChunM1_UI',
     },
     c2: {
       trace: `Sequence Node 2`,
-      title: `Yearn for that Silent Flower`,
+      title: `Calling Upon the Silent Rose`,
       content: `The DMG Multiplier of Resonance Skill <b>Ephemeral</b> is increased by <span class="text-desc">120%</span>.`,
       image: 'T_IconDevice_ChunM2_UI',
     },
     c3: {
       trace: `Sequence Node 3`,
-      title: `A Thorn Outstrips A Thousand Seeds`,
-      content: `The DMG Multiplier of Resonance Liberation <b>Embers of Corolla</b> is increased by <span class="text-desc">50%</span>. When in <b class="text-desc">Budding Mode</b>, Camellya's ATK is increased by <span class="text-desc">58%</span>.`,
+      title: `A Bud Adorned by Thorns`,
+      content: `The DMG Multiplier of Resonance Liberation <b>Fervor Efflorescent</b> is increased by <span class="text-desc">50%</span>. When in <b class="text-desc">Budding Mode</b>, Camellya's ATK is increased by <span class="text-desc">58%</span>.`,
       image: 'T_IconDevice_ChunM3_UI',
     },
     c4: {
       trace: `Sequence Node 4`,
       title: `Roots Set Deep In Eternity`,
-      content: `Casting <b>Everblooming Flower</b> gives all team members <span class="text-desc">25%</span> Basic Attack DMG Bonus for <span class="text-desc">30</span>s.`,
+      content: `Casting <b>Everblooming</b> gives all team members <span class="text-desc">25%</span> Basic Attack DMG Bonus for <span class="text-desc">30</span>s.`,
       image: 'T_IconDevice_ChunM4_UI',
     },
     c5: {
       trace: `Sequence Node 5`,
-      title: `Hold Infinity In Your Palm`,
-      content: `The DMG Multipliers of Intro Skill <b>Everblooming Flower</b> is increased by <span class="text-desc">303%</span> and Outro Skill <b>Twining</b> is increased by <span class="text-desc">68%</span>.`,
+      title: `Infinity Held in Your Palm`,
+      content: `The DMG Multipliers of Intro Skill <b>Everblooming</b> is increased by <span class="text-desc">303%</span> and Outro Skill <b>Twining</b> is increased by <span class="text-desc">68%</span>.`,
       image: 'T_IconDevice_ChunM5_UI',
     },
     c6: {
       trace: `Sequence Node 6`,
-      title: `An Everlasting Flower For You`,
+      title: `Bloom For You Thousand Times Over`,
       content: `The DMG Multiplier of Forte Circuit's <b>Sweet Dream</b> is additionally increased by 150%.
       <br /><b>Forte Circuit Perennial</b>: Within <span class="text-desc">15</span>s after casting <b>Ephemeral</b>, if Concerto Energy is full and <b>Perennial</b> is not on cooldown, Resonance Skill is replaced with <b>Perennial</b>.
       <br />Casting <b>Perennial</b> consumes <span class="text-desc">50</span> Concerto Energy and recovers <span class="text-desc">50</span> <b class="text-red">Crimson Pistils</b>, dealing <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">100%</span> of <b>Ephemeral</b>, considered Basic Attack DMG. This skill can be cast once every <span class="text-desc">25</span>s.
@@ -259,7 +259,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
             },
             {
               name: 'Vining Waltz 4 DMG',
-              value: [{ scaling: calcScaling(0.32, normal), multiplier: Stats.ATK, hits: 3 }],
+              value: [{ scaling: calcScaling(0.34, normal), multiplier: Stats.ATK, hits: 3 }],
               element: Element.HAVOC,
               property: TalentProperty.BA,
               multiplier: 1 + sweetDream,
@@ -378,7 +378,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       ]
       base.LIB_SCALING = [
         {
-          name: 'Embers of Corolla DMG',
+          name: 'Fervor Efflorescent DMG',
           value: [{ scaling: calcScaling(6.05, lib), multiplier: Stats.ATK }],
           element: Element.HAVOC,
           property: TalentProperty.LIB,
@@ -396,7 +396,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       ]
       base.INTRO_SCALING = [
         {
-          name: `Everblooming Flower DMG`,
+          name: `Everblooming DMG`,
           value: [{ scaling: calcScaling(1, intro), multiplier: Stats.ATK }],
           element: Element.HAVOC,
           property: TalentProperty.INTRO,
@@ -406,7 +406,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       base.OUTRO_SCALING = [
         {
           name: `Twining DMG`,
-          value: [{ scaling: 3.29, multiplier: Stats.ATK }],
+          value: [{ scaling: 3.2924, multiplier: Stats.ATK }],
           element: Element.HAVOC,
           property: TalentProperty.OUTRO,
           multiplier: c >= 4 ? 1.68 : 1,
@@ -414,8 +414,8 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
         {
           name: `Enhanced Twining DMG`,
           value: [
-            { scaling: 3.29, multiplier: Stats.ATK },
-            { scaling: 4.59, multiplier: Stats.ATK },
+            { scaling: 3.2924, multiplier: Stats.ATK },
+            { scaling: 4.5902, multiplier: Stats.ATK },
           ],
           element: Element.HAVOC,
           property: TalentProperty.OUTRO,
@@ -438,7 +438,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
         })
       }
       if (i.i2) {
-        base[Stats.HAVOC_DMG].push({
+        base[Stats.BASIC_DMG].push({
           name: `Inherent Skill 2`,
           source: 'Self',
           value: 0.15,

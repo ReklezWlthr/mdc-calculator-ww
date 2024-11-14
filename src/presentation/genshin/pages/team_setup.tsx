@@ -117,7 +117,7 @@ export const TeamSetup = observer(() => {
 
   return (
     <div className="w-full overflow-y-auto customScrollbar">
-      <div className="grid grid-cols-12 tablet:grid-cols-7 justify-center w-full gap-5 p-5 tablet:max-w-[750px] max-w-[1240px] mx-auto mobile:flex-col">
+      <div className="grid grid-cols-12 tablet:grid-cols-7 justify-center w-full gap-5 p-5 tablet:max-w-[750px] max-w-[1240px] mx-auto mobile:grid-cols-4">
         <div className="col-span-4 mobile:w-full">
           <div className="flex items-center justify-between w-full gap-4 pt-1 pb-3">
             <div className="flex items-center justify-center w-full gap-4">

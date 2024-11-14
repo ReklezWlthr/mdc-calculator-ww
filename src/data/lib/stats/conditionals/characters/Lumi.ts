@@ -72,7 +72,7 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
       <br /><b class="text-red">Red Spotlight Mode</b> ends after performing altogether <span class="text-desc">4</span> Basic Attacks and/or Heavy Attacks.
       <br />
       <br /><b>Energized Rebound</b>
-      <br />When Red Light Spark is fully recovered, replace Resonance Skill with Resonance Skill <b>Energized Rebound</b> that deals <b class="text-wuwa-electro">Electro DMG</b> and enter <b class="text-desc">Yellow Spotlight Mode</b>. The DMG dealt is considered Basic Attack DMG.
+      <br />When <b class="text-red">Red Light Spark</b> is fully recovered, replace Resonance Skill with Resonance Skill <b>Energized Rebound</b> that deals <b class="text-wuwa-electro">Electro DMG</b> and enter <b class="text-desc">Yellow Spotlight Mode</b>. The DMG dealt is considered Basic Attack DMG.
       <br />When in <b class="text-desc">Yellow Spotlight Mode</b>, <b>Glitter</b> is replaced by <b>Glare</b>, with an increased DMG Multiplier and an extra amount of <b class="text-desc">Sparks</b> recovered.
       <br /><b class="text-desc">Yellow Spotlight Mode</b> ends after shooting <span class="text-desc">6</span> <b>Glares</b>.
       <br />

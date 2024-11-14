@@ -36,13 +36,13 @@ export const ArtifactListModal = observer(
     }, [params.set, params.subs, params.main])
 
     return (
-      <div className="w-[60vw] p-4 text-white rounded-xl bg-primary-darker space-y-4">
-        <div className="flex items-center justify-between w-full">
+      <div className="w-[1010px] tablet:w-[] mobile:w-[350px] p-4 text-white rounded-xl bg-primary-darker space-y-4">
+        <div className="flex items-center justify-between w-full mobile:flex-col gap-y-2">
           <p className="text-lg font-bold">Choose an artifact</p>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 mobile:flex-col">
             <SelectTextInput
               value={params.set}
-              options={_.map(Echoes, (artifact) => ({
+              options={_.map(_.orderBy(Echoes, 'name', 'asc'), (artifact) => ({
                 name: artifact.name,
                 value: artifact.id.toString(),
                 img: getEchoImage(artifact?.icon),
@@ -70,11 +70,11 @@ export const ArtifactListModal = observer(
             />
           </div>
         </div>
-        <div className="grid w-full grid-cols-4 gap-4 max-h-[70vh] overflow-y-auto hideScrollbar rounded-lg">
+        <div className="grid w-full grid-cols-4 mobile:grid-cols-1 gap-4 max-h-[70vh] overflow-y-auto hideScrollbar rounded-lg">
           {_.map(filteredArtifacts, (artifact) => (
             <div
               key={artifact.id}
-              className="hover:scale-[97%] duration-200 cursor-pointer"
+              className="hover:scale-[97%] duration-200 cursor-pointer flex justify-center w-full"
               onClick={() => {
                 set(index, slot, artifact.id)
                 modalStore.closeModal()
