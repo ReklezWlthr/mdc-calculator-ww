@@ -36,7 +36,7 @@ export const ArtifactListModal = observer(
     }, [params.set, params.subs, params.main])
 
     return (
-      <div className="w-[1010px] tablet:w-[] mobile:w-[350px] p-4 text-white rounded-xl bg-primary-darker space-y-4">
+      <div className="w-[1010px] tablet:w-[1010px] mobile:w-[350px] p-4 text-white rounded-xl bg-primary-darker space-y-4">
         <div className="flex items-center justify-between w-full mobile:flex-col gap-y-2">
           <p className="text-lg font-bold">Choose an artifact</p>
           <div className="flex items-center gap-3 mobile:flex-col">
@@ -55,7 +55,7 @@ export const ArtifactListModal = observer(
               values={params.main}
               options={MainStatOptions}
               onChange={(main) => setParams({ main })}
-              placeholder="Main Stat"
+              placeholder="Main Stat - Match All"
               renderAsText
               style="w-[220px]"
             />
@@ -63,9 +63,9 @@ export const ArtifactListModal = observer(
               values={params.subs}
               options={SubStatOptions}
               onChange={(subs) => setParams({ subs })}
-              placeholder="Sub Stats"
+              placeholder="Sub Stats  - Includes All (Max 5)"
               renderAsText
-              maxSelection={4}
+              maxSelection={5}
               style="w-[220px]"
             />
           </div>
