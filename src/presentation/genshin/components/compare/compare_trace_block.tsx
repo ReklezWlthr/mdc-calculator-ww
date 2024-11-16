@@ -23,10 +23,9 @@ export const CompareTraceBlock = observer(({ char, team }: { char: ITeamChar; te
 
   const talent = _.find(ConditionalsObject, ['id', char?.cId])?.conditionals(
     char?.cons,
-    char?.ascension,
+    char?.i,
     char?.talents,
-    setupIndex === 0 ? setupStore.main.char : setupStore.comparing[setupIndex - 1]?.char,
-    settingStore.settings.travelerGender
+    setupIndex === 0 ? setupStore.main.char : setupStore.comparing[setupIndex - 1]?.char
   )
 
   const levels = useMemo(
@@ -105,16 +104,19 @@ export const CompareTraceBlock = observer(({ char, team }: { char: ITeamChar; te
             <AbilityBlock
               char={char}
               talents={talent?.talents}
-              upgrade={talent?.upgrade}
               onChange={(key, value) => setupStore.setComparing({ talents: { ...char?.talents, [key]: value } })}
+              onChangeStats={(index, value) => {
+                const arr = _.cloneDeep(
+                  setupIndex
+                    ? setupStore.comparing[setupIndex - 1].char?.[charIndex]?.growth
+                    : setupStore.main?.char?.[charIndex]?.growth
+                )
+                arr.splice(index, 1, value)
+                setupStore.setComparing({ growth: arr })
+              }}
+              onChangeInherent={(key, value) => setupStore.setComparing({ i: { ...char?.i, [key]: value } })}
             />
-            <ConsCircle
-              codeName={charData?.codeName}
-              cons={char?.cons}
-              element={charData?.element}
-              name={charData?.constellation}
-              talents={talent?.talents}
-            />
+            <ConsCircle name={charData?.name} cons={char?.cons} element={charData?.element} talents={talent?.talents} />
           </div>
         )}
       </div>

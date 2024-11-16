@@ -146,7 +146,6 @@ export class SetupStore {
   setFormValue = (setupIndex: number, index: number, key: string, value: any, sync: boolean) => {
     this.forms[setupIndex][index][key] = value
     if (sync) {
-      console.log(sync, _.cloneDeep(this.forms))
       for (const form of this.forms) {
         if (!form) continue
         for (const char of form) {
