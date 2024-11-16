@@ -26,6 +26,7 @@ import { SaveBuildModal } from '../components/modals/save_build_modal'
 import { SaveTeamModal } from '../components/modals/save_team_modal'
 import { TeamModal } from '../components/modals/team_modal'
 import { AbilityBlock } from '../components/ability_block'
+import classNames from 'classnames'
 
 export const SetToolTip = observer(({ item, set }: { item: number; set: string }) => {
   const setDetail = SonataDetail[set]
@@ -59,7 +60,7 @@ export const SetToolTip = observer(({ item, set }: { item: number; set: string }
 })
 
 export const TeamSetup = observer(() => {
-  const { teamStore, modalStore, artifactStore, settingStore } = useStore()
+  const { teamStore, modalStore, artifactStore } = useStore()
   const selected = teamStore.selected
 
   const artifactData = _.filter(artifactStore.artifacts, (item) =>
@@ -67,7 +68,6 @@ export const TeamSetup = observer(() => {
   )
 
   const char = teamStore.characters[selected]
-  const charData = findCharacter(char.cId)
   const raw = calculateOutOfCombat(
     _.cloneDeep(baseStatsObject),
     selected,
@@ -105,8 +105,17 @@ export const TeamSetup = observer(() => {
     )
   }, [selected])
 
+  const ActionButtons = () => (
+    <div className="grid grid-cols-2 gap-2">
+      <PrimaryButton title="Equip Build" onClick={onOpenBuildModal} />
+      <PrimaryButton title="Unequip All" onClick={onOpenConfirmModal} />
+      <PrimaryButton title="Save Build" onClick={onOpenSaveModal} />
+      <PrimaryButton title="Save Team" onClick={onOpenTeamModal} />
+    </div>
+  )
+
   const set = getSetCount(artifactData)
-  const resonance = getResonanceCount(teamStore.characters)
+  const totalCost = _.sumBy(artifactData, (item) => item.cost)
 
   const talent = _.find(ConditionalsObject, ['id', char.cId])?.conditionals(
     char?.cons,
@@ -115,9 +124,11 @@ export const TeamSetup = observer(() => {
     teamStore.characters
   )
 
+  const [mobileTab, setMobileTab] = useState('forte')
+
   return (
     <div className="w-full overflow-y-auto customScrollbar">
-      <div className="grid grid-cols-12 tablet:grid-cols-7 justify-center w-full gap-5 p-5 tablet:max-w-[750px] max-w-[1240px] mx-auto mobile:grid-cols-4">
+      <div className="grid grid-cols-12 tablet:grid-cols-12 justify-center w-full gap-5 p-5 tablet:max-w-[1100px] max-w-[1240px] mx-auto mobile:grid-cols-4">
         <div className="col-span-4 mobile:w-full">
           <div className="flex items-center justify-between w-full gap-4 pt-1 pb-3">
             <div className="flex items-center justify-center w-full gap-4">
@@ -142,7 +153,32 @@ export const TeamSetup = observer(() => {
           <div className="h-5" />
           <StatBlock stat={stats} />
         </div>
-        <div className="col-span-3 space-y-5 mobile:w-full">
+        <div className="hidden grid-cols-2 overflow-hidden text-white border divide-x rounded-lg mobile:grid col-span-full border-primary-border divide-primary-border">
+          <p
+            className={classNames(
+              'py-1 text-center duration-200 cursor-pointer',
+              mobileTab === 'forte' ? 'bg-primary' : 'bg-primary-dark'
+            )}
+            onClick={() => setMobileTab('forte')}
+          >
+            Forte Nodes
+          </p>
+          <p
+            className={classNames(
+              'py-1 text-center duration-200 cursor-pointer',
+              mobileTab === 'loadout' ? 'bg-primary' : 'bg-primary-dark'
+            )}
+            onClick={() => setMobileTab('loadout')}
+          >
+            Build Loadout
+          </p>
+        </div>
+        <div
+          className={classNames(
+            'col-span-3 mobile:col-span-full space-y-5 mobile:pb-6',
+            mobileTab === 'forte' ? 'mobile:block' : 'mobile:hidden'
+          )}
+        >
           <AbilityBlock
             char={char}
             talents={talent?.talents}
@@ -151,58 +187,46 @@ export const TeamSetup = observer(() => {
             onChangeStats={(index, value) => teamStore.setStatBonus(selected, index, value)}
           />
         </div>
-        <div className="col-span-5 space-y-5 mobile:w-full">
+        <div
+          className={classNames(
+            'col-span-5 mobile:col-span-full space-y-5',
+            mobileTab === 'loadout' ? 'mobile:block' : 'mobile:hidden'
+          )}
+        >
           <div className="grid grid-cols-2 gap-5 mobile:grid-cols-1">
-            <WeaponBlock index={selected} {...teamStore.characters[selected]?.equipments?.weapon} noClear />
-            <ArtifactBlock
-              index={selected}
-              slot={1}
-              aId={teamStore.characters[selected]?.equipments?.artifacts?.[0]}
-              setArtifact={teamStore.setArtifact}
-              canSwap
-            />
-            <ArtifactBlock
-              index={selected}
-              slot={2}
-              aId={teamStore.characters[selected]?.equipments?.artifacts?.[1]}
-              setArtifact={teamStore.setArtifact}
-              canSwap
-            />
-            <ArtifactBlock
-              index={selected}
-              slot={3}
-              aId={teamStore.characters[selected]?.equipments?.artifacts?.[2]}
-              setArtifact={teamStore.setArtifact}
-              canSwap
-            />
-            <ArtifactBlock
-              index={selected}
-              slot={4}
-              aId={teamStore.characters[selected]?.equipments?.artifacts?.[3]}
-              setArtifact={teamStore.setArtifact}
-              canSwap
-            />
-            <ArtifactBlock
-              index={selected}
-              slot={5}
-              aId={teamStore.characters[selected]?.equipments?.artifacts?.[4]}
-              setArtifact={teamStore.setArtifact}
-              canSwap
-            />
-          </div>
-          <div className="grid grid-cols-2 gap-5 mobile:grid-cols-1">
-            <div className="w-full px-3 py-2 space-y-1 rounded-lg bg-primary-dark h-fit">
-              {_.every(set, (item) => item < 2) ? (
-                <p className="text-xs text-white">No Set Bonus</p>
-              ) : (
-                _.map(set, (item, key) => <SetToolTip item={item} set={key} key={key} />)
-              )}
+            <div className="mobile:flex mobile:justify-center">
+              <WeaponBlock index={selected} {...teamStore.characters[selected]?.equipments?.weapon} noClear />
             </div>
-            <div className="grid grid-cols-2 gap-2">
-              <PrimaryButton title="Equip Build" onClick={onOpenBuildModal} />
-              <PrimaryButton title="Unequip All" onClick={onOpenConfirmModal} />
-              <PrimaryButton title="Save Build" onClick={onOpenSaveModal} />
-              <PrimaryButton title="Save Team" onClick={onOpenTeamModal} />
+            {_.map(Array(5), (_i, i) => (
+              <div className="mobile:flex mobile:justify-center" key={i}>
+                <ArtifactBlock
+                  index={selected}
+                  slot={i + 1}
+                  aId={teamStore.characters[selected]?.equipments?.artifacts?.[i]}
+                  setArtifact={teamStore.setArtifact}
+                  canSwap
+                />
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-2 gap-5 mobile:grid-cols-1 mobile:max-w-[230px] mobile:mx-auto">
+            <div className="space-y-2">
+              <div className="flex justify-between w-full px-3 py-2 text-xs text-white rounded-lg bg-primary-dark h-fit">
+                <p>Total Echo Cost</p>
+                <p>
+                  <span className={totalCost > 12 && 'text-red font-bold'}>{totalCost}</span> / 12
+                </p>
+              </div>
+              <div className="w-full px-3 py-2 space-y-1 rounded-lg bg-primary-dark h-fit">
+                {_.every(set, (item) => item < 2) ? (
+                  <p className="text-xs text-white">No Set Bonus</p>
+                ) : (
+                  _.map(set, (item, key) => <SetToolTip item={item} set={key} key={key} />)
+                )}
+              </div>
+            </div>
+            <div className="mobile:hidden">
+              <ActionButtons />
             </div>
           </div>
         </div>

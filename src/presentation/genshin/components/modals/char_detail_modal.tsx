@@ -103,7 +103,7 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
   }, [params, cId])
 
   return (
-    <div className="w-[600px] p-4 text-white rounded-xl bg-primary-dark space-y-5 font-semibold">
+    <div className="w-[600px] mobile:w-[400px] mobile:max-h-[80vh] p-4 text-white rounded-xl bg-primary-dark space-y-5 font-semibold">
       <div className="flex justify-between gap-x-4">
         <div className="grid w-full grid-cols-2 gap-4">
           <div>
@@ -148,7 +148,7 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
         <p className="text-lg font-bold text-center text-white">Forte</p>
         <div className="w-full border-t border-primary-border" />
       </div>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="grid grid-cols-2 gap-5 mobile:gap-3 mobile:grid-cols-1">
         <div className="space-y-5">
           <div className="flex items-center justify-center gap-5">
             <div className="flex items-center justify-center gap-4">
@@ -261,6 +261,7 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
             </div>
           </div>
         </div>
+        <div className="hidden w-full border-t border-primary-border mobile:block" />
         <div className="space-y-3">
           <div className="flex items-center justify-center gap-4 py-2">
             <TalentIcon talent={talent?.talents?.i1} element={charData?.element} size="w-9 h-9" hideTip />
@@ -281,7 +282,7 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
             </div>
           </div>
           <div className="w-full border-t border-primary-border" />
-          <div className="px-2 space-y-8">
+          <div className="px-2 space-y-8 mobile:w-[250px] mobile:mx-auto">
             {_.map(charData?.growth, (item, index) => (
               <div className="relative grid items-center h-12 grid-cols-5 gap-3 text-gray">
                 <div className="flex flex-col items-center">

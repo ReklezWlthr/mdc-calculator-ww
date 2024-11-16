@@ -64,11 +64,7 @@ export const ArtifactInventory = observer(() => {
     if (params.main.length) result = _.filter(result, (artifact) => _.includes(params.main, artifact.main))
     if (params.subs.length)
       result = _.filter(result, (artifact) => isSubsetOf(params.subs, _.map(artifact.subList, 'stat')))
-    return _.orderBy(result, ['level', 'quality', 'type'], ['desc', 'desc', 'desc']).sort((a, b) => {
-      const ai = _.findIndex(Echoes, (item) => item.id === a.setId)
-      const bi = _.findIndex(Echoes, (item) => item.id === b.setId)
-      return bi - ai
-    })
+    return _.orderBy(result, ['cost', 'level', 'quality', 'setId'], ['desc', 'desc', 'desc', 'desc'])
   }, [params.set, params.cost, params.sonata, params.subs, params.main, artifactStore.artifacts])
 
   useEffect(() => {
@@ -89,22 +85,22 @@ export const ArtifactInventory = observer(() => {
           <PrimaryButton title="Add New Echo" onClick={onOpenModal} />
         </div>
         <div className="w-full space-y-1">
-          <div className="flex items-center w-full gap-3">
-            <div className="flex items-center gap-3">
-              <div className="flex gap-2">
-                {_.map(Sonata, (item) => (
-                  <TypeButton value={item} field="sonata">
-                    <div
-                      className={classNames(
-                        'flex items-center justify-center text-xs bg-opacity-75 w-5 h-5 rounded-full bg-primary ring-2',
-                        SonataColor[item]
-                      )}
-                    >
-                      <img src={SonataIcons[item]} className="w-5 h-5" />
-                    </div>
-                  </TypeButton>
-                ))}
-              </div>
+          <div className="flex items-center w-full gap-3 mobile:flex-col">
+            <div className="flex gap-2">
+              {_.map(Sonata, (item) => (
+                <TypeButton value={item} field="sonata">
+                  <div
+                    className={classNames(
+                      'flex items-center justify-center text-xs bg-opacity-75 w-5 h-5 rounded-full bg-primary ring-2',
+                      SonataColor[item]
+                    )}
+                  >
+                    <img src={SonataIcons[item]} className="w-5 h-5" />
+                  </div>
+                </TypeButton>
+              ))}
+            </div>
+            <div className="flex items-center w-full gap-3">
               <div className="flex gap-2">
                 {_.map([4, 3, 1], (item) => (
                   <TypeButton value={item} field="cost">
@@ -114,62 +110,66 @@ export const ArtifactInventory = observer(() => {
                   </TypeButton>
                 ))}
               </div>
+              <SelectTextInput
+                value={params.set}
+                options={_.map(_.orderBy(Echoes, 'name', 'asc'), (artifact) => ({
+                  name: artifact.name,
+                  value: artifact.id.toString(),
+                  img: getEchoImage(artifact.icon),
+                }))}
+                placeholder="Echo Name"
+                onChange={(value) => setParams({ set: value?.value })}
+                style="w-full"
+              />
             </div>
-            <SelectTextInput
-              value={params.set}
-              options={_.map(_.orderBy(Echoes, 'name', 'asc'), (artifact) => ({
-                name: artifact.name,
-                value: artifact.id.toString(),
-                img: getEchoImage(artifact.icon),
-              }))}
-              placeholder="Echo Name"
-              onChange={(value) => setParams({ set: value?.value })}
-              style="w-[300px]"
-            />
-            <TagSelectInput
-              values={params.main}
-              options={_.map(MainStatOptions, (item) => ({ ...item, img: publicRuntimeConfig.BASE_PATH + item.img }))}
-              onChange={(main) => setParams({ main })}
-              placeholder="Main Stat - Match Any"
-              renderAsText
-              style="w-[200px]"
-            />
-            <TagSelectInput
-              values={params.subs}
-              options={_.map(SubStatOptions, (item) => ({ ...item, img: publicRuntimeConfig.BASE_PATH + item.img }))}
-              onChange={(subs) => setParams({ subs })}
-              placeholder="Sub Stats - Includes All (Max 5)"
-              renderAsText
-              maxSelection={5}
-              style="w-[250px]"
-            />
+            <div className="grid items-center w-full grid-cols-2 gap-3">
+              <TagSelectInput
+                values={params.main}
+                options={_.map(MainStatOptions, (item) => ({ ...item, img: publicRuntimeConfig.BASE_PATH + item.img }))}
+                onChange={(main) => setParams({ main })}
+                placeholder="Main Stat - Match Any"
+                renderAsText
+              />
+              <TagSelectInput
+                values={params.subs}
+                options={_.map(SubStatOptions, (item) => ({ ...item, img: publicRuntimeConfig.BASE_PATH + item.img }))}
+                onChange={(subs) => setParams({ subs })}
+                placeholder="Sub Stats - Includes All"
+                renderAsText
+                maxSelection={5}
+              />
+            </div>
           </div>
         </div>
         {_.size(filteredArtifacts) ? (
           <>
-            <div className="grid w-full grid-cols-5 gap-3 overflow-y-auto rounded-lg hideScrollbar">
+            <div className="grid w-full grid-cols-5 gap-3 overflow-y-auto rounded-lg mobile:grid-cols-1 tablet:grid-cols-3 hideScrollbar">
               {_.map(
                 _.slice(filteredArtifacts, params.per_page * (params.page - 1), params.per_page * params.page),
                 (artifact) => (
-                  <ArtifactBlock key={artifact.id} slot={0} aId={artifact?.id} />
+                  <div className="flex justify-center">
+                    <ArtifactBlock key={artifact.id} slot={0} aId={artifact?.id} />
+                  </div>
                 )
               )}
             </div>
-            <div className="flex items-center gap-4 text-gray">
-              <i className="cursor-pointer fa-solid fa-angles-left" onClick={() => setParams({ page: 1 })} />
-              <i
-                className="cursor-pointer fa-solid fa-angle-left"
-                onClick={() => setParams({ page: _.max([params.page - 1, 1]) })}
-              />
-              <p className="w-[120px] text-center">
-                {params.page} of {maxPage}
-              </p>
-              <i
-                className="cursor-pointer fa-solid fa-angle-right"
-                onClick={() => setParams({ page: _.min([params.page + 1, maxPage]) })}
-              />
-              <i className="cursor-pointer fa-solid fa-angles-right" onClick={() => setParams({ page: maxPage })} />
-            </div>
+            {maxPage > 1 && (
+              <div className="flex items-center gap-4 text-gray">
+                <i className="cursor-pointer fa-solid fa-angles-left" onClick={() => setParams({ page: 1 })} />
+                <i
+                  className="cursor-pointer fa-solid fa-angle-left"
+                  onClick={() => setParams({ page: _.max([params.page - 1, 1]) })}
+                />
+                <p className="w-[120px] text-center">
+                  {params.page} of {maxPage}
+                </p>
+                <i
+                  className="cursor-pointer fa-solid fa-angle-right"
+                  onClick={() => setParams({ page: _.min([params.page + 1, maxPage]) })}
+                />
+                <i className="cursor-pointer fa-solid fa-angles-right" onClick={() => setParams({ page: maxPage })} />
+              </div>
+            )}
           </>
         ) : (
           <div className="flex items-center justify-center w-full h-full text-3xl font-semibold text-white rounded-lg bg-primary-darker">

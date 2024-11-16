@@ -12,13 +12,10 @@ import { StatIcons, Stats } from '@src/domain/constant'
 import { useParams } from '@src/core/hooks/useParams'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
 import { toPercentage } from '@src/core/utils/converter'
-import { getAvatar, getElementImage, getGachaAvatar, getTagsImage, getTalentWeaponImage } from '@src/core/utils/fetcher'
-import getConfig from 'next/config'
+import { getAvatar, getTagsImage, getTalentWeaponImage } from '@src/core/utils/fetcher'
 import { CharDetailModal } from './modals/char_detail_modal'
 import { StatBonusValue } from '@src/domain/scaling'
 import { ElementIcon } from './element_icon'
-
-const { publicRuntimeConfig } = getConfig()
 
 export const CharDetail = observer(() => {
   const { charStore, settingStore, teamStore, modalStore } = useStore()
@@ -65,13 +62,6 @@ export const CharDetail = observer(() => {
     onCalcSlider()
   }, [params, talent])
 
-  const consImage = {
-    B: 'Normal',
-    S: 'BP',
-    U: 'Ultra',
-    T: 'Passive',
-  }
-
   const baseLevel = params.asc === 7 ? 90 : findBaseLevel(params.asc)
   const asc = _.min([params.asc, 6])
 
@@ -83,9 +73,13 @@ export const CharDetail = observer(() => {
   )
 
   return (
-    <div className="w-full h-full py-2 pr-5 ml-2 text-white customScrollbar" id="detail_container">
-      <div className="flex">
-        <div className="relative w-2/3 pointer-events-none aspect-square">
+    <div
+      className="w-full h-full py-2 pr-5 ml-2 text-white customScrollbar mobile:hideScrollbar mobile:bg-primary-bg mobile:w-[400px] mobile:max-h-[80vh] mobile:border mobile:border-primary-border mobile:rounded-lg mobile:px-2"
+      id="detail_container"
+    >
+      <p className='hidden px-2 pt-2 text-xl font-bold mobile:block'>Resonator Detail</p>
+      <div className="flex mobile:flex-col">
+        <div className="relative w-2/3 pointer-events-none mobile:w-full aspect-square mobile:aspect-auto">
           <div
             className={classNames(
               'items-center justify-center w-full h-full aspect-square shrink-0',
@@ -99,13 +93,11 @@ export const CharDetail = observer(() => {
             className={
               loading
                 ? 'hidden'
-                : 'block h-full object-cover overflow-visible -z-20 relative pointer-events-none mx-auto'
+                : 'block h-full object-cover overflow-visible relative pointer-events-none mx-auto mobile:max-h-[300px] scale-110'
             }
             onLoad={() => setLoading(false)}
           />
-          <div className="absolute top-0 left-0 w-full h-full from-primary-bg bg-gradient-to-r via-10% via-transparent" />
-          <div className="absolute top-0 left-0 w-[150%] h-full from-primary-bg bg-gradient-to-t via-30% via-transparent overflow-visible -z-10" />
-          <div className="absolute left-0 flex flex-col space-y-1 bottom-10">
+          <div className="absolute left-0 flex flex-col space-y-1 mobile:left-4 bottom-10">
             <div className="flex items-center gap-4">
               <div className="shrink-0 p-0.5">
                 <ElementIcon element={data.element} size="w-8 h-8" transparent />
@@ -123,7 +115,7 @@ export const CharDetail = observer(() => {
             </div>
           </div>
         </div>
-        <div className="w-1/3 px-3 space-y-3">
+        <div className="w-1/3 px-3 space-y-3 mobile:w-[85%] mobile:mx-auto">
           <div>
             <p className="font-bold">Base Stats</p>
             <input
@@ -160,7 +152,7 @@ export const CharDetail = observer(() => {
               <b>Combat Roles</b>
               <div className="flex flex-wrap items-center gap-1">
                 {_.map(data?.tags, (item) => (
-                  <img src={getTagsImage(item)} className="w-6 h-6" title={item} />
+                  <img src={getTagsImage(item)} className="w-6 h-6" title={item} key={item} />
                 ))}
               </div>
             </div>
@@ -223,7 +215,7 @@ export const CharDetail = observer(() => {
                 <p className="py-1.5 font-bold text-center">Stat Bonus</p>
                 <div className="px-2 space-y-1">
                   {_.map(data.growth, (g, i) => (
-                    <div className="flex justify-between">
+                    <div className="flex justify-between" key={i}>
                       <div className="flex items-center gap-1.5">
                         <img src={StatIcons[g]} className="w-4 h-4" />
                         <p>{g}</p>
@@ -264,25 +256,6 @@ export const CharDetail = observer(() => {
                         {!!item.tag && <p className="text-desc">[{item.tag}]</p>}
                       </div>
                     </div>
-                    {/* {item.trace !== TalentType.TECH && (
-                      <div className="flex items-center justify-end w-1/3 gap-2 pr-4">
-                        <p className="text-xs">
-                          Level: <span className="text-desc">{params[baseType]}</span>
-                        </p>
-                        <input
-                          type="range"
-                          className="slider h-[8px] bg-gradient-to-r from-primary-lighter to-gray shrink-0"
-                          step={1}
-                          min="1"
-                          max={_.includes(item.trace, TalentType.BA) ? 7 : 12}
-                          value={params[baseType]}
-                          onChange={(e) => {
-                            const value = Number(e.target.value)
-                            setParams({ [baseType]: value })
-                          }}
-                        />
-                      </div>
-                    )} */}
                   </div>
                   <p
                     className="pt-1.5 text-[13px] font-normal text-gray"

@@ -396,15 +396,10 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
         {
           name: 'Stella Glamor DMG',
           value: [
-            { scaling: calcScaling(1.75, forte), multiplier: Stats.ATK },
-            ...(form.incandescence
-              ? [
-                  {
-                    scaling: calcScaling(0.224, forte) * form.incandescence,
-                    multiplier: Stats.ATK,
-                  },
-                ]
-              : []),
+            {
+              scaling: calcScaling(1.75, forte) + calcScaling(0.224, forte) * form.incandescence,
+              multiplier: Stats.ATK,
+            },
           ],
           element: Element.SPECTRO,
           property: TalentProperty.SKILL,

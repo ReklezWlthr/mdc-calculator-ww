@@ -3,76 +3,77 @@ import { observer } from 'mobx-react-lite'
 
 export const HelpModal = observer(() => {
   return (
-    <div className="w-[50vw] bg-primary-dark rounded-lg p-3 space-y-2">
+    <div className="w-[50vw] mobile:w-[400px] bg-primary-dark rounded-lg p-3 space-y-2 mobile:max-h-[80vh] mobile:overflow-y-auto">
       <p className="text-lg font-bold text-white">Quick Guide</p>
+      <Collapsible label="Terms and Descriptions">
+        <p>Acronyms used in this calculator:</p>
+        <BulletPoint>
+          <b className="text-desc">A~</b> - Ascension Level.
+        </BulletPoint>
+        <BulletPoint>
+          <b className="text-desc">S~</b> - Sequence Node (Resonator Dupes).
+        </BulletPoint>
+        <BulletPoint>
+          <b className="text-desc">R~</b> - Refinement Rank (Weapon Dupes).
+        </BulletPoint>
+        <BulletPoint>
+          <b className="text-desc">I~</b> - Inherent Skills; <b>I1</b> and <b>I2</b> refer to the Inherent Skill
+          unlocked at Ascension 2 and 4, respectively.
+        </BulletPoint>
+      </Collapsible>
       <Collapsible label="Team Setup">
         <p>This page contains 3 main sections:</p>
         <p>
-          1. <b className="text-desc">Character</b>: allows you to select your character for the slot, as well as
-          specifying their level, ascension, constellations, and talent levels.
+          1. <b className="text-desc">Resonator</b>: allows you to select your resonator for the slot, as well as
+          specifying their level, ascension, sequence nodes, and forte levels.
         </p>
         <BulletPoint>
-          To change your character, click the box below <span className="text-desc">Name</span>. This will bring up a
-          modal for character selection. Inputs for character's level, ascension and constellations are right below, and
+          To change your resonator, click the box below <span className="text-desc">Name</span>. This will bring up a
+          modal for resonator selection. Inputs for resonator's level, ascension and sequence nodes are right below, and
           will be disabled until a character is chosen.
         </BulletPoint>
+        <BulletPoint>Once a resonator is chosen, you may additionally change their forte levels.</BulletPoint>
         <BulletPoint>
-          Once a character is chosen, you may additionally change their talent levels. Please note that this level does
-          not include additional level gained through constellations.
-        </BulletPoint>
-        <BulletPoint>
-          Character's stats are also displayed below. These values does not take any conditional effects into account.
-          To view the character's final stats after conditionals, please head to the{' '}
+          Resonator's stats are also displayed below. These values does not take any conditional effects and Inherent
+          Skills into account. To view the character's final stats after conditionals, please head to the{' '}
           <b className="text-red">Damage Calculator</b> page.
         </BulletPoint>
         <BulletPoint>
-          You can save builds for each character and assign one of them as your default build. Once set, every time you
-          select the character, the app will automatically equips them with the weapon and artifacts from the default
+          You can save builds for each resonator and assign one of them as your default build. Once set, every time you
+          select the resonator, the app will automatically equips them with the weapon and artifacts from the default
           build.
         </BulletPoint>
         <p className="pt-1">
-          2. <b className="text-desc">Weapon</b>: allows you to select your character's weapon.
+          2. <b className="text-desc">Weapon</b>: allows you to select your resonator's weapon.
         </p>
         <BulletPoint>
-          You can hover the <i className="fa-regular fa-question-circle indent-0" /> icon for the weapon's passive at
+          You can hover the <i className="fa-regular fa-question-circle indent-0" /> icon for the weapon's syntonize at
           the chosen refinement.
         </BulletPoint>
         <p className="pt-1">
-          3. <b className="text-desc">Artifacts</b>: allows you to customize your character's artifacts.
+          3. <b className="text-desc">Echoes</b>: allows you to customize your resonator's echoes.
         </p>
         <BulletPoint>
-          Adding a new artifact will create it in your <b className="text-red">Artifact Inventory</b> while equipping an
-          artifact will instead allow you to choose any existing ones from there.
+          Adding a new echo will create it in your <b className="text-red">Data Bank</b> while equipping an echo will
+          instead allow you to choose any existing ones from there.
         </BulletPoint>
         <BulletPoint>
-          Once equipped, hover over the artifact card for options to edit, swap, unequip or delete the artifact.
+          Once equipped, hover over the echo card for options to edit, swap, unequip or delete it.
         </BulletPoint>
         <BulletPoint>
-          The set bonus for equipped artifacts and the team's elemental resonance can be found at the bottom. Hover
-          their name to display the effects.
+          The Sonata bonus for equipped echoes and their total cost can be found at the bottom. Hover their name to
+          display the effects.
         </BulletPoint>
         <BulletPoint>
-          You may save a set of artifacts as build using the button on the bottom right of the page. You can also
-          fast-equip a saved build from there as well.
+          You may save a set of echoes as build using the button on the bottom right of the page. You can also
+          fast-equip saved builds from there as well.
         </BulletPoint>
       </Collapsible>
       <Collapsible label="Damage Calculator">
-        <p>
-          You can see the damage each character deals here, including those from Reactions. Hover over each number for a
-          formula breakdown.
-        </p>
-        <BulletPoint>
-          Displayed <b className="text-heal">Healing</b> amount only considers the source's Healing Bonus.{' '}
-          <b className="text-indigo-300">Shield</b> value also displays raw value without bonuses from Shield Strength
-          or Elemental Absorption. More detailed values can be found in the formula breakdown.
-        </BulletPoint>
-        <BulletPoint>
-          The row on the right allows you to toggle the character's conditional effects that can take effect on them.
-          Hover the name for the detail on the effect's source.
-        </BulletPoint>
+        <p>You can see the damage each resonator deals here. Hover over each number for a formula breakdown.</p>
         <BulletPoint>
           The calculator calculates the stats for every character in the team at once. Effects that are dependent on a
-          character's stats (e.g. Rosaria's A4 or Bennett's Burst) will automatically use the calculated amount. You
+          character's stats (e.g. Shorekeeper's <b>Stellarealm</b>) will automatically use the calculated amount. You
           only have to toggle it.
         </BulletPoint>
         <BulletPoint>
@@ -84,13 +85,13 @@ export const HelpModal = observer(() => {
       </Collapsible>
       <Collapsible label="Account Data">
         <BulletPoint>
-          Your account data is saved in <span className="text-desc">My Characters</span>,{' '}
-          <span className="text-desc">My Builds</span> and <span className="text-desc">Artifact Inventory</span>. You
-          can check and modify them in each respective section.
+          Your account data is saved in <span className="text-desc">My Resonators</span>,{' '}
+          <span className="text-desc">My Builds</span> and <span className="text-desc">Data Bank</span>. You can check
+          and modify them in each respective section.
         </BulletPoint>
         <BulletPoint>
           You may manually input your data or alternatively import it from either an{' '}
-          <span className="text-desc">Exported JSON File</span> or with <span className="text-desc">UID</span>.
+          <span className="text-desc">Exported JSON File</span>.
         </BulletPoint>
         <BulletPoint>
           Changes made in <span className="text-desc">Team Setup</span> Page will not affect your account data.

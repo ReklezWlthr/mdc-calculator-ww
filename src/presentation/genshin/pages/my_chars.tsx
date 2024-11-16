@@ -2,7 +2,7 @@ import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { useParams } from '@src/core/hooks/useParams'
-import React, { useMemo } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { Characters } from '@src/data/db/characters'
 import { RarityGauge } from '@src/presentation/components/rarity_gauge'
 import classNames from 'classnames'
@@ -13,7 +13,7 @@ import { getElementImage, getSideAvatar, getTalentWeaponImage } from '@src/core/
 import { ElementIcon } from '../components/element_icon'
 
 export const MyCharacters = observer(() => {
-  const { charStore, settingStore } = useStore()
+  const { charStore, settingStore, modalStore } = useStore()
   const { setParams, params } = useParams({
     searchWord: '',
     element: [],
@@ -42,7 +42,7 @@ export const MyCharacters = observer(() => {
     return (
       <div
         className={classNames(
-          'w-6 h-6 flex items-center justify-center duration-200 rounded-full cursor-pointer hover:bg-primary-lighter',
+          'w-6 h-6 mobile:w-7 mobile:h-7 flex items-center justify-center duration-200 rounded-full cursor-pointer hover:bg-primary-lighter',
           {
             'bg-primary-lighter': checked,
           }
@@ -51,7 +51,7 @@ export const MyCharacters = observer(() => {
         title={value}
       >
         {type === 'element' ? (
-          <ElementIcon element={value as Element} size="w-4 h-4" />
+          <ElementIcon element={value as Element} size="w-4 h-4 mobile:w-5 mobile:h-5" />
         ) : (
           <img src={getTalentWeaponImage(value)} />
         )}
@@ -59,17 +59,31 @@ export const MyCharacters = observer(() => {
     )
   }
 
+  useEffect(() => {
+    const close = () => {
+      if (window.innerWidth < 430) {
+        modalStore.closeModal()
+      }
+    }
+    window.addEventListener('resize', close)
+    window.addEventListener('orientationchange', close)
+
+    return () => {
+      window.removeEventListener('resize', close)
+      window.removeEventListener('orientationchange', close)
+    }
+  }, [])
+
   return (
-    <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1200px] mx-auto">
+    <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1200px] mx-auto mobile:h-full">
       <div className="flex w-full h-full gap-x-10">
-        <div className="flex flex-col w-[30%] h-full gap-y-2 shrink-0">
-          <div className="flex items-center justify-between">
-            <p className="text-2xl font-bold text-white">My Resonators</p>
+        <div className="flex flex-col w-[30%] h-full gap-y-2 shrink-0 mobile:w-full">
+          <div className="flex items-center justify-between gap-5">
+            <p className="text-2xl font-bold text-white shrink-0">My Resonators</p>
             <TextInput
               onChange={(value) => setParams({ searchWord: value })}
               value={params.searchWord}
               placeholder="Search Resonator Name"
-              style="!w-1/2"
             />
           </div>
           <div className="flex items-center gap-5">
@@ -89,7 +103,7 @@ export const MyCharacters = observer(() => {
               <FilterIcon type="weapon" value={WeaponType.RECTIFIER} />
             </div>
           </div>
-          <div className="grid grid-cols-4 gap-3 pr-2 mt-1 rounded-lg customScrollbar">
+          <div className="grid grid-cols-4 gap-3 pr-2 mt-1 rounded-lg mobile:pr-0 mobile:max-h-[calc(100vh-200px)] customScrollbar mobile:hideScrollbar">
             {_.map(filteredChar, (item) => {
               const owned = _.includes(_.map(charStore.characters, 'cId'), item.id)
               const codeName =
@@ -100,7 +114,12 @@ export const MyCharacters = observer(() => {
                     'w-full text-xs text-white duration-200 border rounded-lg cursor-pointer bg-primary-bg border-primary-border hover:scale-95',
                     owned ? 'border-opacity-100' : 'border-opacity-30'
                   )}
-                  onClick={() => charStore.setValue('selected', item.id)}
+                  onClick={() => {
+                    charStore.setValue('selected', item.id)
+                    if (window.innerWidth <= 430) {
+                      modalStore.openModal(<CharDetail />)
+                    }
+                  }}
                   key={item.name}
                 >
                   <div className={classNames('relative', owned ? 'opacity-100' : 'opacity-30')}>
@@ -138,7 +157,9 @@ export const MyCharacters = observer(() => {
             })}
           </div>
         </div>
-        <CharDetail />
+        <div className="mobile:hidden">
+          <CharDetail />
+        </div>
       </div>
     </div>
   )

@@ -131,7 +131,7 @@ export const CompareBlock = observer(() => {
   )
 
   return (
-    <div className="grid grid-cols-3 gap-4 px-5 mb-8">
+    <div className="grid grid-cols-3 gap-4 px-5 mb-8 mobile:px-0 mobile:grid-cols-2">
       {_.some(sumStats) && (
         <div className="flex flex-col col-span-2 mb-5 text-sm text-white h-fit">
           <div className="flex items-center justify-between mb-3">
@@ -156,7 +156,7 @@ export const CompareBlock = observer(() => {
             Damage Calculation
           </div>
           <div className="flex justify-end w-full bg-primary-dark">
-            <div className="grid w-4/5 grid-cols-9 gap-2 py-0.5 pr-2 text-sm font-bold text-center bg-primary-dark">
+            <div className="grid w-4/5 grid-cols-9 gap-2 py-0.5 pr-2 text-sm font-bold text-center bg-primary-dark mobile:hidden">
               <p className="col-span-2">Property</p>
               <p className="col-span-1">Type</p>
               <p className="col-span-1">Main</p>
@@ -167,7 +167,12 @@ export const CompareBlock = observer(() => {
             </div>
           </div>
           <div className="rounded-b-lg bg-primary-darker">
-            <ScalingWrapper talent={main?.talents?.normal} element={charData.element} level={char.talents?.normal}>
+            <ScalingWrapper
+              talent={main?.talents?.normal}
+              element={charData.element}
+              level={char.talents?.normal}
+              compare
+            >
               <div className="flex flex-col justify-between gap-4">{renderRow(StatsObjectKeys.BASIC_SCALING)}</div>
               <div className="flex flex-col justify-between gap-4 !my-3">
                 {renderRow(StatsObjectKeys.HEAVY_SCALING)}
@@ -176,43 +181,55 @@ export const CompareBlock = observer(() => {
               <div className="flex flex-col justify-between gap-4">{renderRow(StatsObjectKeys.DODGE_SCALING)}</div>
             </ScalingWrapper>
             <div className="w-full my-2 border-t-2 border-primary-border" />
-            <ScalingWrapper talent={main?.talents?.skill} element={charData.element} level={char.talents?.skill}>
+            <ScalingWrapper
+              talent={main?.talents?.skill}
+              element={charData.element}
+              level={char.talents?.skill}
+              compare
+            >
               <div className="flex flex-col justify-between h-full gap-4">
                 {renderRow(StatsObjectKeys.SKILL_SCALING)}
               </div>
             </ScalingWrapper>
             <div className="w-full my-2 border-t-2 border-primary-border" />
-            <ScalingWrapper talent={main?.talents?.lib} element={charData.element} level={char.talents?.lib}>
+            <ScalingWrapper talent={main?.talents?.lib} element={charData.element} level={char.talents?.lib} compare>
               <div className="flex flex-col justify-between h-full gap-4 pb-2">
                 {renderRow(StatsObjectKeys.LIB_SCALING)}
               </div>
             </ScalingWrapper>
             <div className="w-full my-2 border-t-2 border-primary-border" />
-            <ScalingWrapper talent={main?.talents?.forte} element={charData.element} level={char.talents?.forte}>
+            <ScalingWrapper
+              talent={main?.talents?.forte}
+              element={charData.element}
+              level={char.talents?.forte}
+              compare
+            >
               <div className="flex flex-col justify-between h-full gap-4 pb-2">
                 {renderRow(StatsObjectKeys.FORTE_SCALING)}
               </div>
             </ScalingWrapper>
             <div className="w-full my-2 border-t-2 border-primary-border" />
-            <ScalingWrapper talent={main?.talents?.intro} element={charData.element} level={char.talents?.intro}>
+            <ScalingWrapper
+              talent={main?.talents?.intro}
+              element={charData.element}
+              level={char.talents?.intro}
+              compare
+            >
               <div className="flex flex-col justify-between h-full gap-4 pb-2">
                 {renderRow(StatsObjectKeys.INTRO_SCALING)}
               </div>
             </ScalingWrapper>
             <div className="w-full my-2 border-t-2 border-primary-border" />
-            <ScalingWrapper talent={main?.talents?.outro} element={charData.element} level={1}>
+            <ScalingWrapper talent={main?.talents?.outro} element={charData.element} level={1} compare>
               <div className="flex flex-col justify-between h-full gap-4 pb-2">
                 {renderRow(StatsObjectKeys.OUTRO_SCALING)}
               </div>
             </ScalingWrapper>
           </div>
-          <div className="w-[75%] mt-5">
-            <CompareReactionTable meta={[mainCalc, sub1, sub2, sub3]} />
-          </div>
         </div>
       )}
       {_.some(contents) && _.some(sumStats) && (
-        <div className="flex flex-col items-center w-full gap-3">
+        <div className="flex flex-col items-center w-full gap-3 mobile:col-span-full">
           <div className="flex items-center gap-3 mb-2">
             <div className="space-y-1">
               <p className="w-[136px] text-xs font-bold text-center text-white truncate">

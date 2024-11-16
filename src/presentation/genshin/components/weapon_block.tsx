@@ -29,6 +29,7 @@ import { toPercentage } from '@src/core/utils/converter'
 import { Tooltip, TooltipPositionT } from '@src/presentation/components/tooltip'
 import getConfig from 'next/config'
 import { getWeaponImage } from '@src/core/utils/fetcher'
+import { TooltipModal } from '@src/presentation/components/tooltip_modal'
 
 const { publicRuntimeConfig } = getConfig()
 
@@ -61,7 +62,7 @@ export const WeaponTooltip = ({
         />
       }
       position={position}
-      style="w-[450px]"
+      style="w-[450px] mobile:w-[400px]"
     >
       {children}
     </Tooltip>
@@ -100,7 +101,6 @@ export const WeaponBlock = observer(
     const char = team[index]?.cId
 
     const weaponData = findWeapon(wId)
-    const weaponType = findCharacter(char)?.weapon
     const rarity = weaponData?.rarity
 
     const weaponBaseAtk = getWeaponBase(weaponData?.baseAtk, level, ascension)
@@ -208,7 +208,7 @@ export const WeaponBlock = observer(
                 <p>Base ATK</p>
               </div>
               <hr className="w-full border border-primary-border" />
-              <p className="font-normal text-gray">{_.floor(weaponBaseAtk)}</p>
+              <p className="font-normal text-gray">{_.floor(weaponBaseAtk || 0)}</p>
             </div>
             {weaponData && (
               <div className="flex items-center gap-2 text-xs">

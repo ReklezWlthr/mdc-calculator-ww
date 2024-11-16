@@ -11,7 +11,7 @@ export const SettingModal = observer(() => {
   const { settingStore } = useStore()
 
   return (
-    <div className="w-[25vw] bg-primary-dark rounded-lg p-3 space-y-2">
+    <div className="w-[400px] bg-primary-dark rounded-lg p-3 space-y-2">
       <p className="text-lg font-bold text-white">Settings</p>
       <div className="p-3 space-y-1 rounded-lg bg-primary-darker">
         <div className="flex items-center justify-between gap-x-2">

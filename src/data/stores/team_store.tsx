@@ -144,7 +144,7 @@ export class Team {
     if (index < 0) return
     const replacedEcho = _.cloneDeep(this.characters[index].equipments.artifacts[type - 1]) || null
     _.forEach(this.characters, (character, i) => {
-      if (_.includes(character.equipments.artifacts, aId)) {
+      if (_.includes(character.equipments.artifacts, aId) && aId) {
         const oldIndex = _.findIndex(character.equipments.artifacts, (item) => item === aId)
         if (oldIndex >= 0) {
           character.equipments.artifacts[oldIndex] = replacedEcho

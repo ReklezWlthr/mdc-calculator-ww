@@ -149,10 +149,10 @@ export const StatsModal = observer(
     //   1 - stats.getDef() / (stats.getDef() + 200 + 10 * +(compare ? setupStore.level : calculatorStore.level))
 
     return (
-      <div className="w-[65vw] bg-primary-dark rounded-lg p-3 space-y-2">
+      <div className="w-[65vw] mobile:w-[400px] mobile:max-h-[80vh] mobile:overflow-y-auto bg-primary-dark rounded-lg p-3 space-y-2">
         <p className="text-lg font-bold text-white">Stats Breakdown</p>
-        <Collapsible label="Common Attributes">
-          <div className="grid grid-cols-2 gap-10">
+        <Collapsible label="Basic Stats">
+          <div className="grid grid-cols-2 gap-10 mobile:grid-cols-1 mobile:gap-2">
             <div className="space-y-2">
               <ExtraBlock
                 stats="HP"
@@ -188,7 +188,7 @@ export const StatsModal = observer(
           </div>
         </Collapsible>
         <Collapsible label="DMG Bonuses">
-          <div className="grid grid-cols-2 gap-10">
+          <div className="grid grid-cols-2 gap-10 mobile:grid-cols-1 mobile:gap-2">
             <div className="space-y-2">
               <AttributeBlock stats={stats} stat="All-Type DMG Bonus" array={stats[Stats.ALL_DMG]} />
               <AttributeBlock
@@ -223,7 +223,7 @@ export const StatsModal = observer(
               />
             </div>
             <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Normal Attack Bonus" array={stats[Stats.BASIC_DMG]} />
+              <AttributeBlock stats={stats} stat="Basic Attack Bonus" array={stats[Stats.BASIC_DMG]} />
               <AttributeBlock stats={stats} stat="Heavy Attack Bonus" array={stats[Stats.HEAVY_DMG]} />
               <AttributeBlock stats={stats} stat="Dodge Counter DMG Bonus" array={stats[Stats.DODGE_DMG]} />
               <AttributeBlock stats={stats} stat="Res. Skill DMG Bonus" array={stats[Stats.SKILL_DMG]} />
@@ -232,45 +232,39 @@ export const StatsModal = observer(
             </div>
           </div>
         </Collapsible>
-        <Collapsible label="DMG Amplification (AMP)">
-          <div className="grid grid-cols-2 gap-10">
+        <Collapsible label="DMG Amplify">
+          <div className="grid grid-cols-2 gap-10 mobile:grid-cols-1 mobile:gap-2">
             <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="All-Type AMP" array={stats.AMP} />
-              <AttributeBlock stats={stats} stat="Glacio AMP" array={stats.GLACIO_AMP} />
-              <AttributeBlock stats={stats} stat="Fusion AMP" array={stats.FUSION_AMP} />
-              <AttributeBlock stats={stats} stat="Electro AMP" array={stats.ELECTRO_AMP} />
-              <AttributeBlock stats={stats} stat="Aero AMP" array={stats.AERO_AMP} />
-              <AttributeBlock stats={stats} stat="Spectro AMP" array={stats.SPECTRO_AMP} />
-              <AttributeBlock stats={stats} stat="Havoc AMP" array={stats.HAVOC_AMP} />
+              <AttributeBlock stats={stats} stat="All-Type DMG AMP" array={stats.AMP} />
+              <AttributeBlock stats={stats} stat="Glacio DMG AMP" array={stats.GLACIO_AMP} />
+              <AttributeBlock stats={stats} stat="Fusion DMG AMP" array={stats.FUSION_AMP} />
+              <AttributeBlock stats={stats} stat="Electro DMG AMP" array={stats.ELECTRO_AMP} />
+              <AttributeBlock stats={stats} stat="Aero DMG AMP" array={stats.AERO_AMP} />
+              <AttributeBlock stats={stats} stat="Spectro DMG AMP" array={stats.SPECTRO_AMP} />
+              <AttributeBlock stats={stats} stat="Havoc DMG AMP" array={stats.HAVOC_AMP} />
             </div>
             <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="Basic ATK AMP" array={stats.BASIC_AMP} />
-              <AttributeBlock stats={stats} stat="Heavy ATK AMP" array={stats.HEAVY_AMP} />
+              <AttributeBlock stats={stats} stat="Basic Attack AMP" array={stats.BASIC_AMP} />
+              <AttributeBlock stats={stats} stat="Heavy Attack AMP" array={stats.HEAVY_AMP} />
               <AttributeBlock stats={stats} stat="Res. Skill AMP" array={stats.SKILL_AMP} />
               <AttributeBlock stats={stats} stat="Res. Liberation AMP" array={stats.LIB_AMP} />
-              <AttributeBlock stats={stats} stat="Coordinated ATK AMP" array={stats.COORD_AMP} />
-              </div>
+              <AttributeBlock stats={stats} stat="Coordinated Attack AMP" array={stats.COORD_AMP} />
+            </div>
           </div>
         </Collapsible>
-        <Collapsible label="RES PEN">
-          <div className="grid grid-cols-2 gap-10">
+        <Collapsible label="PEN">
+          <div className="grid grid-cols-2 gap-10 mobile:grid-cols-1 mobile:gap-2">
             <div className="space-y-2">
+              <AttributeBlock stats={stats} stat="DEF PEN" array={stats.DEF_PEN} />
               <AttributeBlock stats={stats} stat="All-Type RES PEN" array={stats.ALL_TYPE_RES_PEN} />
               <AttributeBlock stats={stats} stat="Glacio RES PEN" array={stats.GLACIO_RES_PEN} />
               <AttributeBlock stats={stats} stat="Fusion RES PEN" array={stats.FUSION_RES_PEN} />
-              <AttributeBlock stats={stats} stat="Electro RES PEN" array={stats.ELECTRO_RES_PEN} />
             </div>
             <div className="space-y-2">
+              <AttributeBlock stats={stats} stat="Electro RES PEN" array={stats.ELECTRO_RES_PEN} />
               <AttributeBlock stats={stats} stat="Aero RES PEN" array={stats.AERO_RES_PEN} />
               <AttributeBlock stats={stats} stat="Spectro RES PEN" array={stats.SPECTRO_RES_PEN} />
               <AttributeBlock stats={stats} stat="Havoc RES PEN" array={stats.HAVOC_RES_PEN} />
-            </div>
-          </div>
-        </Collapsible>
-        <Collapsible label="Advanced Attributes">
-          <div className="grid grid-cols-2 gap-10">
-            <div className="space-y-2">
-              <AttributeBlock stats={stats} stat="DMG Reduction" array={stats.DMG_REDUCTION} />
             </div>
           </div>
         </Collapsible>

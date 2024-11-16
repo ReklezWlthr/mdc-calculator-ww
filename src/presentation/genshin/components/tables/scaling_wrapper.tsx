@@ -12,6 +12,7 @@ interface ScalingWrapperProps {
   talent: ITalentDisplay
   element: Element
   level?: number
+  compare?: boolean
 }
 
 interface TalentIconProps {
@@ -116,7 +117,7 @@ export const TalentIcon = observer(
           </div>
         }
         body={<p dangerouslySetInnerHTML={{ __html: talent?.content }} />}
-        style={tooltipSize || 'w-[35vw]'}
+        style={tooltipSize || 'w-[35vw] mobile:w-[400px]'}
       >
         <div className="relative group">
           <IconComp />
@@ -141,19 +142,38 @@ export const TalentIcon = observer(
   }
 )
 
-export const ScalingWrapper = observer(({ children, talent, element, level }: ScalingWrapperProps) => {
+export const ScalingWrapper = observer(({ children, talent, element, level, compare }: ScalingWrapperProps) => {
   return (
-    <div className="flex w-full">
-      <div className="flex flex-col items-center justify-center w-1/5 px-2 py-5">
+    <div className="flex w-full mobile:flex-col">
+      <div className="flex flex-col items-center justify-center w-1/5 px-2 py-5 mobile:w-full mobile:flex-row mobile:justify-center gap-y-2 gap-x-4 mobile:px-5 mobile:py-3">
         <TalentIcon talent={talent} element={element} level={level} type={talent?.trace} modal />
-        <p className="w-full mt-2 font-bold text-center">{talent?.title}</p>
-        {level && (
-          <p className="text-xs text-gray">
-            Level <span className="text-gray">{level}</span>
-          </p>
-        )}
+        <div className="flex flex-col items-center w-full">
+          <p className="w-full font-bold text-center mobile:w-2/3">{talent?.title}</p>
+          {level && (
+            <p className="text-xs text-gray">
+              Level <span className="text-gray">{level}</span>
+            </p>
+          )}
+        </div>
       </div>
-      <div className="w-4/5 space-y-0.5">{children}</div>
+      <div className="w-4/5 mobile:w-full space-y-0.5">
+        {!!_.size(children as any) &&
+          (compare ? (
+            <div className="items-center hidden grid-cols-6 gap-2 py-1 pr-2 text-xs font-bold mobile:grid bg-primary-dark">
+              <p className="col-start-3 text-center">Main</p>
+              <p className="text-center">Sub 1</p>
+              <p className="text-center">Sub 2</p>
+              <p className="text-center">Sub 3</p>
+            </div>
+          ) : (
+            <div className="items-center hidden grid-cols-5 gap-2 py-1 pr-2 text-xs font-bold mobile:grid bg-primary-dark">
+              <p className="col-start-3 text-center">Base</p>
+              <p className="text-center">Crit</p>
+              <p className="text-center">Average</p>
+            </div>
+          ))}
+        {children}
+      </div>
     </div>
   )
 })

@@ -1,15 +1,11 @@
 import React from 'react'
 import { IScaling } from '@src/domain/conditional'
-import { Element, StatIcons, Stats, TalentProperty, WeaponType } from '@src/domain/constant'
+import { TalentProperty } from '@src/domain/constant'
 import classNames from 'classnames'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
 import { Tooltip } from '@src/presentation/components/tooltip'
-import { toPercentage } from '@src/core/utils/converter'
-import { StatsObject, StatsObjectKeys } from '@src/data/lib/stats/baseConstant'
-import { TalentStatMap } from '../../../../data/lib/stats/baseConstant'
 import { useStore } from '@src/data/providers/app_store_provider'
-import { findCharacter } from '@src/core/utils/finder'
 import { damageStringConstruct, ElementColor, PropertyColor } from '@src/core/utils/damageStringConstruct'
 
 interface ScalingSubRowsProps {
@@ -21,11 +17,6 @@ export const ScalingSubRows = observer(({ scaling }: ScalingSubRowsProps) => {
   const index = calculatorStore.selected
   const stats = calculatorStore.computedStats[index]
 
-  const team = _.map(teamStore.characters, (item, i) => ({
-    name: findCharacter(item.cId)?.name,
-    stats: calculatorStore.computedStats[i],
-  }))
-
   const {
     component: { AvgBody, CritBody, DmgBody },
     number: { dmg, totalAvg, totalCrit },
@@ -33,10 +24,24 @@ export const ScalingSubRows = observer(({ scaling }: ScalingSubRowsProps) => {
   } = damageStringConstruct(calculatorStore, scaling, stats, teamStore.characters[index].level)
 
   return (
-    <div className="grid items-center grid-cols-8 gap-2 pr-2">
-      <p className="col-span-2 text-center">{scaling.property}</p>
-      <p className={classNames('col-span-1 text-center', ElementColor[element])}>{element}</p>
-      <Tooltip title={scaling.name} body={DmgBody} style="w-[400px]">
+    <div className="grid items-center grid-cols-8 gap-2 pr-2 mobile:grid-cols-5 mobile:py-0.5">
+      <p className="col-span-2 text-center mobile:hidden">{scaling.property}</p>
+      <p className={classNames('col-span-1 text-center mobile:hidden', ElementColor[element])}>{element}</p>
+      <p className="hidden col-span-2 pl-4 text-xs truncate mobile:block" title={scaling.name}>
+        {scaling.name}
+      </p>
+      <Tooltip
+        title={
+          <div className="flex items-center justify-between">
+            <p>{scaling.name}</p>
+            <p className="text-xs font-normal text-gray">
+              {scaling.property} - <span className={ElementColor[scaling.element]}>{scaling.element}</span>
+            </p>
+          </div>
+        }
+        body={DmgBody}
+        style="w-[400px]"
+      >
         <p className="col-span-1 text-center text-gray">{_.round(dmg).toLocaleString()}</p>
       </Tooltip>
       {_.includes([TalentProperty.HEAL, TalentProperty.SHIELD], scaling.property) ? (
@@ -59,7 +64,7 @@ export const ScalingSubRows = observer(({ scaling }: ScalingSubRowsProps) => {
           </p>
         </Tooltip>
       )}
-      <p className="col-span-2 text-xs truncate" title={scaling.name}>
+      <p className="col-span-2 text-xs truncate mobile:hidden" title={scaling.name}>
         {scaling.name}
       </p>
     </div>

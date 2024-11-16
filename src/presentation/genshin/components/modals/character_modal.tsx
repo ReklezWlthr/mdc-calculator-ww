@@ -15,7 +15,7 @@ import getConfig from 'next/config'
 import { TagSelectInput } from '@src/presentation/components/inputs/tag_select_input'
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { BulletPoint } from '@src/presentation/components/collapsible'
-import { getAvatar, getElementImage, getSideAvatar, getTalentWeaponImage } from '@src/core/utils/fetcher'
+import { getAvatar, getElementImage, getSideAvatar, getTagsImage, getTalentWeaponImage } from '@src/core/utils/fetcher'
 import { ElementIcon } from '../element_icon'
 
 const { publicRuntimeConfig } = getConfig()
@@ -60,10 +60,13 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
     const checked = _.includes(array, value)
     return (
       <div
-        className={classNames('w-8 h-8 duration-200 rounded-full cursor-pointer hover:bg-primary-lighter shrink-0 flex items-center justify-center', {
-          'bg-primary-lighter': checked,
-          'p-0.5': type === 'weapon',
-        })}
+        className={classNames(
+          'w-8 h-8 duration-200 rounded-full cursor-pointer hover:bg-primary-lighter shrink-0 flex items-center justify-center',
+          {
+            'bg-primary-lighter': checked,
+            'p-0.5': type === 'weapon',
+          }
+        )}
         onClick={() => setParams({ [type]: checked ? _.without(array, value) : [...array, value] })}
         title={value}
       >
@@ -75,7 +78,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
   return (
     <div className="desktop:w-[1220px] tablet:w-[85vw] mobile:w-[85vw] mobile:h-[80vh] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
       <div className="flex items-center gap-6 mobile:gap-2 mobile:flex-col">
-        <div className="flex items-center gap-6">
+        <div className="flex items-center w-full gap-6">
           <p className="shrink-0">Select a Resonator</p>
           <TextInput
             onChange={(value) => setParams({ searchWord: value })}
@@ -99,66 +102,75 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
           <FilterIcon type="weapon" value={WeaponType.RECTIFIER} />
         </div>
         <TagSelectInput
-          options={_.map(Tags, (item) => ({ name: item, value: item }))}
+          options={_.map(Tags, (item) => ({ name: item, value: item, img: getTagsImage(item) }))}
           onChange={(v) => setParams({ tags: v })}
           placeholder="Select Combat Roles (Match All)"
           small
           style="w-[250px]"
           values={params.tags}
-          onlyShowCount
+          // onlyShowCount
+          renderAsText
         />
       </div>
-      <div className="grid w-full grid-cols-10 tablet:grid-cols-7 mobile:grid-cols-3 gap-4 max-h-[70vh] mobile:h-[60vh] overflow-y-auto hideScrollbar rounded-lg">
-        {_.map(filteredChar, (item) => {
-          const owned = _.includes(_.map(charStore.characters, 'cId'), item.id)
-          const codeName = item.order === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : item.order
-          return (
-            <div
-              className="w-full text-xs duration-200 border rounded-lg cursor-pointer bg-primary border-primary-border hover:scale-95"
-              onClick={() => {
-                const build = _.find(buildStore.builds, (build) => build.isDefault && build.cId === item.id)
-                const char = _.find(charStore.characters, (char) => char.cId === item.id)
-                if (item.weapon !== selectedWeaponData?.type && teamStore.characters[index]?.equipments?.weapon)
-                  teamStore.setWeapon(index, DefaultWeapon(item.weapon))
-                charSetter(index, {
-                  cId: item.id,
-                  ascension: char?.ascension || 0,
-                  level: char?.level || 1,
-                  talents: char?.talents || { normal: 1, skill: 1, lib: 1, forte: 1, intro: 1 },
-                  equipments: build ? { weapon: build.weapon, artifacts: build.artifacts } : DefaultBuild(item.weapon),
-                  cons: char?.cons || 0,
-                  i: char?.i || { i1: false, i2: false },
-                  growth: char?.growth || Array(8).fill(false),
-                })
-                modalStore.closeModal()
-              }}
-              key={item.name}
-            >
-              <div className="relative">
-                <div className="absolute top-2 left-2 z-[1]">
-                  <ElementIcon element={item.element} />
-                </div>
-                {owned && (
-                  <div className="absolute px-1.5 py-1 text-xs rounded-lg top-1 right-1 bg-primary font-bold z-[1]">
-                    S{_.find(charStore.characters, ['cId', item.id])?.cons || 0}
+      <div className="grid w-full grid-cols-10 tablet:grid-cols-7 mobile:grid-cols-3 gap-4 max-h-[70vh] mobile:max-h-[60vh] overflow-y-auto hideScrollbar rounded-lg">
+        {_.size(filteredChar) ? (
+          _.map(filteredChar, (item) => {
+            const owned = _.includes(_.map(charStore.characters, 'cId'), item.id)
+            const codeName = item.order === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : item.order
+            return (
+              <div
+                className="w-full text-xs duration-200 border rounded-lg cursor-pointer bg-primary border-primary-border hover:scale-95"
+                onClick={() => {
+                  const build = _.find(buildStore.builds, (build) => build.isDefault && build.cId === item.id)
+                  const char = _.find(charStore.characters, (char) => char.cId === item.id)
+                  if (item.weapon !== selectedWeaponData?.type && teamStore.characters[index]?.equipments?.weapon)
+                    teamStore.setWeapon(index, DefaultWeapon(item.weapon))
+                  charSetter(index, {
+                    cId: item.id,
+                    ascension: char?.ascension || 0,
+                    level: char?.level || 1,
+                    talents: char?.talents || { normal: 1, skill: 1, lib: 1, forte: 1, intro: 1 },
+                    equipments: build
+                      ? { weapon: build.weapon, artifacts: build.artifacts }
+                      : DefaultBuild(item.weapon),
+                    cons: char?.cons || 0,
+                    i: char?.i || { i1: false, i2: false },
+                    growth: char?.growth || Array(8).fill(false),
+                  })
+                  modalStore.closeModal()
+                }}
+                key={item.name}
+              >
+                <div className="relative">
+                  <div className="absolute top-2 left-2 z-[1]">
+                    <ElementIcon element={item.element} />
                   </div>
-                )}
-                {item.beta && (
-                  <div className="absolute right-0 px-1.5 text-xs py-0.5 font-bold rounded-l-md bottom-6 bg-rose-600 z-[1]">
-                    Beta
+                  {owned && (
+                    <div className="absolute px-1.5 py-1 text-xs rounded-lg top-1 right-1 bg-primary font-bold z-[1]">
+                      S{_.find(charStore.characters, ['cId', item.id])?.cons || 0}
+                    </div>
+                  )}
+                  {item.beta && (
+                    <div className="absolute right-0 px-1.5 text-xs py-0.5 font-bold rounded-l-md bottom-6 bg-rose-600 z-[1]">
+                      Beta
+                    </div>
+                  )}
+                  <div className="absolute bg-primary-darker py-0.5 px-1.5 rounded-full right-1 bottom-0.5 z-[1]">
+                    <RarityGauge rarity={item.rarity} />
                   </div>
-                )}
-                <div className="absolute bg-primary-darker py-0.5 px-1.5 rounded-full right-1 bottom-0.5 z-[1]">
-                  <RarityGauge rarity={item.rarity} />
+                  <div className="flex items-end justify-center overflow-hidden rounded-t-lg bg-primary-darker aspect-square">
+                    <img src={getSideAvatar(codeName)} className="object-cover" />
+                  </div>
                 </div>
-                <div className="flex items-end justify-center overflow-hidden rounded-t-lg bg-primary-darker aspect-square">
-                  <img src={getSideAvatar(codeName)} className="object-cover" />
-                </div>
+                <p className="w-full px-2 py-1 text-center truncate">{item.name}</p>
               </div>
-              <p className="w-full px-2 py-1 text-center truncate">{item.name}</p>
-            </div>
-          )
-        })}
+            )
+          })
+        ) : (
+          <div className="flex items-center justify-center w-full h-[70vh] mobile:h-[60vh] col-span-full text-xl">
+            No Matching Resonator
+          </div>
+        )}
       </div>
     </div>
   )

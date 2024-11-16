@@ -76,7 +76,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       level: forte,
       trace: `Forte Circuit`,
       title: `Vegetative Universe`,
-      content: `Hitting a target with Normal Attack, Basic Attack <b>Vining Waltz</b>, Basic Attack <b>Vining Ronde</b>, Dodge Counter <b>Atonement</b> , Resonance Skill <b>Crimson Blossom</b>, and Resonance Skill <b>Floral Ravage</b> consumes <b class="text-red">Crimson Pistils</b>. The Energy Regen Multiplier of this attack is increased by <span class="text-desc">150%</span>.
+      content: `Hitting a target with Normal Attack, Basic Attack <b>Vining Waltz</b>, Basic Attack <b>Vining Ronde</b>, Dodge Counter <b>Atonement</b>, Resonance Skill <b>Crimson Blossom</b>, and Resonance Skill <b>Floral Ravage</b> consumes <b class="text-red">Crimson Pistils</b>. The Energy Regen Multiplier of this attack is increased by <span class="text-desc">150%</span>.
       <br />Consuming <span class="text-desc">10</span> <b class="text-red">Crimson Pistils</b> recovers <span class="text-desc">4</span> Concerto Energy and obtains <span class="text-desc">1</span> <b class="text-rose-300">Crimson Bud(s)</b>. Each <b class="text-rose-300">Bud</b> lasts for <span class="text-desc">15</span>s, stacking up to <span class="text-desc">10</span> times.
       <br />
       <br /><b>Forte Circuit: Ephemeral</b>

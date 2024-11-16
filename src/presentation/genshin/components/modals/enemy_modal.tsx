@@ -47,7 +47,7 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
     )
 
   return (
-    <div className="w-[35vw] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
+    <div className="w-[35vw] mobile:w-[350px] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
       <p>Target Enemy Setting</p>
       <div className="flex w-full gap-3">
         <div className="w-full space-y-1">
@@ -81,7 +81,7 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
           />
         </div>
       </div>
-      <div className="flex justify-between gap-8">
+      <div className="flex justify-between gap-8 mobile:gap-6 mobile:flex-col">
         <div className="space-y-5">
           <div className="space-y-1">
             <p>DEF</p>
@@ -108,6 +108,8 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
                 </p>
               )}
             </div>
+          </div>
+          <div className="space-y-1">
             <p className="pt-2">DEF Multiplier</p>
             <div className="flex items-center gap-2 px-2 py-1 text-sm font-normal rounded-lg bg-primary-darker w-fit text-gray">
               <p className="font-bold text-orange-300">{toPercentage(defMult)}</p>
@@ -149,14 +151,14 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
             </Tooltip>
           </div>
           {_.map(BaseElementColor, (item, key: Element) => (
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-3" key={key}>
               <p className={classNames('whitespace-nowrap text-sm w-full', item)}>{key} RES</p>
               <TextInput
-                type={res[key] === Infinity ? 'text' : 'number'}
-                value={res[key] === Infinity ? 'Immune' : res[key].toString()}
+                type="number"
+                value={res[key].toString()}
                 onChange={(value) => store.setRes(key, value as any as number)}
                 style="!w-[75px] shrink-0"
-                disabled={res[key] === Infinity || !!enemyData}
+                disabled={!!enemyData}
               />
             </div>
           ))}

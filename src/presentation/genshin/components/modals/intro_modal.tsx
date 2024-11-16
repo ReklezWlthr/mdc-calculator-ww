@@ -5,7 +5,7 @@ import changelog from '@src/data/db/changelog.json'
 
 export const IntroModal = observer(() => {
   return (
-    <div className="w-[50vw] bg-primary-dark rounded-lg p-3 space-y-2">
+    <div className="w-[50vw] mobile:w-[400px] bg-primary-dark rounded-lg p-3 space-y-2 mobile:max-h-[80vh] mobile:overflow-y-auto">
       <p className="text-lg font-bold text-white">About</p>
       <Collapsible
         label="Changelogs"
@@ -36,16 +36,11 @@ export const IntroModal = observer(() => {
           differences should be negligible. Sub stat rolls may also become inaccurate when the roll quality is too high.
         </BulletPoint>
         <BulletPoint>
-          It is not recommended to use this app on mobiles or vertical screens. This is partly due to most information
-          being presented in tooltips.
+          While I tried to make the calculator work on mobile, I still highly recommend using it on desktop.
         </BulletPoint>
         <BulletPoint>
           I also work full-time as a programmer, and usually develop this app in my free time. As a result, updates may
           be slow at times.
-        </BulletPoint>
-        <BulletPoint>
-          As of now, the calculator sadly does not support comparing builds since it calculates every character's stats
-          at once. This makes comparing builds quite hard. I will try to find a workaround soon.
         </BulletPoint>
       </Collapsible>
       <div className="p-3 space-y-1 text-sm transition-all duration-200 rounded-lg bg-primary-darker text-gray">
@@ -55,7 +50,7 @@ export const IntroModal = observer(() => {
         <div className="space-y-1 overflow-hidden transition-all duration-200">
           <BulletPoint>
             Welcome to my little calculator project! As the name suggests, this calculator allows you to calculate the
-            damage of each character in your team.
+            damage of each resonator in your team.
           </BulletPoint>
           <BulletPoint>
             If you encounter bugs, or have questions or suggestions, do not hesitate to contact me via:
@@ -84,38 +79,18 @@ export const IntroModal = observer(() => {
           <BulletPoint color="text-desc">
             <a
               className="cursor-pointer focus:outline-none text-blue"
-              href="https://genshin-impact.fandom.com/wiki/Genshin_Impact_Wiki"
+              href="https://wutheringwaves.fandom.com/wiki/Wuthering_Waves_Wiki"
               target="_blank"
             >
-              Genshin Impact Wiki
+              Wuthering Waves Wiki
             </a>{' '}
-            for formulas, descriptions and constellation images.
+            for the damage formula.
           </BulletPoint>
           <BulletPoint color="text-desc">
-            <a className="cursor-pointer focus:outline-none text-blue" href="https://enka.network" target="_blank">
-              Enka.Network
-            </a>{' '}
-            for the in-game data import API.
-          </BulletPoint>
-          <BulletPoint color="text-desc">
-            <a className="cursor-pointer focus:outline-none text-blue" href="https://gi18.hakush.in" target="_blank">
+            <a className="cursor-pointer focus:outline-none text-blue" href="https://ww.hakush.in/" target="_blank">
               Hakushi.in
             </a>{' '}
-            and{' '}
-            <a
-              className="cursor-pointer focus:outline-none text-blue"
-              href="https://homdgcat.wiki/gi/char"
-              target="_blank"
-            >
-              HomDGCat Wiki
-            </a>{' '}
-            for character and weapon details.
-          </BulletPoint>
-          <BulletPoint color="text-desc">
-            <a className="cursor-pointer focus:outline-none text-blue" href="https://wanderer.moe" target="_blank">
-              Wanderer.moe
-            </a>{' '}
-            for images of elements and emotes.
+            for resonator and weapon details.
           </BulletPoint>
         </div>
       </div>
@@ -124,12 +99,22 @@ export const IntroModal = observer(() => {
         <BulletPoint color="text-desc">
           <a
             className="cursor-pointer focus:outline-none text-blue"
+            href="https://mdc-calculator-gi.vercel.app"
+            target="_blank"
+          >
+            MDC Calculator for Genshin Impact
+          </a>
+          : Damage Calculator for <b>Genshin Impact</b>
+        </BulletPoint>
+        <BulletPoint color="text-desc">
+          <a
+            className="cursor-pointer focus:outline-none text-blue"
             href="https://mdc-calculator-hsr.vercel.app"
             target="_blank"
           >
             MDC Calculator for HSR
           </a>
-          : Damage Calculator for <b>Honkai: Star Rail</b> (also by me!)
+          : Damage Calculator for <b>Honkai: Star Rail</b>
         </BulletPoint>
       </div>
     </div>

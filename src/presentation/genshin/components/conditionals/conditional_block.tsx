@@ -73,8 +73,7 @@ export const ConditionalBlock = observer(
                           <div className="flex items-center justify-between">
                             <div className="space-y-0.5">
                               <p className="text-xs font-normal opacity-75 text-gray">
-                                {findCharacter(team[content.owner || content.index]?.cId)?.name} -{' '}
-                                {content.trace}
+                                {findCharacter(team[content.owner || content.index]?.cId)?.name} - {content.trace}
                               </p>
                               <p>{content.title}</p>
                             </div>
@@ -89,7 +88,7 @@ export const ConditionalBlock = observer(
                         }
                         body={<p dangerouslySetInnerHTML={{ __html: content.content }} />}
                         key={content.id}
-                        style={tooltipStyle}
+                        style={classNames(tooltipStyle, 'mobile:w-[400px]')}
                         position="left"
                       >
                         <p className="w-full text-xs text-center text-white truncate">{content.text}</p>

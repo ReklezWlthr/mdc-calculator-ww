@@ -75,7 +75,7 @@ export const ComparePage = observer(() => {
 
   return (
     <div className="w-full px-5 customScrollbar">
-      <div className="grid w-full grid-cols-3 gap-5 p-5 text-white max-w-[1200px] mx-auto items-end">
+      <div className="grid items-end w-full grid-cols-3 gap-5 p-5 mx-auto text-white mobile:px-0 mobile:grid-cols-1">
         <div className="space-y-1">
           <div className="flex items-center justify-between w-[244px] pr-2">
             <div className="flex items-center gap-3 pb-1">
@@ -114,7 +114,7 @@ export const ComparePage = observer(() => {
                       </p>
                     </div>
                   }
-                  style="w-[450px]"
+                  style="w-[450px] mobile:w-[400px]"
                 >
                   <i className="fa-regular fa-question-circle" />
                 </Tooltip>
@@ -196,15 +196,15 @@ export const ComparePage = observer(() => {
               </div>
             )}
           </div>
-          <p className="text-xs text-gray truncate w-[244px]">{setupStore.main?.name}</p>
+          <p className="text-xs text-gray truncate w-[184px]">{setupStore.main?.name}</p>
         </div>
-        <div className="space-y-2">
-          <div className="flex gap-2">
+        <div className="space-y-2 mobile:overflow-x-auto">
+          <div className="flex gap-6">
             {setupStore.mainChar &&
               _.map(setupStore.comparing, (item, tI) => (
                 <div className="space-y-1" key={tI}>
-                  <div className="flex items-center justify-between">
-                    <p className="font-bold">Sub Setup {tI + 1}</p>
+                  <div className="flex justify-between item-center">
+                    <p className="font-bold">Sub {tI + 1}</p>
                     <div className="flex items-center gap-2 mr-2">
                       <i
                         title="Duplicate Main"
@@ -275,7 +275,7 @@ export const ComparePage = observer(() => {
                   </div>
                   <div
                     className={classNames(
-                      'flex gap-3 px-2 py-2 duration-200 rounded-lg bg-primary-dark h-[64px] w-[244px]',
+                      'flex gap-3 px-2 py-2 duration-200 rounded-lg bg-primary-dark h-[64px] w-[184px]',
                       {
                         'cursor-pointer hover:ring-2 hover:ring-primary-light hover:ring-inset': setupStore.mainChar,
                       }
@@ -313,7 +313,7 @@ export const ComparePage = observer(() => {
                       <p className="flex items-center justify-center w-full h-full text-gray">Add Setup</p>
                     )}
                   </div>
-                  <p className="h-4 text-xs text-gray truncate w-[244px]">{item?.name}</p>
+                  <p className="h-4 text-xs text-gray truncate w-[184px]">{item?.name}</p>
                 </div>
               ))}
           </div>

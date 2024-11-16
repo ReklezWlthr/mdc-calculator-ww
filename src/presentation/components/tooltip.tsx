@@ -2,6 +2,7 @@ import { Transition } from '@headlessui/react'
 import classNames from 'classnames'
 import { observer } from 'mobx-react-lite'
 import React, { Fragment, MouseEvent, useCallback, useEffect, useRef, useState } from 'react'
+import { TooltipModal } from './tooltip_modal'
 
 export type TooltipPositionT = 'top' | 'bottom' | 'left' | 'right'
 
@@ -86,37 +87,47 @@ export const Tooltip = observer(
     }, [position, hovered, ref])
 
     return (
-      <div className={classNames('text-sm text-gray', containerStyle)}>
-        {React.cloneElement(children, {
-          onMouseEnter: () => setHovered(true),
-          onMouseLeave: () => setHovered(false),
-          className: classNames(children.props?.className, 'cursor-help'),
-        })}
-        <Transition
-          show={hovered}
-          as="div"
-          ref={setRef}
-          enter="ease-out duration-300 transition-transform"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="ease-in duration-100"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-          className={classNames(
-            'z-[2000] absolute px-3 py-2 rounded-lg bg-primary-dark shadow-md border border-primary space-y-1 text-[13px]',
-            hovered ? 'visible' : 'invisible',
-            style
-          )}
+      <>
+        <div className={classNames('text-sm text-gray mobile:hidden', containerStyle)}>
+          {React.cloneElement(children, {
+            onMouseEnter: () => setHovered(true),
+            onMouseLeave: () => setHovered(false),
+            className: classNames(children.props?.className, 'cursor-help'),
+          })}
+          <Transition
+            show={hovered}
+            as="div"
+            ref={setRef}
+            enter="ease-out duration-300 transition-transform"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="ease-in duration-100"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+            className={classNames(
+              'z-[2000] absolute px-3 py-2 rounded-lg bg-primary-dark shadow-md border border-primary space-y-1 text-[13px]',
+              hovered ? 'visible' : 'invisible',
+              style
+            )}
+          >
+            {!!title && (
+              <>
+                <div className="text-sm font-bold text-white">{title}</div>
+                <div className="h-0 border-t border-primary-lighter" />
+              </>
+            )}
+            {body}
+          </Transition>
+        </div>
+        <TooltipModal
+          body={body}
+          title={title}
+          containerStyle={classNames(containerStyle, 'hidden mobile:block')}
+          style={style}
         >
-          {!!title && (
-            <>
-              <div className="text-sm font-bold text-white">{title}</div>
-              <div className="h-0 border-t border-primary-lighter" />
-            </>
-          )}
-          {body}
-        </Transition>
-      </div>
+          {children}
+        </TooltipModal>
+      </>
     )
   }
 )

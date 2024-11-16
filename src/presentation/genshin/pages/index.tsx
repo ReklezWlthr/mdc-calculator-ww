@@ -44,7 +44,7 @@ export const GenshinHome = observer(() => {
   useLocalUpdater('wuwa')
 
   return (
-    <div className="flex flex-shrink w-full h-full overflow-y-auto">
+    <div className="flex flex-col flex-shrink w-full h-full overflow-y-auto desktop:flex-row">
       <Sidebar onChange={setPage} currentPage={page} />
       <InternalPage page={page} />
     </div>

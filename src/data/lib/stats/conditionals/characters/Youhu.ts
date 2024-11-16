@@ -74,10 +74,10 @@ const Youhu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       <br />- <b class="text-heal">Double Pun</b>: Two pairs of <b class="text-blue">Auspices</b>. Additionally restore HP for all nearby party members.
       <br />- <b class="text-red">Triplet</b>: Three identical <b class="text-blue">Auspices</b>. Increase <b>Poetic Essence</b>'s DMG by <span class="text-desc">175%</span>.
       <br />- <b class="text-desc">Perfect Rhyme</b>: Four identical <b class="text-blue">Auspices</b>. Simultaneously activate the effects of <b class="text-wuwa-electro">Free Verse</b>, <b class="text-heal">Double Pun</b>, and <b class="text-red">Triplet</b>.
-      <br />Casting Poetic Essence removes all <b class="text-blue">Auspices</b>.
+      <br />Casting <b>Poetic Essence</b> removes all <b class="text-blue">Auspices</b>.
       <br />
       <br /><b class="text-blue">Auspice</b>
-      <br />- Youhu gains an Auspice through <b>Antique Appraisal</b>. Use Basic Attack while holding an <b class="text-desc">Antique</b> to receive the corresponding <b class="text-blue">Auspice</b>.
+      <br />- Youhu gains an <b class="text-blue">Auspice</b> through <b>Antique Appraisal</b>. Use Basic Attack while holding an <b class="text-desc">Antique</b> to receive the corresponding <b class="text-blue">Auspice</b>.
       <br />- Youhu unlocks <b class="text-desc">Antiques</b> by casting Resonance Skill <b>Scroll Divination</b>, Intro Skill <b>Scroll of Wonders</b>, Heavy Attack <b>Frostfall</b>, Resonance Liberation <b>Fortune's Favor</b>, and Dodge Counter.`,
       image: 'SP_IconYouhuY',
     },

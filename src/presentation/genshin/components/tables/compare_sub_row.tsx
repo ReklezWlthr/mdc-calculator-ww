@@ -63,7 +63,7 @@ export const CompareSubRows = observer(
         {!noCrit && (
           <>
             <div className="pt-1.5 border-t-2 border-primary-border">
-              <p className="font-bold text-white">CRIT</p>
+              <p className="font-bold text-white">Crit</p>
               {obj.component.CritBody}
             </div>
             <div className="pt-1.5 border-t-2 border-primary-border">
@@ -111,7 +111,7 @@ export const CompareSubRows = observer(
             </div>
           }
           body={<Body obj={obj} />}
-          style="w-[450px]"
+          style="w-[450px] mobile:w-[400px]"
         >
           <p
             className={classNames(
@@ -138,9 +138,12 @@ export const CompareSubRows = observer(
     }
 
     return (
-      <div className="grid items-center grid-cols-9 gap-2 pr-2">
-        <p className="col-span-2 text-center">{property}</p>
-        <p className={classNames('col-span-1 text-center', ElementColor[element])}>{element}</p>
+      <div className="grid items-center grid-cols-9 gap-2 pr-2 mobile:grid-cols-6 mobile:py-0.5">
+        <p className="col-span-2 text-center mobile:hidden">{property}</p>
+        <p className={classNames('col-span-1 text-center mobile:hidden', ElementColor[element])}>{element}</p>
+        <p className="hidden col-span-2 pl-4 text-xs truncate mobile:block" title={name}>
+          {name}
+        </p>
         {main ? (
           <Tooltip
             title={
@@ -152,7 +155,7 @@ export const CompareSubRows = observer(
               </div>
             }
             body={<Body obj={main} />}
-            style="w-[450px]"
+            style="w-[450px] mobile:w-[400px]"
           >
             <p className="col-span-1 text-xs text-center">{_.floor(getDmg(main)).toLocaleString()}</p>
           </Tooltip>
@@ -162,10 +165,9 @@ export const CompareSubRows = observer(
         <SubDmgBlock obj={sub1} title={setupNames[1]} />
         <SubDmgBlock obj={sub2} title={setupNames[2]} />
         <SubDmgBlock obj={sub3} title={setupNames[3]} />
-        <div className="flex col-span-2 gap-1 text-xs" title={name}>
-          <p className="w-full truncate">{name}</p>
-          {/* <CheckboxInput checked={sum} onClick={setSum} /> */}
-        </div>
+        <p className="col-span-2 text-xs truncate mobile:hidden" title={name}>
+          {name}
+        </p>
       </div>
     )
   }

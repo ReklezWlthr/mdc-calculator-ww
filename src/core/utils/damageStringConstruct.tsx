@@ -171,7 +171,7 @@ export const damageStringConstruct = (
 
   const HitBreakdown = ({ format }: { format: (v: number) => number }) =>
     isDamage ? (
-      <div className="pt-1 border-t border-primary-lighter">
+      <div className="pt-1 border-t border-primary-border">
         <p className="font-bold text-white">
           <span className="text-desc">✦</span> DMG Per Hit
         </p>

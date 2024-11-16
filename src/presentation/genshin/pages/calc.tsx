@@ -50,7 +50,7 @@ export const Calculator = observer(({}: {}) => {
 
   return (
     <div className="w-full overflow-y-auto customScrollbar">
-      <div className="grid w-full grid-cols-3 gap-5 p-5 text-white max-w-[1200px] mx-auto">
+      <div className="grid w-full grid-cols-3 mobile:grid-cols-2 gap-5 p-5 text-white max-w-[1200px] mx-auto">
         <div className="col-span-2">
           <div className="flex items-center">
             <div className="flex justify-center w-full gap-4 pt-1 pb-3">
@@ -83,13 +83,12 @@ export const Calculator = observer(({}: {}) => {
                   </p>
                 </div>
                 <div className="flex justify-end w-full mb-1.5 bg-primary-dark">
-                  <div className="grid w-4/5 grid-cols-8 gap-2 py-0.5 pr-2 text-sm font-bold text-center bg-primary-dark">
+                  <div className="grid w-4/5 grid-cols-8 gap-2 py-0.5 pr-2 text-sm font-bold text-center bg-primary-dark mobile:hidden">
                     <p className="col-span-2">Property</p>
                     <p className="col-span-1">Element</p>
                     <p className="col-span-1">Base</p>
-                    <p className="col-span-1">CRIT</p>
+                    <p className="col-span-1">Crit</p>
                     <p className="col-span-1">Average</p>
-                    <p className="col-span-2">DMG Component</p>
                   </div>
                 </div>
                 <ScalingWrapper talent={main?.talents?.normal} element={charData.element} level={char.talents?.normal}>
@@ -165,7 +164,7 @@ export const Calculator = observer(({}: {}) => {
             </div>
           )}
         </div>
-        <div className="flex flex-col items-center w-full gap-3">
+        <div className="flex flex-col items-center w-full gap-3 mobile:col-span-full">
           <div className="flex gap-5">
             <div
               className={classNames('rounded-lg px-2 py-1 text-white cursor-pointer duration-200', {
@@ -186,6 +185,9 @@ export const Calculator = observer(({}: {}) => {
           </div>
           {tab === 'mod' && (
             <>
+              <p className="w-full px-3 py-2 text-xs text-center rounded-lg bg-primary-dark text-gray">
+                Hover over <b>Modifier Names</b> for More Info
+              </p>
               <ConditionalBlock title="Self Modifiers" contents={_.filter(contents.main, 'show')} />
               <ConditionalBlock title="Team Modifiers" contents={_.filter(contents.team, 'show')} />
               <WeaponConditionalBlock contents={contents.weapon(selected)} />
@@ -193,24 +195,33 @@ export const Calculator = observer(({}: {}) => {
               <CustomConditionalBlock index={selected} />
             </>
           )}
-          {charData && tab === 'stats' && (
+          {tab === 'stats' && (
             <>
               <div className="flex items-center justify-between w-full">
                 <p className="px-4 text-lg font-bold">
                   <span className="text-desc">✦</span> Final Stats <span className="text-desc">✦</span>
                 </p>
-                <PrimaryButton title="Stats Breakdown" onClick={onOpenStatsModal} />
+                {charData && <PrimaryButton title="Stats Breakdown" onClick={onOpenStatsModal} />}
               </div>
               <StatBlock stat={computedStats[selected]} />
-              <div className="w-[252px] mt-2">
-                <AscensionIcons
-                  talents={main?.talents}
-                  element={charData.element}
-                  stats={computedStats[selected]}
-                  i={char.i}
-                />
-              </div>
-              <ConsCircle talents={main?.talents} element={charData.element} cons={char.cons} name={charData.name} />
+              {charData && (
+                <>
+                  <div className="w-[252px] mt-2">
+                    <AscensionIcons
+                      talents={main?.talents}
+                      element={charData.element}
+                      stats={computedStats[selected]}
+                      i={char.i}
+                    />
+                  </div>
+                  <ConsCircle
+                    talents={main?.talents}
+                    element={charData.element}
+                    cons={char.cons}
+                    name={charData.name}
+                  />
+                </>
+              )}
             </>
           )}
         </div>

@@ -24,7 +24,7 @@ export const TooltipModal = observer(
       modalStore.openModal(
         <div
           className={classNames(
-            'px-3 py-2 rounded-lg bg-primary-dark shadow-md border border-primary space-y-1 text-[13px] text-gray',
+            'px-3 py-2 rounded-lg bg-primary-dark shadow-md border border-primary space-y-1 text-[13px] text-gray mobile:max-h-[80vh] mobile:overflow-y-auto',
             style
           )}
         >
