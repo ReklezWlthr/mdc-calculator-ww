@@ -51,16 +51,6 @@ export const SettingModal = observer(() => {
           ✦ Turning this setting off will potentially remove all your data on the site.
         </p>
       </div>
-      <div className="p-3 space-y-3 rounded-lg bg-primary-darker">
-        <div className="flex justify-between">
-          <p className="text-white">Cache Data</p>
-          <PrimaryButton title="Clear Cache" onClick={() => localStorage.removeItem('enka_cache')} />
-        </div>
-        <p className="text-xs italic text-desc">
-          ✦ It is recommended you clear this every once in a while. Right now, the cache is only used for UID account
-          fetch.
-        </p>
-      </div>
     </div>
   )
 })

@@ -82,6 +82,11 @@ export const HelpModal = observer(() => {
         <BulletPoint>
           Target enemy's level and DMG RES can be set in <span className="text-desc">Enemy Setting</span> menu.
         </BulletPoint>
+        <BulletPoint>Team-wide modifiers will be synced across all resonators in the team.</BulletPoint>
+        <BulletPoint>
+          For some resonators that have a secondary ability set (e.g. Jinhsi, Xiangli Yao, or Lumi), a toggle to switch
+          their abilities will be shown. These toggles will sync their value across setups when comparing builds.
+        </BulletPoint>
       </Collapsible>
       <Collapsible label="Account Data">
         <BulletPoint>

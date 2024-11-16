@@ -75,6 +75,6 @@ export class Build {
   hydrate = (data: BuildStoreType) => {
     if (!data) return
 
-    this.builds = data.builds || Array(4)
+    this.builds = data.builds || []
   }
 }

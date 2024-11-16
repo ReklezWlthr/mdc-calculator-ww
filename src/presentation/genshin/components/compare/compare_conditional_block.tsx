@@ -27,6 +27,9 @@ export const CompareConditionalBlock = observer(({ team, stats, content }: Compa
 
   return (
     <div className="w-full space-y-3 text-white">
+      <p className="w-full px-3 py-2 text-xs text-center rounded-lg bg-primary-dark text-gray">
+        Hover over <b>Modifier Names</b> for More Info
+      </p>
       <ConditionalBlock
         title="Self Modifiers"
         contents={_.filter(content.customMain(charIndex), 'show')}

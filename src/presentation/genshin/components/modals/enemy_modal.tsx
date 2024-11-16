@@ -129,9 +129,9 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
         </div>
         <div className="flex flex-col gap-y-3">
           <div className="flex items-center gap-2 text-sm">
-            <p>Elemental RES</p>
+            <p>Attribute RES</p>
             <Tooltip
-              title="Elemental RES"
+              title="Attribute RES"
               body={
                 <div className="font-normal">
                   <p>

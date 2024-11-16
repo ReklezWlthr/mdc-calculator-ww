@@ -85,7 +85,7 @@ export const Calculator = observer(({}: {}) => {
                 <div className="flex justify-end w-full mb-1.5 bg-primary-dark">
                   <div className="grid w-4/5 grid-cols-8 gap-2 py-0.5 pr-2 text-sm font-bold text-center bg-primary-dark mobile:hidden">
                     <p className="col-span-2">Property</p>
-                    <p className="col-span-1">Element</p>
+                    <p className="col-span-1">Type</p>
                     <p className="col-span-1">Base</p>
                     <p className="col-span-1">Crit</p>
                     <p className="col-span-1">Average</p>

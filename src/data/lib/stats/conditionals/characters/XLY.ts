@@ -150,6 +150,7 @@ const XLY = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team: 
       ...talents.lib,
       show: true,
       default: true,
+      sync: true,
     },
     {
       type: 'number',

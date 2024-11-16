@@ -85,13 +85,13 @@ export const ComparePage = observer(() => {
                 <Tooltip
                   title="Quick Tips to Setup Comparison"
                   body={
-                    <div className="font-normal space-y-0.5">
+                    <div className="space-y-1 font-normal">
                       <p>
-                        - You can only compare <span className="text-desc">one</span> character at a time. Switching a
-                        character will end the current session and remove all Sub setups. It is recommended to switch
-                        your Main setup to the desired one before switching character.
+                        - You can only compare <span className="text-desc">one</span> resonator at a time. Switching a
+                        resonator will end the current session and remove all Sub setups. It is recommended to switch
+                        your Main setup to the desired one before switching resonator.
                       </p>
-                      <p>- Sub setups eligible for comparison must contain the selected character.</p>
+                      <p>- Sub setups eligible for comparison must contain the selected resonator.</p>
                       <p>
                         - Any changes made to setups within this page will <span className="text-red">not</span> be
                         reflected on other pages, and vice versa.
@@ -106,6 +106,10 @@ export const ComparePage = observer(() => {
                         - Although the calculator allows multiple ability levels to be compared together, it is
                         recommended to use the same ability level across all setups for the best result, unless you
                         really want to compare them.
+                      </p>
+                      <p>
+                        - The calculator will <b className="text-red">NOT</b> compare Echo Skill DMG due to the
+                        possibility of mismatched Main Echo type.
                       </p>
                       <p>
                         - The calculator only compare damage <span className="text-desc">at an instance</span> which may

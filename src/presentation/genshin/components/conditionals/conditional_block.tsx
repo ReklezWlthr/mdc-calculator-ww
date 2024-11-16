@@ -102,7 +102,7 @@ export const ConditionalBlock = observer(
                         <TextInput
                           type="number"
                           value={form[content.index]?.[content.id]}
-                          onChange={(value) => set(content.index, content.id, parseFloat(value) ?? '')}
+                          onChange={(value) => set(content.index, content.id, parseFloat(value) ?? '', content.sync)}
                           max={content.max}
                           min={content.min}
                           style="col-span-2"
@@ -115,7 +115,7 @@ export const ConditionalBlock = observer(
                       <div className="flex items-center justify-center col-span-2">
                         <CheckboxInput
                           checked={form[content.index]?.[content.id]}
-                          onClick={(v) => set(content.index, content.id, v)}
+                          onClick={(v) => set(content.index, content.id, v, content.sync)}
                         />
                       </div>
                     )}
@@ -124,7 +124,7 @@ export const ConditionalBlock = observer(
                         <SelectInput
                           value={form[content.index]?.[content.id]}
                           options={content.options || []}
-                          onChange={(value) => set(content.index, content.id, value)}
+                          onChange={(value) => set(content.index, content.id, value, content.sync)}
                           placeholder="None"
                           small
                         />
@@ -136,7 +136,7 @@ export const ConditionalBlock = observer(
                           <TagSelectInput
                             values={form[content.index]?.[content.id]}
                             options={content.options || []}
-                            onChange={(value) => set(content.index, content.id, value)}
+                            onChange={(value) => set(content.index, content.id, value, content.sync)}
                             placeholder="None"
                             renderAsText
                             small

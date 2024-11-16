@@ -171,6 +171,7 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
         { name: 'Yellow Light', value: 'yellow' },
         { name: 'Red Light', value: 'red' },
       ],
+      sync: true,
     },
     {
       type: 'number',
