@@ -122,7 +122,7 @@ export const Tooltip = observer(
         <TooltipModal
           body={body}
           title={title}
-          containerStyle={classNames(containerStyle, 'hidden mobile:block')}
+          containerStyle={classNames(containerStyle, '!hidden mobile:block')}
           style={style}
         >
           {children}

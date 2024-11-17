@@ -91,7 +91,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
           const minStat = toPercentage(item.baseStat || 0)
           const maxStat = toPercentage(getWeaponBonus(item.baseStat, 90) || 0)
 
-          const Component = () => (
+          const component = (
             <div
               className="text-xs duration-200 border rounded-lg cursor-pointer bg-primary border-primary-border hover:scale-95"
               onClick={() => {
@@ -164,13 +164,11 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
                   </div>
                 }
                 style="w-[500px]"
-                containerStyle="mobile:hidden"
+                containerStyle="mobile:hidden block"
               >
-                <Component />
+                {component}
               </Tooltip>
-              <div className='hidden mobile:block'>
-                <Component />
-              </div>
+              <div className="hidden mobile:block">{component}</div>
             </>
           )
         })}

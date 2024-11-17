@@ -10,7 +10,7 @@ import { CompareConditionalBlock } from '@src/presentation/genshin/components/co
 import classNames from 'classnames'
 import { PrimaryButton } from '@src/presentation/components/primary.button'
 import { StatBlock } from '@src/presentation/genshin/components/stat_block'
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import { StatsModal } from '@src/presentation/genshin/components/modals/stats_modal'
 import { CharacterSelect } from '../character_select'
 import { SelectInput } from '@src/presentation/components/inputs/select_input'
@@ -22,6 +22,7 @@ import { WeaponBlock } from '../weapon_block'
 import { CompareTraceBlock } from './compare_trace_block'
 import { CompareReactionTable } from './compare_reaction_table'
 import { ArtifactBlock } from '../artifact_block'
+import { romanize } from '@src/core/utils/data_format'
 
 export const CompareBlock = observer(() => {
   const { setupStore, modalStore } = useStore()
@@ -30,6 +31,8 @@ export const CompareBlock = observer(() => {
   const team = [setupStore.main.char, ..._.map(setupStore.comparing, (item) => item?.char)]
   const [setupIndex, charIndex] = setupStore.selected
   const focusedChar = team[setupIndex][charIndex]
+
+  const [selectedEcho, setEcho] = useState(0)
 
   const selected = _.findIndex(setupStore.main?.char, (item) => item?.cId === setupStore.mainChar)
   const selectedS1 = _.findIndex(setupStore.comparing[0]?.char, (item) => item.cId === setupStore.mainChar)
@@ -337,21 +340,32 @@ export const CompareBlock = observer(() => {
                   }}
                 />
               </div>
-              <div className="w-full space-y-1 text-white">
+              <div className="w-full space-y-3 text-white">
                 <p className="font-bold text-center">Echoes</p>
-                <div className="grid grid-cols-2 gap-2.5">
+                <div className="flex justify-center gap-3">
                   {_.map([0, 1, 2, 3, 4], (item) => (
-                    <ArtifactBlock
+                    <div
                       key={item}
-                      slot={item}
-                      aId={focusedChar.equipments.artifacts[item]}
-                      index={selected}
-                      setArtifact={(i, t, a) => {
-                        focusedChar.equipments.artifacts.splice(t - 1, 1, a)
-                        setupStore.setComparing(focusedChar)
-                      }}
-                    />
+                      className={classNames(
+                        'flex items-center justify-center w-8 h-8 font-bold rounded-full bg-primary-light cursor-pointer duration-200',
+                        { 'ring-4 ring-primary-lighter': selectedEcho === item }
+                      )}
+                      onClick={() => setEcho(item)}
+                    >
+                      {item ? romanize(item) : <i className="fa-solid fa-star text-yellow" />}
+                    </div>
                   ))}
+                </div>
+                <div className="flex justify-center">
+                  <ArtifactBlock
+                    slot={selectedEcho}
+                    aId={focusedChar.equipments.artifacts[selectedEcho]}
+                    index={selected}
+                    setArtifact={(i, t, a) => {
+                      focusedChar.equipments.artifacts.splice(t - 1, 1, a)
+                      setupStore.setComparing(focusedChar)
+                    }}
+                  />
                 </div>
               </div>
             </>
