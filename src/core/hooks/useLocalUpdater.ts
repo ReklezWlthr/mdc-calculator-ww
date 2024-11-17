@@ -22,7 +22,6 @@ export const useLocalUpdater = (game: string) => {
     json?.builds && buildStore.hydrateBuilds(json?.builds)
     json?.characters && charStore.hydrateCharacters(json?.characters)
     json?.setup && setupStore.hydrateTeams(json?.setup)
-    setData(data)
   }
 
   const updateSettings = (data: string) => {
@@ -83,6 +82,7 @@ export const useLocalUpdater = (game: string) => {
     const settings = localStorage.getItem(settingKey)
 
     if (JSON.parse(settings)?.storeData) updateData(data)
+    setData(data)
     updateSettings(settings)
 
     setHydrated(true)

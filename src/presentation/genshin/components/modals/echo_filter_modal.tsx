@@ -95,10 +95,10 @@ export const EchoFilterModal = observer(
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="z-50 flex justify-center pt-[10dvh] pb-[6dvh] w-screen h-screen pointer-events-none overflow-y-auto hideScrollbar">
+              <div className="z-50 flex justify-center desktop:pt-[10dvh] desktop:pb-[6dvh] pt-0 pb-0 items-center desktop:items-start w-screen h-screen pointer-events-none overflow-y-auto hideScrollbar">
                 <div className="pointer-events-auto h-fit">
                   {open && (
-                    <div className="w-[1100px] mobile:w-[400px] max-h-[80dvh] p-4 space-y-4 font-semibold text-white rounded-xl bg-primary-dark relative">
+                    <div className="w-[1100px] mobile:w-[400px] p-4 space-y-4 font-semibold text-white rounded-xl bg-primary-dark relative">
                       <div className="flex items-center gap-3 mobile:flex-col">
                         <div className="flex items-center gap-x-3 mobile:flex-col">
                           <p className="shrink-0 text-primary-lighter">Sonata:</p>
