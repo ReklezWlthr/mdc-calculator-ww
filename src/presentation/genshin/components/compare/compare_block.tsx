@@ -358,7 +358,7 @@ export const CompareBlock = observer(() => {
                     aId={focusedChar.equipments.artifacts[selectedEcho]}
                     index={selected}
                     setArtifact={(i, t, a) => {
-                      focusedChar.equipments.artifacts.splice(t - 1, 1, a)
+                      focusedChar.equipments.artifacts.splice(t, 1, a)
                       setupStore.setComparing(focusedChar)
                     }}
                   />
