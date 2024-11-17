@@ -115,7 +115,7 @@ export const CompareSubRows = observer(
         >
           <p
             className={classNames(
-              'col-span-1 text-xs text-center',
+              'col-span-1 text-xs flex shrink-0 items-center justify-center gap-1',
               diff
                 ? {
                     'text-lime-300': compare > 0 && getDmg(main),
@@ -127,9 +127,9 @@ export const CompareSubRows = observer(
             )}
           >
             {mode === 'percent' ? percent : mode === 'abs' ? abs : _.floor(getDmg(obj)).toLocaleString()}
-            {compare > 0 && !diff && <i className="ml-1 text-[10px] fa-solid fa-caret-up text-lime-400" />}
-            {compare < 0 && !diff && <i className="ml-1 text-[10px] fa-solid fa-caret-down text-red" />}
-            {compare === 0 && !diff && <i className="ml-1 text-[10px] fa-solid fa-minus text-blue" />}
+            {compare > 0 && !diff && <i className="text-[9px] fa-solid fa-caret-up text-lime-400" />}
+            {compare < 0 && !diff && <i className="text-[9px] fa-solid fa-caret-down text-red" />}
+            {compare === 0 && !diff && <i className="text-[8px] fa-solid fa-minus text-blue" />}
           </p>
         </Tooltip>
       ) : (

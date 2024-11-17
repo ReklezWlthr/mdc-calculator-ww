@@ -98,28 +98,32 @@ export const EchoFilterModal = observer(
               <div className="z-50 flex justify-center pt-[10vh] pb-[6vh] w-screen h-screen pointer-events-none overflow-y-auto hideScrollbar">
                 <div className="pointer-events-auto h-fit">
                   {open && (
-                    <div className="w-[1100px] max-h-[80vh] p-4 space-y-4 font-semibold text-white rounded-xl bg-primary-dark relative">
-                      <div className="flex items-center gap-3">
-                        <p className="shrink-0 text-primary-lighter">Sonata:</p>
-                        <div className="flex gap-2">
-                          <SonataIcon value={Sonata.ICE} />
-                          <SonataIcon value={Sonata.FIRE} />
-                          <SonataIcon value={Sonata.THUNDER} />
-                          <SonataIcon value={Sonata.WIND} />
-                          <SonataIcon value={Sonata.LIGHT} />
-                          <SonataIcon value={Sonata.HAVOC} />
-                          <SonataIcon value={Sonata.HEAL} />
-                          <SonataIcon value={Sonata.REGEN} />
-                          <SonataIcon value={Sonata.ATK} />
+                    <div className="w-[1100px] mobile:w-[400px] max-h-[80vh] p-4 space-y-4 font-semibold text-white rounded-xl bg-primary-dark relative">
+                      <div className="flex items-center gap-3 mobile:flex-col">
+                        <div className="flex items-center gap-x-3 mobile:flex-col">
+                          <p className="shrink-0 text-primary-lighter">Sonata:</p>
+                          <div className="flex gap-2">
+                            <SonataIcon value={Sonata.ICE} />
+                            <SonataIcon value={Sonata.FIRE} />
+                            <SonataIcon value={Sonata.THUNDER} />
+                            <SonataIcon value={Sonata.WIND} />
+                            <SonataIcon value={Sonata.LIGHT} />
+                            <SonataIcon value={Sonata.HAVOC} />
+                            <SonataIcon value={Sonata.HEAL} />
+                            <SonataIcon value={Sonata.REGEN} />
+                            <SonataIcon value={Sonata.ATK} />
+                          </div>
                         </div>
-                        <p className="pl-4 shrink-0 text-primary-lighter">Cost:</p>
-                        <div className="flex gap-2">
-                          <CostIcon value={4} />
-                          <CostIcon value={3} />
-                          <CostIcon value={1} />
+                        <div className="flex items-center gap-3">
+                          <p className="pl-4 shrink-0 text-primary-lighter">Cost:</p>
+                          <div className="flex gap-2">
+                            <CostIcon value={4} />
+                            <CostIcon value={3} />
+                            <CostIcon value={1} />
+                          </div>
                         </div>
                       </div>
-                      <div className="grid grid-cols-4 gap-4 overflow-y-auto max-h-[450px] hideScrollbar rounded-lg py-1">
+                      <div className="grid grid-cols-4 mobile:grid-cols-1 gap-4 overflow-y-auto max-h-[450px] hideScrollbar rounded-lg py-1">
                         {_.map(filteredEchoes, (item) => (
                           <div
                             className="flex gap-4 p-3 duration-200 border-2 rounded-lg cursor-pointer border-primary-lighter hover:bg-primary bg-primary-darker"
