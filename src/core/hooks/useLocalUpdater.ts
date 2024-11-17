@@ -1,4 +1,3 @@
-import { ParticleCount } from '@src/data/db/particles'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { EnergyMeta, ExtraSkillProc } from '@src/data/stores/energy_store'
 import _ from 'lodash'
@@ -38,36 +37,6 @@ export const useLocalUpdater = (game: string) => {
       return 'Your changes may not be saved. You can turn on Auto Save in Settings'
     }
   }, [])
-
-  useEffect(() => {
-    // calculatorStore.setValue('team', _.cloneDeep(teamStore?.characters))
-    const temp = _.cloneDeep(energyStore.meta)
-    const result: EnergyMeta[] = Array(4).fill(null)
-
-    _.forEach(teamStore.characters, (char, index) => {
-      if (!char) return
-      const oldData = _.find(temp, (item) => item?.cId === char.cId)
-      result[index] = oldData || {
-        cId: char.cId,
-        element: findCharacter(char.cId)?.element,
-        add: { 'Additional Energy': 0 },
-        favProc: 0,
-        feedFav: char.cId,
-        fieldTime: index ? 3 : 11,
-        rpb: _.includes(ExtraSkillProc, char.cId) ? 2 : 1,
-        skill: _.map(ParticleCount(char.cId, char.cons), (item) => ({
-          ...item,
-          feed: char.cId,
-          percentage: 100,
-          proc: item.default,
-          ratio: [25, 25, 25, 25],
-          override: false,
-        })),
-      }
-    })
-
-    energyStore.setValue('meta', result)
-  }, [...teamStore.characters])
 
   useEffect(() => {
     if (hydrated && settingStore.settings.storeData) {
