@@ -623,7 +623,7 @@ export const Weapons = [
   },
   {
     id: '21030023',
-    image: 'T_IconWeapon210320023_UI.webp',
+    image: 'T_IconWeapon21030023_UI.webp',
     name: 'Originite: Type III',
     rarity: 3,
     baseAtk: 26,
