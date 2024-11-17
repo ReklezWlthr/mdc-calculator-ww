@@ -78,7 +78,7 @@ export const ArtifactInventory = observer(() => {
   }, [modalStore])
 
   return (
-    <div className="w-full h-full overflow-y-auto">
+    <div className="w-full h-full overflow-y-auto mobile:overflow-visible">
       <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1240px] mx-auto h-full">
         <div className="flex items-center justify-between w-full">
           <p className="text-2xl font-bold text-white w-fit">Data Bank</p>
@@ -143,7 +143,7 @@ export const ArtifactInventory = observer(() => {
         </div>
         {_.size(filteredArtifacts) ? (
           <>
-            <div className="grid w-full grid-cols-5 gap-3 overflow-y-auto rounded-lg mobile:grid-cols-1 tablet:grid-cols-3 hideScrollbar">
+            <div className="grid w-full grid-cols-5 gap-3 overflow-y-auto rounded-lg mobile:grid-cols-1 tablet:grid-cols-3 hideScrollbar mobile:h-max mobile:overflow-visible">
               {_.map(
                 _.slice(filteredArtifacts, params.per_page * (params.page - 1), params.per_page * params.page),
                 (artifact) => (
@@ -154,7 +154,7 @@ export const ArtifactInventory = observer(() => {
               )}
             </div>
             {maxPage > 1 && (
-              <div className="flex items-center gap-4 text-gray">
+              <div className="flex items-center gap-4 pb-4 text-gray">
                 <i className="cursor-pointer fa-solid fa-angles-left" onClick={() => setParams({ page: 1 })} />
                 <i
                   className="cursor-pointer fa-solid fa-angle-left"

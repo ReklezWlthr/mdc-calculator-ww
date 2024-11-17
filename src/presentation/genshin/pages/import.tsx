@@ -43,7 +43,7 @@ export const ImportExport = observer(() => {
   }, [])
 
   return (
-    <div className="w-full h-full pb-5 overflow-y-auto">
+    <div className="w-full h-full pb-5 overflow-y-auto mobile:overflow-visible">
       <div
         className={classNames(
           'flex flex-col w-full gap-5 p-5 text-white max-w-[1200px] mx-auto',

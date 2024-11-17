@@ -42,7 +42,7 @@ export const MyBuilds = observer(() => {
   }, [])
 
   return (
-    <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1200px] mx-auto">
+    <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1200px] mx-auto mobile:h-max">
       <div className="flex w-full h-full gap-x-5">
         <div className="flex flex-col w-1/3 h-full gap-2 mobile:w-full shrink-0">
           <div className="flex items-center gap-6 mr-4">
@@ -53,7 +53,7 @@ export const MyBuilds = observer(() => {
               placeholder={`Search for Build's Name or Owner`}
             />
           </div>
-          <div className="flex flex-col w-full h-full gap-2 pr-1 overflow-y-auto rounded-lg mobile:pr-0 customScrollbar mobile:hideScrollbar">
+          <div className="flex flex-col w-full h-full gap-2 pr-1 overflow-y-auto rounded-lg mobile:pr-0 customScrollbar mobile:hideScrollbar mobile:h-max">
             {_.size(buildStore.builds) ? (
               _.map(groupedBuild, (build, owner) => (
                 <BuildBlock

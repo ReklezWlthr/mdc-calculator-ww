@@ -75,7 +75,7 @@ export const MyCharacters = observer(() => {
   }, [])
 
   return (
-    <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1200px] mx-auto mobile:h-full">
+    <div className="flex flex-col items-center w-full gap-5 p-5 max-w-[1200px] mx-auto mobile:h-max">
       <div className="flex w-full h-full gap-x-10">
         <div className="flex flex-col w-[30%] h-full gap-y-2 shrink-0 mobile:w-full">
           <div className="flex items-center justify-between gap-5">
@@ -103,7 +103,7 @@ export const MyCharacters = observer(() => {
               <FilterIcon type="weapon" value={WeaponType.RECTIFIER} />
             </div>
           </div>
-          <div className="grid grid-cols-4 gap-3 pr-2 mt-1 rounded-lg mobile:pr-0 mobile:max-h-[calc(100vh-200px)] customScrollbar mobile:hideScrollbar">
+          <div className="grid grid-cols-4 gap-3 pr-2 mt-1 rounded-lg mobile:pr-0 mobile:h-max customScrollbar mobile:hideScrollbar">
             {_.map(filteredChar, (item) => {
               const owned = _.includes(_.map(charStore.characters, 'cId'), item.id)
               const codeName =

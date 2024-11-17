@@ -76,7 +76,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
   }
 
   return (
-    <div className="desktop:w-[1220px] tablet:w-[85dvw] mobile:w-[85dvw] mobile:h-[80dvh] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
+    <div className="desktop:w-[1220px] tablet:w-[85dvw] mobile:w-[85dvw] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
       <div className="flex items-center gap-6 mobile:gap-2 mobile:flex-col">
         <div className="flex items-center w-full gap-6">
           <p className="shrink-0">Select a Resonator</p>
