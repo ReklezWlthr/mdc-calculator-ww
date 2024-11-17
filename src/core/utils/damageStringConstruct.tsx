@@ -6,11 +6,20 @@ import _ from 'lodash'
 import { CalculatorStore } from '@src/data/stores/calculator_store'
 import React from 'react'
 import { SetupStore } from '@src/data/stores/setup_store'
-import { BaseElementColor } from '@src/presentation/genshin/components/tables/compare_total_row'
 
 export const PropertyColor = {
   [TalentProperty.HEAL]: 'text-heal',
   [TalentProperty.SHIELD]: 'text-indigo-300',
+}
+
+export const BaseElementColor = {
+  [Element.PHYSICAL]: 'text-gray',
+  [Element.FUSION]: 'text-wuwa-fusion',
+  [Element.GLACIO]: 'text-wuwa-glacio',
+  [Element.AERO]: 'text-wuwa-aero',
+  [Element.ELECTRO]: 'text-wuwa-electro',
+  [Element.SPECTRO]: 'text-wuwa-spectro',
+  [Element.HAVOC]: 'text-wuwa-havoc'
 }
 
 export const ElementColor = {

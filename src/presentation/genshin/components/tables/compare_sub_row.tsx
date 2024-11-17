@@ -1,5 +1,5 @@
 import { IScaling } from '@src/domain/conditional'
-import { Element, TalentProperty } from '@src/domain/constant'
+import { TalentProperty } from '@src/domain/constant'
 import classNames from 'classnames'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
@@ -7,10 +7,7 @@ import { Tooltip } from '@src/presentation/components/tooltip'
 import { toPercentage } from '@src/core/utils/converter'
 import { StatsObject } from '@src/data/lib/stats/baseConstant'
 import { useStore } from '@src/data/providers/app_store_provider'
-import { StringConstructor, damageStringConstruct } from '@src/core/utils/damageStringConstruct'
-import { CheckboxInput } from '@src/presentation/components/inputs/checkbox'
-import React, { useEffect, useState } from 'react'
-import { BaseElementColor } from './compare_total_row'
+import { BaseElementColor, StringConstructor, damageStringConstruct } from '@src/core/utils/damageStringConstruct'
 
 interface ScalingSubRowsProps {
   scaling: IScaling[]

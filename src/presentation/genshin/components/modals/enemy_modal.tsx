@@ -5,17 +5,14 @@ import _ from 'lodash'
 import classNames from 'classnames'
 import { toPercentage } from '@src/core/utils/converter'
 import { observer } from 'mobx-react-lite'
-import { CheckboxInput } from '@src/presentation/components/inputs/checkbox'
 import { StatsObject, StatsObjectKeys } from '@src/data/lib/stats/baseConstant'
-import { SelectInput } from '@src/presentation/components/inputs/select_input'
 import { EnemyGroups } from '@src/data/db/enemies'
 import { SelectTextInput } from '@src/presentation/components/inputs/select_text_input'
 import { findEnemy } from '@src/core/utils/finder'
 import React from 'react'
 import { Tooltip } from '@src/presentation/components/tooltip'
-import { ToggleSwitch } from '@src/presentation/components/inputs/toggle'
 import { getEchoImage } from '@src/core/utils/fetcher'
-import { BaseElementColor } from '../tables/compare_total_row'
+import { BaseElementColor } from '@src/core/utils/damageStringConstruct'
 
 export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; compare?: boolean }) => {
   const { calculatorStore, teamStore, setupStore } = useStore()
