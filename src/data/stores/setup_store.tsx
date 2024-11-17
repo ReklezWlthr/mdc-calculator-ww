@@ -51,8 +51,6 @@ export interface SetupStoreType {
   setForm: (index: number, value: Record<string, any>[]) => void
   setFormValue: (setupIndex: number, charIndex: number, key: string, value: any, sync: boolean) => void
   setComparing: (value: Partial<ITeamChar>) => void
-  setTotal: (key: TalentProperty, index: number, name: string, value: number) => void
-  getTotal: (key: TalentProperty, index: number) => number
   setRes: (element: Element, value: number) => void
   getDefMult: (level: number, defPen: number, defRed: number) => number
   getResMult: (element: Element, resPen: number) => number
