@@ -38,19 +38,18 @@ export const useLocalUpdater = (game: string) => {
   }, [])
 
   useEffect(() => {
+    const string = JSON.stringify({
+      team: teamStore.characters,
+      artifacts: artifactStore.artifacts,
+      builds: buildStore.builds,
+      characters: charStore.characters,
+      setup: setupStore.team,
+      format: 'MDC',
+    })
     if (hydrated && settingStore.settings.storeData) {
-      localStorage.setItem(
-        key,
-        JSON.stringify({
-          team: teamStore.characters,
-          artifacts: artifactStore.artifacts,
-          builds: buildStore.builds,
-          characters: charStore.characters,
-          setup: setupStore.team,
-          format: 'MDC',
-        })
-      )
+      localStorage.setItem(key, string)
     }
+    setData(string)
   }, [
     ...teamStore.characters,
     artifactStore.artifacts,
@@ -82,7 +81,6 @@ export const useLocalUpdater = (game: string) => {
     const settings = localStorage.getItem(settingKey)
 
     if (JSON.parse(settings)?.storeData) updateData(data)
-    setData(data)
     updateSettings(settings)
 
     setHydrated(true)
