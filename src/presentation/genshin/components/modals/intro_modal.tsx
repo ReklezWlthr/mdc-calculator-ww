@@ -99,7 +99,7 @@ export const IntroModal = observer(() => {
         <BulletPoint color="text-desc">
           <a
             className="cursor-pointer focus:outline-none text-blue"
-            href="https://mdc-calculator-gi.vercel.app"
+            href="https://gi-mdc.vercel.app"
             target="_blank"
           >
             MDC Calculator for Genshin Impact
@@ -109,7 +109,7 @@ export const IntroModal = observer(() => {
         <BulletPoint color="text-desc">
           <a
             className="cursor-pointer focus:outline-none text-blue"
-            href="https://mdc-calculator-hsr.vercel.app"
+            href="https://hsr-mdc.vercel.app"
             target="_blank"
           >
             MDC Calculator for HSR
