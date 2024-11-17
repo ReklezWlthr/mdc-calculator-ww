@@ -38,14 +38,14 @@ const Aalto = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       <br />
       <br /><b>Mist Bullets</b>
       <br />Deals <b class="text-wuwa-aero">Aero DMG</b>, considered as Resonance Skill DMG.`,
-      image: 'SP_IconQiuShuiB1',
+      image: 'SP_IconQiushuiB1',
     },
     lib: {
       level: lib,
       trace: `Resonance Liberation`,
       title: `Flower in the Mist`,
       content: `Generate a <b class="text-teal-200">Gate of Quandary</b> in front, dealing <b class="text-wuwa-aero">Aero DMG</b>. When bullets pass through the <b class="text-teal-200">Gate of Quandary</b>, they deal increased DMG. <b class="text-teal-200">Gate of Quandary</b> lasts for <span class="text-desc">10</span>s.`,
-      image: 'SP_IconQiuShuiC1',
+      image: 'SP_IconQiushuiC1',
     },
     forte: {
       level: forte,
@@ -60,68 +60,68 @@ const Aalto = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       <br /><b class="text-desc">Mist Drops</b>
       <br />Aalto can hold up to <span class="text-desc">6</span> <b class="text-desc">Mist Drops</b>.
       <br />When Basic Attack or Mid-air Attack passes through <b class="text-wuwa-aero">Mist</b> and hits the target, <span class="text-desc">1</span> <b class="text-desc">Mist Drop</b> is recovered.`,
-      image: 'SP_IconQiuShuiY',
+      image: 'SP_IconQiushuiY',
     },
     intro: {
       level: intro,
       trace: `Intro Skill`,
       title: `Feint Shot`,
       content: `Aalto shows up out of thin air to perform rapid continuous shooting, dealing <b class="text-wuwa-aero">Aero DMG</b>.`,
-      image: 'SP_IconQiuShuiQTE',
+      image: 'SP_IconQiushuiQTE',
     },
     outro: {
       trace: `Outro Skill`,
       title: `Dissolving Mist`,
       content: `The incoming Resonator has their <b class="text-wuwa-aero">Aero DMG Amplified</b> by <span class="text-desc">23%</span> for <span class="text-desc">14</span>s or until they are switched out.`,
-      image: 'SP_IconQiuShuiT',
+      image: 'SP_IconQiushuiT',
     },
     i1: {
       trace: `Inherent Skill 1`,
       title: `Perfect Performance`,
       content: `Aalto's Heavy Attack will always critically hit, triggered once every <span class="text-desc">30</span>s.`,
-      image: 'SP_IconQiuShuiD1',
+      image: 'SP_IconQiushuiD1',
     },
     i2: {
       trace: `Inherent Skill 2`,
       title: `Mid-game Break`,
       content: `Aalto will continuously recover STA when he is in the Forte Circuit <b>Miscloak Dash</b> state.`,
-      image: 'SP_IconQiuShuiD2',
+      image: 'SP_IconQiushuiD2',
     },
     c1: {
       trace: `Sequence Node 1`,
       title: `Trickster's Opening Show`,
       content: `The cooldown of Resonance Skill <b>Shift Trick</b> is reduced by <span class="text-desc">4</span>s.`,
-      image: 'T_IconDevice_QiuShuiM1_UI',
+      image: 'T_IconDevice_QiushuiM1_UI',
     },
     c2: {
       trace: `Sequence Node 2`,
       title: `Mistweave's Debut`,
       content: `<b>Mist Avatar</b> inherits <span class="text-desc">100%</span> more HP from Aalto. When Aalto attacks targets taunted by the <b>Mist Avatar(s)</b>, his ATK is increased by <span class="text-desc">15%</span>.`,
-      image: 'T_IconDevice_QiuShuiM2_UI',
+      image: 'T_IconDevice_QiushuiM2_UI',
     },
     c3: {
       trace: `Sequence Node 3`,
       title: `Hazey Transition`,
       content: `When Aalto's Basic Attack or Mid-air Attack passes through the <b class="text-wuwa-aero">Mist</b>, <span class="text-desc">2</span> more bullets will be generated, dealing <span class="text-desc">50%</span> of the DMG of Basic Attack or Mid-air Attack.`,
-      image: 'T_IconDevice_QiuShuiM3_UI',
+      image: 'T_IconDevice_QiushuiM3_UI',
     },
     c4: {
       trace: `Sequence Node 4`,
       title: `Blake Bloom for Finale`,
       content: `The damage of Resonance Skill <b>Mist Bullets</b> is increased by <span class="text-desc">30%</span>; Aalto receives <span class="text-desc">30%</span> less DMG in his Forte Circuit <b>Mistcloak Dash</b> state.`,
-      image: 'T_IconDevice_QiuShuiM4_UI',
+      image: 'T_IconDevice_QiushuiM4_UI',
     },
     c5: {
       trace: `Sequence Node 5`,
       title: `Applause of the Lost`,
       content: `In the Forte Circuit <b>Mistcloak Dash</b> state, Aalto's <b class="text-wuwa-aero">Aero DMG Bonus</b> is increased by <span class="text-desc">25%</span> for <span class="text-desc">6</span>s.`,
-      image: 'T_IconDevice_QiuShuiM5_UI',
+      image: 'T_IconDevice_QiushuiM5_UI',
     },
     c6: {
       trace: `Sequence Node 6`,
       title: `Broker's Secrets`,
       content: `Resonance Liberation <b>Flower in the Mist</b> now additionally increases Crit. Rate by <span class="text-desc">8%</span>. When Aalto's Heavy Attack passes through the <b class="text-teal-200">Gate of Quandary</b>, the damage dealt is additionally increased by <span class="text-desc">50%</span>.`,
-      image: 'T_IconDevice_QiuShuiM6_UI',
+      image: 'T_IconDevice_QiushuiM6_UI',
     },
   }
 

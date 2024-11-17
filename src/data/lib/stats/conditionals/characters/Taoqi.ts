@@ -47,14 +47,14 @@ const Taoqi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       <br />
       <br /><b>Rocksteady Shield</b>
       <br />When the active character on the team is attacked, <span class="text-desc">1</span> <b>Rocksteady Shield</b> is consumed to reduce the damage taken.`,
-      image: 'SP_IconTaohuaB1',
+      image: 'SP_IconTaoHuaB1',
     },
     lib: {
       level: lib,
       trace: `Resonance Liberation`,
       title: `Unmovable`,
       content: `Launch an attack based on Taoqi's DEF to the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.`,
-      image: 'SP_IconTaohuaC1',
+      image: 'SP_IconTaoHuaC1',
     },
     forte: {
       level: forte,
@@ -70,32 +70,32 @@ const Taoqi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       <br />Basic Attack 4 will consume all of Taoqi's <b>Rocksteady Shields</b> to grant that many <b class="text-red">Resolving Caliber</b>.
       <br />While <b>Rocksteady Shield</b> exists, when the active character is attacked, <span class="text-desc">1</span> <b>Rocksteady Shield</b> will be consumed to recover <b class="text-red">Resolving Caliber</b>.
       <br />After <b>Rocksteady Shield</b> ends, all remaining <b>Rocksteady Shield</b> will be consumed to grant that many <b class="text-red">Resolving Caliber</b>.`,
-      image: 'SP_IconTaohuaY',
+      image: 'SP_IconTaoHuaY',
     },
     intro: {
       level: intro,
       trace: `Intro Skill`,
       title: `Defense Formation`,
       content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.`,
-      image: 'SP_IconTaohuaQTE',
+      image: 'SP_IconTaoHuaQTE',
     },
     outro: {
       trace: `Outro Skill`,
       title: `Iron Will`,
       content: `The incoming Resonator has their Resonance Skill DMG Amplified by <span class="text-desc">38%</span> for <span class="text-desc">14</span>s or until they are switched out.`,
-      image: 'SP_IconTaohuaT',
+      image: 'SP_IconTaoHuaT',
     },
     i1: {
       trace: `Inherent Skill 1`,
       title: `Steadfast Protection`,
       content: `While Resonance Skill <b>Rocksteady Shield</b> lasts, the Character's DEF is increased by <span class="text-desc">15%</span>.`,
-      image: 'SP_IconTaohuaD1',
+      image: 'SP_IconTaoHuaD1',
     },
     i2: {
       trace: `Inherent Skill 2`,
       title: `Unyielding`,
       content: `After Heavy Attack <b>Strategic Parry</b> is successfully triggered, <span class="text-desc">25</span> STA is recovered.`,
-      image: 'SP_IconTaohuaD2',
+      image: 'SP_IconTaoHuaD2',
     },
     c1: {
       trace: `Sequence Node 1`,
