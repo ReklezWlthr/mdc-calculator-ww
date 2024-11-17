@@ -103,8 +103,7 @@ export const BuildModal = observer(({ index }: { index: number }) => {
           />
         ))
       ) : (
-        <div className="flex flex-col items-center justify-center w-full text-gray">
-          <img src={getEmote('paimon-s-paintings-set-2-9')} className="w-32 h-32" />
+        <div className="flex flex-col items-center justify-center w-full text-gray h-[150px]">
           <p>No Saved Build</p>
         </div>
       )}
