@@ -17,7 +17,6 @@ import { WeaponConditionalBlock } from '../components/conditionals/weapon_condit
 import { useCalculator } from '@src/core/hooks/useCalculator'
 import { CustomConditionalBlock } from '../components/conditionals/custom_conditional_block'
 import { StatsModal } from '../components/modals/stats_modal'
-import { SelectInput } from '@src/presentation/components/inputs/select_input'
 import { Echoes } from '@src/data/db/artifacts'
 import { ITalentDisplay } from '@src/domain/conditional'
 import { formatWeaponString } from '@src/core/utils/data_format'
