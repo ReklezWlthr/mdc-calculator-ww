@@ -41,7 +41,7 @@ export const Alert = ({ title, label, icon = 'fa fa-circle-info', color = 'green
     <div
       data-cy="core-notification"
       className={classNames(
-        'p-4 rounded-md flex items-center gap-x-3 w-[75vw]',
+        'p-4 rounded-md flex items-center gap-x-3 w-[75dvw]',
         style[color]?.bgColor,
         style[color]?.text
       )}

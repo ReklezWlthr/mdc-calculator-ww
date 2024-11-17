@@ -103,7 +103,7 @@ export const CharDetailModal = observer(({ char, cId }: { char: ICharStore; cId:
   }, [params, cId])
 
   return (
-    <div className="w-[600px] mobile:w-[400px] mobile:max-h-[80vh] p-4 text-white rounded-xl bg-primary-dark space-y-5 font-semibold">
+    <div className="w-[600px] mobile:w-[400px] mobile:max-h-[80dvh] p-4 text-white rounded-xl bg-primary-dark space-y-5 font-semibold">
       <div className="flex justify-between gap-x-4">
         <div className="grid w-full grid-cols-2 gap-4">
           <div>

@@ -47,7 +47,7 @@ export const Modal = observer(() => {
             >
               <div
                 className={classNames(
-                  'z-50 flex justify-center desktop:pt-[10vh] desktop:pb-[6vh] pt-0 pb-0 items-center desktop:items-start w-screen h-screen pointer-events-none overflow-y-auto hideScrollbar',
+                  'z-50 flex justify-center desktop:pt-[10dvh] desktop:pb-[6dvh] pt-0 pb-0 items-center desktop:items-start w-screen h-screen pointer-events-none overflow-y-auto hideScrollbar',
                   store.modalStore.style
                 )}
               >

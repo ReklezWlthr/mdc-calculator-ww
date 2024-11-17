@@ -74,7 +74,7 @@ export const CharDetail = observer(() => {
 
   return (
     <div
-      className="w-full h-full py-2 pr-5 ml-2 text-white customScrollbar mobile:hideScrollbar mobile:bg-primary-bg mobile:w-[400px] mobile:max-h-[80vh] mobile:border mobile:border-primary-border mobile:rounded-lg mobile:px-2"
+      className="w-full h-full py-2 pr-5 ml-2 text-white customScrollbar mobile:hideScrollbar mobile:bg-primary-bg mobile:w-[400px] mobile:max-h-[80dvh] mobile:border mobile:border-primary-border mobile:rounded-lg mobile:px-2"
       id="detail_container"
     >
       <p className='hidden px-2 pt-2 text-xl font-bold mobile:block'>Resonator Detail</p>

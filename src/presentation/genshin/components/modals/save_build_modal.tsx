@@ -78,7 +78,7 @@ export const SaveBuildModal = observer(({ index }: { index: number }) => {
       {_.size(filteredBuilds) > 0 && (
         <div className="px-5 py-3 space-y-3 text-white rounded-lg bg-primary-dark w-[400px]">
           <p className="font-semibold">Or Update An Existing Build</p>
-          <div className="space-y-2 dropdownScrollbar max-h-[30vh]">
+          <div className="space-y-2 dropdownScrollbar max-h-[30dvh]">
             {_.map(filteredBuilds, (build) => {
               return (
                 <BuildModalBlock

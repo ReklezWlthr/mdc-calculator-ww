@@ -30,7 +30,7 @@ interface ConditionalBlockProps {
 }
 
 export const ConditionalBlock = observer(
-  ({ title, contents, tooltipStyle = 'w-[40vw]', setForm, formOverride, teamOverride }: ConditionalBlockProps) => {
+  ({ title, contents, tooltipStyle = 'w-[40dvw]', setForm, formOverride, teamOverride }: ConditionalBlockProps) => {
     const [open, setOpen] = useState(true)
 
     const { calculatorStore, teamStore, setupStore } = useStore()

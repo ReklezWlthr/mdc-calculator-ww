@@ -117,7 +117,7 @@ export const TalentIcon = observer(
           </div>
         }
         body={<p dangerouslySetInnerHTML={{ __html: talent?.content }} />}
-        style={tooltipSize || 'w-[35vw] mobile:w-[400px]'}
+        style={tooltipSize || 'w-[35dvw] mobile:w-[400px]'}
       >
         <div className="relative group">
           <IconComp />

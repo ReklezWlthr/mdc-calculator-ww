@@ -17,7 +17,7 @@ export const AscensionIcons = (props: AscensionProps) => {
         talent={props.talents?.i1}
         element={props.element}
         active={props.i.i1}
-        tooltipSize="w-[30vw] mobile:w-[400px]"
+        tooltipSize="w-[30dvw] mobile:w-[400px]"
         type={props.talents?.i1?.trace}
       />
       <p className="text-sm font-bold">Inherent Skills</p>
@@ -25,7 +25,7 @@ export const AscensionIcons = (props: AscensionProps) => {
         talent={props.talents?.i2}
         element={props.element}
         active={props.i.i2}
-        tooltipSize="w-[30vw] mobile:w-[400px]"
+        tooltipSize="w-[30dvw] mobile:w-[400px]"
         type={props.talents?.i2?.trace}
       />
     </div>

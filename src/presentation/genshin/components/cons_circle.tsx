@@ -57,7 +57,7 @@ export const ConsCircle = observer(
                 talent={talents?.c1}
                 element={element}
                 active={cons >= 1}
-                tooltipSize="w-[30vw] mobile:w-[400px]"
+                tooltipSize="w-[30dvw] mobile:w-[400px]"
                 type={talents?.c1?.trace}
               />
             </div>
@@ -68,7 +68,7 @@ export const ConsCircle = observer(
                 talent={talents?.c6}
                 element={element}
                 active={cons >= 6}
-                tooltipSize="w-[30vw] mobile:w-[400px]"
+                tooltipSize="w-[30dvw] mobile:w-[400px]"
                 type={talents?.c6?.trace}
               />
             </div>
@@ -77,7 +77,7 @@ export const ConsCircle = observer(
                 talent={talents?.c2}
                 element={element}
                 active={cons >= 2}
-                tooltipSize="w-[30vw] mobile:w-[400px]"
+                tooltipSize="w-[30dvw] mobile:w-[400px]"
                 type={talents?.c2?.trace}
               />
             </div>
@@ -107,7 +107,7 @@ export const ConsCircle = observer(
                 talent={talents?.c5}
                 element={element}
                 active={cons >= 5}
-                tooltipSize="w-[30vw] mobile:w-[400px]"
+                tooltipSize="w-[30dvw] mobile:w-[400px]"
                 type={talents?.c5?.trace}
               />
             </div>
@@ -116,7 +116,7 @@ export const ConsCircle = observer(
                 talent={talents?.c3}
                 element={element}
                 active={cons >= 3}
-                tooltipSize="w-[30vw] mobile:w-[400px]"
+                tooltipSize="w-[30dvw] mobile:w-[400px]"
                 type={talents?.c3?.trace}
               />
             </div>
@@ -127,7 +127,7 @@ export const ConsCircle = observer(
                 talent={talents?.c4}
                 element={element}
                 active={cons >= 4}
-                tooltipSize="w-[30vw] mobile:w-[400px]"
+                tooltipSize="w-[30dvw] mobile:w-[400px]"
                 type={talents?.c4?.trace}
               />
             </div>

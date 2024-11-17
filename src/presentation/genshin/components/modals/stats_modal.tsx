@@ -149,7 +149,7 @@ export const StatsModal = observer(
     //   1 - stats.getDef() / (stats.getDef() + 200 + 10 * +(compare ? setupStore.level : calculatorStore.level))
 
     return (
-      <div className="w-[65vw] mobile:w-[400px] mobile:max-h-[80vh] mobile:overflow-y-auto bg-primary-dark rounded-lg p-3 space-y-2">
+      <div className="w-[65dvw] mobile:w-[400px] mobile:max-h-[80dvh] mobile:overflow-y-auto bg-primary-dark rounded-lg p-3 space-y-2">
         <p className="text-lg font-bold text-white">Stats Breakdown</p>
         <Collapsible label="Basic Stats">
           <div className="grid grid-cols-2 gap-10 mobile:grid-cols-1 mobile:gap-2">

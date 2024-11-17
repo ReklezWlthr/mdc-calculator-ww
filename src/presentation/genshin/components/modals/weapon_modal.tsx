@@ -63,7 +63,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
   }
 
   return (
-    <div className="w-[85vw] max-w-[1240px] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
+    <div className="w-[85dvw] max-w-[1240px] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
       <div className="flex items-center gap-6 mobile:gap-3 mobile:flex-col">
         <div className="flex items-center gap-6">
           <p className="shrink-0">Select a Weapon</p>
@@ -84,7 +84,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
           <FilterIcon stat={Stats.CRIT_DMG} />
         </div>
       </div>
-      <div className="grid w-full grid-cols-11 mobile:grid-cols-3 gap-4 max-h-[70vh] overflow-y-auto hideScrollbar rounded-lg">
+      <div className="grid w-full grid-cols-11 mobile:grid-cols-3 gap-4 max-h-[70dvh] overflow-y-auto hideScrollbar rounded-lg">
         {_.map(filteredWeapon, (item) => {
           const minAtk = getWeaponBase(item?.baseAtk, 1, 1)
           const maxAtk = getWeaponBase(item?.baseAtk, 90, 6)

@@ -44,7 +44,7 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
     )
 
   return (
-    <div className="w-[35vw] mobile:w-[350px] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
+    <div className="w-[35dvw] mobile:w-[350px] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
       <p>Target Enemy Setting</p>
       <div className="flex w-full gap-3">
         <div className="w-full space-y-1">

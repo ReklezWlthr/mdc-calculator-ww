@@ -88,7 +88,7 @@ export const BuildDetail = observer(
     }
 
     return selected ? (
-      <div className="w-full space-y-4 mobile:bg-primary-bg mobile:border mobile:border-primary-border mobile:rounded-lg mobile:w-[400px] mobile:max-h-[80vh] mobile:overflow-y-auto mobile:py-3 mobile:px-3">
+      <div className="w-full space-y-4 mobile:bg-primary-bg mobile:border mobile:border-primary-border mobile:rounded-lg mobile:w-[400px] mobile:max-h-[80dvh] mobile:overflow-y-auto mobile:py-3 mobile:px-3">
         <div className="grid items-center grid-cols-2 gap-5 mobile:grid-cols-1">
           <div className="w-full">
             <p className="text-sm text-primary-lighter">{findCharacter(selectedBuild?.cId)?.name}</p>

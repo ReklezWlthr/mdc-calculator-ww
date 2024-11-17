@@ -70,7 +70,7 @@ export const ArtifactListModal = observer(
             />
           </div>
         </div>
-        <div className="grid w-full grid-cols-4 mobile:grid-cols-1 gap-4 max-h-[70vh] overflow-y-auto hideScrollbar rounded-lg">
+        <div className="grid w-full grid-cols-4 mobile:grid-cols-1 gap-4 max-h-[70dvh] overflow-y-auto hideScrollbar rounded-lg">
           {_.map(filteredArtifacts, (artifact) => (
             <div
               key={artifact.id}

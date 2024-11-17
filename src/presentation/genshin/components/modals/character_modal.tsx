@@ -76,7 +76,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
   }
 
   return (
-    <div className="desktop:w-[1220px] tablet:w-[85vw] mobile:w-[85vw] mobile:h-[80vh] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
+    <div className="desktop:w-[1220px] tablet:w-[85dvw] mobile:w-[85dvw] mobile:h-[80dvh] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
       <div className="flex items-center gap-6 mobile:gap-2 mobile:flex-col">
         <div className="flex items-center w-full gap-6">
           <p className="shrink-0">Select a Resonator</p>
@@ -112,7 +112,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
           renderAsText
         />
       </div>
-      <div className="grid w-full grid-cols-10 tablet:grid-cols-7 mobile:grid-cols-3 gap-4 max-h-[70vh] mobile:max-h-[60vh] overflow-y-auto hideScrollbar rounded-lg">
+      <div className="grid w-full grid-cols-10 tablet:grid-cols-7 mobile:grid-cols-3 gap-4 max-h-[70dvh] mobile:max-h-[59dvh] overflow-y-auto hideScrollbar rounded-lg">
         {_.size(filteredChar) ? (
           _.map(filteredChar, (item) => {
             const owned = _.includes(_.map(charStore.characters, 'cId'), item.id)
@@ -167,7 +167,7 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
             )
           })
         ) : (
-          <div className="flex items-center justify-center w-full h-[70vh] mobile:h-[60vh] col-span-full text-xl">
+          <div className="flex items-center justify-center w-full h-[70dvh] mobile:h-[60dvh] col-span-full text-xl">
             No Matching Resonator
           </div>
         )}

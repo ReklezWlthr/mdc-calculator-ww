@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite'
 
 export const HelpModal = observer(() => {
   return (
-    <div className="w-[50vw] mobile:w-[400px] bg-primary-dark rounded-lg p-3 space-y-2 mobile:max-h-[80vh] mobile:overflow-y-auto">
+    <div className="w-[50dvw] mobile:w-[400px] bg-primary-dark rounded-lg p-3 space-y-2 mobile:max-h-[80dvh] mobile:overflow-y-auto">
       <p className="text-lg font-bold text-white">Quick Guide</p>
       <Collapsible label="Terms and Descriptions">
         <p>Acronyms used in this calculator:</p>

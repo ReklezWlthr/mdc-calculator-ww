@@ -5,7 +5,7 @@ import changelog from '@src/data/db/changelog.json'
 
 export const IntroModal = observer(() => {
   return (
-    <div className="w-[50vw] mobile:w-[400px] bg-primary-dark rounded-lg p-3 space-y-2 mobile:max-h-[80vh] mobile:overflow-y-auto">
+    <div className="w-[50dvw] mobile:w-[400px] bg-primary-dark rounded-lg p-3 space-y-2 mobile:max-h-[80dvh] mobile:overflow-y-auto">
       <p className="text-lg font-bold text-white">About</p>
       <Collapsible
         label="Changelogs"

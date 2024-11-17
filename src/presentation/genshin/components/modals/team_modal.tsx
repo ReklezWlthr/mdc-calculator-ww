@@ -157,7 +157,7 @@ export const TeamModal = observer(({ onSelect, filterId, hideCurrent }: TeamModa
         <p className="font-semibold shrink-0">Select a Setup</p>
         <TextInput value={search} onChange={setSearch} placeholder="Search Setup Name or Members" />
       </div>
-      <div className="space-y-2 dropdownScrollbar max-h-[70vh]">
+      <div className="space-y-2 dropdownScrollbar max-h-[70dvh]">
         {_.map(
           filterId
             ? _.filter(team, (item) =>

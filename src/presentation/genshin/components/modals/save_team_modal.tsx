@@ -58,7 +58,7 @@ export const SaveTeamModal = observer(() => {
             <p className="font-semibold shrink-0">Or Update An Existing Team</p>
             <TextInput value={search} onChange={setSearch} placeholder="Search Setup Name" />
           </div>
-          <div className="space-y-2 dropdownScrollbar max-h-[35vh]">
+          <div className="space-y-2 dropdownScrollbar max-h-[35dvh]">
             {_.map(filteredTeam, (team) => {
               return (
                 <TeamModalBlock
