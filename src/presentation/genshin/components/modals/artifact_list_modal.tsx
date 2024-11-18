@@ -47,7 +47,7 @@ export const ArtifactListModal = observer(
                 value: artifact.id.toString(),
                 img: getEchoImage(artifact?.icon),
               }))}
-              placeholder="Artifact Set"
+              placeholder="Echo Name"
               onChange={(value) => setParams({ set: value?.value })}
               style="w-[220px]"
             />
@@ -63,7 +63,7 @@ export const ArtifactListModal = observer(
               values={params.subs}
               options={SubStatOptions}
               onChange={(subs) => setParams({ subs })}
-              placeholder="Sub Stats  - Includes All (Max 5)"
+              placeholder="Sub Stats  - Includes All"
               renderAsText
               maxSelection={5}
               style="w-[220px]"

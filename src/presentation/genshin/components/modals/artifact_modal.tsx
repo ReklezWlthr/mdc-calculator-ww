@@ -126,7 +126,7 @@ export const ArtifactModal = ({
 
     const pass = aId ? artifactStore.editArtifact(aId, data) : artifactStore.addArtifact(data)
     toastStore.openNotification({
-      title: aId ? 'Artifact Edited Successfully' : 'Artifact Created Successfully',
+      title: aId ? 'Echo Edited Successfully' : 'Echo Created Successfully',
       icon: 'fa-solid fa-circle-check',
       color: 'green',
     })

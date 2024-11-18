@@ -118,8 +118,8 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
     modalStore.openModal(
       <CommonModal
         icon="fa-solid fa-question-circle text-yellow"
-        title="Unequip Artifact"
-        desc="Do you want to unequip this artifact?"
+        title="Unequip Echo"
+        desc="Do you want to unequip this echo?"
         onConfirm={onUnEquip}
       />
     )
@@ -129,7 +129,7 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
     artifactStore.deleteArtifact(props.aId)
     modalStore.closeModal()
     toastStore.openNotification({
-      title: 'Artifact Deleted Successfully',
+      title: 'Echo Deleted Successfully',
       icon: 'fa-solid fa-circle-check',
       color: 'green',
     })
@@ -147,8 +147,8 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
     modalStore.openModal(
       <CommonModal
         icon="fa-solid fa-exclamation-circle text-red"
-        title="Delete Artifact"
-        desc="Do you want to delete this artifact? This will also remove and unequip this artifact in every build that uses it."
+        title="Delete Echo"
+        desc="Do you want to delete this echo? This will also remove and unequip this echo in every build that uses it."
         onConfirm={onDelete}
       />
     )
@@ -156,7 +156,6 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
 
   const wearer = _.find(teamStore.characters, (item) => _.includes(item.equipments.artifacts, props.aId))
   const charData = findCharacter(wearer?.cId)
-  const codeName = charData?.codeName === 'Player' ? settingStore.settings.travelerGender : charData?.codeName
 
   return (
     <div

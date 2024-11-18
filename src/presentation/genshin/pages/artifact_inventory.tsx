@@ -173,7 +173,7 @@ export const ArtifactInventory = observer(() => {
           </>
         ) : (
           <div className="flex items-center justify-center w-full h-full text-3xl font-semibold text-white rounded-lg bg-primary-darker">
-            No Artifacts
+            No Echoes
           </div>
         )}
       </div>
