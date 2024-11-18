@@ -150,20 +150,20 @@ export const baseStatsObject = {
 
   getAtk: function (exclude?: boolean) {
     return (
-      this.BASE_ATK * (1 + _.sumBy(this[Stats.P_ATK], 'value')) +
+      _.floor(this.BASE_ATK * (1 + _.sumBy(this[Stats.P_ATK], 'value'))) +
       _.sumBy(this[Stats.ATK], 'value') +
       (exclude ? 0 : this.getValue('X_ATK'))
     )
   },
   getHP: function (exclude?: boolean) {
     return (
-      this.BASE_HP * (1 + _.sumBy(this[Stats.P_HP], 'value')) +
+      _.floor(this.BASE_HP * (1 + _.sumBy(this[Stats.P_HP], 'value'))) +
       _.sumBy(this[Stats.HP], 'value') +
       (exclude ? 0 : this.getValue('X_HP'))
     )
   },
   getDef: function () {
-    return this.BASE_DEF * (1 + _.sumBy(this[Stats.P_DEF], 'value')) + _.sumBy(this[Stats.DEF], 'value')
+    return _.floor(this.BASE_DEF * (1 + _.sumBy(this[Stats.P_DEF], 'value'))) + _.sumBy(this[Stats.DEF], 'value')
   },
   getValue: function (key: string, exclude?: StatsArray[]) {
     return (

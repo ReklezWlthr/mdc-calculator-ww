@@ -35,8 +35,8 @@ export const calculateBase = (conditionals: StatsObject, char: ITeamChar, weapon
   const character = findCharacter(char?.cId)
   const weaponData = findWeapon(weapon?.wId)
 
-  const charBaseAtk = getBaseStat(Stats.ATK, character?.stat?.baseAtk, char?.level, char?.ascension) || 0
-  const weaponBaseAtk = getWeaponBase(weaponData?.baseAtk, weapon?.level, weapon?.ascension) || 0
+  const charBaseAtk = _.floor(getBaseStat(Stats.ATK, character?.stat?.baseAtk, char?.level, char?.ascension) || 0)
+  const weaponBaseAtk = _.floor(getWeaponBase(weaponData?.baseAtk, weapon?.level, weapon?.ascension) || 0)
   const weaponSecondary = getWeaponBonus(weaponData?.baseStat, weapon?.level)
   const weaponBonus = _.find(WeaponBonus, (item) => item.id === weapon?.wId)
 
@@ -49,8 +49,8 @@ export const calculateBase = (conditionals: StatsObject, char: ITeamChar, weapon
   conditionals.BASE_ATK = charBaseAtk + weaponBaseAtk
   conditionals.BASE_ATK_C = charBaseAtk
   conditionals.BASE_ATK_L = weaponBaseAtk
-  conditionals.BASE_HP = getBaseStat(Stats.HP, character?.stat?.baseHp, char?.level, char?.ascension) || 0
-  conditionals.BASE_DEF = getBaseDef(character?.stat?.baseDef, char?.level, char?.ascension) || 0
+  conditionals.BASE_HP = _.floor(getBaseStat(Stats.HP, character?.stat?.baseHp, char?.level, char?.ascension) || 0)
+  conditionals.BASE_DEF = _.floor(getBaseDef(character?.stat?.baseDef, char?.level, char?.ascension) || 0)
 
   // Get Ascension
   conditionals[weaponData?.ascStat]?.push({

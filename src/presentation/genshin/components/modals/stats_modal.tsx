@@ -43,7 +43,7 @@ const mergeBuffs = (arr: StatsArray[]) =>
   )
 
 export const AttributeBlock = ({ stat, array, stats, flat }: NormalBlockProps) => {
-  const format = (v: number) => (flat ? _.round(v).toLocaleString() : toPercentage(v))
+  const format = (v: number) => (flat ? _.floor(v).toLocaleString() : toPercentage(v))
   return (
     <div className="space-y-1">
       <p className="font-bold text-white">
@@ -60,7 +60,7 @@ export const AttributeBlock = ({ stat, array, stats, flat }: NormalBlockProps) =
                 {!!item.base && !!item.multiplier && (
                   <>
                     {' '}
-                    = {_.isNumber(item.base) ? _.round(item.base).toLocaleString() : item.base}
+                    = {_.isNumber(item.base) ? _.floor(item.base).toLocaleString() : item.base}
                     {` \u{00d7} `}
                     <span className="text-blue">
                       {_.isNumber(item.multiplier) ? format(+item.multiplier) : item.multiplier}
@@ -69,7 +69,7 @@ export const AttributeBlock = ({ stat, array, stats, flat }: NormalBlockProps) =
                       <>
                         {` + `}
                         <span className="text-heal">
-                          {_.isNumber(item.flat) ? _.round(item.flat).toLocaleString() : item.flat}
+                          {_.isNumber(item.flat) ? _.floor(item.flat).toLocaleString() : item.flat}
                         </span>
                       </>
                     )}
@@ -94,20 +94,20 @@ export const StatsModal = observer(
         </p>
         <div className="space-y-1 text-xs">
           <BulletPoint>
-            Character Base {stats} <span className="text-desc">{_.round(cBase, round).toLocaleString()}</span>
+            Character Base {stats} <span className="text-desc">{_.floor(cBase, round).toLocaleString()}</span>
           </BulletPoint>
           {!!lBase && (
             <BulletPoint>
-              Weapon Base {stats} <span className="text-desc">{_.round(lBase, round).toLocaleString()}</span>
+              Weapon Base {stats} <span className="text-desc">{_.floor(lBase, round).toLocaleString()}</span>
             </BulletPoint>
           )}
           {_.map(mergeBuffs(pArray), (item) => {
-            const c = _.round((cBase + lBase) * item.value, round).toLocaleString()
+            const c = _.floor((cBase + lBase) * item.value, round).toLocaleString()
             return (
               !!item.value && (
                 <BulletPoint key={item.source + item.name}>
                   {item.source} / {item.name} <span className={item.value < 0 ? 'text-red' : 'text-desc'}>{c}</span> ={' '}
-                  {_.round(cBase + lBase, round).toLocaleString()} {`\u{00d7}`}{' '}
+                  {_.floor(cBase + lBase, round).toLocaleString()} {`\u{00d7}`}{' '}
                   <span className="text-blue">{toPercentage(item.value)}</span>
                 </BulletPoint>
               )
@@ -119,11 +119,11 @@ export const StatsModal = observer(
               !!item.value && (
                 <BulletPoint key={item.source + item.name}>
                   {item.source} / {item.name}{' '}
-                  <span className="text-desc">{_.round(item.value, round).toLocaleString()}</span>
+                  <span className="text-desc">{_.floor(item.value, round).toLocaleString()}</span>
                   {!!item.base && !!item.multiplier && (
                     <>
                       {' '}
-                      = {_.isNumber(item.base) ? _.round(item.base).toLocaleString() : item.base} {`\u{00d7}`}{' '}
+                      = {_.isNumber(item.base) ? _.floor(item.base).toLocaleString() : item.base} {`\u{00d7}`}{' '}
                       <span className="text-blue">
                         {_.isNumber(item.multiplier) ? toPercentage(+item.multiplier) : item.multiplier}
                       </span>
@@ -132,7 +132,7 @@ export const StatsModal = observer(
                           {' '}
                           +{' '}
                           <span className="text-heal">
-                            {_.isNumber(item.flat) ? _.round(item.flat).toLocaleString() : item.flat}
+                            {_.isNumber(item.flat) ? _.floor(item.flat).toLocaleString() : item.flat}
                           </span>
                         </>
                       )}
@@ -158,7 +158,7 @@ export const StatsModal = observer(
                 stats="HP"
                 cBase={stats.BASE_HP}
                 lBase={0}
-                totalValue={_.round(stats.getHP()).toLocaleString()}
+                totalValue={_.floor(stats.getHP()).toLocaleString()}
                 pArray={stats[Stats.P_HP]}
                 fArray={stats[Stats.HP]}
               />
@@ -166,7 +166,7 @@ export const StatsModal = observer(
                 stats="ATK"
                 cBase={stats.BASE_ATK_C}
                 lBase={stats.BASE_ATK_L}
-                totalValue={_.round(stats.getAtk()).toLocaleString()}
+                totalValue={_.floor(stats.getAtk()).toLocaleString()}
                 pArray={stats[Stats.P_ATK]}
                 fArray={stats[Stats.ATK]}
               />
@@ -174,7 +174,7 @@ export const StatsModal = observer(
                 stats="DEF"
                 cBase={stats.BASE_DEF}
                 lBase={0}
-                totalValue={_.round(stats.getDef()).toLocaleString()}
+                totalValue={_.floor(stats.getDef()).toLocaleString()}
                 pArray={stats[Stats.P_DEF]}
                 fArray={stats[Stats.DEF]}
               />

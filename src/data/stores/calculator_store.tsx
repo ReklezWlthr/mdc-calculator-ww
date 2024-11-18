@@ -13,6 +13,7 @@ export interface CalculatorStoreType {
   res: Record<Element, number>
   level: number
   dmgMode: string
+  toa: boolean
   custom: { name: StatsObjectKeysT; value: number; debuff: boolean }[][]
   setValue: <k extends keyof this>(key: k, value: this[k]) => void
   initForm: (initData: Record<string, any>[]) => void
@@ -31,6 +32,7 @@ export class CalculatorStore {
   res: Record<Element, number>
   level: number | string
   selected: number
+  toa: boolean
   custom: { name: StatsObjectKeysT; value: number; debuff: boolean; toggled: boolean }[][]
 
   constructor() {
@@ -40,6 +42,7 @@ export class CalculatorStore {
     this.dmgMode = 'total'
     this.selected = 0
     this.level = 1
+    this.toa = false
     this.res = {
       [Element.PHYSICAL]: 10,
       [Element.FUSION]: 10,
@@ -62,6 +65,7 @@ export class CalculatorStore {
     const mergedData = _.map(initData, (item, index) =>
       _.mapValues(item, (value, key) => {
         const old = this.form[index]?.[key]
+        console.log(key, old, value)
         return _.isUndefined(old) ? value : old
       })
     )

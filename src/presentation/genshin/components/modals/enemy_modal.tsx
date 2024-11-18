@@ -9,10 +9,11 @@ import { StatsObject, StatsObjectKeys } from '@src/data/lib/stats/baseConstant'
 import { EnemyGroups } from '@src/data/db/enemies'
 import { SelectTextInput } from '@src/presentation/components/inputs/select_text_input'
 import { findEnemy } from '@src/core/utils/finder'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { getEchoImage } from '@src/core/utils/fetcher'
 import { BaseElementColor } from '@src/core/utils/damageStringConstruct'
+import { ToggleSwitch } from '@src/presentation/components/inputs/toggle'
 
 export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; compare?: boolean }) => {
   const { calculatorStore, teamStore, setupStore } = useStore()
@@ -33,15 +34,25 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
   const enemyGroups = _.orderBy(EnemyGroups, 'name', 'asc')
   const enemyData = findEnemy(enemy)
 
-  const reduceRes = (arr: number[]) =>
+  const reduceRes = (arr: number[], toa: boolean) =>
     _.reduce(
       _.map(Element),
       (acc, curr, i) => {
-        acc[curr] = _.round(arr[i] * 100)
+        const value = toa ? (arr[i] === 0.4 ? 0.6 : arr[i] === 0.1 ? 0.2 : arr[i]) : arr[i]
+        acc[curr] = _.round(value * 100)
         return acc
       },
       {} as Record<Element, number>
     )
+
+  useEffect(() => {
+    if (!enemyData) setValue('toa', false)
+  }, [enemyData])
+
+  useEffect(() => {
+    if (!enemyData) return
+    setValue('res', reduceRes(enemyData?.res, store.toa))
+  }, [store.toa])
 
   return (
     <div className="w-[35dvw] mobile:w-[350px] p-4 text-white rounded-xl bg-primary-dark space-y-3 font-semibold">
@@ -61,7 +72,7 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
               setValue('enemy', v?.value || '')
               setValue('stun', false)
               setValue('shielded', false)
-              if (v) setValue('res', reduceRes(arr))
+              if (v) setValue('res', reduceRes(arr, store.toa))
             }}
             value={enemy}
             placeholder="Custom"
@@ -159,6 +170,30 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
               />
             </div>
           ))}
+          <div className="flex items-center justify-between px-2 py-2 rounded-lg bg-primary-darker">
+            <div className="flex items-center gap-2 text-sm">
+              <p>ToA Buff</p>
+              <Tooltip
+                title="Attribute RES"
+                body={
+                  <div className="font-normal">
+                    <p>
+                      Some enemies in Tower of Adversity have their <b>Attribute RES</b> increased to{' '}
+                      <span className="text-desc">20/60%</span> instead of the usual
+                      <span className="text-desc">10/40%</span>. Use this toggle to boost their RES.
+                    </p>
+                    <p>
+                      This toggle is only available while using <b>Enemy Preset</b>.
+                    </p>
+                  </div>
+                }
+                style="w-[400px]"
+              >
+                <i className="fa-regular fa-question-circle text-gray" />
+              </Tooltip>
+            </div>
+            <ToggleSwitch enabled={store.toa} onClick={(e) => setValue('toa', e)} disabled={!enemyData} />
+          </div>
         </div>
       </div>
     </div>

@@ -42,10 +42,7 @@ export interface SetupStoreType {
   level: number | string
   enemy: string
   scaling: string
-  variant: string
-  stun: boolean
-  shielded: boolean
-  superconduct: boolean
+  toa: boolean
   setValue: <k extends keyof this>(key: k, value: this[k]) => void
   initForm: (i: number, initData: Record<string, any>[]) => void
   setForm: (index: number, value: Record<string, any>[]) => void
@@ -85,11 +82,8 @@ export class SetupStore {
   res: Record<Element, number>
   level: number | string
   enemy: string
-  variant: string
-  stun: boolean
-  shielded: boolean
-  superconduct: boolean
   scaling: string
+  toa: boolean
 
   constructor() {
     this.mode = 'avg'
@@ -114,10 +108,7 @@ export class SetupStore {
     }
     this.level = 1
     this.enemy = ''
-    this.variant = ''
-    this.stun = false
-    this.shielded = false
-    this.superconduct = false
+    this.toa = false
 
     makeAutoObservable(this)
   }
@@ -163,8 +154,7 @@ export class SetupStore {
   }
 
   getResMult = (element: Element, resPen: number) => {
-    const sd = this.superconduct && element === Element.PHYSICAL ? 0.4 : 0
-    const res = this.res[element] / 100 - (resPen + sd)
+    const res = this.res[element] / 100 - resPen
     if (res < 0) return 1 - res / 2
     if (res >= 0.75) return 1 / (4 * res + 1)
     return 1 - res

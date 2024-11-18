@@ -900,9 +900,9 @@ export const WeaponTeamConditionals: IWeaponContent[] = [
     text: `Healing Skill ATK Bonus`,
     show: true,
     default: true,
-    id: '21050027',
+    id: '21050036',
     scaling: (base, form, r) => {
-      if (form['21050027']) {
+      if (form['21050036']) {
         base[Stats.P_ATK].push({
           value: calcRefinement(0.14, 0.035, r),
           name: 'Passive',

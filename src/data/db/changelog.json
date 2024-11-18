@@ -2,7 +2,12 @@
   {
     "version": "1.0.0-1",
     "date": "November 17th, 2024",
-    "desc": ["<b class=\"text-heal\">Fixed</b>: <span class=\"text-desc\">Lumi</span>'s I2 causing the app to crash"]
+    "desc": [
+      "<b class=\"text-heal\">Fixed</b>: <span class=\"text-desc\">Lumi</span>'s I2 causing the app to crash",
+      "<b class=\"text-heal\">Fixed</b>: <span class=\"text-desc\">Heron</span> and <span class=\"text-desc\">Moonlit Clouds</span> buffs toggled off after leaving page",
+      "<b class=\"text-heal\">Fixed</b>: Missing <span class=\"text-desc\">Stellar Symphony</span>'s ATK modifier",
+      "<b class=\"text-yellow\">Added</b>: A toggle for <b>ToA Buff</b>"
+    ]
   },
   {
     "version": "1.0.0",

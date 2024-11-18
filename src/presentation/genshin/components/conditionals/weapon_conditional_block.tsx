@@ -66,12 +66,14 @@ export const WeaponConditionalBlock = observer(
                 content.show && (
                   <div
                     className="grid items-center grid-cols-12 text-xs gap-x-1"
-                    key={content.id + (content.owner || content.index)}
+                    key={content.id + (content.owner >= 0 ? content.owner : content.index)}
                   >
                     <div className="col-span-6">
                       <WeaponTooltip
                         wId={_.split(content.id, '_')[0]}
-                        refinement={team[content.owner || content.index]?.equipments?.weapon?.refinement}
+                        refinement={
+                          team[content.owner >= 0 ? content.owner : content.index]?.equipments?.weapon?.refinement
+                        }
                         position="left"
                       >
                         <p className="w-full text-xs text-center text-white truncate">
@@ -105,42 +107,6 @@ export const WeaponConditionalBlock = observer(
                         />
                       </div>
                     )}
-                    {/* {content.type === 'element' && (
-                      <div className="flex items-center justify-center col-span-3">
-                        <SelectInput
-                          value={form[content.index]?.[content.id]}
-                          options={
-                            content.options || [
-                              { name: Element.PYRO, value: Element.PYRO },
-                              { name: Element.HYDRO, value: Element.HYDRO },
-                              { name: Element.CRYO, value: Element.CRYO },
-                              { name: Element.ELECTRO, value: Element.ELECTRO },
-                            ]
-                          }
-                          onChange={(value) => set(content.index, content.id, value)}
-                          small
-                        />
-                      </div>
-                    )}
-                    {content.type === 'multiple' && (
-                      <div className="flex items-center justify-center col-span-4">
-                        <TagSelectInput
-                          values={form[content.index]?.[content.id]}
-                          options={
-                            content.options || [
-                              { name: Element.PYRO, value: Element.PYRO },
-                              { name: Element.HYDRO, value: Element.HYDRO },
-                              { name: Element.CRYO, value: Element.CRYO },
-                              { name: Element.ELECTRO, value: Element.ELECTRO },
-                            ]
-                          }
-                          onChange={(value) => set(content.index, content.id, value)}
-                          placeholder="None"
-                          renderAsText
-                          small
-                        />
-                      </div>
-                    )} */}
                   </div>
                 )
             )
