@@ -73,8 +73,7 @@ export const ConditionalBlock = observer(
                           <div className="flex items-center justify-between">
                             <div className="space-y-0.5">
                               <p className="text-xs font-normal opacity-75 text-gray">
-                                {findCharacter(team[content.owner >= 0 ? content.owner : content.index]?.cId)?.name} -{' '}
-                                {content.trace}
+                                {findCharacter(team[content.owner >= 0 ? content.owner : content.index]?.cId)?.name} - {content.trace}
                               </p>
                               <p>{content.title}</p>
                             </div>
@@ -117,6 +116,17 @@ export const ConditionalBlock = observer(
                         <CheckboxInput
                           checked={form[content.index]?.[content.id]}
                           onClick={(v) => set(content.index, content.id, v, content.sync)}
+                        />
+                      </div>
+                    )}
+                    {content.type === 'element' && (
+                      <div className="flex items-center justify-center col-span-4">
+                        <SelectInput
+                          value={form[content.index]?.[content.id]}
+                          options={content.options || []}
+                          onChange={(value) => set(content.index, content.id, value, content.sync)}
+                          placeholder="None"
+                          small
                         />
                       </div>
                     )}
