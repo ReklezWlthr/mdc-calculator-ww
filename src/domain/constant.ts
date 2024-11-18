@@ -190,8 +190,8 @@ export enum TalentProperty {
 
 export enum Element {
   PHYSICAL = 'Physical',
-  FUSION = 'Fusion',
   GLACIO = 'Glacio',
+  FUSION = 'Fusion',
   ELECTRO = 'Electro',
   AERO = 'Aero',
   SPECTRO = 'Spectro',

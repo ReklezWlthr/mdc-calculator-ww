@@ -45,8 +45,8 @@ export class CalculatorStore {
     this.toa = false
     this.res = {
       [Element.PHYSICAL]: 10,
-      [Element.FUSION]: 10,
       [Element.GLACIO]: 10,
+      [Element.FUSION]: 10,
       [Element.ELECTRO]: 10,
       [Element.AERO]: 10,
       [Element.SPECTRO]: 10,
