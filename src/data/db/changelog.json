@@ -1,5 +1,10 @@
 [
   {
+    "version": "1.0.0-1",
+    "date": "November 17th, 2024",
+    "desc": ["<b class=\"text-heal\">Fixed</b>: <span class=\"text-desc\">Lumi</span>'s I2 causing the app to crash"]
+  },
+  {
     "version": "1.0.0",
     "date": "November 17th, 2024",
     "desc": ["Public launch day"]

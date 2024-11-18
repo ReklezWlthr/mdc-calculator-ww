@@ -174,7 +174,7 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
       sync: true,
     },
     {
-      type: 'number',
+      type: 'toggle',
       id: 'lumi_i2',
       text: `I2 ATK Bonus`,
       ...talents.i2,
