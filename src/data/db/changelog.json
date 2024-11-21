@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.1",
+    "date": "November 21th, 2024",
+    "desc": [
+      "<b class=\"text-yellow\">Added</b>: Now the entire row of modifier can be clicked to toggle the checkbox or focus the text box",
+      "<b class=\"text-yellow\">Added</b>: Some ATK/DMG buffs that only affect a single ability type now only affects that specific ability"
+    ]
+  },
+  {
     "version": "1.0.0-1",
     "date": "November 17th, 2024",
     "desc": [

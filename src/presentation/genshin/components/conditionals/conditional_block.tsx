@@ -66,14 +66,22 @@ export const ConditionalBlock = observer(
               contents,
               (content) =>
                 content.show && (
-                  <div className="grid items-center grid-cols-12 text-xs gap-x-1" key={content.id}>
+                  <div
+                    className="grid items-center grid-cols-12 text-xs cursor-pointer gap-x-1"
+                    onClick={() => {
+                      if (content.type === 'toggle') document.getElementById(content.id)?.click()
+                      if (content.type === 'number') document.getElementById(content.id)?.focus()
+                    }}
+                    key={content.id}
+                  >
                     <div className="col-span-6">
                       <Tooltip
                         title={
                           <div className="flex items-center justify-between">
                             <div className="space-y-0.5">
                               <p className="text-xs font-normal opacity-75 text-gray">
-                                {findCharacter(team[content.owner >= 0 ? content.owner : content.index]?.cId)?.name} - {content.trace}
+                                {findCharacter(team[content.owner >= 0 ? content.owner : content.index]?.cId)?.name} -{' '}
+                                {content.trace}
                               </p>
                               <p>{content.title}</p>
                             </div>
@@ -100,6 +108,7 @@ export const ConditionalBlock = observer(
                     {content.type === 'number' && (
                       <>
                         <TextInput
+                          id={content.id}
                           type="number"
                           value={form[content.index]?.[content.id]}
                           onChange={(value) => set(content.index, content.id, parseFloat(value) ?? '', content.sync)}
@@ -114,6 +123,7 @@ export const ConditionalBlock = observer(
                     {content.type === 'toggle' && (
                       <div className="flex items-center justify-center col-span-2">
                         <CheckboxInput
+                          id={content.id}
                           checked={form[content.index]?.[content.id]}
                           onClick={(v) => set(content.index, content.id, v, content.sync)}
                         />

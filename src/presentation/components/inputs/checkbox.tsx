@@ -7,14 +7,15 @@ type CheckboxInputProps = {
   disabled?: boolean
   checked: boolean
   small?: boolean
+  id?: string
 }
 
-export const CheckboxInput = ({ label, onClick, disabled, checked, small }: CheckboxInputProps) => {
+export const CheckboxInput = ({ label, onClick, disabled, checked, small, id }: CheckboxInputProps) => {
   //---------------------
   // RENDER
   //---------------------
   return (
-    <label htmlFor={label} onClick={() => !disabled && onClick(!checked)}>
+    <label htmlFor={label} id={id} onClick={() => !disabled && onClick(!checked)}>
       <div
         className={classNames('rounded-[4px]', small ? 'w-3 h-3' : 'w-4 h-4', {
           'bg-white': !disabled && !checked,

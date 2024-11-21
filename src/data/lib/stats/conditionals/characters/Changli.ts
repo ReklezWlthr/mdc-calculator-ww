@@ -307,6 +307,7 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
           ],
           element: Element.FUSION,
           property: TalentProperty.SKILL,
+          bonus: 0.05 * form.changli_i1 || 0,
         },
         {
           name: 'True Sight: Charge DMG',
@@ -316,6 +317,7 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
           ],
           element: Element.FUSION,
           property: TalentProperty.SKILL,
+          bonus: 0.05 * form.changli_i1 || 0,
         },
       ]
       base.LIB_SCALING = [
@@ -339,6 +341,7 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
           multiplier: c >= 5 ? 1.5 : 1,
           bonus: (i.i2 ? 0.2 : 0) + (c >= 5 ? 0.5 : 0),
           defPen: i.i2 ? 0.15 : 0,
+          atkBonus: form.fiery_feather ? 0.25 : 0
         },
       ]
       base.INTRO_SCALING = [
@@ -353,20 +356,6 @@ const Changli = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
         },
       ]
 
-      if (form.fiery_feather) {
-        base[Stats.P_ATK].push({
-          name: `Fiery Feather`,
-          source: 'Self',
-          value: 0.25,
-        })
-      }
-      if (form.changli_i1) {
-        base[Stats.FUSION_DMG].push({
-          name: `Inherent Skill 1`,
-          source: 'Self',
-          value: 0.05 * form.changli_i1,
-        })
-      }
       if (i.i2) {
         base.LIB_DEF_PEN.push({
           name: `Inherent Skill 2`,
