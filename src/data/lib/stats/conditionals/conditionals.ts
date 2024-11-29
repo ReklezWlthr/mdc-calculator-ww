@@ -2,6 +2,7 @@ import Aalto from './characters/Aalto'
 import Baizhi from './characters/Baizhi'
 import Calcharo from './characters/Calcharo'
 import Camellya from './characters/Camellya'
+import Carlotta from './characters/Carlotta'
 import Changli from './characters/Changli'
 import Chixia from './characters/Chixia'
 import Danjin from './characters/Danjin'
@@ -13,6 +14,7 @@ import Jiyan from './characters/Jiyan'
 import Lingyang from './characters/Lingyang'
 import Lumi from './characters/Lumi'
 import Mortefi from './characters/Mortefi'
+import Roccia from './characters/Roccia'
 import Sanhua from './characters/Sanhua'
 import Shorekeeper from './characters/Shorekeeper'
 import SRover from './characters/SRover'
@@ -31,6 +33,7 @@ export default [
   { id: '1104', conditionals: Lingyang },
   { id: '1105', conditionals: Zhezhi },
   { id: '1106', conditionals: Youhu },
+  { id: '1107', conditionals: Carlotta },
   { id: '1202', conditionals: Chixia },
   { id: '1203', conditionals: Encore },
   { id: '1204', conditionals: Mortefi },
@@ -52,6 +55,7 @@ export default [
   { id: '1602', conditionals: Danjin },
   { id: '1603', conditionals: Camellya },
   { id: '1604', conditionals: HRover },
+  { id: '1606', conditionals: Roccia },
 
   // Rovers
 ]

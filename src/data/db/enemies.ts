@@ -387,7 +387,7 @@ export const EnemyGroups: IEnemyGroup[] = [
   },
   {
     id: '330000100',
-    name: 'Scar (Phase 1)',
+    name: 'Scar (Human Form)',
     icon: 'T_IconMonsterHead_1004_UI',
     res: [0.1, 0.1, 0.4, 0.1, 0.1, 0.1, 0.1],
   },
@@ -399,7 +399,7 @@ export const EnemyGroups: IEnemyGroup[] = [
   },
   {
     id: '340000050',
-    name: 'Scar (Phase 2)',
+    name: 'Scar (Reaper Form)',
     icon: 'T_IconMonsterHead_990_UI',
     res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.4],
   },

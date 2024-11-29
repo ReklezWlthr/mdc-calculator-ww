@@ -1,5 +1,15 @@
 [
   {
+    "version": "1.0.0-2",
+    "date": "November 29th, 2024",
+    "desc": [
+      "<b>Content Version</b>: 2.0 Beta",
+      "<b>New Resonators</b>: <span class=\"text-wuwa-glacio\">Carlotta</span> and <span class=\"text-wuwa-havoc\">Roccia</span>",
+      "<b>3 New Weapons</b> (including <span class=\"text-desc\">Carlotta's</span> and <span class=\"text-desc\">Roccia's Signature</span>",
+      "<b class=\"text-heal\">Fixed</b>: Base ATK of Weapon's Tooltips in modal were wrong"
+    ]
+  },
+  {
     "version": "1.0.0-1",
     "date": "November 17th, 2024",
     "desc": [

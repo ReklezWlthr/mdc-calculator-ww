@@ -86,7 +86,7 @@ export const WeaponModal = observer(({ index, setWeapon, pathOverride }: WeaponM
       </div>
       <div className="grid w-full grid-cols-11 mobile:grid-cols-3 gap-4 max-h-[70dvh] overflow-y-auto hideScrollbar rounded-lg">
         {_.map(filteredWeapon, (item) => {
-          const minAtk = getWeaponBase(item?.baseAtk, 1, 1)
+          const minAtk = getWeaponBase(item?.baseAtk, 1, 0)
           const maxAtk = getWeaponBase(item?.baseAtk, 90, 6)
           const minStat = toPercentage(item.baseStat || 0)
           const maxStat = toPercentage(getWeaponBonus(item.baseStat, 90) || 0)

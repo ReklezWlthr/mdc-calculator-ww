@@ -18,8 +18,11 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
       content: `<b>Yellow Light: Basic Attack</b>
       <br />Summon Squeakie to shoot three shots in a row, dealing <b class="text-wuwa-electro">Electro DMG</b>.
       <br />
+      <br /><b>Yellow Light: Sprint</b>
+      <br />Press Dodge to perform <b>Sprint</b> and enter <b>Zoom Mode</b>. Lumi is unable to Dodge when performing <b>Sprint</b>.
+      <br />
       <br /><b>Yellow Light: Zoom</b>
-      <br />Press Dodge to perform Sprint and enter <b>Zoom Mode</b>, automatically shooting <b>Glitters</b> at a locked-on target and dealing <b class="text-wuwa-electro">Electro DMG</b>. The DMG dealt is considered Basic Attack DMG.
+      <br />When in this state, automatically shoot <b>Glitters</b> at a locked-on target and deal <b class="text-wuwa-electro">Electro DMG</b>, considered Basic Attack DMG.
       <br />
       <br /><b>Yellow Light: Plunging Attack</b>
       <br />Consume STA to perform a Plunging Attack, dealing <b class="text-wuwa-electro">Electro DMG</b>.
