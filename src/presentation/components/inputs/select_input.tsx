@@ -16,6 +16,7 @@ type SelectInputProps = {
   style?: string
   icon?: string
   small?: boolean
+  id?: string
 }
 
 export const SelectInput = ({
@@ -27,6 +28,7 @@ export const SelectInput = ({
   style,
   icon,
   small,
+  id
 }: SelectInputProps) => {
   //---------------------
   // HANDLER
@@ -52,7 +54,7 @@ export const SelectInput = ({
             { 'text-primary-light': !value }
           )}
         >
-          <div className="flex items-center w-full">
+          <div className="flex items-center w-full" id={id}>
             {value && valueFinder(value)?.img && (
               <img src={valueFinder(value)?.img} className="object-cover w-6 h-6 mr-3 rounded-full" />
             )}

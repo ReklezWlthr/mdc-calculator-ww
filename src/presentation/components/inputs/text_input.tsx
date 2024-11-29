@@ -14,6 +14,7 @@ export interface TextInputProps {
   max?: number
   min?: number
   small?: boolean
+  id?: string
 }
 
 export const TextInput = (props: TextInputProps) => {
@@ -32,6 +33,7 @@ export const TextInput = (props: TextInputProps) => {
     >
       {props.iconLeading && <img src={props.iconLeading} className="object-cover w-6 h-6 mr-2 rounded-full" />}
       <input
+        id={props.id}
         type={props.type}
         max={props.max}
         min={props.min}

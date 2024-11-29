@@ -148,11 +148,10 @@ export const baseStatsObject = {
   OUTRO_SCALING: [] as IScaling[],
   ECHO_SCALING: [] as IScaling[],
 
-  getAtk: function (exclude?: boolean) {
+  getAtk: function (statBonus?: number) {
     return (
-      _.floor(this.BASE_ATK * (1 + _.sumBy(this[Stats.P_ATK], 'value'))) +
-      _.sumBy(this[Stats.ATK], 'value') +
-      (exclude ? 0 : this.getValue('X_ATK'))
+      _.floor(this.BASE_ATK * (1 + _.sumBy(this[Stats.P_ATK], 'value') + (statBonus || 0))) +
+      _.sumBy(this[Stats.ATK], 'value')
     )
   },
   getHP: function (exclude?: boolean) {

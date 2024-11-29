@@ -64,7 +64,7 @@ export const damageStringConstruct = (
   const enemyMod = isDamage ? defMult * resMult : 1
 
   const statForScale = {
-    [Stats.ATK]: stats.getAtk(),
+    [Stats.ATK]: stats.getAtk(scaling.atkBonus),
     [Stats.DEF]: stats.getDef(),
     [Stats.HP]: stats.getHP(),
   }
@@ -208,17 +208,17 @@ export const damageStringConstruct = (
       <p dangerouslySetInnerHTML={{ __html: formulaString }} />
       {!!scaling.bonus && (
         <p className="text-xs">
-          Component Bonus: <span className="text-desc">{toPercentage(scaling.bonus)}</span>
+          Component DMG Bonus: <span className="text-desc">{toPercentage(scaling.bonus)}</span>
         </p>
       )}
       {!!elementDmg && (
         <p className="text-xs">
-          {element} Bonus: <span className="text-desc">{toPercentage(elementDmg)}</span>
+          {element} DMG Bonus: <span className="text-desc">{toPercentage(elementDmg)}</span>
         </p>
       )}
       {!!talentDmg && (
         <p className="text-xs">
-          {scaling.property} Bonus: <span className="text-desc">{toPercentage(talentDmg)}</span>
+          {scaling.property} DMG Bonus: <span className="text-desc">{toPercentage(talentDmg)}</span>
         </p>
       )}
       <HitBreakdown format={(v) => v} />
