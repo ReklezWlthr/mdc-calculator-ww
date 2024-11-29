@@ -145,9 +145,10 @@ export const TalentIcon = observer(
 export const ScalingWrapper = observer(({ children, talent, element, level, compare }: ScalingWrapperProps) => {
   return (
     <div className="flex w-full mobile:flex-col">
-      <div className="flex flex-col items-center justify-center w-1/5 px-2 py-5 mobile:w-full mobile:flex-row mobile:justify-center gap-y-2 gap-x-4 mobile:px-5 mobile:py-3">
+      <div className="flex flex-col items-center justify-center w-1/5 px-2 py-5 mobile:w-full mobile:flex-row mobile:justify-center gap-y-3 gap-x-4 mobile:px-5 mobile:py-3">
         <TalentIcon talent={talent} element={element} level={level} type={talent?.trace} modal />
         <div className="flex flex-col items-center w-full">
+          <p className="text-[11px] leading-[14px] text-gray">{talent?.trace}</p>
           <p className="w-full font-bold text-center mobile:w-2/3">{talent?.title}</p>
           {level && (
             <p className="text-xs text-gray">

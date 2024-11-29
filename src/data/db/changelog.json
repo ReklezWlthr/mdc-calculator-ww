@@ -6,7 +6,8 @@
       "<b>Content Version</b>: 2.0 Beta",
       "<b>New Resonators</b>: <span class=\"text-wuwa-glacio\">Carlotta</span> and <span class=\"text-wuwa-havoc\">Roccia</span>",
       "<b>3 New Weapons</b> (including <span class=\"text-desc\">Carlotta's</span> and <span class=\"text-desc\">Roccia's Signature</span>",
-      "<b class=\"text-heal\">Fixed</b>: Base ATK of Weapon's Tooltips in modal were wrong"
+      "<b class=\"text-heal\">Fixed</b>: Base ATK of Weapon's Tooltips in modal were wrong",
+      "<b class=\"text-yellow\">Added</b>: Ability type below icons for clarity"
     ]
   },
   {
