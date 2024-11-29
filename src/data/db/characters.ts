@@ -103,7 +103,7 @@ export const Characters = [
     tags: [Tags.MAIN_DPS, Tags.SKILL],
     avatarAdjust: 'object-[0_80%]',
     growth: [],
-    beta: false,
+    beta: true,
   },
   {
     id: '1202',
@@ -452,7 +452,7 @@ export const Characters = [
     tags: [Tags.CONCERTO, Tags.SKILL, Tags.TRACTION, Tags.HAVOC_AMP, Tags.BA_AMP],
     avatarAdjust: 'object-[0_80%]',
     growth: [],
-    beta: false,
+    beta: true,
   },
 
   // The counterpart will have id + 1
