@@ -73,7 +73,7 @@ export const PresetModal = observer(({ setCustomValue }: { setCustomValue?: Cust
   }
 
   return (
-    <div className="p-3 space-y-4 rounded-lg bg-primary-dark w-[800px] mobile:w-[400px]">
+    <div className="p-3 space-y-4 rounded-lg bg-primary-dark w-[820px] mobile:w-[400px]">
       <div className="flex justify-between gap-4 mobile:flex-col">
         <p className="text-lg font-bold text-white">Select Modifier Preset</p>
         <div className="grid grid-cols-2 gap-3 mobile:w-full">
