@@ -872,6 +872,74 @@ export const WeaponConditionals: IWeaponContent[] = [
       return base
     },
   },
+  {
+    type: 'toggle',
+    text: `Liberation Healing Bonus`,
+    show: true,
+    default: true,
+    id: '21050017',
+    scaling: (base, form, r) => {
+      if (form['21050017']) {
+        base[Stats.HEAL].push({
+          value: calcRefinement(0.16, 0.04, r),
+          name: 'Passive',
+          source: `Echoes of the Deep`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Liberation Healing Bonus`,
+    show: true,
+    default: true,
+    id: '21050017',
+    scaling: (base, form, r) => {
+      if (form['21050017']) {
+        base[Stats.HEAL].push({
+          value: calcRefinement(0.16, 0.04, r),
+          name: 'Passive',
+          source: `Echoes of the Deep`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Resonance Skill Bonus`,
+    show: true,
+    default: true,
+    id: '21030016',
+    scaling: (base, form, r) => {
+      if (form['21030016']) {
+        base[Stats.SKILL_DMG].push({
+          value: calcRefinement(0.48, 0.12, r),
+          name: 'Passive',
+          source: `Dance and Death`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Resonance Skill Bonus`,
+    show: true,
+    default: true,
+    id: '21040026',
+    scaling: (base, form, r) => {
+      if (form['21040026']) {
+        base[Stats.SKILL_DMG].push({
+          value: calcRefinement(0.48, 0.12, r),
+          name: 'Passive',
+          source: `Tragicomedy`,
+        })
+      }
+      return base
+    },
+  },
 ]
 
 export const WeaponAllyConditionals: IWeaponContent[] = [

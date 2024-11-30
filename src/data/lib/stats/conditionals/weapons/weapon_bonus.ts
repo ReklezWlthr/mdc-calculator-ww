@@ -447,6 +447,28 @@ const WeaponBonus: {
       return base
     },
   },
+  {
+    id: '21030016',
+    scaling: (base, r) => {
+      base[Stats.P_ATK].push({
+        source: `Death and Dance`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
+  {
+    id: '21040026',
+    scaling: (base, r) => {
+      base[Stats.P_ATK].push({
+        source: `Tragicomedy`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
 ]
 
 export default WeaponBonus

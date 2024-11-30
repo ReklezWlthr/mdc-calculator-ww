@@ -47,7 +47,7 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       level: skill,
       trace: `Resonance Skill`,
       title: `Trailing Lights of Eons`,
-      content: `Dash forward and perform consecutive strikes that inflict Spectro DMG.
+      content: `Dash forward and perform consecutive strikes that inflict <b class="text-wuwa-spectro">Spectro DMG</b>.
       <br />
       <br /><b>Overflowing Radiance</b>
       <br />After Jinhsi uses <b>Basic Attack 4</b> or, while not in <b class="text-wuwa-spectro">Incarnation</b>, Intro Skill <b>Loong's Halo</b>, an alternative Resonance Skill <b>Overflowing Radiance</b> is available within <span class="text-desc">5</span>s.
