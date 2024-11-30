@@ -422,7 +422,7 @@ export const ModifierPresets = [
       { stat: Stats.P_HP, value: 10, flat: false },
     ],
     icon: (
-      <img src={getFoodImage('T_IconCook_056_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+      <img src={getFoodImage('T_IconCook_057_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
     ),
   },
   {
