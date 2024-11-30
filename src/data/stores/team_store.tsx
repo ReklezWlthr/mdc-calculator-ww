@@ -89,17 +89,17 @@ export class Team {
     const dupeIndex = _.findIndex(this.characters, ['cId', info?.cId])
     const dupe = this.characters[dupeIndex]
     const oldData = _.cloneDeep(this.characters[index]) || null
-    if (info?.equipments?.artifacts)
-      _.forEach(info.equipments.artifacts, (aId) =>
-        _.forEach(this.characters, (character, cI) => {
-          const i = _.findIndex(character.equipments.artifacts, (item) => item === aId)
-          if (i >= 0 && cI !== index) character.equipments.artifacts[i] = null
-        })
-      )
     if (dupeIndex >= 0 && dupeIndex !== index) {
       this.characters[index] = dupe
       this.characters[dupeIndex] = oldData
     } else {
+      if (info?.equipments?.artifacts)
+        _.forEach(info.equipments.artifacts, (aId) =>
+          _.forEach(this.characters, (character, cI) => {
+            const i = _.findIndex(character.equipments.artifacts, (item) => item === aId)
+            if (i >= 0 && cI !== index) character.equipments.artifacts[i] = null
+          })
+        )
       this.characters[index] = { ...this.characters[index], ...info }
     }
     this.characters = [...this.characters]

@@ -167,7 +167,7 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
       {props.aId ? (
         <div className="relative w-full">
           <div className="px-3 py-4 space-y-2">
-            <div className="flex gap-4 pb-3 pl-2">
+            <div className="flex gap-4 pb-1 pl-2">
               <div className="relative w-11 h-11 shrink-0">
                 <img
                   src={getEchoImage(setData?.icon)}
@@ -185,7 +185,7 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
               </div>
               <div className="flex flex-col items-center w-full gap-1">
                 <RarityGauge rarity={artifact?.quality} textSize="text-sm" />
-                <p className="text-xs text-center line-clamp-2">{setData?.name}</p>
+                <p className="h-8 text-xs text-center line-clamp-2">{setData?.name}</p>
               </div>
             </div>
             <div className="flex items-center w-full gap-2 text-[11px]">
