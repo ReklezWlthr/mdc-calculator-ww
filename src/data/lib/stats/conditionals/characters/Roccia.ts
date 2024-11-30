@@ -53,7 +53,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       <br />The <b>Flying Fantasy</b> state ends when Roccia lands.
       <br />
       <br /><b>Basic Attack: Dream Comes True</b>
-      <br />Perform up to 3 consecutive attacks, dealing <b class="text-wuwa-havoc">Havoc DMG</b>, considered as Resonance Skill DMG. After Basic Attack <b>Dream Comes True</b> Stage 1 and 2 land, Roccia will be sent into the air and enter the <b>Flying Fantasy</b> state.
+      <br />Perform up to 3 consecutive attacks, dealing <b class="text-wuwa-havoc">Havoc DMG</b>, considered as Resonance Skill DMG. After landing Stage 1 or 2 of Basic Attack <b>Dream Comes True</b>, Roccia will be sent into the air and enter the <b>Flying Fantasy</b> state.
       <br />When using the Stage 3 of Basic Attack <b>Dream Comes True</b>, if Roccia's Crit. Rate is higher than <span class="text-desc">50%</span>, for every <span class="text-desc">0.1%</span> Crit. Rate, all party members gain <span class="text-desc">1</span> ATK for <span class="text-desc">30</span>s, up to <span class="text-desc">200</span> ATK.
       <br />
       <br /><b class="text-rose-400">Imagination</b>
