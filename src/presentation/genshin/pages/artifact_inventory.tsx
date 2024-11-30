@@ -108,9 +108,9 @@ export const ArtifactInventory = observer(() => {
               <TagSelectInput
                 values={params.cost}
                 options={[
-                  { name: 'Overlord/Calamity (4 Cost)', value: '4' },
-                  { name: 'Elite (3 Cost)', value: '3' },
-                  { name: 'Common (1 Cost)', value: '1' },
+                  { name: 'Overlord/Calamity (4 Cost)', value: 4 as any },
+                  { name: 'Elite (3 Cost)', value: 3 as any },
+                  { name: 'Common (1 Cost)', value: 1 as any },
                 ]}
                 onChange={(cost) => setParams({ cost })}
                 placeholder="Cost - Match All"
