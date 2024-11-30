@@ -87,7 +87,7 @@ const Yinlin = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     outro: {
       trace: `Outro Skill`,
       title: `Strategist`,
-      content: `The incoming Resonator has their Electro DMG Amplified by <span class="text-desc">20%</span> and Resonance Liberation DMG Amplified by <span class="text-desc">25%</span> for <span class="text-desc">14</span>s or until they are switched out.`,
+      content: `The incoming Resonator has their <b class="text-wuwa-electro">Electro DMG Amplified</b> by <span class="text-desc">20%</span> and Resonance Liberation DMG Amplified by <span class="text-desc">25%</span> for <span class="text-desc">14</span>s or until they are switched out.`,
       image: 'SP_IconYinlinT',
     },
     i1: {

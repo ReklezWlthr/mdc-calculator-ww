@@ -102,7 +102,7 @@ export const Characters = [
     order: '32',
     tags: [Tags.MAIN_DPS, Tags.SKILL],
     avatarAdjust: 'object-[0_80%]',
-    growth: [],
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
     beta: true,
   },
   {
@@ -451,7 +451,7 @@ export const Characters = [
     order: '33',
     tags: [Tags.CONCERTO, Tags.SKILL, Tags.TRACTION, Tags.HAVOC_AMP, Tags.BA_AMP],
     avatarAdjust: 'object-[0_80%]',
-    growth: [],
+    growth: [Stats.P_ATK, Stats.CRIT_DMG],
     beta: true,
   },
 

@@ -52,7 +52,7 @@ const XLY = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team: 
       trace: `Forte Circuit`,
       title: `Forever Seeking`,
       content: `<b>Resonance Skill - Decipher</b>
-      <br />When Capacity reaches <span class="text-desc">100</span>, Resonance Skill <b>Deduction</b> is replaced by Resonance Skill <b>Decipher</b>.
+      <br />When <b class="text-wuwa-electro">Capacity</b> reaches <span class="text-desc">100</span>, Resonance Skill <b>Deduction</b> is replaced by Resonance Skill <b>Decipher</b>.
       <br />Consume <span class="text-desc">100</span> Capacity to cast Resonance Skill Decipher, dealing <b class="text-wuwa-electro">Electro DMG</b>, considered as Resonance Liberation DMG.
       <br />
       <br /><b>Resonance Skill - Law of Reigns</b>

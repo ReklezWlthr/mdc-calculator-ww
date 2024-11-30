@@ -31,7 +31,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       <br /><b>Heavy Attack - Pruning</b>
       <br />Consume STA to attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />
-      <br /><b>Plunging Attack</b>
+      <br /><b>Mid-Air Attack</b>
       <br />Consume STA to perform Plunging Attack, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />
       <br /><b>Dodge Counter</b>

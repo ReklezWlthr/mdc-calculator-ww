@@ -63,7 +63,7 @@ export const AttributeBlock = ({ stat, array, stats, flat }: NormalBlockProps) =
                     = {_.isNumber(item.base) ? _.floor(item.base).toLocaleString() : item.base}
                     {` \u{00d7} `}
                     <span className="text-blue">
-                      {_.isNumber(item.multiplier) ? format(+item.multiplier) : item.multiplier}
+                      {_.isNumber(item.multiplier) ? format(item.multiplier) : item.multiplier}
                     </span>
                     {item.flat && (
                       <>
