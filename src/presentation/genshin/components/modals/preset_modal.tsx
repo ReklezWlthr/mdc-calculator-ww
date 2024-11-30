@@ -98,7 +98,7 @@ export const PresetModal = observer(({ setCustomValue }: { setCustomValue?: Cust
         {_.map(filteredPreset, (item) => (
           <div
             onClick={() => _.forEach(item?.property, (p) => onAddMod(p))}
-            className="flex flex-col items-center px-2 py-2 border rounded-lg cursor-pointer border-primary-lighter h-[135px] w-full"
+            className="flex flex-col items-center px-2 py-2 border-2 rounded-lg cursor-pointer border-primary-lighter h-[135px] w-full hover:bg-primary duration-200"
             key={item?.name}
           >
             <div className="flex items-center justify-center w-10 h-10">{item?.icon}</div>
