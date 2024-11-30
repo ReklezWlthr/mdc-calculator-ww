@@ -42,9 +42,9 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       level: skill,
       trace: `Resonance Skill`,
       title: `Violent Aesthetics`,
-      content: `Deals <b class="text-wuwa-glacio">Glacio DMG</b> and inflicts <b>Iridescence</b> to the target. Using Resonance Skill again within a certain period of time to cast Resonance Skill <b>Show Me Brilliance</b>.
+      content: `Deals <b class="text-wuwa-glacio">Glacio DMG</b> and inflicts <b class="text-cyan-200">Iridescence</b> to the target. Shortly after casting Resonance Skill, Carlotta can use Resonance Skill again to cast Resonance Skill <b>Show Me Brilliance</b>.
       <br />
-      <br /><b>Iridescence</b>
+      <br /><b class="text-cyan-200">Iridescence</b>
       <br />Unable to perform any actions for <span class="text-desc">1.5</span>s.
       <br />
       <br /><b>Resonance Skill: Show Me Brilliance</b>
@@ -56,11 +56,11 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       level: lib,
       trace: `Resonance Liberation`,
       title: `New Wave Era`,
-      content: `Deals <b class="text-wuwa-glacio">Glacio DMG</b> to all targets within range, inflicts <b>Dissociation</b> to the targets hit, and enters <b>Guns N' Roses</b> state. The DMG dealt is considered Resonance Skill DMG.
+      content: `Deals <b class="text-wuwa-glacio">Glacio DMG</b> to all targets within range, inflicts <b class="text-violet-300">Dissociation</b> to the targets hit, and enters <b>Guns N' Roses</b> state. The DMG dealt is considered Resonance Skill DMG.
       <br />Can be cast in mid-air.
       <br />
-      <br /><b>Dissociation</b>
-      <br />Carlotta ignores <span class="text-desc">18%</span> of the target's DEF when dealing DMG to targets with <b>Dissociation</b>.
+      <br /><b class="text-violet-300">Dissociation</b>
+      <br />Carlotta ignores <span class="text-desc">18%</span> of the target's DEF when dealing DMG to targets with <b class="text-violet-300">Dissociation</b>.
       <br />
       <br /><b>Guns N' Roses</b>
       <br />Using Basic Attack or Resonance Skill in <b>Guns N' Roses</b> state activates <b>Death Omen</b>. Each time <b>Death Omen</b> is cast, Carlotta gains <span class="text-desc">1</span> <b class="text-cyan-200">Mirror Shard</b>.
@@ -88,8 +88,8 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       trace: `Forte Circuit`,
       title: `Art Tour`,
       content: `<b>Heavy Attack: End of the Road</b>
-      <br />Carlotta gains <b>Colored Crystal</b> every <span class="text-desc">22</span>s.
-      <br />When <b class="text-yellow">Spirit Essence</b> is full and <b>Colored Crystal</b> is activated, hold Basic Attack to consume all <b class="text-yellow">Spirit Essence</b> and cast Heavy Attack <b>End of the Road</b>. After casting Heavy Attack <b>End of the Road</b>, <b>Colored Crystal</b> enters the cooldown.
+      <br />Carlotta gains <b class="text-rose-200">Colored Crystal</b> every <span class="text-desc">22</span>s.
+      <br />When <b class="text-yellow">Spirit Essence</b> is full and <b class="text-rose-200">Colored Crystal</b> is activated, hold Basic Attack to consume all <b class="text-yellow">Spirit Essence</b> and cast Heavy Attack <b>End of the Road</b>. After casting Heavy Attack <b>End of the Road</b>, <b>Colored Crystal</b> enters cooldown.
       <br />Deals <b class="text-wuwa-glacio">Glacio DMG</b> and reduces the cooldown of Resonance Skill <b>Violent Aesthetics</b> by <span class="text-desc">6</span>s.
       <br />
       <br /><b class="text-yellow">Spirit Essence</b>
@@ -132,20 +132,20 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     i2: {
       trace: `Inherent Skill 2`,
       title: `Art First`,
-      content: `Intro Skill <b>Winter's Lament</b>, Resonance Skill <b>Show Me Brilliance</b>, Resonance Liberation <b>Death Omen</b>, and Heavy Attack <b>End of the Road</b> can now inflict <b>Dissociation</b> to the targets hit.`,
+      content: `Intro Skill <b>Winter's Lament</b>, Resonance Skill <b>Show Me Brilliance</b>, Resonance Liberation <b>Death Omen</b>, and Heavy Attack <b>End of the Road</b> can now inflict <b class="text-violet-300">Dissociation</b> to the targets hit.`,
       image: 'SP_IconKelaitaD2',
     },
     c1: {
       trace: `Sequence Node 1`,
       title: `N/A`,
       content: `After the Intro Skill <b>Winter's Lament</b> is cast, <span class="text-desc">3</span> <b class="text-blue">Crystals</b> are restored, and Coletta's <b class="text-wuwa-glacio">Glacio DMG Bonus</b> is increased by <span class="text-desc">30%</span> for <span class="text-desc">15</span>s.
-      <br />When Resonance Skill <b>Show Me Brilliance</b> hits the target with <b>Iridescence</b>, an additional <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> is restored.`,
+      <br />When Resonance Skill <b>Show Me Brilliance</b> hits the target with <b class="text-cyan-200">Iridescence</b>, an additional <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> is restored.`,
       image: 'T_IconDevice_KelaitaM1_UI',
     },
     c2: {
       trace: `Sequence Node 2`,
       title: `N/A`,
-      content: `When Carlotta deals DMG to the target with <b>Dissociation</b>, her Crit. Rate is increased by <span class="text-desc">15%</span> and her Crit. DMG is increased by <span class="text-desc">20%</span>.`,
+      content: `When Carlotta deals DMG to the target with <b class="text-violet-300">Dissociation</b>, her Crit. Rate is increased by <span class="text-desc">15%</span> and her Crit. DMG is increased by <span class="text-desc">20%</span>.`,
       image: 'T_IconDevice_KelaitaM2_UI',
     },
     c3: {
@@ -169,7 +169,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     c6: {
       trace: `Sequence Node 6`,
       title: `N/A`,
-      content: `The DMG Multiplier of <b>Death Omen: Burial</b> is increased by <span class="text-desc">109%</span>, and each <b>Death Omen: Eternal Slumber</b> fires <span class="text-desc">1</span> additional shot. Resonance Liberation <b>Death Omen: Burial</b> inflicts <b>Iridescence</b> when it hits the target. The effect is cleared when taking DMG or after <span class="text-desc">1</span>s.`,
+      content: `The DMG Multiplier of <b>Death Omen: Burial</b> is increased by <span class="text-desc">109%</span>, and each <b>Death Omen: Eternal Slumber</b> fires <span class="text-desc">1</span> additional shot. Resonance Liberation <b>Death Omen: Burial</b> inflicts <b class="text-cyan-200">Iridescence</b> when it hits the target. The effect is cleared when taking DMG or after <span class="text-desc">1</span>s.`,
       image: 'T_IconDevice_KelaitaM6_UI',
     },
   }

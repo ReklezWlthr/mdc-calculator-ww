@@ -79,7 +79,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     i1: {
       trace: `Inherent Skill 1`,
       title: `Immersive Performance`,
-      content: `After Resonance Skill or Heavy Attack is cast, Roccia's ATK is increased by 20% for 12 seconds.`,
+      content: `After Resonance Skill or Heavy Attack is cast, Roccia's ATK is increased by <span class="text-desc">20%</span> for <span class="text-desc">12</span>s.`,
       image: 'SP_IconLuokekeD1',
     },
     i2: {
