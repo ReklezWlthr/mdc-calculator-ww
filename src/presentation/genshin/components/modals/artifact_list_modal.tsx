@@ -81,26 +81,28 @@ export const ArtifactListModal = observer(
               onChange={(value) => setParams({ set: value?.value })}
               style="w-[220px]"
             />
-            <TagSelectInput
-              values={params.sonata}
-              options={_.map(Sonata, (s) => ({ name: s, value: s, img: SonataIcons[s] }))}
-              onChange={(sonata) => setParams({ sonata })}
-              placeholder="Sonata - Match All"
-              onlyShowCount
-              style="w-[220px] mobile:w-[150px]"
-            />
-            <TagSelectInput
-              values={params.cost}
-              options={[
-                { name: 'Overlord/Calamity (4 Cost)', value: '4' },
-                { name: 'Elite (3 Cost)', value: '3' },
-                { name: 'Common (1 Cost)', value: '1' },
-              ]}
-              onChange={(cost) => setParams({ cost })}
-              placeholder="Cost - Match All"
-              onlyShowCount
-              style="w-[220px] mobile:w-[150px]"
-            />
+            <div className="flex items-center gap-3">
+              <TagSelectInput
+                values={params.sonata}
+                options={_.map(Sonata, (s) => ({ name: s, value: s, img: SonataIcons[s] }))}
+                onChange={(sonata) => setParams({ sonata })}
+                placeholder="Sonata - Match All"
+                onlyShowCount
+                style="w-[220px] mobile:w-[150px]"
+              />
+              <TagSelectInput
+                values={params.cost}
+                options={[
+                  { name: 'Overlord/Calamity (4 Cost)', value: '4' },
+                  { name: 'Elite (3 Cost)', value: '3' },
+                  { name: 'Common (1 Cost)', value: '1' },
+                ]}
+                onChange={(cost) => setParams({ cost })}
+                placeholder="Cost - Match All"
+                onlyShowCount
+                style="w-[220px] mobile:w-[150px]"
+              />
+            </div>
             <div className="flex items-center gap-3">
               <TagSelectInput
                 values={params.main}
