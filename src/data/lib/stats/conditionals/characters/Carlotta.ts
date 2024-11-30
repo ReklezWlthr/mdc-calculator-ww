@@ -26,7 +26,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       <br />Consumes stamina to attack the target, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
       <br />
       <br /><b>Heavy Attack: Restrictive Strategy</b>
-      <br />When Keleta's <b class="text-yellow">Spirit Essence</b> is full, Heavy Attack is replaced with Heavy Attack <b>Restrictive Strategy</b>, consuming all [Essence], dealing <b class="text-wuwa-glacio">Glacio DMG</b>, and reducing the cooldown of Resonance Skill <b>Violent Aesthetics</b> by <span class="text-desc">6</span>s.
+      <br />When Keleta's <b class="text-yellow">Spirit Essence</b> is full, Heavy Attack is replaced with Heavy Attack <b>Restrictive Strategy</b>, consuming all <b class="text-yellow">Spirit Essence</b>, dealing <b class="text-wuwa-glacio">Glacio DMG</b>, and reducing the cooldown of Resonance Skill <b>Violent Aesthetics</b> by <span class="text-desc">6</span>s.
       <br />
       <br /><b>Mid-Air Attack</b>
       <br />Perform an attack while in mid-air at the cost of STA, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. After using Mid-Air Attack, use Basic Attack to cast Mid-Air Attack <b>Courtesy Greeting</b>.
@@ -96,7 +96,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       <br />Carlotta can hold up to <span class="text-desc">120</span> <b class="text-desc">Spirit Essence</b>.
       <br />Carlotta gains <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> when the Intro Skill <b>Winter's Lament</b> hits the target.
       <br />Carlotta gains <span class="text-desc">10</span> <b class="text-yellow">Spirit Essence</b> for each <b class="text-blue">Crystal</b> consumed when the Resonance Skill <b>Show Me Brilliance</b> hits the target.
-      <br />Carlotta gains <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> for every Basic Attack on hit.
+      <br />Carlotta gains <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> when the Basic Attack <b>Necessary Means</b> on hit.
       <br />Carlotta gains <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> when the Dodge Counter hits the target.
       <br />
       <br /><b class="text-blue">Crystals</b>
