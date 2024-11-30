@@ -45,7 +45,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       content: `Deals <b class="text-wuwa-glacio">Glacio DMG</b> and inflicts <b>Iridescence</b> to the target. Using Resonance Skill again within a certain period of time to cast Resonance Skill <b>Show Me Brilliance</b>.
       <br />
       <br /><b>Iridescence</b>
-      <br />Unable to perform any actions for 1.5s.
+      <br />Unable to perform any actions for <span class="text-desc">1.5</span>s.
       <br />
       <br /><b>Resonance Skill: Show Me Brilliance</b>
       <br />Carlotta consumes all of her current <b class="text-blue">Crystal</b> and deals <b class="text-wuwa-glacio">Glacio DMG</b> to the target.
