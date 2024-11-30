@@ -217,6 +217,36 @@ export const ArtifactForm = () => {
       default: false,
       id: '6000053',
     },
+    {
+      trace: 'Sonata',
+      type: 'toggle',
+      text: Sonata.SKILL,
+      title: Sonata.SKILL,
+      content: SonataDetail[Sonata.SKILL][1].desc,
+      show: true,
+      default: true,
+      id: Sonata.SKILL,
+    },
+    {
+      trace: 'Sonata',
+      type: 'toggle',
+      text: Sonata.LIGHT_2 + ' Crit. Rate',
+      title: Sonata.LIGHT_2 + ' Crit. Rate',
+      content: SonataDetail[Sonata.LIGHT_2][1].desc,
+      show: true,
+      default: true,
+      id: Sonata.LIGHT_2 + '_1',
+    },
+    {
+      trace: 'Sonata',
+      type: 'toggle',
+      text: Sonata.LIGHT_2 + ' Spectro DMG',
+      title: Sonata.LIGHT_2 + ' Spectro DMG',
+      content: SonataDetail[Sonata.LIGHT_2][1].desc,
+      show: true,
+      default: true,
+      id: Sonata.LIGHT_2 + '_2',
+    },
   ]
 
   const teamContent: IContent[] = [
@@ -245,6 +275,26 @@ export const ArtifactForm = () => {
       show: true,
       default: false,
       id: '6000052',
+    },
+    {
+      trace: 'Sonata',
+      type: 'toggle',
+      text: Sonata.HAVOC_2,
+      title: Sonata.HAVOC_2,
+      content: SonataDetail[Sonata.HAVOC_2][1].desc,
+      show: true,
+      default: false,
+      id: Sonata.HAVOC_2,
+    },
+    {
+      trace: 'Sonata',
+      type: 'toggle',
+      text: Sonata.COORD,
+      title: Sonata.COORD,
+      content: SonataDetail[Sonata.COORD][1].desc,
+      show: true,
+      default: false,
+      id: Sonata.COORD,
     },
   ]
 

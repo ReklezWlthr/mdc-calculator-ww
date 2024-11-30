@@ -1,6 +1,7 @@
 import { calcRefinement } from '@src/core/utils/data_format'
 import { Element, IArtifact, Stats, TalentProperty } from '@src/domain/constant'
 import _ from 'lodash'
+import { StatsObject } from '../lib/stats/baseConstant'
 
 export enum Sonata {
   ICE = 'Freezing Frost',
@@ -118,7 +119,7 @@ export const SonataDetail = {
     },
     {
       desc: `When the Resonator inflicts <b>Photoacoustic</b> to a monster, the Resonator's Crit. Rate is increased by <span class="text-desc">20%</span>, lasting for <span class="text-desc">15</span>s.
-      <br />When attacking a target with 10 stacks of <b>Photoacoustic</b>, the character's <b class="text-wuwa-spectro">Spectro DMG Bonus</b> is increased by <span class="text-desc">15%</span>, lasting for <span class="text-desc">15</span>s.`,
+      <br />When attacking a target with <span class="text-desc">10</span> stacks of <b>Photoacoustic</b>, the character's <b class="text-wuwa-spectro">Spectro DMG Bonus</b> is increased by <span class="text-desc">15%</span>, lasting for <span class="text-desc">15</span>s.`,
     },
   ],
   [Sonata.HAVOC_2]: [
@@ -128,6 +129,16 @@ export const SonataDetail = {
     },
     {
       desc: `When using Outro Skill, deals an additional <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">480%</span> of the Resonator's ATK, and <b class="text-wuwa-havoc">Havoc DMG Bonus</b> of the incoming Resonator is increased by <span class="text-desc">15%</span>, lasting for <span class="text-desc">15</span>s.`,
+      callback: (base: StatsObject) => {
+        base.OUTRO_SCALING.push({
+          name: `Night's Veil Outro DMG`,
+          scale: Stats.ATK,
+          value: [{ scaling: 4.8, multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.OUTRO,
+        })
+        return base
+      },
     },
   ],
   [Sonata.COORD]: [
@@ -148,6 +159,16 @@ export const SonataDetail = {
     {
       desc: `ATK + <span class="text-desc">15%</span>. If the equipping Resonator's Energy Regen reaches <span class="text-desc">250%</span>, <b>Attribute DMG Bonus</b> is increased by <span class="text-desc">30%</span>.`,
       bonus: { stat: Stats.P_ATK, value: 0.15 },
+      callback: (base: StatsObject) => {
+        if (base.getValue(Stats.ER) >= 2.5) {
+          base[Stats.ATTR_DMG].push({
+            value: 0.3,
+            name: '5 Piece',
+            source: Sonata.REGEN_2,
+          })
+        }
+        return base
+      },
     },
   ],
 }
@@ -182,6 +203,38 @@ export const Echoes: IArtifact[] = [
     icon: 'T_IconMonsterGoods_221_UI',
     skill: 'T_MstSkil_Z_B3_UI',
     sonata: [Sonata.THUNDER],
+    desc: `Transform into Tempest Mephis to perform tail swing attacks followed by a claw attack. The lightning strike summoned by the tail swing deals {{0}}% <b class="text-wuwa-electro">Electro DMG</b> each time, while the claw attack deals {{1}}% <b class="text-wuwa-electro">Electro DMG</b>.
+    <br />
+    <br />After the claw hit, increase the current character's <b class="text-wuwa-electro">Electro DMG</b> by {{2}}% and Heavy Attack DMG by {{2}}% for <span class="text-desc">15</span>s.`,
+    properties: [
+      { base: 73.66, growth: 9.605 },
+      { base: 126.27, growth: 16.47 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Lightning Strike DMG',
+          value: [{ scaling: calcRefinement(0.7366, 0.09605, r), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Claw Attack DMG',
+          value: [{ scaling: calcRefinement(1.2627, 0.1647, r), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '60000895',
+    name: 'Nightmare: Tempest Mephis',
+    icon: 'T_IconMonsterHead_YZ_33016_UI',
+    skill: 'T_MstSkil_Z_B3_UI',
+    sonata: [Sonata.SKILL, Sonata.THUNDER],
     desc: `Transform into Tempest Mephis to perform tail swing attacks followed by a claw attack. The lightning strike summoned by the tail swing deals {{0}}% <b class="text-wuwa-electro">Electro DMG</b> each time, while the claw attack deals {{1}}% <b class="text-wuwa-electro">Electro DMG</b>.
     <br />
     <br />After the claw hit, increase the current character's <b class="text-wuwa-electro">Electro DMG</b> by {{2}}% and Heavy Attack DMG by {{2}}% for <span class="text-desc">15</span>s.`,
@@ -290,6 +343,45 @@ export const Echoes: IArtifact[] = [
     cost: 4,
   },
   {
+    id: '60000905',
+    name: 'Nightmare: Crownless',
+    icon: 'T_IconMonsterHead_YZ_33018_UI',
+    skill: 'T_MstSkil_Z_B8_UI',
+    sonata: [Sonata.HAVOC],
+    desc: `Transform into Crownless and perform up to <span class="text-desc">4</span> consecutive attacks. The first <span class="text-desc">2</span> attacks deal {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b> each, the <span class="text-desc">3rd</span> attack deals {{1}}% <b class="text-wuwa-havoc">Havoc DMG</b> <span class="text-desc">2</span> times, and the <span class="text-desc">4th</span> attack deals {{2}}% <b class="text-wuwa-havoc">Havoc DMG</b> <span class="text-desc">3</span> times.
+    <br />
+    <br />After the transformation, increase current character's <b class="text-wuwa-havoc">Havoc DMG</b> by <span class="text-desc">12%</span> and Resonance Skill DMG by <span class="text-desc">12%</span> for <span class="text-desc">15</span>s.`,
+    properties: [
+      { base: 96.37, growth: 12.57 },
+      { base: 72.28, growth: 9.43 },
+      { base: 48.19, growth: 6.28 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Stage 1 & 2 DMG',
+          value: [{ scaling: calcRefinement(0.9637, 0.1257, r), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [{ scaling: calcRefinement(0.7228, 0.0943, r), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [{ scaling: calcRefinement(0.4819, 0.0628, r), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
+  {
     id: '6000043',
     name: 'Feilian Beringal',
     icon: 'T_IconMonsterGoods_996_UI',
@@ -361,6 +453,38 @@ export const Echoes: IArtifact[] = [
     icon: 'T_IconMonsterGoods_997_UI',
     skill: 'T_MstSkil_997_UI',
     sonata: [Sonata.LIGHT],
+    desc: `Transform into Mourning Aix and perform <span class="text-desc">2</span> consecutive claw attacks, each attack dealing {{0}}% and {{1}}% <b class="text-wuwa-spectro">Spectro DMG</b> respectively.
+    <br />
+    <br />After the transformation, increase current character's <b class="text-wuwa-spectro">Spectro DMG</b> by <span class="text-desc">12%</span> and Resonance Liberation DMG by <span class="text-desc">12%</span> for <span class="text-desc">15</span>s.`,
+    properties: [
+      { base: 113.16, growth: 14.76 },
+      { base: 169.74, growth: 22.14 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Stage 1 & 2 DMG',
+          value: [{ scaling: calcRefinement(1.1316, 0.1476, r), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [{ scaling: calcRefinement(1.6974, 0.2214, r), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '60000925',
+    name: 'Nightmare: Mourning Aix',
+    icon: 'T_IconMonsterHead_YZ_33020_UI',
+    skill: 'T_MstSkil_997_UI',
+    sonata: [Sonata.LIGHT_2],
     desc: `Transform into Mourning Aix and perform <span class="text-desc">2</span> consecutive claw attacks, each attack dealing {{0}}% and {{1}}% <b class="text-wuwa-spectro">Spectro DMG</b> respectively.
     <br />
     <br />After the transformation, increase current character's <b class="text-wuwa-spectro">Spectro DMG</b> by <span class="text-desc">12%</span> and Resonance Liberation DMG by <span class="text-desc">12%</span> for <span class="text-desc">15</span>s.`,
@@ -534,6 +658,40 @@ export const Echoes: IArtifact[] = [
     icon: 'T_IconMonsterHead_995_UI',
     skill: 'T_MstSkil_995_UI',
     sonata: [Sonata.REGEN],
+    desc: `Transform into Impermanence Heron to fly up and smack down, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
+    <br />
+    <br />Long press to stay as Impermanence Heron and continuously spit flames, each attack dealing {{1}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
+    <br />
+    <br />Once the initial attack lands on any enemy, the current character regains <span class="text-desc">10</span> Resonance Energy. If the current character uses their Outro Skill within the next <span class="text-desc">15</span>s, the next character's damage dealt will be boosted by <span class="text-desc">12%</span> for <span class="text-desc">15</span>s.`,
+    properties: [
+      { base: 223.22, growth: 19.11 },
+      { base: 40.05, growth: 5.23 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Smack Down DMG',
+          value: [{ scaling: calcRefinement(2.2322, 0.1911, r), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Flame DMG',
+          value: [{ scaling: calcRefinement(0.4005, 0.0523, r), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '60000875',
+    name: 'Nightmare: Impermanence Heron',
+    icon: 'T_IconMonsterHead_YZ_33015_UI',
+    skill: 'T_MstSkil_995_UI',
+    sonata: [Sonata.HAVOC_2],
     desc: `Transform into Impermanence Heron to fly up and smack down, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
     <br />
     <br />Long press to stay as Impermanence Heron and continuously spit flames, each attack dealing {{1}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
@@ -1616,6 +1774,42 @@ export const Echoes: IArtifact[] = [
     cost: 4,
   },
   {
+    id: '60000885',
+    name: 'Nightmare: Thundering Mephis',
+    icon: 'T_IconMonsterHead_YZ_33017_UI',
+    skill: 'T_MstSkil_Z_B3_1_UI',
+    sonata: [Sonata.THUNDER],
+    desc: `Transform into Thundering Mephis, engaging in a rapid assault of up to <span class="text-desc">6</span> strikes. The first <span class="text-desc">5</span> strikes deal {{0}}% <b class="text-wuwa-electro">Electro DMG</b> each, while the final strike inflicts {{1}}% <b class="text-wuwa-electro">Electro DMG</b>, with an additional {{2}}% <b class="text-wuwa-electro">Electro DMG</b> from the thunder.
+    <br />
+    <br />After the final hit, increase the current character's <b class="text-wuwa-electro">Electro DMG</b> by <span class="text-desc">12%</span> and Resonance Liberation DMG by <span class="text-desc">12%</span> for <span class="text-desc">15</span>s.`,
+    properties: [
+      { base: 95.31, growth: 12.43 },
+      { base: 136.16, growth: 16.76 },
+      { base: 22.69, growth: 2.96 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Rapid Assault DMG',
+          value: [{ scaling: calcRefinement(0.9531, 0.1243, r), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Last Strike DMG',
+          value: [
+            { scaling: calcRefinement(1.3616, 0.1676, r), multiplier: Stats.ATK },
+            { scaling: calcRefinement(0.2269, 0.0296, r), multiplier: Stats.ATK },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
+  {
     id: '390080005',
     name: 'Bell-Borne Geochelone',
     icon: 'T_IconMonsterGoods_992_UI',
@@ -1672,6 +1866,455 @@ export const Echoes: IArtifact[] = [
           property: TalentProperty.ECHO,
         }
       )
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '60000915',
+    name: 'Nightmare: Inferno Rider',
+    icon: 'T_IconMonsterHead_YZ_33019_UI',
+    skill: 'T_MstSkil_325_UI',
+    sonata: [Sonata.FIRE],
+    desc: `Transform into the Inferno Rider to launch up to <span class="text-desc">3</span> consecutive slashes in a row, each slash dealing {{0}}%, {{1}}%, and {{1}}% <b class="text-wuwa-fusion">Fusion DMG</b> respectively.
+    <br />
+    <br />After the final hit, increase the current Resonator's <b class="text-wuwa-fusion">Fusion DMG</b> by <span class="text-desc">12%</span> and Basic Attack DMG by <span class="text-desc">12%</span> for <span class="text-desc">15</span>s.
+    <br />
+    <br />Long press the Echo Skill to transform into the Inferno Rider and enter Riding Mode. When exiting Riding Mode, deal {{1}}% <b class="text-wuwa-fusion">Fusion DMG</b> to enemies in front.`,
+    properties: [
+      { base: 174.23, growth: 22.72 },
+      { base: 203.26, growth: 26.52 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcRefinement(1.7423, 0.2272, r), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Stage 2 & 3 DMG',
+          value: [{ scaling: calcRefinement(2.0326, 0.2652, r), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Riding Mode DMG',
+          value: [{ scaling: calcRefinement(2.0326, 0.2652, r), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '310000370',
+    name: 'Galescourge Stalker',
+    icon: 'T_IconMonsterHead_31037_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.COORD],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '310000380',
+    name: 'Voltscourge Stalker',
+    icon: 'T_IconMonsterHead_31038_UI',
+    skill: '',
+    sonata: [Sonata.HAVOC_2, Sonata.COORD],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '310000390',
+    name: 'Frostscourge Stalker',
+    icon: 'T_IconMonsterHead_31039_UI',
+    skill: '',
+    sonata: [Sonata.LIGHT_2, Sonata.HAVOC_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '310000400',
+    name: 'Chop Chop: Headless',
+    icon: 'T_IconMonsterHead_31040_UI',
+    skill: '',
+    sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000410',
+    name: 'Chop Chop: Leftless',
+    icon: 'T_IconMonsterHead_31041_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.REGEN_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000420',
+    name: 'Chop Chop: Rightless',
+    icon: 'T_IconMonsterHead_31042_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.REGEN_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000430',
+    name: 'Fae Ignis',
+    icon: 'T_IconMonsterHead_31043_UI',
+    skill: '',
+    sonata: [Sonata.LIGHT_2, Sonata.HAVOC_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000440',
+    name: 'Nimbus Wraith',
+    icon: 'T_IconMonsterHead_31044_UI',
+    skill: '',
+    sonata: [Sonata.HAVOC_2, Sonata.SKILL],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000450',
+    name: 'Hocus Pocus',
+    icon: 'T_IconMonsterHead_31045_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.COORD],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000460',
+    name: 'Lottie Lost',
+    icon: 'T_IconMonsterHead_31046_UI',
+    skill: '',
+    sonata: [Sonata.LIGHT, Sonata.ATK, Sonata.REGEN],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000470',
+    name: 'Diggy Duggy',
+    icon: 'T_IconMonsterHead_31047_UI',
+    skill: '',
+    sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000480',
+    name: 'Chest Mimic',
+    icon: 'T_IconMonsterHead_31048_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.HAVOC_2, Sonata.COORD],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '320000220',
+    name: 'Questless Knight',
+    icon: 'T_IconMonsterHead_32022_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.HAVOC_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '320000230',
+    name: 'Diurnus Knight',
+    icon: 'T_IconMonsterHead_32023_UI',
+    skill: '',
+    sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '320000240',
+    name: 'Nocturnus Knight',
+    icon: 'T_IconMonsterHead_32024_UI',
+    skill: '',
+    sonata: [Sonata.HAVOC_2, Sonata.SKILL],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '320000250',
+    name: 'Abyssal Venator',
+    icon: 'T_IconMonsterHead_32025_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.COORD],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '320000260',
+    name: 'Abyssal Gladius',
+    icon: 'T_IconMonsterHead_32026_UI',
+    skill: '',
+    sonata: [Sonata.HAVOC_2, Sonata.REGEN_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '320000270',
+    name: 'Abyssal Mercator',
+    icon: 'T_IconMonsterHead_32027_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.LIGHT_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '320000280',
+    name: 'Chop Chop',
+    icon: 'T_IconMonsterHead_32028_UI',
+    skill: '',
+    sonata: [Sonata.SKILL, Sonata.REGEN_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '320000290',
+    name: 'Vitrium Dancer',
+    icon: 'T_IconMonsterHead_32029_UI',
+    skill: '',
+    sonata: [Sonata.LIGHT_2, Sonata.SKILL],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '60200032',
+    name: 'Cuddle Wuddle',
+    icon: 'T_IconMonsterHead_32030_UI',
+    skill: '',
+    sonata: [Sonata.FIRE, Sonata.THUNDER],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '330000110',
+    name: 'Lorelei',
+    icon: 'T_IconMonsterHead_33011_UI',
+    skill: '',
+    sonata: [Sonata.HAVOC_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '330000120',
+    name: 'Sentry Construct',
+    icon: 'T_IconMonsterHead_33012_UI',
+    skill: '',
+    sonata: [Sonata.SKILL],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '330000130',
+    name: 'Dragon of Dirge',
+    icon: 'T_IconMonsterHead_33013_UI',
+    skill: '',
+    sonata: [Sonata.REGEN_2],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '340000100',
+    name: 'Hecate',
+    icon: 'T_IconMonsterHead_34010_1_UI',
+    skill: '',
+    sonata: [Sonata.COORD],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '60000865',
+    name: 'Nightmare: Feilian Beringal',
+    icon: 'T_IconMonsterHead_YZ_33014_UI',
+    skill: 'T_Mstskil_996_UI',
+    sonata: [Sonata.WIND],
+    desc: `Transform into Feilian Beringal to perform a powerful kick. If the kick lands on an enemy, immediately perform a follow-up strike. The kick deals {{0}}% <b class="text-wuwa-aero">Aero DMG</b>, and the follow-up strike deals {{1}}% <b class="text-wuwa-aero">Aero DMG</b>.
+    <br />
+    <br />After the follow-up strike hits, the current character's <b class="text-wuwa-aero">Aero DMG</b> increases by <span class="text-desc">12%</span>, and the Heavy Attack DMG increases by <span class="text-desc">12%</span> for <span class="text-desc">15</span>s.`,
+    properties: [
+      { base: 116.64, growth: 71.73 },
+      { base: 203.67, growth: 26.56 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Kick DMG',
+          value: [{ scaling: calcRefinement(1.1664, 0.7173, r), multiplier: Stats.ATK }],
+          element: Element.AERO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Follow-Up DMG',
+          value: [{ scaling: calcRefinement(2.0367, 0.2656, r), multiplier: Stats.ATK }],
+          element: Element.AERO,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '60100715',
+    name: 'Alien: Diggy Duggy',
+    icon: 'T_IconMonsterGoods_SG_31047_UI',
+    skill: '',
+    sonata: [Sonata.LIGHT, Sonata.REGEN, Sonata.ATK],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '60100735',
+    name: 'Alien: Questless Knight',
+    icon: 'T_IconMonsterGoods_SG_32022_UI',
+    skill: '',
+    sonata: [Sonata.FIRE, Sonata.THUNDER],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '60100805',
+    name: 'Alien: Vitreum Dancer',
+    icon: 'T_IconMonsterGoods_SG_32029_UI',
+    skill: '',
+    sonata: [Sonata.FIRE, Sonata.THUNDER],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '60100835',
+    name: 'Alien: Sentry Construct',
+    icon: 'T_IconMonsterGoods_SG_33009_UI',
+    skill: '',
+    sonata: [Sonata.THUNDER],
+    desc: `N/A`,
+    properties: [],
+    bonus: (base, r) => {
       return base
     },
     cost: 4,

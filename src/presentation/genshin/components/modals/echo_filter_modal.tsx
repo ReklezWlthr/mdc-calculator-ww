@@ -88,9 +88,9 @@ export const EchoFilterModal = observer(
                           <TagSelectInput
                             values={params.cost}
                             options={[
-                              { name: 'Overlord/Calamity (4 Cost)', value: '4' },
-                              { name: 'Elite (3 Cost)', value: '3' },
-                              { name: 'Common (1 Cost)', value: '1' },
+                              { name: 'Overlord/Calamity (4 Cost)', value: 4 as any },
+                              { name: 'Elite (3 Cost)', value: 3 as any },
+                              { name: 'Common (1 Cost)', value: 1 as any },
                             ]}
                             onChange={(cost) => setParams({ cost })}
                             placeholder="Cost - Match All"
@@ -101,18 +101,19 @@ export const EchoFilterModal = observer(
                       <div className="grid grid-cols-4 mobile:grid-cols-1 gap-4 overflow-y-auto max-h-[450px] hideScrollbar rounded-lg py-1">
                         {_.map(filteredEchoes, (item) => (
                           <div
-                            className="flex gap-4 p-3 duration-200 border-2 rounded-lg cursor-pointer border-primary-lighter hover:bg-primary bg-primary-darker"
+                            className="flex w-full gap-4 p-3 duration-200 border-2 rounded-lg cursor-pointer border-primary-lighter hover:bg-primary bg-primary-darker"
                             onClick={() => onSelect(item?.id)}
+                            key={item?.id}
                           >
                             <img
                               src={getEchoImage(item?.icon)}
                               className="rounded-full ring-2 ring-gray ring-offset-[3px] ring-offset-primary-dark w-11 h-11"
                             />
-                            <div className="space-y-1">
-                              <p className="text-sm">{item?.name}</p>
+                            <div className="w-full space-y-1">
+                              <p className="w-full text-sm break-all line-clamp-1">{item?.name}</p>
                               <div className="flex gap-2">
                                 {_.map(item?.sonata, (s) => (
-                                  <img src={SonataIcons[s]} className="w-6 h-6" />
+                                  <img src={SonataIcons[s]} className="w-6 h-6" key={s} />
                                 ))}
                                 <div className="text-xs bg-primary-light px-1.5 py-0.5 rounded-md">
                                   {item?.cost} Cost

@@ -18,7 +18,7 @@ import { Element, ITeamChar, Stats } from '@src/domain/constant'
 import { getSetCount } from '../utils/data_format'
 import { isFlat } from '@src/presentation/genshin/components/modals/custom_modal'
 import { StatsObject, StatsObjectKeysT } from '@src/data/lib/stats/baseConstant'
-import { Echoes } from '@src/data/db/artifacts'
+import { Echoes, SonataDetail } from '@src/data/db/artifacts'
 
 interface CalculatorOptions {
   enabled?: boolean
@@ -147,12 +147,7 @@ export const useCalculator = ({
       if (initFormFunction) initFormFunction(f)
       else calculatorStore.initForm(f)
     }
-    return () => console.log(_.cloneDeep(calculatorStore.form))
   }, [team])
-
-  useEffect(() => {
-    console.log(_.cloneDeep(calculatorStore.form))
-  }, [calculatorStore.form])
 
   // =================
   //
@@ -256,6 +251,10 @@ export const useCalculator = ({
       if (bonus) {
         x = bonus(x, echoData?.quality - 1)
       }
+      const sonata = SonataDetail[echoData?.sonata]
+      if ((sonata?.[1] as any)?.callback) {
+        x = (sonata?.[1] as any)?.callback?.(x)
+      }
       return x
     })
     // Cleanup callbacks for buffs that should be applied last
@@ -303,7 +302,7 @@ export const useCalculator = ({
             ? artifactConditionals[index]?.content
             : [...artifactConditionals[index]?.teamContent, ...allyArtifact]
         ),
-        (item, index) => _.map(item, (inner: any) => ({ ...inner, index: inner.index >= 0 ? inner.index : index }))
+        (item, index) => _.map(item, (inner: any) => ({ ...inner, index: inner.owner >= 0 ? inner.owner : index }))
       ),
       (item) => item.id
     )
