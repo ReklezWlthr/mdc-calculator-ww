@@ -67,7 +67,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       level: intro,
       trace: `Intro Skill`,
       title: `Pero, Come Help`,
-      content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>. Shortly after casting Intro Skill, use Basic Attack to perform the 4th stage of Basic Attack.`,
+      content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>. Shortly after casting Intro Skill, use Basic Attack to perform Basic Attack Stage 4.`,
       image: 'SP_IconLuokekeQTE',
     },
     outro: {
@@ -355,12 +355,12 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       if (aForm.roccia_outro) {
         base.HAVOC_AMP.push({
           value: 0.2,
-          name: `Outro`,
+          name: `Outro Skill`,
           source: 'Roccia',
         })
         base.BASIC_AMP.push({
           value: 0.25,
-          name: `Outro`,
+          name: `Outro Skill`,
           source: 'Roccia',
         })
       }

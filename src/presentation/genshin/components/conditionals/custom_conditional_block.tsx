@@ -9,6 +9,7 @@ import { CustomModal } from '../modals/custom_modal'
 import { CustomRemoverT, CustomSetterT } from '@src/data/stores/setup_store'
 import { StatsObjectKeysT } from '@src/data/lib/stats/baseConstant'
 import { CheckboxInput } from '@src/presentation/components/inputs/checkbox'
+import { PresetModal } from '../modals/preset_modal'
 
 interface CustomConditionalBlockProps {
   index: number
@@ -31,6 +32,11 @@ export const CustomConditionalBlock = observer(
 
     const onOpenCustomModal = useCallback(
       () => modalStore.openModal(<CustomModal setCustomValue={setValue} />),
+      [setValue]
+    )
+
+    const onOpenPresetModal = useCallback(
+      () => modalStore.openModal(<PresetModal setCustomValue={setValue} />),
       [setValue]
     )
 
@@ -98,6 +104,13 @@ export const CustomConditionalBlock = observer(
           >
             <i className="text-xs fa-solid fa-plus" />
             <p className="text-xs">Add New Custom Modifier</p>
+          </div>
+          <div
+            className="flex items-center justify-center w-full h-6 gap-2 text-sm duration-200 rounded-lg cursor-pointer hover:bg-primary"
+            onClick={onOpenPresetModal}
+          >
+            <i className="text-xs fa-solid fa-plus" />
+            <p className="text-xs">Add New Modifier Preset</p>
           </div>
         </div>
       </div>

@@ -16,27 +16,20 @@ import { getEchoImage } from '@src/core/utils/fetcher'
 import { Sonata } from '@src/data/db/artifacts'
 
 export const SonataIcons = {
-  [Sonata.FIRE]: '/asset/icons/T_IconElementFire1.webp',
-  [Sonata.ICE]: '/asset/icons/T_IconElementIce1.webp',
-  [Sonata.THUNDER]: '/asset/icons/T_IconElementThunder1.webp',
-  [Sonata.WIND]: '/asset/icons/T_IconElementWind1.webp',
-  [Sonata.LIGHT]: '/asset/icons/T_IconElementLight1.webp',
-  [Sonata.HAVOC]: '/asset/icons/T_IconElementDark1.webp',
-  [Sonata.ATK]: '/asset/icons/T_Iconpropertyattacktag_UI.webp',
-  [Sonata.HEAL]: '/asset/icons/T_Iconpropertyhealingtag_UI.webp',
-  [Sonata.REGEN]: '/asset/icons/T_Iconpropertyswitchtag_UI.webp',
-}
-
-export const SonataColor = {
-  [Sonata.FIRE]: 'ring-wuwa-fusion',
-  [Sonata.ICE]: 'ring-wuwa-glacio',
-  [Sonata.THUNDER]: 'ring-wuwa-electro',
-  [Sonata.WIND]: 'ring-wuwa-aero',
-  [Sonata.LIGHT]: 'ring-wuwa-spectro',
-  [Sonata.HAVOC]: 'ring-wuwa-havoc',
-  [Sonata.ATK]: 'ring-rose-700',
-  [Sonata.HEAL]: 'ring-heal',
-  [Sonata.REGEN]: 'ring-gray',
+  [Sonata.FIRE]: '/asset/icons/T_IconElementAttriFire.webp',
+  [Sonata.ICE]: '/asset/icons/T_IconElementAttriIce.webp',
+  [Sonata.THUNDER]: '/asset/icons/T_IconElementAttriThunder.webp',
+  [Sonata.WIND]: '/asset/icons/T_IconElementAttriWind.webp',
+  [Sonata.LIGHT]: '/asset/icons/T_IconElementAttriLight.webp',
+  [Sonata.HAVOC]: '/asset/icons/T_IconElementAttriDark.webp',
+  [Sonata.ATK]: '/asset/icons/T_IconElementAttriAttack.webp',
+  [Sonata.HEAL]: '/asset/icons/T_IconElementAttriCure.webp',
+  [Sonata.REGEN]: '/asset/icons/T_IconElementAttriCloud.webp',
+  [Sonata.SKILL]: '/asset/icons/T_IconElementAttriIceUltimateSkill.webp',
+  [Sonata.LIGHT_2]: '/asset/icons/T_IconElementAttriLightError.webp',
+  [Sonata.HAVOC_2]: '/asset/icons/T_IconElementAttriDarkAssist.webp',
+  [Sonata.COORD]: '/asset/icons/T_IconElementAttriCooperate.webp',
+  [Sonata.REGEN_2]: '/asset/icons/T_IconElementAttriEnergy.webp',
 }
 
 interface ArtifactBlockProps {
@@ -186,13 +179,8 @@ export const ArtifactBlock = observer(({ canEdit = true, ...props }: ArtifactBlo
                 <div className="absolute flex items-center justify-center px-1.5 py-0.5 text-xs bg-opacity-75 rounded-full -top-2 -right-7 bg-primary">
                   <span className="mr-1 text-desc">{artifact?.cost}</span> Cost
                 </div>
-                <div
-                  className={classNames(
-                    'absolute flex items-center justify-center text-xs bg-opacity-75 rounded-full -bottom-2 -left-2 bg-primary ring-2',
-                    SonataColor[artifact?.sonata]
-                  )}
-                >
-                  <img src={SonataIcons[artifact?.sonata]} className="w-5 h-5" />
+                <div className="absolute -bottom-2.5 -left-2.5">
+                  <img src={SonataIcons[artifact?.sonata]} className="w-6 h-6" />
                 </div>
               </div>
               <div className="flex flex-col items-center w-full gap-1">

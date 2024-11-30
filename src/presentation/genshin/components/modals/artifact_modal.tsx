@@ -16,7 +16,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Controller, useFieldArray, useForm } from 'react-hook-form'
 import { getEchoImage } from '@src/core/utils/fetcher'
 import { ArtifactSetterT } from './artifact_list_modal'
-import { SonataColor, SonataIcons } from '../artifact_block'
+import { SonataIcons } from '../artifact_block'
 import { observer } from 'mobx-react-lite'
 import { EchoFilterModal } from './echo_filter_modal'
 
@@ -230,14 +230,7 @@ export const ArtifactModal = ({
               options={_.map(findEcho(values?.setId)?.sonata, (item) => ({
                 name: (
                   <div className="flex items-center gap-2 py-1 ml-1">
-                    <div
-                      className={classNames(
-                        'flex items-center justify-center text-xs bg-opacity-75 rounded-full bg-primary ring-2',
-                        SonataColor[item]
-                      )}
-                    >
-                      <img src={SonataIcons[item]} className="w-4 h-4" />
-                    </div>
+                    <img src={SonataIcons[item]} className="w-5 h-5" />
                     <p>{item}</p>
                   </div>
                 ),

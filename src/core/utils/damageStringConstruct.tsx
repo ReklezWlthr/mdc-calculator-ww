@@ -19,7 +19,7 @@ export const BaseElementColor = {
   [Element.AERO]: 'text-wuwa-aero',
   [Element.ELECTRO]: 'text-wuwa-electro',
   [Element.SPECTRO]: 'text-wuwa-spectro',
-  [Element.HAVOC]: 'text-wuwa-havoc'
+  [Element.HAVOC]: 'text-wuwa-havoc',
 }
 
 export const ElementColor = {
@@ -76,7 +76,7 @@ export const damageStringConstruct = (
       ? 0
       : TalentProperty.HEAL === scaling.property
       ? healing
-      : stats.getValue(Stats.ALL_DMG) + elementDmg + talentDmg)
+      : stats.getValue(Stats.ALL_DMG) + elementDmg + talentDmg + (scaling.coord ? stats.getValue(Stats.COORD_DMG) : 0))
   const amp = isDamage
     ? talentAmp +
       elementAmp +

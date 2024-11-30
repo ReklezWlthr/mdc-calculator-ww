@@ -7,7 +7,7 @@ import { getEmote, getWeaponImage } from '@src/core/utils/fetcher'
 import { findWeapon } from '@src/core/utils/finder'
 import { findMaxLevel, getSetCount } from '@src/core/utils/data_format'
 import { IBuild } from '@src/domain/constant'
-import { SonataColor, SonataIcons } from '../artifact_block'
+import { SonataIcons } from '../artifact_block'
 import classNames from 'classnames'
 
 export const BuildModalBlock = ({ build, button }: { build: IBuild; button: React.ReactNode }) => {
@@ -43,14 +43,7 @@ export const BuildModalBlock = ({ build, button }: { build: IBuild; button: Reac
               (value, key) =>
                 value >= 2 && (
                   <div className="relative">
-                    <div
-                      className={classNames(
-                        'flex items-center justify-center bg-opacity-75 rounded-full ring-2 w-6 h-6',
-                        SonataColor[key]
-                      )}
-                    >
-                      <img src={SonataIcons[key]} className="w-5 h-5" />
-                    </div>
+                    <img src={SonataIcons[key]} className="w-6 h-6" />
                     <div className="absolute flex items-center justify-center w-5 h-5 text-xs font-semibold rounded-full -bottom-1 -right-3 bg-primary-light">
                       {value < 5 ? (value < 2 ? 0 : 2) : 5}
                     </div>

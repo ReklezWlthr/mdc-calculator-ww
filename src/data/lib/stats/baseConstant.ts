@@ -105,6 +105,7 @@ export const baseStatsObject = {
   [Stats.LIB_DMG]: [] as StatsArray[],
   [Stats.DODGE_DMG]: [] as StatsArray[],
   [Stats.OUTRO_DMG]: [] as StatsArray[],
+  [Stats.COORD_DMG]: [] as StatsArray[],
 
   BASIC_MULT: [] as StatsArray[],
   HEAVY_MULT: [] as StatsArray[],

@@ -260,6 +260,7 @@ export enum Stats {
   DODGE_DMG = 'Dodge Counter DMG%',
   ATTR_DMG = 'Attribute DMG%',
   OUTRO_DMG = 'Outro DMG%',
+  COORD_DMG = 'Coordinated Attack DMG%',
 }
 
 export const StatIcons = {
@@ -339,8 +340,8 @@ export const MainStatOptions = [
   { name: Stats.CRIT_RATE, value: Stats.CRIT_RATE, img: StatIcons[Stats.CRIT_RATE] },
   { name: Stats.CRIT_DMG, value: Stats.CRIT_DMG, img: StatIcons[Stats.CRIT_DMG] },
   { name: Stats.HEAL, value: Stats.HEAL, img: StatIcons[Stats.HEAL] },
-  { name: Stats.FUSION_DMG, value: Stats.FUSION_DMG, img: StatIcons[Stats.FUSION_DMG] },
   { name: Stats.GLACIO_DMG, value: Stats.GLACIO_DMG, img: StatIcons[Stats.GLACIO_DMG] },
+  { name: Stats.FUSION_DMG, value: Stats.FUSION_DMG, img: StatIcons[Stats.FUSION_DMG] },
   { name: Stats.ELECTRO_DMG, value: Stats.ELECTRO_DMG, img: StatIcons[Stats.ELECTRO_DMG] },
   { name: Stats.AERO_DMG, value: Stats.AERO_DMG, img: StatIcons[Stats.AERO_DMG] },
   { name: Stats.SPECTRO_DMG, value: Stats.SPECTRO_DMG, img: StatIcons[Stats.SPECTRO_DMG] },

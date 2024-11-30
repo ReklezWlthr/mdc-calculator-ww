@@ -12,6 +12,11 @@ export enum Sonata {
   HEAL = 'Rejuvenating Glow',
   REGEN = 'Moonlit Clouds',
   ATK = 'Lingering Tunes',
+  SKILL = 'Heart of Determination',
+  LIGHT_2 = 'Eternal Light',
+  HAVOC_2 = `Night's Veil`,
+  COORD = `Heaven's Symphony`,
+  REGEN_2 = 'Fearless Waves',
 }
 
 export const SonataDetail = {
@@ -95,6 +100,54 @@ export const SonataDetail = {
     {
       desc: `While on the field, ATK increases by <span class="text-desc">5%</span> every <span class="text-desc">1.5</span>s. This effect stacks up to <span class="text-desc">4</span> times. Outro Skill DMG + <span class="text-desc">60%</span>.`,
       bonus: { stat: Stats.OUTRO_DMG, value: 0.6 },
+    },
+  ],
+  [Sonata.SKILL]: [
+    {
+      desc: `Resonance Skill DMG + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.SKILL_DMG, value: 0.1 },
+    },
+    {
+      desc: `After using Resonance Liberation, <b class="text-wuwa-glacio">Glacio DMG</b> + <span class="text-desc">30%</span>, and Resonance Skill DMG Bonus + <span class="text-desc">30%</span> for <span class="text-desc">6</span>s.`,
+    },
+  ],
+  [Sonata.LIGHT_2]: [
+    {
+      desc: `<b class="text-wuwa-spectro">Spectro DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.SPECTRO_DMG, value: 0.1 },
+    },
+    {
+      desc: `When the Resonator inflicts <b>Photoacoustic</b> to a monster, the Resonator's Crit. Rate is increased by <span class="text-desc">20%</span>, lasting for <span class="text-desc">15</span>s.
+      <br />When attacking a target with 10 stacks of <b>Photoacoustic</b>, the character's <b class="text-wuwa-spectro">Spectro DMG Bonus</b> is increased by <span class="text-desc">15%</span>, lasting for <span class="text-desc">15</span>s.`,
+    },
+  ],
+  [Sonata.HAVOC_2]: [
+    {
+      desc: `<b class="text-wuwa-havoc">Havoc DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.HAVOC_DMG, value: 0.1 },
+    },
+    {
+      desc: `When using Outro Skill, deals an additional <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">480%</span> of the Resonator's ATK, and <b class="text-wuwa-havoc">Havoc DMG Bonus</b> of the incoming Resonator is increased by <span class="text-desc">15%</span>, lasting for <span class="text-desc">15</span>s.`,
+    },
+  ],
+  [Sonata.COORD]: [
+    {
+      desc: `Energy Regen + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.ER, value: 0.1 },
+    },
+    {
+      desc: `Coordinated Attack DMG is increased by <span class="text-desc">80%</span>. When Coordinated Attack lands a Crit. hit, the active Resonator's ATK is increased by <span class="text-desc">20%</span> for <span class="text-desc">4</span>s.`,
+      bonus: { stat: Stats.COORD_DMG, value: 0.8 },
+    },
+  ],
+  [Sonata.REGEN_2]: [
+    {
+      desc: `Energy Regen + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.ER, value: 0.1 },
+    },
+    {
+      desc: `ATK + <span class="text-desc">15%</span>. If the equipping Resonator's Energy Regen reaches <span class="text-desc">250%</span>, <b>Attribute DMG Bonus</b> is increased by <span class="text-desc">30%</span>.`,
+      bonus: { stat: Stats.P_ATK, value: 0.15 },
     },
   ],
 }

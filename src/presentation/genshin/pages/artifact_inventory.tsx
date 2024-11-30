@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo } from 'react'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
 import classNames from 'classnames'
-import { ArtifactBlock, SonataColor, SonataIcons } from '../components/artifact_block'
+import { ArtifactBlock, SonataIcons } from '../components/artifact_block'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { useParams } from '@src/core/hooks/useParams'
 import { SelectTextInput } from '@src/presentation/components/inputs/select_text_input'
@@ -86,40 +86,35 @@ export const ArtifactInventory = observer(() => {
         </div>
         <div className="w-full space-y-1">
           <div className="flex items-center w-full gap-3 mobile:flex-col">
-            <div className="flex gap-2">
-              {_.map(Sonata, (item) => (
-                <TypeButton value={item} field="sonata">
-                  <div
-                    className={classNames(
-                      'flex items-center justify-center text-xs bg-opacity-75 w-5 h-5 rounded-full bg-primary ring-2',
-                      SonataColor[item]
-                    )}
-                  >
-                    <img src={SonataIcons[item]} className="w-5 h-5" />
-                  </div>
-                </TypeButton>
-              ))}
-            </div>
-            <div className="flex items-center w-full gap-3">
-              <div className="flex gap-2">
-                {_.map([4, 3, 1], (item) => (
-                  <TypeButton value={item} field="cost">
-                    <div className="flex items-center justify-center w-5 h-5 text-xs text-white bg-opacity-75 rounded-full bg-primary ring-2 ring-primary-light">
-                      {item}
-                    </div>
-                  </TypeButton>
-                ))}
-              </div>
-              <SelectTextInput
-                value={params.set}
-                options={_.map(_.orderBy(Echoes, 'name', 'asc'), (artifact) => ({
-                  name: artifact.name,
-                  value: artifact.id.toString(),
-                  img: getEchoImage(artifact.icon),
-                }))}
-                placeholder="Echo Name"
-                onChange={(value) => setParams({ set: value?.value })}
-                style="w-full"
+            <SelectTextInput
+              value={params.set}
+              options={_.map(_.orderBy(Echoes, 'name', 'asc'), (artifact) => ({
+                name: artifact.name,
+                value: artifact.id.toString(),
+                img: getEchoImage(artifact.icon),
+              }))}
+              placeholder="Echo Name"
+              onChange={(value) => setParams({ set: value?.value })}
+              style="w-full"
+            />
+            <div className="grid items-center w-full grid-cols-2 gap-3">
+              <TagSelectInput
+                values={params.sonata}
+                options={_.map(Sonata, (s) => ({ name: s, value: s, img: SonataIcons[s] }))}
+                onChange={(sonata) => setParams({ sonata })}
+                placeholder="Sonata - Match All"
+                onlyShowCount
+              />
+              <TagSelectInput
+                values={params.cost}
+                options={[
+                  { name: 'Overlord/Calamity (4 Cost)', value: '4' },
+                  { name: 'Elite (3 Cost)', value: '3' },
+                  { name: 'Common (1 Cost)', value: '1' },
+                ]}
+                onChange={(cost) => setParams({ cost })}
+                placeholder="Cost - Match All"
+                onlyShowCount
               />
             </div>
             <div className="grid items-center w-full grid-cols-2 gap-3">

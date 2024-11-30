@@ -19,4 +19,6 @@ export const getWeaponImage = (path: string) => (path ? `/asset/weapon/${path}` 
 
 export const getEchoImage = (path: string) => `/asset/echo/${path}.webp`
 
+export const getFoodImage = (path: string) => `/asset/food/${path}.webp`
+
 export const getTagsImage = (path: string) => `/asset/icons/${TagsImage[path]}.webp`

@@ -229,6 +229,7 @@ export const StatsModal = observer(
               <AttributeBlock stats={stats} stat="Res. Skill DMG Bonus" array={stats[Stats.SKILL_DMG]} />
               <AttributeBlock stats={stats} stat="Res. Liberation DMG Bonus" array={stats[Stats.LIB_DMG]} />
               <AttributeBlock stats={stats} stat="Outro Skill DMG Bonus" array={stats[Stats.OUTRO_DMG]} />
+              <AttributeBlock stats={stats} stat="Coordinated Attack DMG Bonus" array={stats[Stats.COORD_DMG]} />
             </div>
           </div>
         </Collapsible>

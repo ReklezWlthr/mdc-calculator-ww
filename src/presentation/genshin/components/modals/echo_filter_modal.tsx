@@ -5,9 +5,10 @@ import classNames from 'classnames'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
 import { Fragment, useState } from 'react'
-import { SonataColor, SonataIcons } from '../artifact_block'
+import { SonataIcons } from '../artifact_block'
 import { getEchoImage } from '@src/core/utils/fetcher'
 import { isSubsetOf } from '@src/core/utils/finder'
+import { TagSelectInput } from '@src/presentation/components/inputs/tag_select_input'
 
 export const EchoFilterModal = observer(
   ({ open, onClose, onSelect }: { open: boolean; onClose: () => void; onSelect: (id: string) => void }) => {
@@ -15,31 +16,6 @@ export const EchoFilterModal = observer(
       sonata: [],
       cost: [],
     })
-
-    const SonataIcon = ({ value }: { value: Sonata }) => {
-      const checked = _.includes(params.sonata, value)
-      return (
-        <div
-          className={classNames(
-            'w-8 h-8 duration-200 rounded-full cursor-pointer hover:bg-primary-lighter flex items-center justify-center',
-            {
-              'bg-primary-lighter': checked,
-            }
-          )}
-          onClick={() => setParams({ sonata: checked ? _.without(params.sonata, value) : [...params.sonata, value] })}
-          title={value}
-        >
-          <div
-            className={classNames(
-              'flex items-center justify-center text-xs bg-opacity-75 w-5 h-5 rounded-full bg-primary ring-2',
-              SonataColor[value]
-            )}
-          >
-            <img src={SonataIcons[value]} className="w-5 h-5" />
-          </div>
-        </div>
-      )
-    }
 
     const CostIcon = ({ value }: { value: number }) => {
       const checked = _.includes(params.cost, value)
@@ -99,28 +75,27 @@ export const EchoFilterModal = observer(
                 <div className="pointer-events-auto h-fit">
                   {open && (
                     <div className="w-[1100px] mobile:w-[400px] p-4 space-y-4 font-semibold text-white rounded-xl bg-primary-dark relative">
-                      <div className="flex items-center gap-3 mobile:flex-col">
-                        <div className="flex items-center gap-x-3 mobile:flex-col">
-                          <p className="shrink-0 text-primary-lighter">Sonata:</p>
-                          <div className="flex gap-2">
-                            <SonataIcon value={Sonata.ICE} />
-                            <SonataIcon value={Sonata.FIRE} />
-                            <SonataIcon value={Sonata.THUNDER} />
-                            <SonataIcon value={Sonata.WIND} />
-                            <SonataIcon value={Sonata.LIGHT} />
-                            <SonataIcon value={Sonata.HAVOC} />
-                            <SonataIcon value={Sonata.HEAL} />
-                            <SonataIcon value={Sonata.REGEN} />
-                            <SonataIcon value={Sonata.ATK} />
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <p className="pl-4 shrink-0 text-primary-lighter">Cost:</p>
-                          <div className="flex gap-2">
-                            <CostIcon value={4} />
-                            <CostIcon value={3} />
-                            <CostIcon value={1} />
-                          </div>
+                      <div className="flex items-center gap-4 mobile:w-full mobile:flex-col">
+                        <p>Select an Echo</p>
+                        <div className="grid items-center w-1/2 grid-cols-2 gap-4 mobile:w-full">
+                          <TagSelectInput
+                            values={params.sonata}
+                            options={_.map(Sonata, (s) => ({ name: s, value: s, img: SonataIcons[s] }))}
+                            onChange={(sonata) => setParams({ sonata })}
+                            placeholder="Sonata - Match All"
+                            onlyShowCount
+                          />
+                          <TagSelectInput
+                            values={params.cost}
+                            options={[
+                              { name: 'Overlord/Calamity (4 Cost)', value: '4' },
+                              { name: 'Elite (3 Cost)', value: '3' },
+                              { name: 'Common (1 Cost)', value: '1' },
+                            ]}
+                            onChange={(cost) => setParams({ cost })}
+                            placeholder="Cost - Match All"
+                            onlyShowCount
+                          />
                         </div>
                       </div>
                       <div className="grid grid-cols-4 mobile:grid-cols-1 gap-4 overflow-y-auto max-h-[450px] hideScrollbar rounded-lg py-1">
@@ -137,14 +112,7 @@ export const EchoFilterModal = observer(
                               <p className="text-sm">{item?.name}</p>
                               <div className="flex gap-2">
                                 {_.map(item?.sonata, (s) => (
-                                  <div
-                                    className={classNames(
-                                      'flex items-center justify-center text-xs bg-opacity-75 w-5 h-5 rounded-full bg-primary ring-2',
-                                      SonataColor[s]
-                                    )}
-                                  >
-                                    <img src={SonataIcons[s]} className="w-5 h-5" />
-                                  </div>
+                                  <img src={SonataIcons[s]} className="w-6 h-6" />
                                 ))}
                                 <div className="text-xs bg-primary-light px-1.5 py-0.5 rounded-md">
                                   {item?.cost} Cost
