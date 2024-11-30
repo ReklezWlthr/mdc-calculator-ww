@@ -110,7 +110,7 @@ export const CustomConditionalBlock = observer(
             onClick={onOpenPresetModal}
           >
             <i className="text-xs fa-solid fa-plus" />
-            <p className="text-xs">Add New Modifier Preset</p>
+            <p className="text-xs">Choose from Modifier Presets</p>
           </div>
         </div>
       </div>
