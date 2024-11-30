@@ -86,9 +86,11 @@ export class Team {
 
   setMemberInfo = (index: number, info: Partial<ITeamChar>) => {
     if (index < 0 || index > 4) return
+    console.log(_.cloneDeep(this.characters))
     const dupeIndex = _.findIndex(this.characters, ['cId', info?.cId])
-    const dupe = this.characters[dupeIndex]
+    const dupe = _.cloneDeep(this.characters[dupeIndex])
     const oldData = _.cloneDeep(this.characters[index]) || null
+    console.log(dupe, oldData)
     if (dupeIndex >= 0 && dupeIndex !== index) {
       this.characters[index] = dupe
       this.characters[dupeIndex] = oldData

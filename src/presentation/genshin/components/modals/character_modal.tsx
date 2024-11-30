@@ -123,8 +123,6 @@ export const CharacterModal = observer(({ index, setChar }: CharacterModalProps)
                 onClick={() => {
                   const build = _.find(buildStore.builds, (build) => build.isDefault && build.cId === item.id)
                   const char = _.find(charStore.characters, (char) => char.cId === item.id)
-                  if (item.weapon !== selectedWeaponData?.type && teamStore.characters[index]?.equipments?.weapon)
-                    teamStore.setWeapon(index, DefaultWeapon(item.weapon))
                   charSetter(index, {
                     cId: item.id,
                     ascension: char?.ascension || 0,
