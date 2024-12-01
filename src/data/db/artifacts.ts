@@ -232,7 +232,7 @@ export const Echoes: IArtifact[] = [
   {
     id: '60000895',
     name: 'Nightmare: Tempest Mephis',
-    icon: 'T_IconMonsterHead_YZ_33016_UI',
+    icon: 'T_IconMonsterHead_YZ_33017_UI',
     skill: 'T_MstSkil_Z_B3_UI',
     sonata: [Sonata.SKILL, Sonata.THUNDER],
     desc: ``,
@@ -1694,7 +1694,7 @@ export const Echoes: IArtifact[] = [
   {
     id: '60000885',
     name: 'Nightmare: Thundering Mephis',
-    icon: 'T_IconMonsterHead_YZ_33017_UI',
+    icon: 'T_IconMonsterHead_YZ_33016_UI',
     skill: 'T_MstSkil_Z_B3_1_UI',
     sonata: [Sonata.THUNDER],
     desc: ``,
