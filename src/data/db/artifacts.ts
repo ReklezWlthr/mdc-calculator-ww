@@ -1945,7 +1945,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '320000230',
@@ -1958,7 +1958,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '320000240',
@@ -1971,7 +1971,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '320000250',
@@ -1984,7 +1984,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '320000260',
@@ -1997,7 +1997,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '320000270',
@@ -2010,7 +2010,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '320000280',
@@ -2049,7 +2049,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '330000110',
@@ -2140,7 +2140,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '60100805',
@@ -2153,7 +2153,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 1,
+    cost: 3,
   },
   {
     id: '60100835',
