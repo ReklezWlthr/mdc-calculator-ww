@@ -212,12 +212,12 @@ export const calculateArtifact = (base: StatsObject, form: Record<string, any>, 
     base[Stats.SKILL_DMG].push({
       name: `5 Piece`,
       source: Sonata.SKILL,
-      value: 0.3,
+      value: 0.18 * form[Sonata.SKILL],
     })
     base[Stats.GLACIO_DMG].push({
       name: `5 Piece`,
       source: Sonata.SKILL,
-      value: 0.3,
+      value: 0.18 * form[Sonata.SKILL],
     })
   }
   if (form[Sonata.LIGHT_2 + '_1']) {

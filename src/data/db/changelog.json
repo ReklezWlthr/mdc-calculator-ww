@@ -5,7 +5,9 @@
     "desc": [
       "<b>Updated Resonators</b>: <span class=\"text-wuwa-glacio\">Carlotta</span> and <span class=\"text-wuwa-havoc\">Roccia</span>",
       "<b>Updated Weapons</b>: <span class=\"text-desc\">The Last Dance</span>, <span class=\"text-desc\">Tragicomedy</span>, and <span class=\"text-desc\">Call of the Abyss</span>",
+      "<b>5 New Weapons</b> of Rinascita Series",
       "<b class=\"text-yellow\">Updated</b>: Sonata Selection",
+      "<b class=\"text-yellow\">Updated</b>: New Sonata's Name and Effects",
       "<b class=\"text-yellow\">Added</b>: Buttons for Quick Config"
     ]
   },
@@ -32,7 +34,7 @@
     "desc": [
       "<b>Content Version</b>: 2.0 Beta",
       "<b>New Resonators</b>: <span class=\"text-wuwa-glacio\">Carlotta</span> and <span class=\"text-wuwa-havoc\">Roccia</span>",
-      "<b>3 New Weapons</b> (including <span class=\"text-desc\">Carlotta's</span> and <span class=\"text-desc\">Roccia's Signature</span>",
+      "<b>3 New Weapons</b> (including <span class=\"text-desc\">Carlotta's</span> and <span class=\"text-desc\">Roccia's Signature</span>)",
       "<b class=\"text-heal\">Fixed</b>: Base ATK of Weapon's Tooltips in modal were wrong",
       "<b class=\"text-yellow\">Added</b>: Ability type below icons for clarity"
     ]

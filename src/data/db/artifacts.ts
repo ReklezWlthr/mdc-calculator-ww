@@ -13,11 +13,11 @@ export enum Sonata {
   HEAL = 'Rejuvenating Glow',
   REGEN = 'Moonlit Clouds',
   ATK = 'Lingering Tunes',
-  SKILL = 'Heart of Determination',
-  LIGHT_2 = 'Eternal Light',
-  HAVOC_2 = `Night's Veil`,
-  COORD = `Heaven's Symphony`,
-  REGEN_2 = 'Fearless Waves',
+  SKILL = 'Frosty Resolve',
+  LIGHT_2 = 'Eternal Radiance',
+  HAVOC_2 = `Midnight Veil`,
+  COORD = `Empyrean Anthem`,
+  REGEN_2 = 'Tidebreaking Courage',
 }
 
 export const SonataDetail = {
@@ -105,11 +105,11 @@ export const SonataDetail = {
   ],
   [Sonata.SKILL]: [
     {
-      desc: `Resonance Skill DMG + <span class="text-desc">10%</span>.`,
-      bonus: { stat: Stats.SKILL_DMG, value: 0.1 },
+      desc: `Resonance Skill DMG + <span class="text-desc">12%</span>.`,
+      bonus: { stat: Stats.SKILL_DMG, value: 0.12 },
     },
     {
-      desc: `After using Resonance Liberation, <b class="text-wuwa-glacio">Glacio DMG</b> + <span class="text-desc">30%</span>, and Resonance Skill DMG Bonus + <span class="text-desc">30%</span> for <span class="text-desc">6</span>s.`,
+      desc: `Casting Resonance Liberation grants <span class="text-desc">18%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> and <span class="text-desc">18%</span> Resonance Skill DMG Bonus for <span class="text-desc">5</span>s. This effect stacks up to <span class="text-desc">2</span> times.`,
     },
   ],
   [Sonata.LIGHT_2]: [
@@ -118,8 +118,8 @@ export const SonataDetail = {
       bonus: { stat: Stats.SPECTRO_DMG, value: 0.1 },
     },
     {
-      desc: `When the Resonator inflicts <b>Photoacoustic</b> to a monster, the Resonator's Crit. Rate is increased by <span class="text-desc">20%</span>, lasting for <span class="text-desc">15</span>s.
-      <br />When attacking a target with <span class="text-desc">10</span> stacks of <b>Photoacoustic</b>, the character's <b class="text-wuwa-spectro">Spectro DMG Bonus</b> is increased by <span class="text-desc">15%</span>, lasting for <span class="text-desc">15</span>s.`,
+      desc: `Inflicting enemies with <b>Spectro Frazzle</b> increases Crit. Rate by <span class="text-desc">20%</span> for <span class="text-desc">15</span>s.
+      <br />Attacking enemies with <span class="text-desc">10</span> stacks of <b>Spectro Frazzle</b> grants <span class="text-desc">15%</span> <b class="text-wuwa-spectro">Spectro DMG Bonus</b> for <span class="text-desc">15</span>s.`,
     },
   ],
   [Sonata.HAVOC_2]: [
@@ -128,10 +128,10 @@ export const SonataDetail = {
       bonus: { stat: Stats.HAVOC_DMG, value: 0.1 },
     },
     {
-      desc: `When using Outro Skill, deals an additional <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">480%</span> of the Resonator's ATK, and <b class="text-wuwa-havoc">Havoc DMG Bonus</b> of the incoming Resonator is increased by <span class="text-desc">15%</span>, lasting for <span class="text-desc">15</span>s.`,
+      desc: `Triggering Outro Skill deals additional <span class="text-desc">480%</span> <b class="text-wuwa-havoc">Havoc DMG</b> to surrounding enemies, and grants the incoming Resonator <span class="text-desc">15%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> for <span class="text-desc">15</span>s.`,
       callback: (base: StatsObject) => {
         base.OUTRO_SCALING.push({
-          name: `Night's Veil Outro DMG`,
+          name: `Midnight Veil Outro DMG`,
           scale: Stats.ATK,
           value: [{ scaling: 4.8, multiplier: Stats.ATK }],
           element: Element.HAVOC,
@@ -147,7 +147,7 @@ export const SonataDetail = {
       bonus: { stat: Stats.ER, value: 0.1 },
     },
     {
-      desc: `Coordinated Attack DMG is increased by <span class="text-desc">80%</span>. When Coordinated Attack lands a Crit. hit, the active Resonator's ATK is increased by <span class="text-desc">20%</span> for <span class="text-desc">4</span>s.`,
+      desc: `Increase the Resonator's Coordinated Attack DMG by <span class="text-desc">80%</span>. Upon a critical hit of Coordinated Attack, increase the active Resonator's ATK by <span class="text-desc">20%</span> for <span class="text-desc">4</span>s.`,
       bonus: { stat: Stats.COORD_DMG, value: 0.8 },
     },
   ],
@@ -157,7 +157,7 @@ export const SonataDetail = {
       bonus: { stat: Stats.ER, value: 0.1 },
     },
     {
-      desc: `ATK + <span class="text-desc">15%</span>. If the equipping Resonator's Energy Regen reaches <span class="text-desc">250%</span>, <b>Attribute DMG Bonus</b> is increased by <span class="text-desc">30%</span>.`,
+      desc: `Increase the Resonator's ATK by <span class="text-desc">15%</span>. Reaching <span class="text-desc">250%</span> Energy Regen increases all <b>Attribute DMG Bonus</b> by <span class="text-desc">30%</span> for the Resonator.`,
       bonus: { stat: Stats.P_ATK, value: 0.15 },
       callback: (base: StatsObject) => {
         if (base.getValue(Stats.ER) >= 2.5) {
@@ -1789,7 +1789,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 3,
+    cost: 1,
   },
   {
     id: '310000380',
@@ -1802,7 +1802,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 3,
+    cost: 1,
   },
   {
     id: '310000390',
@@ -1815,7 +1815,7 @@ export const Echoes: IArtifact[] = [
     bonus: (base, r) => {
       return base
     },
-    cost: 3,
+    cost: 1,
   },
   {
     id: '310000400',

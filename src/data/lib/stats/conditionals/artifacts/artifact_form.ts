@@ -219,12 +219,14 @@ export const ArtifactForm = () => {
     },
     {
       trace: 'Sonata',
-      type: 'toggle',
+      type: 'number',
       text: Sonata.SKILL,
       title: Sonata.SKILL,
       content: SonataDetail[Sonata.SKILL][1].desc,
       show: true,
-      default: true,
+      default: 1,
+      min: 0,
+      max: 2,
       id: Sonata.SKILL,
     },
     {
