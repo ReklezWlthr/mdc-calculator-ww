@@ -29,7 +29,7 @@ export const AbilityBlock = observer(
     const charData = findCharacter(char.cId)
 
     return (
-      <div className='flex flex-col items-center'>
+      <div className="flex flex-col items-center">
         <p className="text-xl font-bold text-center text-white">
           <span className="mr-2 text-desc">✦</span>Forte<span className="ml-2 text-desc">✦</span>
         </p>
@@ -108,45 +108,49 @@ export const AbilityBlock = observer(
           <span className="mr-2 text-desc">✦</span>Stat Bonus<span className="ml-2 text-desc">✦</span>
         </p>
         <div className="px-2 space-y-8 max-w-[250px]">
-          {_.map(charData?.growth, (item, index) => (
-            <div className="relative grid items-center h-12 grid-cols-5 gap-3 text-gray">
-              {/* <div className="absolute w-[75%] border-t-4 border-primary left-1/2 -translate-x-1/2 bottom-2 -z-10" />
+          {_.size(charData?.growth) ? (
+            _.map(charData?.growth, (item, index) => (
+              <div className="relative grid items-center h-12 grid-cols-5 gap-3 text-gray">
+                {/* <div className="absolute w-[75%] border-t-4 border-primary left-1/2 -translate-x-1/2 bottom-2 -z-10" />
             <div className="absolute w-[75%] border-t-4 border-primary left-1/2 -translate-x-1/2 top-8 -z-10" /> */}
-              <div className="flex flex-col items-center">
-                <p className="text-xs font-bold text-center text-white">{item}</p>
-                <p className="text-xs">{toPercentage(StatBonusValue[item][0])}</p>
-              </div>
-              <div className="flex flex-col items-center justify-between h-full">
-                <CheckboxInput
-                  checked={char?.growth?.[0 + index * 4]}
-                  onClick={(v) => onChangeStats(0 + index * 4, v)}
-                />
-                <CheckboxInput
-                  checked={char?.growth?.[1 + index * 4]}
-                  onClick={(v) => onChangeStats(1 + index * 4, v)}
-                />
-              </div>
-              <div className="flex justify-center">
-                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary ring ring-primary-light ring-offset-2 ring-offset-primary-bg shrink-0">
-                  <img src={StatIcons[item]} className="w-6 h-6" />
+                <div className="flex flex-col items-center">
+                  <p className="text-xs font-bold text-center text-white">{item}</p>
+                  <p className="text-xs">{toPercentage(StatBonusValue[item][0])}</p>
+                </div>
+                <div className="flex flex-col items-center justify-between h-full">
+                  <CheckboxInput
+                    checked={char?.growth?.[0 + index * 4]}
+                    onClick={(v) => onChangeStats(0 + index * 4, v)}
+                  />
+                  <CheckboxInput
+                    checked={char?.growth?.[1 + index * 4]}
+                    onClick={(v) => onChangeStats(1 + index * 4, v)}
+                  />
+                </div>
+                <div className="flex justify-center">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary ring ring-primary-light ring-offset-2 ring-offset-primary-bg shrink-0">
+                    <img src={StatIcons[item]} className="w-6 h-6" />
+                  </div>
+                </div>
+                <div className="flex flex-col items-center justify-between h-full">
+                  <CheckboxInput
+                    checked={char?.growth?.[2 + index * 4]}
+                    onClick={(v) => onChangeStats(2 + index * 4, v)}
+                  />
+                  <CheckboxInput
+                    checked={char?.growth?.[3 + index * 4]}
+                    onClick={(v) => onChangeStats(3 + index * 4, v)}
+                  />
+                </div>
+                <div className="flex flex-col items-center">
+                  <p className="text-xs font-bold text-center text-white">{item}</p>
+                  <p className="text-xs">{toPercentage(StatBonusValue[item][1])}</p>
                 </div>
               </div>
-              <div className="flex flex-col items-center justify-between h-full">
-                <CheckboxInput
-                  checked={char?.growth?.[2 + index * 4]}
-                  onClick={(v) => onChangeStats(2 + index * 4, v)}
-                />
-                <CheckboxInput
-                  checked={char?.growth?.[3 + index * 4]}
-                  onClick={(v) => onChangeStats(3 + index * 4, v)}
-                />
-              </div>
-              <div className="flex flex-col items-center">
-                <p className="text-xs font-bold text-center text-white">{item}</p>
-                <p className="text-xs">{toPercentage(StatBonusValue[item][1])}</p>
-              </div>
-            </div>
-          ))}
+            ))
+          ) : (
+            <div className="w-[250px] text-center px-4 py-3 rounded-lg bg-primary-dark text-gray">No Data</div>
+          )}
         </div>
       </div>
     )

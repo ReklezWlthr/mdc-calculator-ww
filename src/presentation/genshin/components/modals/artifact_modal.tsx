@@ -178,70 +178,74 @@ export const ArtifactModal = ({
           onClick={() => setFilterOpen(true)}
         />
       </div>
-      <div className="flex items-center justify-center gap-3">
-        <p className="text-sm">Level</p>
-        <Controller
-          name="level"
-          control={control}
-          rules={{ required: true }}
-          render={({ field }) => (
-            <SelectInput
-              value={field.value.toString()}
-              options={_.map(Array(maxLevel + 1), (_, index) => ({
-                name: '+' + (maxLevel - index),
-                value: (maxLevel - index).toString(),
-              }))}
-              style="w-16"
-              onChange={(value) => field.onChange(_.parseInt(value))}
+      <div className="grid grid-cols-2 gap-3">
+        <div className="space-y-3">
+          <div className="flex items-center gap-3">
+            <p className="text-sm">Level</p>
+            <Controller
+              name="level"
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <SelectInput
+                  value={field.value.toString()}
+                  options={_.map(Array(maxLevel + 1), (_, index) => ({
+                    name: '+' + (maxLevel - index),
+                    value: (maxLevel - index).toString(),
+                  }))}
+                  style="w-16"
+                  onChange={(value) => field.onChange(_.parseInt(value))}
+                />
+              )}
             />
-          )}
-        />
-        <p className="text-sm">Grade</p>
-        <Controller
-          name="quality"
-          control={control}
-          rules={{ required: true }}
-          render={({ field }) => (
-            <SelectInput
-              value={field.value.toString()}
-              options={_.map(Array(4).fill(2), (item, index) => ({
-                name: <RarityGauge rarity={item + index} />,
-                value: (item + index).toString(),
-              })).reverse()}
-              style="w-[70px]"
-              onChange={(value) => {
-                const quality = _.parseInt(value)
-                field.onChange(quality)
-                if (values.level > 20 - (5 - quality) * 4) setValue('level', 20 - (5 - quality) * 4)
-              }}
+          </div>
+          <div className="flex items-center gap-3">
+            <p className="text-sm">Grade</p>
+            <Controller
+              name="quality"
+              control={control}
+              rules={{ required: true }}
+              render={({ field }) => (
+                <SelectInput
+                  value={field.value.toString()}
+                  options={_.map(Array(4).fill(2), (item, index) => ({
+                    name: <RarityGauge rarity={item + index} />,
+                    value: (item + index).toString(),
+                  })).reverse()}
+                  style="w-[70px]"
+                  onChange={(value) => {
+                    const quality = _.parseInt(value)
+                    field.onChange(quality)
+                    if (values.level > 20 - (5 - quality) * 4) setValue('level', 20 - (5 - quality) * 4)
+                  }}
+                />
+              )}
             />
-          )}
-        />
-      </div>
-      <div className="space-y-1">
-        <p className="text-xs">Sonata</p>
-        <Controller
-          name="sonata"
-          control={control}
-          rules={{ required: true }}
-          render={({ field }) => (
-            <SelectInput
-              value={field.value}
-              options={_.map(findEcho(values?.setId)?.sonata, (item) => ({
-                name: (
-                  <div className="flex items-center gap-2 py-1 ml-1">
-                    <img src={SonataIcons[item]} className="w-5 h-5" />
-                    <p>{item}</p>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-xs">Sonata</p>
+          <div className="flex gap-2">
+            {_.map(findEcho(values?.setId)?.sonata, (item) => (
+              <Controller
+                key={item}
+                name="sonata"
+                control={control}
+                rules={{ required: true }}
+                render={({ field }) => (
+                  <div
+                    className={classNames('duration-200 p-1 w-fit rounded-full cursor-pointer', {
+                      'bg-primary-light': field?.value === item,
+                    })}
+                    onClick={() => field.onChange(item)}
+                  >
+                    <img src={SonataIcons[item]} className="w-6 h-6" />
                   </div>
-                ),
-                value: item,
-              }))}
-              onChange={field.onChange}
-              placeholder="None"
-              disabled={!values.setId}
-            />
-          )}
-        />
+                )}
+              />
+            ))}
+          </div>
+        </div>
       </div>
       <div className="space-y-1">
         <p className="text-xs">Main Stat</p>

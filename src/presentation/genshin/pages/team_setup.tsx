@@ -126,6 +126,8 @@ export const TeamSetup = observer(() => {
 
   const [mobileTab, setMobileTab] = useState('forte')
 
+  const maxTalentLevel = _.max([1, (char.ascension - 1) * 2])
+
   return (
     <div className="w-full overflow-y-auto customScrollbar mobile:overflow-visible">
       <div className="grid grid-cols-12 tablet:grid-cols-12 justify-center w-full gap-5 p-5 tablet:max-w-[1100px] max-w-[1240px] mx-auto mobile:grid-cols-4">
@@ -186,6 +188,63 @@ export const TeamSetup = observer(() => {
             onChangeInherent={(key, value) => teamStore.setInherentSkill(selected, key as any, value)}
             onChangeStats={(index, value) => teamStore.setStatBonus(selected, index, value)}
           />
+          <div className="space-y-2">
+            <p className="font-bold text-center text-white">Quick Config</p>
+            <div className="px-3 py-2 text-xs text-center rounded-lg text-gray bg-primary-dark">
+              Click to quickly max out some parts of the Resonator
+              <p className="italic text-desc">
+                Note: Maxed Forte levels will not exceed the current Resonator's Ascension
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-2">
+              <PrimaryButton
+                title="Everything"
+                onClick={() => {
+                  teamStore.setMemberInfo(selected, { level: 90, ascension: 6 })
+                  teamStore.setWeapon(selected, { level: 90, ascension: 6 })
+                  teamStore.setMemberInfo(selected, {
+                    growth: Array(8).fill(true),
+                    i: { i1: true, i2: true },
+                    talents: {
+                      forte: maxTalentLevel,
+                      intro: maxTalentLevel,
+                      lib: maxTalentLevel,
+                      normal: maxTalentLevel,
+                      skill: maxTalentLevel,
+                    },
+                  })
+                }}
+                small
+              />
+              <PrimaryButton
+                title="Level"
+                onClick={() => teamStore.setMemberInfo(selected, { level: 90, ascension: 6 })}
+                small
+              />
+              <PrimaryButton
+                title="Weapon"
+                onClick={() => teamStore.setWeapon(selected, { level: 90, ascension: 6 })}
+                small
+              />
+              <PrimaryButton
+                title="Forte"
+                onClick={() =>
+                  teamStore.setMemberInfo(selected, {
+                    growth: Array(8).fill(true),
+                    i: { i1: true, i2: true },
+                    talents: {
+                      forte: maxTalentLevel,
+                      intro: maxTalentLevel,
+                      lib: maxTalentLevel,
+                      normal: maxTalentLevel,
+                      skill: maxTalentLevel,
+                    },
+                  })
+                }
+                small
+              />
+            </div>
+          </div>
         </div>
         <div
           className={classNames(
@@ -225,9 +284,7 @@ export const TeamSetup = observer(() => {
                 )}
               </div>
             </div>
-            <div className="mobile:hidden">
-              <ActionButtons />
-            </div>
+            <ActionButtons />
           </div>
         </div>
       </div>

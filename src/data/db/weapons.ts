@@ -624,7 +624,7 @@ export const Weapons = [
   {
     id: '21030016',
     image: '',
-    name: `Death and Dance`,
+    name: `The Last Dance`,
     rarity: 5,
     baseAtk: 40,
     ascStat: Stats.CRIT_DMG,
@@ -632,7 +632,7 @@ export const Weapons = [
     type: WeaponType.PISTOLS,
     desc: {
       name: 'Silent Eulogy',
-      detail: `Increases ATK by {{0}}%. When casting Resonance Skill or Resonance Liberation, increases Resonance Skill DMG by {{1}}%. This effect lasts for <span class="text-desc">5</span>s, refreshed on subsequent applications.`,
+      detail: `Increases ATK by {{0}}%. Every time Intro Skill or Resonance Liberation is cast, Resonance Skill DMG Bonus increases by {{1}}% for <span class="text-desc">5</span>s.`,
       properties: [
         { base: 12, growth: 3 },
         { base: 48, growth: 12 },
@@ -918,8 +918,8 @@ export const Weapons = [
     baseStat: 0.054,
     type: WeaponType.GAUNTLET,
     desc: {
-      name: `Fool's Song`,
-      detail: `Increases ATK by {{0}}%. When using Basic Attack or Resonance Skill, increases Resonance Skill DMG by {{1}}%. This effect lasts for <span class="text-desc">3</span>s, refreshed on subsequent applications.`,
+      name: `Fool's Parade`,
+      detail: `Increases ATK by {{0}}%. Every time Basic Attack or Intro Skill is cast, Heavy Attack DMG Bonus increases by {{1}}% for <span class="text-desc">3</span>s.`,
       properties: [
         { base: 12, growth: 3 },
         { base: 48, growth: 12 },
@@ -1132,15 +1132,15 @@ export const Weapons = [
   {
     id: '21050017',
     image: 'T_IconWeapon21050017_UI.webp',
-    name: 'Echoes of the Deep',
+    name: 'Call of the Abyss',
     rarity: 4,
     baseAtk: 27,
     ascStat: Stats.ER,
     baseStat: 0.1152,
     type: WeaponType.RECTIFIER,
     desc: {
-      name: 'Stargazing',
-      detail: `When Resonance Liberation is cast, increases Healing Bonus by {{0}}%, lasting for <span class="text-desc">10</span>s.`,
+      name: 'Pole of the Celestial Dome',
+      detail: `Casting Resonance Liberation increases the Resonator's Healing Bonus by {{0}}% for <span class="text-desc">15</span>s.`,
       properties: [{ base: 16, growth: 4 }],
     },
     beta: true,

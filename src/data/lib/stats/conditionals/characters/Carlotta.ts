@@ -16,160 +16,163 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       trace: `Normal Attack`,
       title: `Silent Execution`,
       content: `<b>Basic Attack</b>
-      <br />Carlotta fires up to 2 consecutive shots, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
+      <br />Perform up to 2 consecutive strikes, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
       <br />
-      <br /><b>Basic Attack: Necessary Means</b>
-      <br />When Carlotta has any amount of <b class="text-blue">Crystal</b>, Basic Attack is replaced with Basic Attack <b>Necessary Means</b>.
-      <br />Carlotta fires up to 3 consecutive shots, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. Each Basic Attack <b>Necessary Means</b> will consume <span class="text-desc">1</span> <b class="text-blue">Crystal</b>.
+      <br /><b>Basic Attack - Necessary Measures</b>
+      <br />With <b class="text-blue">Moldable Crystals</b>, Carlotta's Basic Attack is replaced with <b>Necessary Measures</b>.
+      <br />Chain up to 3 strikes, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. Each strike of <b>Necessary Measures</b> consumes <span class="text-desc">1</span> <b class="text-blue">Moldable Crystal</b>.
       <br />
       <br /><b>Heavy Attack</b>
-      <br />Consumes stamina to attack the target, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
+      <br />Deliver a charged attack at the target at the cost of STA, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
       <br />
-      <br /><b>Heavy Attack: Restrictive Strategy</b>
-      <br />When Keleta's <b class="text-yellow">Spirit Essence</b> is full, Heavy Attack is replaced with Heavy Attack <b>Restrictive Strategy</b>, consuming all <b class="text-yellow">Spirit Essence</b>, dealing <b class="text-wuwa-glacio">Glacio DMG</b>, and reducing the cooldown of Resonance Skill <b>Violent Aesthetics</b> by <span class="text-desc">6</span>s.
+      <br /><b>Heavy Attack - Containment Tactics</b>
+      <br />When Carlotta's <b class="text-yellow">Substance</b> is full, her Heavy Attack will be replaced with <b>Containment Tactics</b>: consume all <b class="text-yellow">Substance</b> to deal <b class="text-wuwa-glacio">Glacio DMG</b> and reduce the cooldown of Resonance Skill <b>Art of Violence</b> by <span class="text-desc">6</span>s.
       <br />
       <br /><b>Mid-Air Attack</b>
-      <br />Perform an attack while in mid-air at the cost of STA, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. After using Mid-Air Attack, use Basic Attack to cast Mid-Air Attack <b>Courtesy Greeting</b>.
+      <br />Perform a Plunging Attack at the cost of STA, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. Using Basic Attack shortly after the landing will cast <b>Customary Greetings</b>.
       <br />
-      <br /><b>Mid-Air Attack: Courtesy Greeting</b>
-      <br />Carlotta leaps backwards and attacks the target, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
+      <br /><b>Mid-Air Attack - Customary Greetings</b>
+      <br />Flip over the target and deliver a surprise shot, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.
       <br />
       <br /><b>Dodge Counter</b>
-      <br />Use Basic Attack after a successful Dodge to attack the target, dealing <b class="text-wuwa-glacio">Glacio DMG</b> and consuming <span class="text-desc">1</span> <b class="text-blue">Crystal</b>.`,
+      <br />Press Normal Attack shortly after a successful Dodge to deliver a riposte shot, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. This consumes <span class="text-desc">1</span> <b class="text-blue">Moldable Crystal</b>.`,
       image: 'SP_IconNorGun',
     },
     skill: {
       level: skill,
       trace: `Resonance Skill`,
-      title: `Violent Aesthetics`,
-      content: `Deals <b class="text-wuwa-glacio">Glacio DMG</b> and inflicts <b class="text-cyan-200">Iridescence</b> to the target. Shortly after casting Resonance Skill, Carlotta can use Resonance Skill again to cast Resonance Skill <b>Show Me Brilliance</b>.
+      title: `Art of Violence`,
+      content: `Deal <b class="text-wuwa-glacio">Glacio DMG</b> and inflict <b class="text-cyan-200">Dispersion</b> on the target. Press Resonance Skill again shortly after to cast <b>Chromatic Splendor</b>.
       <br />
-      <br /><b class="text-cyan-200">Iridescence</b>
-      <br />Unable to perform any actions for <span class="text-desc">1.5</span>s.
+      <br /><b class="text-cyan-200">Dispersion</b>
+      <br />Targets with <b class="text-cyan-200">Dispersion</b> are immobilized for <span class="text-desc">1.5</span>s.
       <br />
-      <br /><b>Resonance Skill: Show Me Brilliance</b>
-      <br />Carlotta consumes all of her current <b class="text-blue">Crystal</b> and deals <b class="text-wuwa-glacio">Glacio DMG</b> to the target.
-      <br />If Resonance Skill <b>Show Me Brilliance</b> is not cast within a certain period of time or if Carlotta is switched out, Resonance Skill will enter cooldown.`,
+      <br /><b>Chromatic Splendor</b>
+      <br />Consume all <b class="text-blue">Moldable Crystals</b> and deal <b class="text-wuwa-glacio">Glacio DMG</b>.
+      <br />The Resonance Skill enters cooldown after a while if <b>Chromatic Splendor</b> is not cast or Carlotta is switched off the field.`,
       image: 'SP_IconKelaitaB1',
     },
     lib: {
       level: lib,
       trace: `Resonance Liberation`,
-      title: `New Wave Era`,
-      content: `Deals <b class="text-wuwa-glacio">Glacio DMG</b> to all targets within range, inflicts <b class="text-violet-300">Dissociation</b> to the targets hit, and enters <b>Guns N' Roses</b> state. The DMG dealt is considered Resonance Skill DMG.
+      title: `Era of New Wave`,
+      content: `Deal <b class="text-wuwa-glacio">Glacio DMG</b> to all targets in an area (considered Resonance Skill DMG) and inflict <b class="text-violet-300">Deconstruction</b> on the targets hit, then activate <b>Twilight Tango</b>.
       <br />Can be cast in mid-air.
       <br />
-      <br /><b class="text-violet-300">Dissociation</b>
-      <br />Carlotta ignores <span class="text-desc">18%</span> of the target's DEF when dealing DMG to targets with <b class="text-violet-300">Dissociation</b>.
+      <br /><b class="text-violet-300">Deconstruction</b>
+      <br />Dealing DMG to targets inflicted with <b class="text-violet-300">Deconstruction</b> ignores <span class="text-desc">18%</span> of their DEF.
       <br />
-      <br /><b>Guns N' Roses</b>
-      <br />Using Basic Attack or Resonance Skill in <b>Guns N' Roses</b> state activates <b>Death Omen</b>. Each time <b>Death Omen</b> is cast, Carlotta gains <span class="text-desc">1</span> <b class="text-cyan-200">Mirror Shard</b>.
-      <br />Upon reaching <span class="text-desc">4</span> <b class="text-cyan-200">Mirror Shards</b>, use Basic Attack or Resonance Skill to cast <b>Death's End</b>.
-      <br />When entering or leaving <b>Guns N' Roses</b> state, Carlotta loses all of her <b class="text-yellow">Spirit Essence</b>.
-      <br />In <b>Guns N' Roses</b> state, Carlotta cannot use her Heavy Attack, Heavy Attack <b>Restrictive Strategy</b>, and Heavy Attack <b>End of the Road</b>.
+      <br /><b>Twilight Tango</b>
+      <br />While in <b>Twilight Tango</b>, press Normal Attack or Resonance Liberation to cast <b>Death Knell</b>.
+      <br />Each <b>Death Knell</b> grants <span class="text-desc">1</span> <b class="text-cyan-200">Meta Vector</b>.
+      <br />With <span class="text-desc">4</span> <b class="text-cyan-200">Meta Vectors</b>, press Normal Attack or Resonance Liberation to cast <b>Fatal Finale</b>.
+      <br />- All <b class="text-yellow">Substance</b> is removed when activating and ending <b>Twilight Tango</b>. Cannot perform Basic Attack <b>Necessary Measures</b>, Heavy Attack <b>Containment Tactics</b>, and Heavy Attack <b>Imminent Oblivion</b> while in <b>Twilight Tango</b>.
       <br />
-      <br /><b>Death Omen</b>
-      <br /><b>Death Omen</b> include <b>Death Omen: Burial</b> and <b>Death Omen: Eternal Slumber</b>.
-      <br />After using <b>Death Omen</b>, Carlotta can swiftly dash in the direction of the arrow keys.
+      <br /><b>Death Knell</b>
+      <br />Carlotta fires powerful shots with her musket and crystal shards, dealing <b class="text-wuwa-glacio">Glacio DMG</b>, considered Resonance Skill DMG.
+      <br />- Carlotta moves in the direction of the movement input with each shot of <b>Death Knell</b>.
       <br />
-      <br /><b>Death Omen: Burial</b>
+      <br /><b>Death Knell: Burial</b>
       <br />Carlotta attacks with her blunderbuss, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. The DMG dealt is considered Resonance Skill DMG.
       <br />
-      <br /><b>Death Omen: Eternal Slumber</b>
-      <br />Carlotta's blunderbuss shatters and turns into crystals to attack, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. The DMG dealt is considered Resonance Skill DMG.
-      <br />
-      <br /><b>Death's End</b>
-      <br />Deals <b class="text-wuwa-glacio">Glacio DMG</b> to the targets within certain range. The DMG dealt is considered Resonance Skill DMG.
+      <br /><b>Fatal Finale</b>
+      <br />Deal <b class="text-wuwa-glacio">Glacio DMG</b> to an area, considered Resonance Skill DMG.
+      <br />- <b>Twilight Tango</b> ends after casting <b>Fatal Finale</b>.
       `,
       image: 'SP_IconKelaitaC1',
     },
     forte: {
       level: forte,
       trace: `Forte Circuit`,
-      title: `Art Tour`,
-      content: `<b>Heavy Attack: End of the Road</b>
-      <br />Carlotta gains <b class="text-rose-200">Colored Crystal</b> every <span class="text-desc">22</span>s.
-      <br />When <b class="text-yellow">Spirit Essence</b> is full and <b class="text-rose-200">Colored Crystal</b> is activated, hold Basic Attack to consume all <b class="text-yellow">Spirit Essence</b> and cast Heavy Attack <b>End of the Road</b>. After casting Heavy Attack <b>End of the Road</b>, <b>Colored Crystal</b> enters cooldown.
-      <br />Deals <b class="text-wuwa-glacio">Glacio DMG</b> and reduces the cooldown of Resonance Skill <b>Violent Aesthetics</b> by <span class="text-desc">6</span>s.
+      title: `Lethal Repertoire`,
+      content: `<b>Heavy Attack - Imminent Oblivion</b>
+      <br />Carlotta activates <b class="text-rose-200">Tinted Crystal</b> every <span class="text-desc">22</span>s.
+      <br />When <b class="text-yellow">Substance</b> is full and <b class="text-rose-200">Tinted Crystal</b> is activated, hold Normal Attack to consume all <b class="text-yellow">Substance</b> and cast Heavy Attack <b>Imminent Oblivion</b>, after which <b class="text-rose-200">Tinted Crystal</b> enters cooldown.
+      <br />Deal <b class="text-wuwa-glacio">Glacio DMG</b> (considered Resonance Skill DMG) and reduce the cooldown of Resonance Skill <b>Art of Violence</b> by <span class="text-desc">6</span>s.
       <br />
-      <br /><b class="text-yellow">Spirit Essence</b>
-      <br />Carlotta can hold up to <span class="text-desc">120</span> <b class="text-desc">Spirit Essence</b>.
-      <br />Carlotta gains <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> when the Intro Skill <b>Winter's Lament</b> hits the target.
-      <br />Carlotta gains <span class="text-desc">10</span> <b class="text-yellow">Spirit Essence</b> for each <b class="text-blue">Crystal</b> consumed when the Resonance Skill <b>Show Me Brilliance</b> hits the target.
-      <br />Carlotta gains <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> when the Basic Attack <b>Necessary Means</b> on hit.
-      <br />Carlotta gains <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> when the Dodge Counter hits the target.
+      <br /><b class="text-yellow">Substance</b>
+      <br />Carlotta can hold up to <span class="text-desc">120</span> points of <b class="text-desc">Substance</b>.
+      <br />Cannot gain <b class="text-yellow">Substance</b> while in <b>Twilight Tango</b> triggered by Resonance Liberation.
+      <br />Restore <span class="text-desc">30</span> points of <b class="text-yellow">Substance</b> upon casting Intro Skill <b>Wintertime Aria</b>.
+      <br />Restore <span class="text-desc">10</span> points of <b class="text-yellow">Substance</b> for every <span class="text-desc">1</span> <b class="text-blue">Moldable Crystal</b> consumed upon casting Resonance Skill <b>Chromatic Splendor</b>.
+      <br />Restore <span class="text-desc">10</span> points of <b class="text-yellow">Substance</b> for every <span class="text-desc">1</span> <b class="text-blue">Moldable Crystal</b> consumed upon casting Basic Attack <b>Necessary Measures</b>.
+      <br />Restore <span class="text-desc">10</span> points of <b class="text-yellow">Substance</b> upon casting Dodge Counter.
       <br />
-      <br /><b class="text-blue">Crystals</b>
-      <br />Carlotta can hold up to <span class="text-desc">6</span> <b class="text-blue">Crystals</b>.
-      <br />Carlotta gains <span class="text-desc">3</span> <b class="text-blue">Crystals</b> when casting Basic Attack 2.
-      <br />Carlotta gains <span class="text-desc">3</span> <b class="text-blue">Crystals</b> when casting Heavy Attack.
-      <br />Carlotta gains <span class="text-desc">3</span> <b class="text-blue">Crystals</b> when casting Mid-Air Attack <b>Courtesy Greeting</b>.
-      <br />Carlotta gains <span class="text-desc">3</span> <b class="text-blue">Crystals</b> when casting Resonance Skill <b>Violent Aesthetics</b>.
-      <br />Carlotta gains <span class="text-desc">3</span> <b class="text-blue">Crystals</b> after a successful Dodge.
+      <br /><b class="text-blue">Moldable Crystal</b>
+      <br />Carlotta can hold up to <span class="text-desc">6</span> <b class="text-blue">Moldable Crystals</b>.
+      <br />Cannot gain <b class="text-blue">Moldable Crystal</b> while in <b>Twilight Tango</b> triggered by Resonance Liberation.
+      <br />Restore <span class="text-desc">3</span> <b class="text-blue">Moldable Crystals</b> upon casting Basic Attack Stage 2.
+      <br />Restore <span class="text-desc">3</span> <b class="text-blue">Moldable Crystals</b> upon casting Heavy Attack.
+      <br />Restore <span class="text-desc">3</span> <b class="text-blue">Moldable Crystals</b> upon casting Mid-Air Attack <b>Customary Greetings</b>.
+      <br />Restore <span class="text-desc">3</span> <b class="text-blue">Moldable Crystals</b> upon casting Intro Skill <b>Wintertime Aria</b>.
+      <br />Restore <span class="text-desc">3</span> <b class="text-blue">Moldable Crystals</b> upon casting Resonance Skill <b>Art of Violence</b>.
+      <br />Restore <span class="text-desc">3</span> <b class="text-blue">Moldable Crystals</b> upon a successful Dodge.
       `,
       image: 'SP_IconKelaitaY',
     },
     intro: {
       level: intro,
       trace: `Intro Skill`,
-      title: `Winter's Lament`,
+      title: `Wintertime Aria`,
       content: `Attack the target, dealing <b class="text-wuwa-glacio">Glacio DMG</b>.`,
       image: 'SP_IconKelaitaQTE',
     },
     outro: {
       trace: `Outro Skill`,
-      title: `Closing Speech`,
-      content: `Attack the target, dealing <b class="text-wuwa-glacio">Glacio DMG</b> equal to <span class="text-desc">772.01%</span> of Carlotta's ATK.`,
+      title: `Closing Remark`,
+      content: `Attack the target, dealing <b class="text-wuwa-glacio">Glacio DMG</b> equal to <span class="text-desc">794.2%</span> of Carlotta's ATK.`,
       image: 'SP_IconKelaitaT',
     },
     i1: {
       trace: `Inherent Skill 1`,
-      title: `Flawless Clarity`,
-      content: `Casting Resonance Skill <b>Show Me Brilliance</b> will cause Carlotta to perform a Mid-Air Attack within a certain period of time. Carlotta becomes immune to damage until the Mid-Air Attack deals DMG.
-      <br />Reduces STA cost of gliding by <span class="text-desc">20%</span>.`,
+      title: `Flawless Purity`,
+      content: `After casting Resonance Skill <b>Chromatic Splendor</b>, Carlotta can perform Mid-air Attacks while being immune to any DMG or interruptions before the Mid-air Attack deals DMG.
+      <br />When Carlotta is on the team, the Resoanator on the field's Flight STA cost is reduced by <span class="text-desc">-20%</span>.`,
       image: 'SP_IconKelaitaD1',
     },
     i2: {
       trace: `Inherent Skill 2`,
-      title: `Art First`,
-      content: `Intro Skill <b>Winter's Lament</b>, Resonance Skill <b>Show Me Brilliance</b>, Resonance Liberation <b>Death Omen</b>, and Heavy Attack <b>End of the Road</b> can now inflict <b class="text-violet-300">Dissociation</b> to the targets hit.`,
+      title: `Ars Gratia Artis`,
+      content: `Intro Skill <b>Wintertime Aria</b>, Resonance Skill <b>Chromatic Splendor</b>, Resonance Liberation <b>Death Knell</b>, and Heavy Attack <b>Imminent Oblivion</b> can inflict <b class="text-violet-300">Deconstruction</b>.`,
       image: 'SP_IconKelaitaD2',
     },
     c1: {
       trace: `Sequence Node 1`,
-      title: `N/A`,
-      content: `After the Intro Skill <b>Winter's Lament</b> is cast, <span class="text-desc">3</span> <b class="text-blue">Crystals</b> are restored, and Coletta's <b class="text-wuwa-glacio">Glacio DMG Bonus</b> is increased by <span class="text-desc">30%</span> for <span class="text-desc">15</span>s.
-      <br />When Resonance Skill <b>Show Me Brilliance</b> hits the target with <b class="text-cyan-200">Iridescence</b>, an additional <span class="text-desc">30</span> <b class="text-yellow">Spirit Essence</b> is restored.`,
+      title: `Beauty Blazes Brightest Before It Fades`,
+      content: `Casting Resonance Skill <b>Art of Violence</b> increases <b class="text-wuwa-glacio">Glacio DMG Bonus</b> by <span class="text-desc">25%</span> for <span class="text-desc">15</span>s.
+      <br />When Resonance Skill <b>Chromatic Splendor</b> hits a target inflicted with <b class="text-cyan-200">Dispersion</b>, Carlotta additionally restores <span class="text-desc">30</span> points of <b class="text-yellow">Substance</b>.
+      <br />Carlotta is immune to interruptions when casting Resonance Liberation <b>Death Knell</b>.`,
       image: 'T_IconDevice_KelaitaM1_UI',
     },
     c2: {
       trace: `Sequence Node 2`,
-      title: `N/A`,
-      content: `When Carlotta deals DMG to the target with <b class="text-violet-300">Dissociation</b>, her Crit. Rate is increased by <span class="text-desc">15%</span> and her Crit. DMG is increased by <span class="text-desc">20%</span>.`,
+      title: `Fallen Petals Give Life to New Blooms`,
+      content: `Dealing DMG to targets inflicted with <b class="text-violet-300">Deconstruction</b> increases the Crit. Rate of this attack by <span class="text-desc">25%</span>.`,
       image: 'T_IconDevice_KelaitaM2_UI',
     },
     c3: {
       trace: `Sequence Node 3`,
-      title: `N/A`,
-      content: `Outro Skill <b>Closing Speech</b> launches an additional attack, dealing <b class="text-wuwa-glacio">Glacio DMG</b> equal to <span class="text-desc">779.67%</span> of Carlotta's ATK. The DMG Multiplier of Heavy Attack <b>End of the Road</b> is increased by <span class="text-desc">80%</span>.`,
+      title: `Adelante, Cortado, Spinning in Grace`,
+      content: `Enable Outro Skill <b>Kaleidoscope Sparks</b>: Deal <span class="text-desc">1</span> additional strike at the end of Outro Skill <b>Closing Remark</b>, dealing <b class="text-wuwa-glacio">Glacio DMG</b> equal to <span class="text-desc">1032.18%</span> of Carlotta's ATK. The DMG Multiplier of Resonance Skill <b>Art of Violence</b> and Resonance Skill <b>Chromatic Splendor</b> is increased by <span class="text-desc">70%</span>.`,
       image: 'T_IconDevice_KelaitaM3_UI',
     },
     c4: {
       trace: `Sequence Node 4`,
-      title: `N/A`,
-      content: `After Heavy Attack, Heavy Attack <b>Restrictive Strategy</b>, or Heavy Attack <b>End of the Road</b> is cast, all nearby Resonators on the team gain <span class="text-desc">25%</span> Basic Attack DMG Bonus for <span class="text-desc">30</span>s.`,
+      title: `Yesterday's Raindrops Make Finest Wine`,
+      content: `Casting Heavy Attack, Heavy Attack <b>Containment Tactics</b>, and Heavy Attack <b>Imminent Oblivion</b> grants all team members <span class="text-desc">25%</span> Resonance Skill DMG Bonus for <span class="text-desc">30</span>s.`,
       image: 'T_IconDevice_KelaitaM4_UI',
     },
     c5: {
       trace: `Sequence Node 5`,
-      title: `N/A`,
-      content: `Resonance Skill <b>Violent Aesthetics</b> increases Carlotta's ATK by <span class="text-desc">10%</span> for <span class="text-desc">20</span>s.`,
+      title: `Toast to Past, Today, and Every Day to Come`,
+      content: `Casting Resonance Skill <b>Art of Violence</b> increases ATK by <span class="text-desc">10%</span> for <span class="text-desc">20</span>s.`,
       image: 'T_IconDevice_KelaitaM5_UI',
     },
     c6: {
       trace: `Sequence Node 6`,
-      title: `N/A`,
-      content: `The DMG Multiplier of <b>Death Omen: Burial</b> is increased by <span class="text-desc">109%</span>, and each <b>Death Omen: Eternal Slumber</b> fires <span class="text-desc">1</span> additional shot. Resonance Liberation <b>Death Omen: Burial</b> inflicts <b class="text-cyan-200">Iridescence</b> when it hits the target. The effect is cleared when taking DMG or after <span class="text-desc">1</span>s.`,
+      title: `As the Curtain Falls, I Remain What I Am`,
+      content: `Shots of Resonance Liberation <b>Death Knell</b> deal higher DMG and shoot out double the number of crystal shards, representing a total increase of <span class="text-desc">145.6%</span> in the DMG Multiplier.
+      <br />Shots of Resonance Liberation <b>Death Knell</b> inflict <b class="text-violet-300">Scattering</b> on targets when hit, during which the target is immobilized. This effect is removed after <span class="text-desc">1.5</span>s or when the target receives DMG.`,
       image: 'T_IconDevice_KelaitaM6_UI',
     },
   }
@@ -177,8 +180,8 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
   const content: IContent[] = [
     {
       type: 'toggle',
-      id: 'dissociation',
-      text: `Dissociation`,
+      id: 'Deconstruction',
+      text: `Deconstruction`,
       ...talents.lib,
       show: true,
       default: true,
@@ -195,7 +198,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     {
       type: 'toggle',
       id: 'carlotta_c4',
-      text: `S4 Basic ATK Bonus`,
+      text: `S4 Skill DMG Bonus`,
       ...talents.c4,
       show: c >= 4,
       default: true,
@@ -237,13 +240,13 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           property: TalentProperty.BA,
         },
         {
-          name: 'Basic Attack: Necessary Means 1 DMG',
+          name: 'Necessary Measures 1 DMG',
           value: [{ scaling: calcScaling(0.3315, normal), multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.BA,
         },
         {
-          name: 'Basic Attack: Necessary Means 2 DMG',
+          name: 'Necessary Measures 2 DMG',
           value: [
             { scaling: calcScaling(0.3022, normal), multiplier: Stats.ATK },
             { scaling: calcScaling(0.3694, normal), multiplier: Stats.ATK },
@@ -252,7 +255,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           property: TalentProperty.BA,
         },
         {
-          name: 'Basic Attack: Necessary Means 3 DMG',
+          name: 'Necessary Measures 3 DMG',
           value: [
             { scaling: calcScaling(0.7038, normal), multiplier: Stats.ATK },
             { scaling: calcScaling(0.1173, normal), multiplier: Stats.ATK, hits: 4 },
@@ -273,7 +276,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           property: TalentProperty.HA,
         },
         {
-          name: 'Heavy Attack: Courtesy Greeting DMG',
+          name: 'Customary Greetings DMG',
           value: [
             { scaling: calcScaling(0.1722, normal), multiplier: Stats.ATK, hits: 2 },
             { scaling: calcScaling(0.1722, normal), multiplier: Stats.ATK, hits: 2 },
@@ -292,9 +295,12 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           property: TalentProperty.BA,
         },
         {
-          name: 'Mid-Air Attack: Courtesy Greeting DMG',
+          name: 'Customary Greetings DMG',
           scale: Stats.ATK,
-          value: [{ scaling: calcScaling(0.5432, normal), multiplier: Stats.ATK }],
+          value: [
+            { scaling: calcScaling(0.5432, normal), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.6639, normal), multiplier: Stats.ATK },
+          ],
           element: Element.GLACIO,
           property: TalentProperty.BA,
         },
@@ -313,91 +319,87 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       ]
       base.SKILL_SCALING = [
         {
-          name: 'Violent Aesthetics DMG',
-          value: [{ scaling: calcScaling(0.4641, skill), multiplier: Stats.ATK, hits: 2 }],
+          name: 'Art of Violence DMG',
+          value: [{ scaling: calcScaling(0.7249, skill), multiplier: Stats.ATK, hits: 2 }],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
+          multiplier: c >= 3 ? 1.7 : 1,
         },
         {
-          name: 'Show Me Brilliance DMG',
+          name: 'Chromatic Splendor DMG',
           value: [
-            { scaling: calcScaling(0.363, skill), multiplier: Stats.ATK, hits: 2 },
-            { scaling: calcScaling(1.089, skill), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.567, skill), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(1.701, skill), multiplier: Stats.ATK },
           ],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
+          multiplier: c >= 3 ? 1.7 : 1,
         },
       ]
       base.LIB_SCALING = [
         {
-          name: 'New Wave Era DMG',
-          value: [{ scaling: calcScaling(3.832, lib), multiplier: Stats.ATK }],
+          name: 'Era of New Wave DMG',
+          value: [{ scaling: calcScaling(3.646, lib), multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
         },
         {
-          name: 'Death Omen: Burial DMG',
-          value: [{ scaling: calcScaling(1.7474, lib), multiplier: Stats.ATK }],
+          name: 'Death Knell DMG',
+          value: [
+            { scaling: calcScaling(1.6626, lib), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.1313, lib), multiplier: Stats.ATK, hits: 4 },
+          ],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
-          multiplier: c >= 6 ? 2.09 : 1,
+          multiplier: c >= 6 ? 2.456 : 1,
         },
         {
-          name: 'Death Omen: Eternal Slumber DMG',
-          value: [{ scaling: calcScaling(0.138, lib), multiplier: Stats.ATK, hits: 4 }],
-          element: Element.GLACIO,
-          property: TalentProperty.SKILL,
-        },
-        {
-          name: `Death's End DMG`,
-          value: [{ scaling: calcScaling(6.1312, lib), multiplier: Stats.ATK }],
+          name: `Fatal Finale DMG`,
+          value: [{ scaling: calcScaling(5.8336, lib), multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
         },
       ]
       base.FORTE_SCALING = [
         {
-          name: 'Heavy Attack: End of the Road DMG',
+          name: 'Imminent Oblivion DMG',
           value: [
             { scaling: calcScaling(0.3362, forte), multiplier: Stats.ATK, hits: 5 },
             { scaling: calcScaling(2.5211, forte), multiplier: Stats.ATK },
           ],
           element: Element.GLACIO,
-          property: TalentProperty.HA,
-          multiplier: c >= 3 ? 1.8 : 1,
+          property: TalentProperty.SKILL,
         },
       ]
       base.INTRO_SCALING = [
         {
-          name: `Winter's Lament DMG`,
-          value: [{ scaling: calcScaling(1.4, intro), multiplier: Stats.ATK }],
+          name: `Wintertime Aria DMG`,
+          value: [
+            { scaling: calcScaling(0.9, intro), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.3, intro), multiplier: Stats.ATK, hits: 2 },
+          ],
           element: Element.GLACIO,
           property: TalentProperty.INTRO,
         },
       ]
       base.OUTRO_SCALING = [
         {
-          name: `Closing Speech DMG`,
-          value: [{ scaling: 7.2201, multiplier: Stats.ATK }],
+          name: `Closing Remark DMG`,
+          value: [{ scaling: 7.942, multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.OUTRO,
         },
       ]
 
-      if (form.dissociation) {
+      if (form.Deconstruction) {
         base.DEF_PEN.push({
           value: 0.18,
-          name: `Dissociation`,
+          name: `Deconstruction`,
           source: 'Self',
         })
         if (c >= 2) {
           base[Stats.CRIT_RATE].push({
-            value: 0.15,
-            name: `Sequence Node 2`,
-            source: 'Self',
-          })
-          base[Stats.CRIT_DMG].push({
-            value: 0.2,
+            value: 0.25,
             name: `Sequence Node 2`,
             source: 'Self',
           })
@@ -405,21 +407,21 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       }
       if (form.carlotta_c1) {
         base[Stats.GLACIO_DMG].push({
-          value: 0.3,
+          value: 0.25,
           name: `Sequence Node 1`,
           source: 'Self',
         })
       }
       if (c >= 3) {
         base.OUTRO_SCALING.push({
-          name: `Additional Closing Speech DMG`,
-          value: [{ scaling: 7.7967, multiplier: Stats.ATK }],
+          name: `Kaleidoscope Sparks DMG`,
+          value: [{ scaling: 10.3218, multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.OUTRO,
         })
       }
       if (form.carlotta_c4) {
-        base[Stats.BASIC_DMG].push({
+        base[Stats.SKILL_DMG].push({
           value: 0.25,
           name: `Sequence Node 4`,
           source: 'Self',
@@ -437,7 +439,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     },
     preComputeShared: (own: StatsObject, base: StatsObject, form: Record<string, any>, aForm: Record<string, any>) => {
       if (form.carlotta_c4) {
-        base[Stats.BASIC_DMG].push({
+        base[Stats.SKILL_DMG].push({
           value: 0.25,
           name: `Sequence Node 4`,
           source: 'Self',

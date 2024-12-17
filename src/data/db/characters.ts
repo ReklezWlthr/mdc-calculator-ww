@@ -449,7 +449,7 @@ export const Characters = [
     element: Element.HAVOC,
     codeName: 'luokeke',
     order: '33',
-    tags: [Tags.CONCERTO, Tags.SKILL, Tags.TRACTION, Tags.HAVOC_AMP, Tags.BA_AMP],
+    tags: [Tags.CONCERTO, Tags.HA, Tags.TRACTION, Tags.HAVOC_AMP, Tags.BA_AMP],
     avatarAdjust: 'object-[0_80%]',
     growth: [Stats.P_ATK, Stats.CRIT_DMG],
     beta: true,

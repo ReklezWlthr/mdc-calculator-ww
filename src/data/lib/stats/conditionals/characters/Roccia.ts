@@ -14,120 +14,123 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     normal: {
       level: normal,
       trace: `Normal Attack`,
-      title: `Take It Easy, Pero`,
+      title: `Pero, Easy`,
       content: `<b>Basic Attack</b>
       <br />Perform up to 4 consecutive attacks, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />
       <br /><b>Heavy Attack</b>
-      <br />Perform a charged attack at the cost of STA, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
-      <br />If Roccia has <span class="text-desc">100</span> or more <b class="text-rose-400">Imagination</b>, she will be sent into the air and enter the <b>Flying Fantasy</b> state.
-      <br />Hold Normal Attack Button to continuously charge the attack. The longer the attack is charged, the more <b class="text-rose-400">Imagination</b> will be gained. When the Normal Attack Button is released, or upon reaching the maximum charge time, Heavy Attack will automatically be performed.
+      <br />Consume STA to attack, dealing <b class="text-wuwa-havoc">Havoc DMG</b>. Hitting a target with at least <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b> sends Roccia into mid-air and activates the <b>Beyond Imagination</b> state. The longer you hold the Basic Attack button, the more <b class="text-rose-400">Imagination</b> Roccia gains. Heavy Attack will be automatically cast when you release the Basic Attack button while charging or when <b class="text-rose-400">Imagination</b> reaches the max limit.
       <br />
-      <br /><b>Plunging Attack</b>
-      <br />Perform a Plunging Attack from mid-air at the cost of STA, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
+      <br /><b>Mid-Air Attack</b>
+      <br />Consume STA to perform a Plunging Attack, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />
       <br /><b>Dodge Counter</b>
-      <br />Use Basic Attack after a successful Dodge to attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.`,
+      <br />Use Basic Attack right after a successful Dodge to attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.`,
       image: 'SP_IconNorFist',
     },
     skill: {
       level: skill,
       trace: `Resonance Skill`,
-      title: `Complicated Design`,
-      content: `Roccia projects the thought storm, pulling in nearby targets, dealing <b class="text-wuwa-havoc">Havoc DMG</b>, and sending her into the air, entering the <b>Flying Fantasy</b> state.`,
+      title: `Acrobatic Trick`,
+      content: `Roccia projects her creativity into reality, pulling in nearby targets and dealing <b class="text-wuwa-havoc">Havoc DMG</b>. She then launches into mid-air and activates the <b>Beyond Imagination</b> state.`,
       image: 'SP_IconLuokekeB1',
     },
     lib: {
       level: lib,
       trace: `Resonance Liberation`,
-      title: `Impromptu Comedy, Begin!`,
-      content: `Roccia begins her impromptu comedy, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.`,
+      title: `Ta-da, Commedia Improvviso`,
+      content: `Roccia's improvised comedy begins! Deal <b class="text-wuwa-havoc">Havoc DMG</b>, considered Heavy Attack DMG.`,
       image: 'SP_IconLuokekeC1',
     },
     forte: {
       level: forte,
       trace: `Forte Circuit`,
-      title: `Self-Cultivation of a Prop Master`,
-      content: `<b>Flying Fantasy</b>
-      <br />While in <b>Flying Fantasy</b> state, if Roccia has <span class="text-desc">100</span> or more <b class="text-rose-400">Imagination</b>, use Basic Attack to consume <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b> and perform Basic Attack <b>Dream Comes True</b>.
-      <br />The <b>Flying Fantasy</b> state ends when Roccia lands.
+      title: `A Prop Master Prepares`,
+      content: `<b>Beyond Imagination</b>
+      <br />- When Roccia is in <b>Beyond Imagination</b> with at least <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b>, press the Basic Attack button to consume <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b> to cast Basic Attack <b>Real Fantasy</b>.
+      <br />- Roccia exits this state when she is not airborne or when switched off the field.
       <br />
-      <br /><b>Basic Attack: Dream Comes True</b>
-      <br />Perform up to 3 consecutive attacks, dealing <b class="text-wuwa-havoc">Havoc DMG</b>, considered as Resonance Skill DMG. After landing Stage 1 or 2 of Basic Attack <b>Dream Comes True</b>, Roccia will be sent into the air and enter the <b>Flying Fantasy</b> state.
-      <br />When using the Stage 3 of Basic Attack <b>Dream Comes True</b>, if Roccia's Crit. Rate is higher than <span class="text-desc">50%</span>, for every <span class="text-desc">0.1%</span> Crit. Rate, all party members gain <span class="text-desc">1</span> ATK for <span class="text-desc">30</span>s, up to <span class="text-desc">200</span> ATK.
+      <br /><b>Basic Attack - Real Fantasy</b>
+      <br />- Perform up to 3 consecutive attacks, dealing <b class="text-wuwa-havoc">Havoc DMG</b>, considered Heavy Attack DMG. When Roccia lands after Stage 1 and Stage 2 attacks with over <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b>, she will launch into mid-air and activate <b>Beyond Imagination</b>.
+      <br />- When Roccia's Crit. Rate reaches <span class="text-desc">50%</span>, every <span class="text-desc">0.1%</span> additional Crit. Rate increases all team members' ATK by <span class="text-desc">1</span> for <span class="text-desc">30</span>s upon casting Basic Attack <b>Real Fantasy</b> Stage 3. This effect can provide up to <span class="text-desc">200</span> additional ATK.
       <br />
       <br /><b class="text-rose-400">Imagination</b>
-      <br />Roccia can hold up to <span class="text-desc">300</span> <b class="text-rose-400">Imagination</b> and can restore <b class="text-rose-400">Imagination</b> in the following ways:.
-      <br />- When Normal Attack <b>Take It Easy, Pero</b> hits the target.
-      <br />- When Resonance Skill <b>Complicated Design</b>, or Intro Skill <b>Pero, Come Help</b> hits the target.
+      <br />Roccia can hold up to <span class="text-desc">300</span> <b class="text-rose-400">Imagination</b>.
+      <br />- Dealing DMG with Normal Attacks restores <b class="text-rose-400">Imagination</b>.
+      <br />- Hold Normal Attack to charge the next attack while restoring <b class="text-rose-400">Imagination</b>.
+      <br />- Casting Resonance Skill <b>Acrobatic Trick</b> restores <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b>.
+      <br />- Casting Intro Skill <b>Pero, Help</b> restores <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b>.
       `,
       image: 'SP_IconLuokekeY',
     },
     intro: {
       level: intro,
       trace: `Intro Skill`,
-      title: `Pero, Come Help`,
-      content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>. Shortly after casting Intro Skill, use Basic Attack to perform Basic Attack Stage 4.`,
+      title: `Pero, Help`,
+      content: `Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>. Use Basic Attack right after casting this skill to cast Basic Attack Stage 4.`,
       image: 'SP_IconLuokekeQTE',
     },
     outro: {
       trace: `Outro Skill`,
-      title: `Applause`,
-      content: `The incoming Resonator has their <b class="text-wuwa-havoc">Havoc DMG Amplified</b> by <span class="text-desc">20%</span> and Basic Attack DMG Amplified by <span class="text-desc">25%</span> for <span class="text-desc">14</span>s or until they are switched out.`,
+      title: `Applause, Please!`,
+      content: `The incoming Resonator has their <b class="text-wuwa-havoc">Havoc DMG Amplified</b> by <span class="text-desc">20%</span> and Basic Attack DMG Amplified by <span class="text-desc">25%</span> for <span class="text-desc">14</span>s or until the Resonator is switched out.`,
       image: 'SP_IconLuokekeT',
     },
     i1: {
       trace: `Inherent Skill 1`,
       title: `Immersive Performance`,
-      content: `After Resonance Skill or Heavy Attack is cast, Roccia's ATK is increased by <span class="text-desc">20%</span> for <span class="text-desc">12</span>s.`,
+      content: `Casting Resonance Skill or Heavy Attack increases Roccia's ATK by <span class="text-desc">20%</span> for <span class="text-desc">12</span>s.`,
       image: 'SP_IconLuokekeD1',
     },
     i2: {
       trace: `Inherent Skill 2`,
-      title: `Boundless Gravity Treasure Box`,
-      content: `After the Outro Skill is cast, the Gadget of the incoming Resonator will be replaced by the <b>Mystery Box</b>.
+      title: `Super Attractive Magic Box`,
+      content: `After casting Outro Skill, the Utility of the incoming Resonator is replaced with <b>Magic Box</b>.
       <br />
-      <br /><b>Mystery Box</b>
-      <br />- When used, <b>Mystery Box</b> will pull surrounding targets towards itself.
-      <br />- <b>Mystery Box</b> lasts for <span class="text-desc">14</span>s. If the Resonator is switched out, the <b>Mystery Box</b> will disappear.`,
+      <br /><b>Magic Box</b>
+      <br />- Upon use, pull nearby targets toward the <b>Magic Box</b>, dealing <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">20%*5</span> of the active Resonator's ATK, considered Utility DMG.
+      <br />- The <b>Magic Box</b> lasts for <span class="text-desc">14</span>s or until the Resonator is switched out.`,
       image: 'SP_IconLuokekeD2',
     },
     c1: {
       trace: `Sequence Node 1`,
-      title: `N/A`,
-      content: `When casting Resonance Skill <b>Complicated Design</b>, an additional <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b> and <span class="text-desc">10</span> Concerto Energy will be restored.`,
+      title: `When Shadows Engulf the Hull`,
+      content: `Casting Resonance Skill <b>Acrobatic Trick</b> grants an additional <span class="text-desc">100</span> <b class="text-rose-400">Imagination</b> and <span class="text-desc">10</span> Concerto Energy.
+      <br />Immune to interruptions when casting Basic Attack <b>Real Fantasy</b>.`,
       image: 'T_IconDevice_LuokekeM1_UI',
     },
     c2: {
       trace: `Sequence Node 2`,
-      title: `N/A`,
-      content: `After Normal Attack <b>Dream Comes True</b>, <b class="text-wuwa-havoc">Havoc DMG Bonus</b> of the all party members is increased by <span class="text-desc">10%</span>, stacking up to <span class="text-desc">3</span> times and lasting for <span class="text-desc">30</span> seconds. At maximum stacks, <b class="text-wuwa-havoc">Havoc DMG Bonus</b> of the all party members is increased by an additional <span class="text-desc">10%</span>, lasting for <span class="text-desc">30</span> seconds.`,
+      title: `When the Luceanite Gleams`,
+      content: `Casting Basic Attack <b>Real Fantasy</b> grants all team members <span class="text-desc">10%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> for <span class="text-desc">30</span>s, stacking up to <span class="text-desc">3</span> times. Upon reaching the max stacks, it grants all team members <span class="text-desc">10%</span> additional <b class="text-wuwa-havoc">Havoc DMG Bonus</b> for <span class="text-desc">30</span>s`,
       image: 'T_IconDevice_LuokekeM2_UI',
     },
     c3: {
       trace: `Sequence Node 3`,
-      title: `N/A`,
-      content: `After the Intro Skill <b>Pero, Come Help</b> is cast, Roccia's Crit. Rate is increased by <span class="text-desc">10%</span> and Crit. DMG is increased by <span class="text-desc">30%</span> for <span class="text-desc">15</span>s.`,
+      title: `When the Heart Sees and Hands Feel`,
+      content: `Casting Intro Skill <b>Pero, Help</b> increases Roccia's Crit. Rate by <span class="text-desc">10%</span> and Crit. DMG by <span class="text-desc">30%</span> for <span class="text-desc">15</span>s.`,
       image: 'T_IconDevice_LuokekeM3_UI',
     },
     c4: {
       trace: `Sequence Node 4`,
-      title: `N/A`,
-      content: `After Resonance Skill <b>Complicated Design</b> is cast, the DMG Multiplier of Basic Attack <b>Dream Comes True</b> is increased by <span class="text-desc">60%</span>, lasting for <span class="text-desc">12</span>s.`,
+      title: `When Wonders Gather in the Box`,
+      content: `Casting Resonance Skill <b>Acrobatic Trick</b> increases Basic Attack <b>Real Fantasy</b>'s DMG Multiplier by <span class="text-desc">60%</span> for <span class="text-desc">12</span>s.`,
       image: 'T_IconDevice_LuokekeM4_UI',
     },
     c5: {
       trace: `Sequence Node 5`,
-      title: `N/A`,
-      content: `The DMG Multiplier of Resonance Liberation <b>Impromptu Comedy, Begin!</b> is increased by <span class="text-desc">20%</span>. The DMG Multiplier of Heavy Attack is increased by <span class="text-desc">80%</span>`,
+      title: `When Dreams Are Reborn on Stage`,
+      content: `Increase Resonance Liberation <b>Ta-da, Commedia Improvviso</b>'s DMG Multiplier by <span class="text-desc">20%</span> and Heavy Attack's DMG Multiplier by <span class="text-desc">80%</span>`,
       image: 'T_IconDevice_LuokekeM5_UI',
     },
     c6: {
       trace: `Sequence Node 6`,
-      title: `N/A`,
-      content: `After Roccia casts Resonance Liberation <b>Impromptu Comedy, Begin!</b>, gain the following effects:
-      <br />- For <span class="text-desc">12</span>s, dealing DMG with Basic Attack <b>Dream Comes True</b> ignores <span class="text-desc">60%</span> of the target's DEF.
-      <br />- For <span class="text-desc">12</span>s, after Basic Attack <b>Dream Comes True</b> Stage 3 hits the target, Roccia can continuously cast <b>Constructed Reality</b>, dealing DMG equal to <span class="text-desc">100%</span> of Basic Attack <b>Dream Comes True</b> Stage 3, considered Resonance Skill DMG.`,
+      title: `When the Golden Wings Fly`,
+      content: `Casting Resonance Liberation <b>Ta-da, Commedia Improvviso</b> grants the following effects:
+      <br />- Within <span class="text-desc">12</span>s after casting Resonance Liberation, Basic Attack <b>Real Fantasy</b> ignores enemies' DEF by <span class="text-desc">60%</span>.
+      <br />- When Roccia lands after performing Basic Attack <b>Real Fantasy</b> Stage 3, she is launched in the air, entering the <b>Beyond Imagination</b> state. In this state, Basic Attack triggers Basic Attack <b>Reality Recreation</b>, dealing DMG equal to <span class="text-desc">100%</span> of Basic Attack <b>Real Fantasy</b> Stage 3 DMG, considered Heavy Attack DMG.
+      <br />- When Roccia lands after performing Basic Attack <b>Beyond Imagination</b>, she is launched in the air, entering <b>Reality Recreation</b> state. Basic Attack <b>Reality Recreation</b> is only available in the <b>Beyond Imagination</b> state.
+      <br />- Roccia is immune to interruptions while casting Basic Attack <b>Beyond Imagination</b>.`,
       image: 'T_IconDevice_LuokekeM6_UI',
     },
   }
@@ -136,7 +139,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     {
       type: 'toggle',
       id: 'roccia_forte',
-      text: `Dream Comes True ATK Bonus`,
+      text: `Real Fantasy ATK Bonus`,
       ...talents.forte,
       show: true,
       default: true,
@@ -170,7 +173,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     {
       type: 'toggle',
       id: 'roccia_c4',
-      text: `S4 Dream Comes True Multiplier`,
+      text: `S4 Real Fantasy Multiplier`,
       ...talents.c4,
       show: c >= 4,
       default: true,
@@ -178,7 +181,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     {
       type: 'toggle',
       id: 'roccia_c6',
-      text: `S6 Dream Comes True DEF PEN`,
+      text: `S6 Real Fantasy DEF PEN`,
       ...talents.c6,
       show: c >= 6,
       default: true,
@@ -195,7 +198,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       {
         type: 'toggle',
         id: 'roccia_outro',
-        text: `Outro: Applause`,
+        text: `Outro: Applause, Please!`,
         ...talents.outro,
         show: true,
         default: false,
@@ -262,7 +265,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       ]
       base.SKILL_SCALING = [
         {
-          name: 'Complicated Design DMG',
+          name: 'Acrobatic Trick DMG',
           value: [{ scaling: calcScaling(0.3092, skill), multiplier: Stats.ATK, hits: 8 }],
           element: Element.HAVOC,
           property: TalentProperty.SKILL,
@@ -270,42 +273,42 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       ]
       base.LIB_SCALING = [
         {
-          name: 'Impromptu Comedy, Begin! DMG',
+          name: 'Ta-da, Commedia Improvviso DMG',
           value: [{ scaling: calcScaling(1.4, lib), multiplier: Stats.ATK, hits: 3 }],
           element: Element.HAVOC,
-          property: TalentProperty.LIB,
+          property: TalentProperty.HA,
           multiplier: c >= 5 ? 1.2 : 1,
         },
       ]
       base.FORTE_SCALING = [
         {
-          name: 'Basic Attack: Dream Comes True 1 DMG',
+          name: 'Real Fantasy 1 DMG',
           value: [{ scaling: calcScaling(1.62, forte), multiplier: Stats.ATK }],
           element: Element.HAVOC,
-          property: TalentProperty.SKILL,
+          property: TalentProperty.HA,
           multiplier: form.roccia_c4 ? 1.6 : 1,
           defPen: form.roccia_c6 ? 0.6 : 0,
         },
         {
-          name: 'Basic Attack: Dream Comes True 2 DMG',
+          name: 'Real Fantasy 2 DMG',
           value: [{ scaling: calcScaling(1.71, forte), multiplier: Stats.ATK }],
           element: Element.HAVOC,
-          property: TalentProperty.SKILL,
+          property: TalentProperty.HA,
           multiplier: form.roccia_c4 ? 1.6 : 1,
           defPen: form.roccia_c6 ? 0.6 : 0,
         },
         {
-          name: 'Basic Attack: Dream Comes True 3 DMG',
-          value: [{ scaling: calcScaling(1.862, forte), multiplier: Stats.ATK }],
+          name: 'Real Fantasy 3 DMG',
+          value: [{ scaling: calcScaling(1.8, forte), multiplier: Stats.ATK }],
           element: Element.HAVOC,
-          property: TalentProperty.SKILL,
+          property: TalentProperty.HA,
           multiplier: form.roccia_c4 ? 1.6 : 1,
           defPen: form.roccia_c6 ? 0.6 : 0,
         },
       ]
       base.INTRO_SCALING = [
         {
-          name: `Immersive Performance DMG`,
+          name: `Pero, Help DMG`,
           value: [{ scaling: calcScaling(0.85, intro), multiplier: Stats.ATK }],
           element: Element.HAVOC,
           property: TalentProperty.INTRO,
@@ -340,8 +343,8 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       }
       if (c >= 6) {
         base.FORTE_SCALING.push({
-          name: 'Constructed Reality DMG',
-          value: [{ scaling: calcScaling(1.862, forte), multiplier: Stats.ATK }],
+          name: 'Reality Recreation DMG',
+          value: [{ scaling: calcScaling(1.8, forte), multiplier: Stats.ATK }],
           element: Element.HAVOC,
           property: TalentProperty.SKILL,
           multiplier: form.roccia_c4 ? 1.6 : 1,
@@ -380,13 +383,13 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       allBase: StatsObject[],
       allForm: Record<string, any>[]
     ) => {
+      const index = _.findIndex(team, (item) => item.cId === '1606')
       if (form.roccia_forte) {
-        const index = _.findIndex(team, (item) => item.cId === '1606')
         base.CALLBACK.push(function (x, a) {
           const cr = _.round(_.min([_.max([x.getValue(Stats.CRIT_RATE) * 100 - 50, 0]), 20]), 2) / 1e2
           _.forEach(a, (member, i) => {
             member[Stats.ATK].push({
-              name: `Dream Comes True`,
+              name: `Real Fantasy`,
               source: index === i ? 'Self' : 'Roccia',
               value: 1000 * cr,
               base: 1000,
@@ -396,6 +399,15 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           return x
         })
       }
+      _.forEach(allBase, (member, i) => {
+        if (i !== index)
+          member.SKILL_SCALING.push({
+            name: 'Magic Box DMG',
+            value: [{ scaling: 0.2, multiplier: Stats.ATK, hits: 5 }],
+            element: Element.HAVOC,
+            property: TalentProperty.UTIL,
+          })
+      })
       return base
     },
   }

@@ -2118,7 +2118,7 @@ export const Echoes: IArtifact[] = [
   },
   {
     id: '60100715',
-    name: 'Alien: Diggy Duggy',
+    name: 'Phantom: Diggy Duggy',
     icon: 'T_IconMonsterGoods_SG_31047_UI',
     skill: '',
     sonata: [Sonata.LIGHT, Sonata.REGEN, Sonata.ATK],
@@ -2131,7 +2131,7 @@ export const Echoes: IArtifact[] = [
   },
   {
     id: '60100735',
-    name: 'Alien: Questless Knight',
+    name: 'Phantom: Questless Knight',
     icon: 'T_IconMonsterGoods_SG_32022_UI',
     skill: '',
     sonata: [Sonata.FIRE, Sonata.THUNDER],
@@ -2144,7 +2144,7 @@ export const Echoes: IArtifact[] = [
   },
   {
     id: '60100805',
-    name: 'Alien: Vitreum Dancer',
+    name: 'Phantom: Vitreum Dancer',
     icon: 'T_IconMonsterGoods_SG_32029_UI',
     skill: '',
     sonata: [Sonata.FIRE, Sonata.THUNDER],
@@ -2157,7 +2157,7 @@ export const Echoes: IArtifact[] = [
   },
   {
     id: '60100835',
-    name: 'Alien: Sentry Construct',
+    name: 'Phantom: Sentry Construct',
     icon: 'T_IconMonsterGoods_SG_33009_UI',
     skill: '',
     sonata: [Sonata.THUNDER],

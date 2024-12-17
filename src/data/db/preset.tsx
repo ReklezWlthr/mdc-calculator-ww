@@ -348,7 +348,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Traditional Oven Pizza`,
+    name: `Pizza Classica`,
     order: 2,
     type: 'Dish',
     property: [{ stat: Stats.BASIC_DMG, value: 40, flat: false }],
@@ -357,7 +357,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Hot Sea Pear Pizza`,
+    name: `Pizza Tropicale`,
     order: 2,
     type: 'Dish',
     property: [{ stat: Stats.HEAL, value: 25, flat: false }],
@@ -366,7 +366,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Margherita Steak`,
+    name: `Steak Margherita`,
     order: 2,
     type: 'Dish',
     property: [{ stat: Stats.LIB_DMG, value: 40, flat: false }],
@@ -375,7 +375,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Green Bay Salad`,
+    name: `Laurus Salad`,
     order: 2,
     type: 'Dish',
     property: [{ stat: Stats.HEAL, value: 30, flat: false }],
@@ -384,7 +384,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Corona Honeydew`,
+    name: `Nectarwine`,
     order: 2,
     type: 'Dish',
     property: [{ stat: Stats.HEAL, value: 15, flat: false }],
@@ -393,7 +393,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Same Ol' Panini`,
+    name: `Daily Panini`,
     order: 2,
     type: 'Dish',
     property: [{ stat: Stats.ER, value: 25, flat: false }],
@@ -402,7 +402,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Strange-Flavored Crab`,
+    name: `Every Flavor Bell Crab`,
     order: 2,
     type: 'Dish',
     property: [
@@ -414,7 +414,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Baguette`,
+    name: `Baton Bread`,
     order: 2,
     type: 'Dish',
     property: [
@@ -426,7 +426,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Troupe Intensity`,
+    name: `Troupe Strength`,
     order: 2,
     type: 'Dish',
     property: [{ stat: Stats.CRIT_DMG, value: 25, flat: false }],
@@ -435,7 +435,7 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: `Grand Slam Pizza`,
+    name: `Gold Star Pizza`,
     order: 2,
     type: 'Dish',
     property: [{ stat: Stats.SKILL_DMG, value: 50, flat: false }],

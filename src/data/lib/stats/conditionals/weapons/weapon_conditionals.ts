@@ -931,7 +931,7 @@ export const WeaponConditionals: IWeaponContent[] = [
     id: '21040026',
     scaling: (base, form, r) => {
       if (form['21040026']) {
-        base[Stats.SKILL_DMG].push({
+        base[Stats.HEAVY_DMG].push({
           value: calcRefinement(0.48, 0.12, r),
           name: 'Passive',
           source: `Tragicomedy`,

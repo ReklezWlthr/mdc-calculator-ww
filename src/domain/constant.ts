@@ -186,6 +186,7 @@ export enum TalentProperty {
   SHIELD = 'Shield',
   COORD = 'Coordinated Attack',
   ECHO = 'Echo Skill',
+  UTIL = 'Utility Skill',
 }
 
 export enum Element {
