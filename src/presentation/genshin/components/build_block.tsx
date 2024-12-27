@@ -25,6 +25,8 @@ export const BuildBlock = observer(({ build, owner, onClick, selected }: BuildBl
   const codeName =
     characterData?.order === '4' && settingStore.settings.travelerGender === 'zhujue' ? '5' : characterData?.order
 
+  if (!char) return <></>
+  
   return (
     <div>
       <div
