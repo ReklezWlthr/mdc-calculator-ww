@@ -225,7 +225,7 @@ export const ArtifactModal = ({
         </div>
         <div className="space-y-1">
           <p className="text-xs">Sonata</p>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             {_.map(findEcho(values?.setId)?.sonata, (item) => (
               <Controller
                 key={item}

@@ -940,6 +940,101 @@ export const WeaponConditionals: IWeaponContent[] = [
       return base
     },
   },
+  {
+    type: 'number',
+    text: `Negative Effect ATK Bonus`,
+    show: true,
+    default: 1,
+    min: 1,
+    max: 4,
+    id: '21010094',
+    scaling: (base, form, r) => {
+      if (form['21010094']) {
+        base[Stats.P_ATK].push({
+          value: calcRefinement(0.04, 0.01, r) * form['21010094'],
+          name: 'Passive',
+          source: `Meditations on Mercy`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'number',
+    text: `Negative Effect ATK Bonus`,
+    show: true,
+    default: 1,
+    min: 1,
+    max: 4,
+    id: '21020094',
+    scaling: (base, form, r) => {
+      if (form['21020094']) {
+        base[Stats.P_ATK].push({
+          value: calcRefinement(0.04, 0.01, r) * form['21020094'],
+          name: 'Passive',
+          source: `Fables of Wisdom`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'number',
+    text: `Negative Effect ATK Bonus`,
+    show: true,
+    default: 1,
+    min: 1,
+    max: 4,
+    id: '21030094',
+    scaling: (base, form, r) => {
+      if (form['21030094']) {
+        base[Stats.P_ATK].push({
+          value: calcRefinement(0.04, 0.01, r) * form['21030094'],
+          name: 'Passive',
+          source: `Romance in Farewell`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'number',
+    text: `Negative Effect ATK Bonus`,
+    show: true,
+    default: 1,
+    min: 1,
+    max: 4,
+    id: '21040094',
+    scaling: (base, form, r) => {
+      if (form['21040094']) {
+        base[Stats.P_ATK].push({
+          value: calcRefinement(0.04, 0.01, r) * form['21040094'],
+          name: 'Passive',
+          source: `Legend of Drunken Hero`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'number',
+    text: `Negative Effect ATK Bonus`,
+    show: true,
+    default: 1,
+    min: 1,
+    max: 4,
+    id: '21050094',
+    scaling: (base, form, r) => {
+      if (form['21050094']) {
+        base[Stats.P_ATK].push({
+          value: calcRefinement(0.04, 0.01, r) * form['21050094'],
+          name: 'Passive',
+          source: `Waltz in Masquerade`,
+        })
+      }
+      return base
+    },
+  },
 ]
 
 export const WeaponAllyConditionals: IWeaponContent[] = [

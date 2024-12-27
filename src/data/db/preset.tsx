@@ -52,28 +52,28 @@ export const ModifierPresets = [
       </div>
     ),
   },
-  {
-    name: Sonata.COORD,
-    order: 1,
-    type: 'Sonata',
-    property: [{ stat: Stats.P_ATK, value: 20, flat: false }],
-    icon: (
-      <div className="flex items-center justify-center w-11 h-11">
-        <img src={SonataIcons[Sonata.COORD]} className="w-10 h-10" />
-      </div>
-    ),
-  },
-  {
-    name: Sonata.HAVOC_2,
-    order: 1,
-    type: 'Sonata',
-    property: [{ stat: Stats.HAVOC_DMG, value: 15, flat: false }],
-    icon: (
-      <div className="flex items-center justify-center w-11 h-11">
-        <img src={SonataIcons[Sonata.HAVOC_2]} className="w-10 h-10" />
-      </div>
-    ),
-  },
+  // {
+  //   name: Sonata.COORD,
+  //   order: 1,
+  //   type: 'Sonata',
+  //   property: [{ stat: Stats.P_ATK, value: 20, flat: false }],
+  //   icon: (
+  //     <div className="flex items-center justify-center w-11 h-11">
+  //       <img src={SonataIcons[Sonata.COORD]} className="w-10 h-10" />
+  //     </div>
+  //   ),
+  // },
+  // {
+  //   name: Sonata.HAVOC_2,
+  //   order: 1,
+  //   type: 'Sonata',
+  //   property: [{ stat: Stats.HAVOC_DMG, value: 15, flat: false }],
+  //   icon: (
+  //     <div className="flex items-center justify-center w-11 h-11">
+  //       <img src={SonataIcons[Sonata.HAVOC_2]} className="w-10 h-10" />
+  //     </div>
+  //   ),
+  // },
   {
     name: 'Jinzhou Skewers',
     order: 2,
@@ -347,102 +347,102 @@ export const ModifierPresets = [
       <img src={getFoodImage('T_IconCook_049_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
     ),
   },
-  {
-    name: `Pizza Classica`,
-    order: 2,
-    type: 'Dish',
-    property: [{ stat: Stats.BASIC_DMG, value: 40, flat: false }],
-    icon: (
-      <img src={getFoodImage('T_IconCook_054_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Pizza Tropicale`,
-    order: 2,
-    type: 'Dish',
-    property: [{ stat: Stats.HEAL, value: 25, flat: false }],
-    icon: (
-      <img src={getFoodImage('T_IconCook_055_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Steak Margherita`,
-    order: 2,
-    type: 'Dish',
-    property: [{ stat: Stats.LIB_DMG, value: 40, flat: false }],
-    icon: (
-      <img src={getFoodImage('T_IconCook_061_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Laurus Salad`,
-    order: 2,
-    type: 'Dish',
-    property: [{ stat: Stats.HEAL, value: 30, flat: false }],
-    icon: (
-      <img src={getFoodImage('T_IconCook_058_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Nectarwine`,
-    order: 2,
-    type: 'Dish',
-    property: [{ stat: Stats.HEAL, value: 15, flat: false }],
-    icon: (
-      <img src={getFoodImage('T_IconCook_063_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Daily Panini`,
-    order: 2,
-    type: 'Dish',
-    property: [{ stat: Stats.ER, value: 25, flat: false }],
-    icon: (
-      <img src={getFoodImage('T_IconCook_062_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Every Flavor Bell Crab`,
-    order: 2,
-    type: 'Dish',
-    property: [
-      { stat: Stats.P_ATK, value: 22, flat: false },
-      { stat: Stats.CRIT_RATE, value: 12, flat: false },
-    ],
-    icon: (
-      <img src={getFoodImage('T_IconCook_056_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Baton Bread`,
-    order: 2,
-    type: 'Dish',
-    property: [
-      { stat: Stats.HEAL, value: 5, flat: false },
-      { stat: Stats.P_HP, value: 10, flat: false },
-    ],
-    icon: (
-      <img src={getFoodImage('T_IconCook_057_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Troupe Strength`,
-    order: 2,
-    type: 'Dish',
-    property: [{ stat: Stats.CRIT_DMG, value: 25, flat: false }],
-    icon: (
-      <img src={getFoodImage('T_IconCook_059_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
-  {
-    name: `Gold Star Pizza`,
-    order: 2,
-    type: 'Dish',
-    property: [{ stat: Stats.SKILL_DMG, value: 50, flat: false }],
-    icon: (
-      <img src={getFoodImage('T_IconCook_068_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-    ),
-  },
+  // {
+  //   name: `Pizza Classica`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [{ stat: Stats.BASIC_DMG, value: 40, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_054_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Pizza Tropicale`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [{ stat: Stats.HEAL, value: 25, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_055_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Steak Margherita`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [{ stat: Stats.LIB_DMG, value: 40, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_061_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Laurus Salad`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [{ stat: Stats.HEAL, value: 30, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_058_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Nectarwine`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [{ stat: Stats.HEAL, value: 15, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_063_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Daily Panini`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [{ stat: Stats.ER, value: 25, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_062_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Every Flavor Bell Crab`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [
+  //     { stat: Stats.P_ATK, value: 22, flat: false },
+  //     { stat: Stats.CRIT_RATE, value: 12, flat: false },
+  //   ],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_056_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Baton Bread`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [
+  //     { stat: Stats.HEAL, value: 5, flat: false },
+  //     { stat: Stats.P_HP, value: 10, flat: false },
+  //   ],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_057_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Troupe Strength`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [{ stat: Stats.CRIT_DMG, value: 25, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_059_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
+  // {
+  //   name: `Gold Star Pizza`,
+  //   order: 2,
+  //   type: 'Dish',
+  //   property: [{ stat: Stats.SKILL_DMG, value: 50, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_068_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
   {
     name: `Liondance Companion`,
     order: 3,

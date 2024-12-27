@@ -86,12 +86,12 @@ export const IntroModal = observer(() => {
             </a>{' '}
             for the damage formula.
           </BulletPoint>
-          <BulletPoint color="text-desc">
+          {/* <BulletPoint color="text-desc">
             <a className="cursor-pointer focus:outline-none text-blue" href="https://ww.hakush.in/" target="_blank">
               Hakushi.in
             </a>{' '}
             for resonator and weapon details.
-          </BulletPoint>
+          </BulletPoint> */}
         </div>
       </div>
       <div className="p-3 space-y-1 text-sm transition-all duration-200 rounded-lg bg-primary-darker text-gray">
