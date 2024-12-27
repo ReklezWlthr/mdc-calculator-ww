@@ -1,7 +1,7 @@
 import { toPercentage } from '@src/core/utils/converter'
 import { getMainStat } from '@src/core/utils/data_format'
 import { findEcho } from '@src/core/utils/finder'
-import { Echoes } from '@src/data/db/artifacts'
+import { Echoes, Sonata } from '@src/data/db/artifacts'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { MainStat, SubStat, SubStatRange } from '@src/domain/artifact'
 import { Stats } from '@src/domain/constant'
@@ -102,13 +102,13 @@ export const ArtifactModal = ({
     }
   }, [aId])
 
-  const onChange = (v: string) => {
+  const onChange = (v: string, s: Sonata) => {
     setValue('setId', v)
     setValue('cost', findEcho(v)?.cost)
     if (!_.includes(MainStat[findEcho(v)?.cost], values.main)) {
       setValue('main', v ? Stats.P_HP : null)
     }
-    setValue('sonata', v ? _.head(findEcho(v)?.sonata) : null)
+    setValue('sonata', v ? s || _.head(findEcho(v)?.sonata) : null)
   }
 
   const onSubmit = handleSubmit(({ subList, ...rest }) => {
@@ -143,8 +143,8 @@ export const ArtifactModal = ({
       <EchoFilterModal
         open={filterOpen}
         onClose={() => setFilterOpen(false)}
-        onSelect={(v) => {
-          onChange(v)
+        onSelect={(v, s) => {
+          onChange(v, s)
           setFilterOpen(false)
         }}
       />
@@ -169,7 +169,7 @@ export const ArtifactModal = ({
                 ['asc']
               )}
               placeholder="Echo Name"
-              onChange={(value) => onChange(value?.value)}
+              onChange={(value) => onChange(value?.value, null)}
             />
           )}
         />

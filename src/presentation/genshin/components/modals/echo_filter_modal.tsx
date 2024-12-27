@@ -11,7 +11,15 @@ import { isSubsetOf } from '@src/core/utils/finder'
 import { TagSelectInput } from '@src/presentation/components/inputs/tag_select_input'
 
 export const EchoFilterModal = observer(
-  ({ open, onClose, onSelect }: { open: boolean; onClose: () => void; onSelect: (id: string) => void }) => {
+  ({
+    open,
+    onClose,
+    onSelect,
+  }: {
+    open: boolean
+    onClose: () => void
+    onSelect: (id: string, sonata: Sonata) => void
+  }) => {
     const { setParams, params } = useParams({
       sonata: [],
       cost: [],
@@ -102,7 +110,7 @@ export const EchoFilterModal = observer(
                         {_.map(filteredEchoes, (item) => (
                           <div
                             className="flex w-full gap-4 p-3 duration-200 border-2 rounded-lg cursor-pointer border-primary-lighter hover:bg-primary bg-primary-darker"
-                            onClick={() => onSelect(item?.id)}
+                            onClick={() => onSelect(item?.id, _.head(params.sonata) || null)}
                             key={item?.id}
                           >
                             <img
