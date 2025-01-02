@@ -45,7 +45,7 @@ const SRover = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       level: lib,
       trace: `Resonance Liberation`,
       title: `Echoing Orchestra`,
-      content: `Rover converges Spectro energy to assail the target area, detonating it after a short delay and dealing <b class="text-wuwa-spectro">Spectro DMG</b>.`,
+      content: `Rover converges Spectro energy to assail the target area, detonating it after a short delay and dealing <b class="text-wuwa-spectro">Spectro DMG</b> amd applying <span class="text-desc">6</span> stacks of <b class="text-wuwa-spectro">Spectro Frazzle</b>.`,
       image: 'SP_IconZhujueC1',
     },
     forte: {
@@ -53,8 +53,10 @@ const SRover = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       trace: `Forte Circuit`,
       title: `World in a Grain of Sand`,
       content: `<b>Resonance Skill: Resonating Spin</b>
-      <br />If <b class="text-amber-200">Diminutive Sound</b> exceeds <span class="text-desc">50</span> when Resonance Skill is used, Rover consumes <span class="text-desc">50</span> <b class="text-amber-200">Diminutive Sound</b> to cast <b>Resonating Spin</b>, dealing <b class="text-wuwa-spectro">Spectro DMG</b>, considered as Resonance Skill DMG.
+      <br />If <b class="text-amber-200">Diminutive Sound</b> exceeds <span class="text-desc">50</span> when Resonance Skill is used, Rover consumes <span class="text-desc">50</span> <b class="text-amber-200">Diminutive Sound</b> to cast <b>Resonating Spin</b>, dealing <b class="text-wuwa-spectro">Spectro DMG</b>. This DMG is considered as Resonance Skill DMG and applies <span class="text-desc">2</span> stack(s) of <b class="text-wuwa-spectro">Spectro Frazzle</b> along with <b>Shimmer</b>.
       <br />
+      <br /><b>Shimmer</b>
+      <br /><b>Shimmer</b> prevents <b class="text-wuwa-spectro">Spectro Frazzle</b> stacks from reducing over time.
       <br /><b>Basic Attack: Resonating Echoes</b>
       <br />After Resonance Skill <b>Resonating Spin</b> ends, Rover performs <b>Resonating Echoes</b> upon using Basic Attack button.
       <br />Launch attacks forward, dealing <b class="text-wuwa-spectro">Spectro DMG</b>, considered as Resonance Skill DMG.

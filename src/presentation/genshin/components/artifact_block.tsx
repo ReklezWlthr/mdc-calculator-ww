@@ -25,11 +25,11 @@ export const SonataIcons = {
   [Sonata.ATK]: '/asset/icons/T_IconElementAttriAttack.webp',
   [Sonata.HEAL]: '/asset/icons/T_IconElementAttriCure.webp',
   [Sonata.REGEN]: '/asset/icons/T_IconElementAttriCloud.webp',
-  // [Sonata.SKILL]: '/asset/icons/T_IconElementAttriIceUltimateSkill.webp',
-  // [Sonata.LIGHT_2]: '/asset/icons/T_IconElementAttriLightError.webp',
-  // [Sonata.HAVOC_2]: '/asset/icons/T_IconElementAttriDarkAssist.webp',
-  // [Sonata.COORD]: '/asset/icons/T_IconElementAttriCooperate.webp',
-  // [Sonata.REGEN_2]: '/asset/icons/T_IconElementAttriEnergy.webp',
+  [Sonata.SKILL]: '/asset/icons/T_IconElementAttriIceUltimateSkill.webp',
+  [Sonata.LIGHT_2]: '/asset/icons/T_IconElementAttriLightError.webp',
+  [Sonata.HAVOC_2]: '/asset/icons/T_IconElementAttriDarkAssist.webp',
+  [Sonata.COORD]: '/asset/icons/T_IconElementAttriCooperate.webp',
+  [Sonata.REGEN_2]: '/asset/icons/T_IconElementAttriEnergy.webp',
 }
 
 interface ArtifactBlockProps {

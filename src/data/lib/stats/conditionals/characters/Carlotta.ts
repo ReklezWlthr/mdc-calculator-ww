@@ -72,9 +72,6 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       <br />Carlotta fires powerful shots with her musket and crystal shards, dealing <b class="text-wuwa-glacio">Glacio DMG</b>, considered Resonance Skill DMG.
       <br />- Carlotta moves in the direction of the movement input with each shot of <b>Death Knell</b>.
       <br />
-      <br /><b>Death Knell: Burial</b>
-      <br />Carlotta attacks with her blunderbuss, dealing <b class="text-wuwa-glacio">Glacio DMG</b>. The DMG dealt is considered Resonance Skill DMG.
-      <br />
       <br /><b>Fatal Finale</b>
       <br />Deal <b class="text-wuwa-glacio">Glacio DMG</b> to an area, considered Resonance Skill DMG.
       <br />- <b>Twilight Tango</b> ends after casting <b>Fatal Finale</b>.

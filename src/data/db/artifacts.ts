@@ -13,11 +13,11 @@ export enum Sonata {
   HEAL = 'Rejuvenating Glow',
   REGEN = 'Moonlit Clouds',
   ATK = 'Lingering Tunes',
-  // SKILL = 'Frosty Resolve',
-  // LIGHT_2 = 'Eternal Radiance',
-  // HAVOC_2 = `Midnight Veil`,
-  // COORD = `Empyrean Anthem`,
-  // REGEN_2 = 'Tidebreaking Courage',
+  SKILL = 'Frosty Resolve',
+  LIGHT_2 = 'Eternal Radiance',
+  HAVOC_2 = `Midnight Veil`,
+  COORD = `Empyrean Anthem`,
+  REGEN_2 = 'Tidebreaking Courage',
 }
 
 export const SonataDetail = {
@@ -103,74 +103,74 @@ export const SonataDetail = {
       bonus: { stat: Stats.OUTRO_DMG, value: 0.6 },
     },
   ],
-  // [Sonata.SKILL]: [
-  //   {
-  //     desc: `Resonance Skill DMG + <span class="text-desc">12%</span>.`,
-  //     bonus: { stat: Stats.SKILL_DMG, value: 0.12 },
-  //   },
-  //   {
-  //     desc: `Casting Resonance Liberation grants <span class="text-desc">18%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> and <span class="text-desc">18%</span> Resonance Skill DMG Bonus for <span class="text-desc">5</span>s. This effect stacks up to <span class="text-desc">2</span> times.`,
-  //   },
-  // ],
-  // [Sonata.LIGHT_2]: [
-  //   {
-  //     desc: `<b class="text-wuwa-spectro">Spectro DMG</b> + <span class="text-desc">10%</span>.`,
-  //     bonus: { stat: Stats.SPECTRO_DMG, value: 0.1 },
-  //   },
-  //   {
-  //     desc: `Inflicting enemies with <b>Spectro Frazzle</b> increases Crit. Rate by <span class="text-desc">20%</span> for <span class="text-desc">15</span>s.
-  //     <br />Attacking enemies with <span class="text-desc">10</span> stacks of <b>Spectro Frazzle</b> grants <span class="text-desc">15%</span> <b class="text-wuwa-spectro">Spectro DMG Bonus</b> for <span class="text-desc">15</span>s.`,
-  //   },
-  // ],
-  // [Sonata.HAVOC_2]: [
-  //   {
-  //     desc: `<b class="text-wuwa-havoc">Havoc DMG</b> + <span class="text-desc">10%</span>.`,
-  //     bonus: { stat: Stats.HAVOC_DMG, value: 0.1 },
-  //   },
-  //   {
-  //     desc: `Triggering Outro Skill deals additional <span class="text-desc">480%</span> <b class="text-wuwa-havoc">Havoc DMG</b> to surrounding enemies, and grants the incoming Resonator <span class="text-desc">15%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> for <span class="text-desc">15</span>s.`,
-  //     callback: (base: StatsObject) => {
-  //       base.OUTRO_SCALING.push({
-  //         name: `Midnight Veil Outro DMG`,
-  //         scale: Stats.ATK,
-  //         value: [{ scaling: 4.8, multiplier: Stats.ATK }],
-  //         element: Element.HAVOC,
-  //         property: TalentProperty.OUTRO,
-  //       })
-  //       return base
-  //     },
-  //   },
-  // ],
-  // [Sonata.COORD]: [
-  //   {
-  //     desc: `Energy Regen + <span class="text-desc">10%</span>.`,
-  //     bonus: { stat: Stats.ER, value: 0.1 },
-  //   },
-  //   {
-  //     desc: `Increase the Resonator's Coordinated Attack DMG by <span class="text-desc">80%</span>. Upon a critical hit of Coordinated Attack, increase the active Resonator's ATK by <span class="text-desc">20%</span> for <span class="text-desc">4</span>s.`,
-  //     bonus: { stat: Stats.COORD_DMG, value: 0.8 },
-  //   },
-  // ],
-  // [Sonata.REGEN_2]: [
-  //   {
-  //     desc: `Energy Regen + <span class="text-desc">10%</span>.`,
-  //     bonus: { stat: Stats.ER, value: 0.1 },
-  //   },
-  //   {
-  //     desc: `Increase the Resonator's ATK by <span class="text-desc">15%</span>. Reaching <span class="text-desc">250%</span> Energy Regen increases all <b>Attribute DMG Bonus</b> by <span class="text-desc">30%</span> for the Resonator.`,
-  //     bonus: { stat: Stats.P_ATK, value: 0.15 },
-  //     callback: (base: StatsObject) => {
-  //       if (base.getValue(Stats.ER) >= 2.5) {
-  //         base[Stats.ATTR_DMG].push({
-  //           value: 0.3,
-  //           name: '5 Piece',
-  //           source: Sonata.REGEN_2,
-  //         })
-  //       }
-  //       return base
-  //     },
-  //   },
-  // ],
+  [Sonata.SKILL]: [
+    {
+      desc: `Resonance Skill DMG + <span class="text-desc">12%</span>.`,
+      bonus: { stat: Stats.SKILL_DMG, value: 0.12 },
+    },
+    {
+      desc: `Casting Resonance Liberation grants <span class="text-desc">18%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> and <span class="text-desc">18%</span> Resonance Skill DMG Bonus for <span class="text-desc">5</span>s. This effect stacks up to <span class="text-desc">2</span> times.`,
+    },
+  ],
+  [Sonata.LIGHT_2]: [
+    {
+      desc: `<b class="text-wuwa-spectro">Spectro DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.SPECTRO_DMG, value: 0.1 },
+    },
+    {
+      desc: `Inflicting enemies with <b class="text-wuwa-spectro">Spectro Frazzle</b> increases Crit. Rate by <span class="text-desc">20%</span> for <span class="text-desc">15</span>s.
+      <br />Attacking enemies with <span class="text-desc">10</span> stacks of <b class="text-wuwa-spectro">Spectro Frazzle</b> grants <span class="text-desc">15%</span> <b class="text-wuwa-spectro">Spectro DMG Bonus</b> for <span class="text-desc">15</span>s.`,
+    },
+  ],
+  [Sonata.HAVOC_2]: [
+    {
+      desc: `<b class="text-wuwa-havoc">Havoc DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.HAVOC_DMG, value: 0.1 },
+    },
+    {
+      desc: `Triggering Outro Skill deals additional <span class="text-desc">480%</span> <b class="text-wuwa-havoc">Havoc DMG</b> to surrounding enemies, and grants the incoming Resonator <span class="text-desc">15%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> for <span class="text-desc">15</span>s.`,
+      callback: (base: StatsObject) => {
+        base.OUTRO_SCALING.push({
+          name: `Midnight Veil Outro DMG`,
+          scale: Stats.ATK,
+          value: [{ scaling: 4.8, multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.OUTRO,
+        })
+        return base
+      },
+    },
+  ],
+  [Sonata.COORD]: [
+    {
+      desc: `Energy Regen + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.ER, value: 0.1 },
+    },
+    {
+      desc: `Increase the Resonator's Coordinated Attack DMG by <span class="text-desc">80%</span>. Upon a critical hit of Coordinated Attack, increase the active Resonator's ATK by <span class="text-desc">20%</span> for <span class="text-desc">4</span>s.`,
+      bonus: { stat: Stats.COORD_DMG, value: 0.8 },
+    },
+  ],
+  [Sonata.REGEN_2]: [
+    {
+      desc: `Energy Regen + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.ER, value: 0.1 },
+    },
+    {
+      desc: `Increase the Resonator's ATK by <span class="text-desc">15%</span>. Reaching <span class="text-desc">250%</span> Energy Regen increases all <b>Attribute DMG Bonus</b> by <span class="text-desc">30%</span> for the Resonator.`,
+      bonus: { stat: Stats.P_ATK, value: 0.15 },
+      callback: (base: StatsObject) => {
+        if (base.getValue(Stats.ER) >= 2.5) {
+          base[Stats.ATTR_DMG].push({
+            value: 0.3,
+            name: '5 Piece',
+            source: Sonata.REGEN_2,
+          })
+        }
+        return base
+      },
+    },
+  ],
 }
 
 export const Echoes: IArtifact[] = [
@@ -229,36 +229,36 @@ export const Echoes: IArtifact[] = [
     },
     cost: 4,
   },
-  // {
-  //   id: '60000895',
-  //   name: 'Nightmare: Tempest Mephis',
-  //   icon: 'T_IconMonsterHead_YZ_33017_UI',
-  //   skill: 'T_MstSkil_Z_B3_UI',
-  //   sonata: [Sonata.SKILL, Sonata.THUNDER],
-  //   desc: `Transform into Nightmare: Tempest Mephis and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
-  //   <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Skill DMG Bonus.`,
-  //   properties: [{ base: 550.85, growth: 71.85 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.ELECTRO_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Nightmare: Tempest Mephis',
-  //     })
-  //     base[Stats.SKILL_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Nightmare: Tempest Mephis',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Tempest Mephis DMG',
-  //       value: [{ scaling: calcRefinement(5.5085, 0.7185, r), multiplier: Stats.ATK }],
-  //       element: Element.ELECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
+  {
+    id: '60000895',
+    name: 'Nightmare: Tempest Mephis',
+    icon: 'T_IconMonsterHead_YZ_33017_UI',
+    skill: 'T_MstSkil_Z_B3_UI',
+    sonata: [Sonata.SKILL, Sonata.THUNDER],
+    desc: `Transform into Nightmare: Tempest Mephis and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Skill DMG Bonus.`,
+    properties: [{ base: 550.85, growth: 71.85 }],
+    bonus: (base, r) => {
+      base[Stats.ELECTRO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Tempest Mephis',
+      })
+      base[Stats.SKILL_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Tempest Mephis',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Tempest Mephis DMG',
+        value: [{ scaling: calcRefinement(5.5085, 0.7185, r), multiplier: Stats.ATK }],
+        element: Element.ELECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
   {
     id: '6000040',
     name: 'Hoochief',
@@ -308,7 +308,6 @@ export const Echoes: IArtifact[] = [
     skill: 'T_MstSkil_Z_B8_UI',
     sonata: [Sonata.HAVOC],
     desc: `Transform into Crownless and perform up to <span class="text-desc">4</span> consecutive attacks. The first <span class="text-desc">2</span> attacks deal {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b> each, the <span class="text-desc">3rd</span> attack deals {{1}}% <b class="text-wuwa-havoc">Havoc DMG</b> <span class="text-desc">2</span> times, and the <span class="text-desc">4th</span> attack deals {{2}}% <b class="text-wuwa-havoc">Havoc DMG</b> <span class="text-desc">3</span> times.
-    <br />
     <br />After the transformation, increase current character's <b class="text-wuwa-havoc">Havoc DMG</b> by <span class="text-desc">12%</span> and Resonance Skill DMG by <span class="text-desc">12%</span> for <span class="text-desc">15</span>s.`,
     properties: [
       { base: 96.37, growth: 12.57 },
@@ -340,19 +339,45 @@ export const Echoes: IArtifact[] = [
     },
     cost: 4,
   },
-  // {
-  //   id: '60000905',
-  //   name: 'Nightmare: Crownless',
-  //   icon: 'T_IconMonsterHead_YZ_33018_UI',
-  //   skill: 'T_MstSkil_Z_B8_UI',
-  //   sonata: [Sonata.HAVOC],
-  //   desc: ``,
-  //   properties: [],
-  //   bonus: (base, r) => {
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
+  {
+    id: '60000905',
+    name: 'Nightmare: Crownless',
+    icon: 'T_IconMonsterHead_YZ_33018_UI',
+    skill: 'T_MstSkil_Z_B8_UI',
+    sonata: [Sonata.HAVOC],
+    desc: `Transform into Nightmare: Crownless and attack enemies in front, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>. The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> and <span class="text-desc">12%</span> Basic Attack DMG Bonus.
+    <br />This skill has <span class="text-desc">3</span> initial charges, replenished once every <span class="text-desc">12</span>s, max <span class="text-desc">3</span> charges. When Nightmare: Crownless hits a target, DMG dealt by this skill is increased by <span class="text-desc">20%</span>. This effect lasts for <span class="text-desc">2</span>s and does not stack.`,
+    properties: [{ base: 176.4, growth: 29.4 }],
+    bonus: (base, r) => {
+      base[Stats.HAVOC_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Crownless',
+      })
+      base[Stats.BASIC_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Crownless',
+      })
+      base.ECHO_SCALING.push(
+        {
+          name: 'DMG per Charge',
+          value: [{ scaling: calcRefinement(1.764, 0.294, r), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Enhanced DMG per Charge',
+          value: [{ scaling: calcRefinement(1.764, 0.294, r), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+          bonus: 0.2,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
   {
     id: '6000043',
     name: 'Feilian Beringal',
@@ -451,22 +476,40 @@ export const Echoes: IArtifact[] = [
     },
     cost: 4,
   },
-  // {
-  //   id: '60000925',
-  //   name: 'Nightmare: Mourning Aix',
-  //   icon: 'T_IconMonsterHead_YZ_33020_UI',
-  //   skill: 'T_MstSkil_997_UI',
-  //   sonata: [Sonata.LIGHT_2],
-  //   desc: ``,
-  //   properties: [
-  //     { base: 113.16, growth: 14.76 },
-  //     { base: 169.74, growth: 22.14 },
-  //   ],
-  //   bonus: (base, r) => {
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
+  {
+    id: '60000925',
+    name: 'Nightmare: Mourning Aix',
+    icon: 'T_IconMonsterHead_YZ_33020_UI',
+    skill: 'T_MstSkil_997_UI',
+    sonata: [Sonata.LIGHT_2],
+    desc: `Summon a Nightmare: Mourning Aix to attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b>. DMG dealt to enemies inflicted by <b class="text-wuwa-spectro">Spectro Frazzle</b> is increased by <span class="text-desc">100%</span>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-spectro">Spectro DMG Bonus</b>.`,
+    properties: [{ base: 182.4, growth: 30.4 }],
+    bonus: (base, r) => {
+      base[Stats.SPECTRO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Mourning Aix',
+      })
+      base.ECHO_SCALING.push(
+        {
+          name: 'Attack DMG',
+          value: [{ scaling: calcRefinement(1.824, 0.304, r), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Enhanced Attack DMG',
+          value: [{ scaling: calcRefinement(1.824, 0.304, r), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.ECHO,
+          bonus: 1,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
   {
     id: '6000046',
     name: 'Carapace',
@@ -642,44 +685,44 @@ export const Echoes: IArtifact[] = [
     },
     cost: 4,
   },
-  // {
-  //   id: '60000875',
-  //   name: 'Nightmare: Impermanence Heron',
-  //   icon: 'T_IconMonsterHead_YZ_33015_UI',
-  //   skill: 'T_MstSkil_995_UI',
-  //   sonata: [Sonata.HAVOC_2],
-  //   desc: `Transform into Nightmare: Impermanence Heron and deliver up to <span class="text-desc">10</span> consecutive strikes to surrounding enemies, each dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
-  //   <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> and <span class="text-desc">12%</span> Heavy Attack DMG Bonus.`,
-  //   properties: [{ base: 36.8, growth: 4.8 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.HAVOC_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Nightmare: Impermanence Heron',
-  //     })
-  //     base[Stats.LIB_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Nightmare: Impermanence Heron',
-  //     })
-  //     base.ECHO_SCALING.push(
-  //       {
-  //         name: 'Strike DMG',
-  //         value: [{ scaling: calcRefinement(0.368, 0.048, r), multiplier: Stats.ATK }],
-  //         element: Element.HAVOC,
-  //         property: TalentProperty.ECHO,
-  //       },
-  //       {
-  //         name: 'Total DMG',
-  //         value: [{ scaling: calcRefinement(0.368, 0.048, r), multiplier: Stats.ATK, hits: 10 }],
-  //         element: Element.HAVOC,
-  //         property: TalentProperty.ECHO,
-  //       }
-  //     )
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
+  {
+    id: '60000875',
+    name: 'Nightmare: Impermanence Heron',
+    icon: 'T_IconMonsterHead_YZ_33015_UI',
+    skill: 'T_MstSkil_995_UI',
+    sonata: [Sonata.HAVOC_2],
+    desc: `Transform into Nightmare: Impermanence Heron and deliver up to <span class="text-desc">10</span> consecutive strikes to surrounding enemies, each dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> and <span class="text-desc">12%</span> Heavy Attack DMG Bonus.`,
+    properties: [{ base: 36.8, growth: 4.8 }],
+    bonus: (base, r) => {
+      base[Stats.HAVOC_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Impermanence Heron',
+      })
+      base[Stats.LIB_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Impermanence Heron',
+      })
+      base.ECHO_SCALING.push(
+        {
+          name: 'Strike DMG',
+          value: [{ scaling: calcRefinement(0.368, 0.048, r), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Total DMG',
+          value: [{ scaling: calcRefinement(0.368, 0.048, r), multiplier: Stats.ATK, hits: 10 }],
+          element: Element.HAVOC,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
   {
     id: '6000053',
     name: 'Dreamless',
@@ -1733,36 +1776,36 @@ export const Echoes: IArtifact[] = [
     },
     cost: 4,
   },
-  // {
-  //   id: '60000885',
-  //   name: 'Nightmare: Thundering Mephis',
-  //   icon: 'T_IconMonsterHead_YZ_33016_UI',
-  //   skill: 'T_MstSkil_Z_B3_1_UI',
-  //   sonata: [Sonata.THUNDER],
-  //   desc: `Transform into Nightmare: Thundering Mephis and attack enemies in front, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
-  //   <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG</b> and <span class="text-desc">12%</span> Resonance Liberation DMG Bonus.`,
-  //   properties: [{ base: 307.05, growth: 40.05 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.ELECTRO_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Nightmare: Thundering Mephis',
-  //     })
-  //     base[Stats.LIB_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Nightmare: Thundering Mephis',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Thundering Mephis DMG',
-  //       value: [{ scaling: calcRefinement(3.0705, 0.4005, r), multiplier: Stats.ATK }],
-  //       element: Element.ELECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
+  {
+    id: '60000885',
+    name: 'Nightmare: Thundering Mephis',
+    icon: 'T_IconMonsterHead_YZ_33016_UI',
+    skill: 'T_MstSkil_Z_B3_1_UI',
+    sonata: [Sonata.THUNDER],
+    desc: `Transform into Nightmare: Thundering Mephis and attack enemies in front, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG</b> and <span class="text-desc">12%</span> Resonance Liberation DMG Bonus.`,
+    properties: [{ base: 307.05, growth: 40.05 }],
+    bonus: (base, r) => {
+      base[Stats.ELECTRO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Thundering Mephis',
+      })
+      base[Stats.LIB_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Thundering Mephis',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Thundering Mephis DMG',
+        value: [{ scaling: calcRefinement(3.0705, 0.4005, r), multiplier: Stats.ATK }],
+        element: Element.ELECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
   {
     id: '390080005',
     name: 'Bell-Borne Geochelone',
@@ -1824,663 +1867,704 @@ export const Echoes: IArtifact[] = [
     },
     cost: 4,
   },
-  // {
-  // {
-  //   id: '310000370',
-  //   name: 'Galescourge Stalker',
-  //   icon: 'T_IconMonsterHead_31037_UI',
-  //   skill: 'MstSkil_32037_UI',
-  //   sonata: [Sonata.SKILL, Sonata.COORD],
-  //   desc: `Summon a Galescourge Stalker that restores nearby party members' HP by <span class="text-desc">5%</span> of their Max HP, up to <span class="text-desc">3</span> times.`,
-  //   properties: [],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Total Healing',
-  //       value: [{ scaling: 0.05, multiplier: Stats.HP, hits: 3 }],
-  //       element: TalentProperty.HEAL,
-  //       property: TalentProperty.HEAL,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000380',
-  //   name: 'Voltscourge Stalker',
-  //   icon: 'T_IconMonsterHead_31038_UI',
-  //   skill: 'MstSkil_31038_UI',
-  //   sonata: [Sonata.HAVOC_2, Sonata.COORD],
-  //   desc: `Summon a Voltscourge Stalker to attack enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.`,
-  //   properties: [{ base: 82.8, growth: 10.8 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Voltscourge Stalker DMG',
-  //       value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
-  //       element: Element.ELECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000390',
-  //   name: 'Frostscourge Stalker',
-  //   icon: 'T_IconMonsterHead_31039_UI',
-  //   skill: 'MstSkil_31039_UI',
-  //   sonata: [Sonata.LIGHT_2, Sonata.HAVOC_2],
-  //   desc: `Summon a Frostscourge Stalker to attack enemies, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.`,
-  //   properties: [{ base: 82.8, growth: 10.8 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Frostscourge Stalker DMG',
-  //       value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
-  //       element: Element.GLACIO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000400',
-  //   name: 'Chop Chop: Headless',
-  //   icon: 'T_IconMonsterHead_31040_UI',
-  //   skill: 'MstSkil_31040_UI',
-  //   sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
-  //   desc: `Summon a Chop Chop: Headless to attack enemies, dealing {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b>.`,
-  //   properties: [{ base: 82.8, growth: 10.8 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Headless DMG',
-  //       value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
-  //       element: Element.FUSION,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000410',
-  //   name: 'Chop Chop: Leftless',
-  //   icon: 'T_IconMonsterHead_31041_UI',
-  //   skill: 'MstSkil_31041_UI',
-  //   sonata: [Sonata.SKILL, Sonata.REGEN_2],
-  //   desc: `Summon a Chop Chop: Leftless to attack enemies, dealing {{0}}% <b class="text-spectro">Spectro DMG</b>.`,
-  //   properties: [{ base: 82.8, growth: 10.8 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Leftless DMG',
-  //       value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
-  //       element: Element.SPECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000420',
-  //   name: 'Chop Chop: Rightless',
-  //   icon: 'T_IconMonsterHead_31042_UI',
-  //   skill: 'MstSkil_31042_UI',
-  //   sonata: [Sonata.SKILL, Sonata.REGEN_2],
-  //   desc: `Summon a Chop Chop: Rightless to attack enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
-  //   properties: [{ base: 82.8, growth: 10.8 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Rightless DMG',
-  //       value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
-  //       element: Element.HAVOC,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000430',
-  //   name: 'Fae Ignis',
-  //   icon: 'T_IconMonsterHead_31043_UI',
-  //   skill: 'MstSkil_31043_UI',
-  //   sonata: [Sonata.LIGHT_2, Sonata.HAVOC_2],
-  //   desc: `Summon a Fae Ignis to attack enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
-  //   properties: [{ base: 82.8, growth: 10.8 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Fae Ignis DMG',
-  //       value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
-  //       element: Element.HAVOC,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000440',
-  //   name: 'Nimbus Wraith',
-  //   icon: 'T_IconMonsterHead_31044_UI',
-  //   skill: 'MstSkil_31044_UI',
-  //   sonata: [Sonata.HAVOC_2, Sonata.SKILL],
-  //   desc: `Summon a Nimbus Wraith that restores the active Resonator's HP by <span class="text-desc">5%</span> of their Max HP, up to <span class="text-desc">4</span> times.`,
-  //   properties: [],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Total Healing',
-  //       value: [{ scaling: 0.05, multiplier: Stats.HP, hits: 4 }],
-  //       element: TalentProperty.HEAL,
-  //       property: TalentProperty.HEAL,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000450',
-  //   name: 'Hocus Pocus',
-  //   icon: 'T_IconMonsterHead_31045_UI',
-  //   skill: 'MstSkil_31045_UI',
-  //   sonata: [Sonata.SKILL, Sonata.COORD],
-  //   desc: `Summon a Hocus Pocus to attack enemies with <span class="text-desc">3</span> consecutive strikes, each dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
-  //   properties: [{ base: 27.6, growth: 3.6 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Hocus Pocus DMG',
-  //       value: [{ scaling: calcRefinement(0.276, 0.036, r), multiplier: Stats.ATK, hits: 3 }],
-  //       element: Element.HAVOC,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000460',
-  //   name: 'Lottie Lost',
-  //   icon: 'T_IconMonsterHead_31046_UI',
-  //   skill: 'MstSkil_31046_UI',
-  //   sonata: [Sonata.LIGHT, Sonata.ATK, Sonata.REGEN],
-  //   desc: `Summon a Lottie Lost to attack enemies, dealing {{0}}% <b class="text-spectro">Spectro DMG</b>.`,
-  //   properties: [{ base: 82.8, growth: 10.8 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Lottie Lost DMG',
-  //       value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
-  //       element: Element.SPECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000470',
-  //   name: 'Diggy Duggy',
-  //   icon: 'T_IconMonsterHead_31047_UI',
-  //   skill: 'MstSkil_31047_UI',
-  //   sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
-  //   desc: `Transform into Diggy Duggy and jump up into the air to smash onto enemies, dealing {{0}}% <b class="text-slate-400">Physical DMG</b>.`,
-  //   properties: [{ base: 464.6, growth: 60.6 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Diggy Duggy DMG',
-  //       value: [{ scaling: calcRefinement(4.646, 0.606, r), multiplier: Stats.ATK }],
-  //       element: Element.PHYSICAL,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '310000480',
-  //   name: 'Chest Mimic',
-  //   icon: 'T_IconMonsterHead_31048_UI',
-  //   skill: 'MstSkil_31048_UI',
-  //   sonata: [Sonata.SKILL, Sonata.HAVOC_2, Sonata.COORD],
-  //   desc: `Summon a Chest Mimic to attack enemies with <span class="text-desc">3</span> consecutive strikes, each dealing {{0}}% <b class="text-spectro">Spectro DMG</b>.`,
-  //   properties: [{ base: 41.01, growth: 5.35 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Chest Mimic DMG',
-  //       value: [{ scaling: calcRefinement(0.4101, 0.0535, r), multiplier: Stats.ATK }],
-  //       element: Element.SPECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '320000220',
-  //   name: 'Questless Knight',
-  //   icon: 'T_IconMonsterHead_32022_UI',
-  //   skill: 'MstSkil_32022_UI',
-  //   sonata: [Sonata.SKILL, Sonata.HAVOC_2],
-  //   desc: `Transform into Questless Knight and smash the surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.`,
-  //   properties: [{ base: 308.2, growth: 40.2 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Questless Knight DMG',
-  //       value: [{ scaling: calcRefinement(3.082, 0.402, r), multiplier: Stats.ATK }],
-  //       element: Element.ELECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '320000230',
-  //   name: 'Diurnus Knight',
-  //   icon: 'T_IconMonsterHead_32023_UI',
-  //   skill: 'MstSkil_32023_UI',
-  //   sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
-  //   desc: `Transform into Diurnus Knight and charge forward to attack enemies with the sword, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b>. DMG dealt to enemies inflicted by <b>Spectro Frazzle</b> is increased by <span class="text-desc">100%</span>.`,
-  //   properties: [{ base: 292.1, growth: 38.1 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Diurnus Knight DMG',
-  //       value: [{ scaling: calcRefinement(2.921, 0.381, r), multiplier: Stats.ATK }],
-  //       element: Element.SPECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Enhanced Diurnus Knight DMG',
-  //       value: [{ scaling: calcRefinement(2.921, 0.381, r) * 2, multiplier: Stats.ATK }],
-  //       element: Element.SPECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '320000240',
-  //   name: 'Nocturnus Knight',
-  //   icon: 'T_IconMonsterHead_32024_UI',
-  //   skill: 'MstSkil_32024_UI',
-  //   sonata: [Sonata.HAVOC_2, Sonata.SKILL],
-  //   desc: `Transform into Nocturnus Knight and strike enemies in front of you from the air, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
-  //   properties: [{ base: 296.7, growth: 38.7 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Nocturnus Knight DMG',
-  //       value: [{ scaling: calcRefinement(2.967, 0.387, r), multiplier: Stats.ATK }],
-  //       element: Element.HAVOC,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '320000250',
-  //   name: 'Abyssal Patricius',
-  //   icon: 'T_IconMonsterHead_32025_UI',
-  //   skill: 'MstSkil_32025_UI',
-  //   sonata: [Sonata.SKILL, Sonata.COORD],
-  //   desc: `Transform into Abyssal Patricius and charge forward to attack enemies, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.
-  //   <br />The Resonator with this Echo equipped in the main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b>.`,
-  //   properties: [{ base: 158.7, growth: 20.4 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.GLACIO_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Abyssal Patricius',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Abyssal Patricius DMG',
-  //       value: [{ scaling: calcRefinement(1.587, 0.204, r), multiplier: Stats.ATK }],
-  //       element: Element.GLACIO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '320000260',
-  //   name: 'Abyssal Gladius',
-  //   icon: 'T_IconMonsterHead_32026_UI',
-  //   skill: 'MstSkil_32027_UI',
-  //   sonata: [Sonata.HAVOC_2, Sonata.REGEN_2],
-  //   desc: `Transform into Abyssal Gladius and attack enemies in front of you with the sword, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.
-  //   <br />Hold the Echo Skill to maintain the Echo form for a while to slash enemies and cast a ranged attack forward, dealing {{0}}% and {{1}}% <b class="text-wuwa-glacio">Glacio DMG</b> respectively.`,
-  //   properties: [
-  //     { base: 174.8, growth: 22.8 },
-  //     { base: 699.2, growth: 91.2 },
-  //   ],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Abyssal Gladius Slash DMG',
-  //       value: [{ scaling: calcRefinement(1.748, 0.228, r), multiplier: Stats.ATK }],
-  //       element: Element.GLACIO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Abyssal Gladius Ranged DMG',
-  //       value: [{ scaling: calcRefinement(6.992, 0.912, r), multiplier: Stats.ATK }],
-  //       element: Element.GLACIO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '320000270',
-  //   name: 'Abyssal Mercator',
-  //   icon: 'T_IconMonsterHead_32027_UI',
-  //   skill: 'MstSkil_32026_UI',
-  //   sonata: [Sonata.SKILL, Sonata.LIGHT_2],
-  //   desc: `Transform into Abyssal Mercator and summon <span class="text-desc">3</span> Ice Spikes to attack enemies, each dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.`,
-  //   properties: [{ base: 78.2, growth: 10.2 }],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Ice Spikes DMG',
-  //       value: [{ scaling: calcRefinement(0.782, 0.102, r), multiplier: Stats.ATK }],
-  //       element: Element.GLACIO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '320000280',
-  //   name: 'Chop Chop',
-  //   icon: 'T_IconMonsterHead_32028_UI',
-  //   skill: 'MstSkil_32028_UI',
-  //   sonata: [Sonata.SKILL, Sonata.REGEN_2],
-  //   desc: `Summon a Chop Chop to perform a series of consecutive attacks. The first <span class="text-desc">3</span> strikes each deal {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b> and finishing strike deals {{1}}% <b class="text-wuwa-fusion">Fusion DMG</b>.`,
-  //   properties: [
-  //     { base: 22.77, growth: 2.97 },
-  //     { base: 60.72, growth: 7.92 },
-  //   ],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Strike DMG',
-  //       value: [{ scaling: calcRefinement(0.2277, 0.0297, r), multiplier: Stats.ATK }],
-  //       element: Element.FUSION,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Finishing Strike DMG',
-  //       value: [{ scaling: calcRefinement(0.6072, 0.0792, r), multiplier: Stats.ATK }],
-  //       element: Element.FUSION,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '320000290',
-  //   name: 'Vitrium Dancer',
-  //   icon: 'T_IconMonsterHead_32029_UI',
-  //   skill: 'MstSkil_32029_UI',
-  //   sonata: [Sonata.LIGHT_2, Sonata.SKILL],
-  //   desc: `Transform into Vitreum Dancer and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
-  //   <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG Bonus</b>.`,
-  //   properties: [{ base: 323.15, growth: 42.15 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.ELECTRO_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Vitrium Dancer',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Vitrium Dancer DMG',
-  //       value: [{ scaling: calcRefinement(3.2315, 0.4215, r), multiplier: Stats.ATK }],
-  //       element: Element.ELECTRO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '60200032',
-  //   name: 'Cuddle Wuddle',
-  //   icon: 'T_IconMonsterHead_32030_UI',
-  //   skill: 'MstSkil_32030_UI',
-  //   sonata: [Sonata.FIRE, Sonata.THUNDER, Sonata.SKILL, Sonata.HAVOC_2],
-  //   desc: `Transform into Cuddle Wuddle and attack enemies with <span class="text-desc">4</span> strikes dealing {{0}}% <b class="text-slate-400">Physical DMG</b> and <span class="text-desc">1</span> strike dealing {{1}}% <b class="text-slate-400">Physical DMG</b>.`,
-  //   properties: [
-  //     { base: 74, growth: 9.66 },
-  //     { base: 197.34, growth: 25.74 },
-  //   ],
-  //   bonus: (base, r) => {
-  //     base.ECHO_SCALING.push({
-  //       name: 'Strike DMG',
-  //       value: [{ scaling: calcRefinement(0.74, 0.0966, r), multiplier: Stats.ATK }],
-  //       element: Element.PHYSICAL,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Finishing Strike DMG',
-  //       value: [{ scaling: calcRefinement(1.9734, 0.2574, r), multiplier: Stats.ATK }],
-  //       element: Element.PHYSICAL,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '330000110',
-  //   name: 'Lorelei',
-  //   icon: 'T_IconMonsterHead_33011_UI',
-  //   skill: 'MstSkil_33011_UI',
-  //   sonata: [Sonata.HAVOC_2],
-  //   desc: `Transform into Lorelei and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
-  //   <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Liberation DMG Bonus.`,
-  //   properties: [{ base: 363.4, growth: 47.4 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.HAVOC_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Lorelei',
-  //     })
-  //     base[Stats.LIB_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Lorelei',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Lorelei DMG',
-  //       value: [{ scaling: calcRefinement(3.634, 0.474, r), multiplier: Stats.ATK }],
-  //       element: Element.HAVOC,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
-  // {
-  //   id: '330000120',
-  //   name: 'Sentry Construct',
-  //   icon: 'T_IconMonsterHead_33012_UI',
-  //   skill: 'MstSkil_33012_UI',
-  //   sonata: [Sonata.SKILL],
-  //   desc: `Transform into Sentry Construct and attack enemies in front, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>. Each time the Resonator with this Echo casts Resonance Liberation, it enhances the Strike Capacitor.
-  //   <br />Once Strike Capacitor is at max level, the Echo Skill cooldown will be reset. Use Echo Skill to transform into Sentry Construct and dive into enemies from the air, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b> and freezing the target.
-  //   <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Skill DMG Bonus.`,
-  //   properties: [{ base: 270, growth: 45 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.GLACIO_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Sentry Construct',
-  //     })
-  //     base[Stats.SKILL_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Sentry Construct',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Sentry Construct DMG',
-  //       value: [{ scaling: calcRefinement(2.7, 0.45, r), multiplier: Stats.ATK }],
-  //       element: Element.GLACIO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
-  // {
-  //   id: '330000130',
-  //   name: 'Dragon of Dirge',
-  //   icon: 'T_IconMonsterHead_33013_UI',
-  //   skill: 'MstSkil_33013_UI',
-  //   sonata: [Sonata.REGEN_2],
-  //   desc: `Transform into Dragon of Dirge and cast Meteorite of Judgment to attack enemies within the Grief Rift, which summons up to <span class="text-desc">10</span> Meteorite, each dealing {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b>.
-  //   <br />The Resonator with this Echo equipped in the main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-fusion">Fusion DMG Bonus</b> and <span class="text-desc">12%</span> Basic Attack DMG Bonus.`,
-  //   properties: [{ base: 35.77, growth: 4.66 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.FUSION_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Dragon of Dirge',
-  //     })
-  //     base[Stats.BASIC_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Dragon of Dirge',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Meteorite DMG',
-  //       value: [{ scaling: calcRefinement(0.3577, 0.0466, r), multiplier: Stats.ATK }],
-  //       element: Element.FUSION,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Total Meteorite DMG',
-  //       value: [{ scaling: calcRefinement(0.3577, 0.0466, r), multiplier: Stats.ATK, hits: 10 }],
-  //       element: Element.FUSION,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
-  // {
-  //   id: '340000100',
-  //   name: 'Hecate',
-  //   icon: 'T_IconMonsterHead_34010_1_UI',
-  //   skill: 'MstSkil_34010_UI',
-  //   sonata: [Sonata.COORD],
-  //   desc: `Summon 3 twirling Crescent Servants around you. Crescent Servants attack enemies with their spinning blades, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>. Triggering a Counterattack with the Echo attacks extends the Crescent Servants' summon duration.
-  //   <br />The Resonator with this Echo equipped in the main slot has their Coordinated Attack DMG increased by <span class="text-desc">40%</span>.`,
-  //   properties: [{ base: 29.13, growth: 3.8 }],
-  //   bonus: (base, r) => {
-  //     base[Stats.COORD_DMG].push({
-  //       value: 0.4,
-  //       name: 'Echo Skill',
-  //       source: 'Hecate',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Crescent Servants DMG',
-  //       value: [{ scaling: calcRefinement(0.2913, 0.038, r), multiplier: Stats.ATK }],
-  //       element: Element.HAVOC,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
-  // {
-  //   id: '60000865',
-  //   name: 'Nightmare: Feilian Beringal',
-  //   icon: 'T_IconMonsterHead_YZ_33014_UI',
-  //   skill: 'T_Mstskil_996_UI',
-  //   sonata: [Sonata.WIND],
-  //   desc: `Summon a Nightmare: Feilian Beringal to attack enemies, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b>. The remaining Whirlwind Beam will continuously attack surrounding enemies up to <span class="text-desc">5</span> times, each dealing {{1}}% <b class="text-wuwa-aero">Aero DMG</b>.
-  //   <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b> and <span class="text-desc">12%</span> Heavy Attack DMG Bonus.`,
-  //   properties: [
-  //     { base: 104.88, growth: 13.68 },
-  //     { base: 13.98, growth: 1.83 },
-  //   ],
-  //   bonus: (base, r) => {
-  //     base[Stats.AERO_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Nightmare: Feilian Beringal',
-  //     })
-  //     base[Stats.HEAVY_DMG].push({
-  //       value: 0.12,
-  //       name: 'Echo Skill',
-  //       source: 'Nightmare: Feilian Beringal',
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Initial Strike DMG',
-  //       value: [{ scaling: calcRefinement(1.0488, 0.1368, r), multiplier: Stats.ATK }],
-  //       element: Element.AERO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     base.ECHO_SCALING.push({
-  //       name: 'Whirlwind Beam DMG',
-  //       value: [{ scaling: calcRefinement(0.1398, 0.0183, r), multiplier: Stats.ATK }],
-  //       element: Element.AERO,
-  //       property: TalentProperty.ECHO,
-  //     })
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
-  // {
-  //   id: '60100715',
-  //   name: 'Phantom: Diggy Duggy',
-  //   icon: 'T_IconMonsterGoods_SG_31047_UI',
-  //   skill: '',
-  //   sonata: [Sonata.LIGHT, Sonata.REGEN, Sonata.ATK],
-  //   desc: `N/A`,
-  //   properties: [],
-  //   bonus: (base, r) => {
-  //     return base
-  //   },
-  //   cost: 1,
-  // },
-  // {
-  //   id: '60100735',
-  //   name: 'Phantom: Questless Knight',
-  //   icon: 'T_IconMonsterGoods_SG_32022_UI',
-  //   skill: '',
-  //   sonata: [Sonata.FIRE, Sonata.THUNDER],
-  //   desc: `N/A`,
-  //   properties: [],
-  //   bonus: (base, r) => {
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '60100805',
-  //   name: 'Phantom: Vitreum Dancer',
-  //   icon: 'T_IconMonsterGoods_SG_32029_UI',
-  //   skill: '',
-  //   sonata: [Sonata.FIRE, Sonata.THUNDER],
-  //   desc: `N/A`,
-  //   properties: [],
-  //   bonus: (base, r) => {
-  //     return base
-  //   },
-  //   cost: 3,
-  // },
-  // {
-  //   id: '60100835',
-  //   name: 'Phantom: Sentry Construct',
-  //   icon: 'T_IconMonsterGoods_SG_33009_UI',
-  //   skill: '',
-  //   sonata: [Sonata.THUNDER],
-  //   desc: `N/A`,
-  //   properties: [],
-  //   bonus: (base, r) => {
-  //     return base
-  //   },
-  //   cost: 4,
-  // },
+  {
+    id: '310000370',
+    name: 'Galescourge Stalker',
+    icon: 'T_IconMonsterHead_31037_UI',
+    skill: 'MstSkil_32037_UI',
+    sonata: [Sonata.SKILL, Sonata.COORD],
+    desc: `Summon a Galescourge Stalker that restores nearby party members' HP by <span class="text-desc">5%</span> of their Max HP, up to <span class="text-desc">3</span> times.`,
+    properties: [],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Total Healing',
+        value: [{ scaling: 0.05, multiplier: Stats.HP, hits: 3 }],
+        element: TalentProperty.HEAL,
+        property: TalentProperty.HEAL,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000380',
+    name: 'Voltscourge Stalker',
+    icon: 'T_IconMonsterHead_31038_UI',
+    skill: 'MstSkil_31038_UI',
+    sonata: [Sonata.HAVOC_2, Sonata.COORD],
+    desc: `Summon a Voltscourge Stalker to attack enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.`,
+    properties: [{ base: 82.8, growth: 10.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Voltscourge Stalker DMG',
+        value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.ELECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000390',
+    name: 'Frostscourge Stalker',
+    icon: 'T_IconMonsterHead_31039_UI',
+    skill: 'MstSkil_31039_UI',
+    sonata: [Sonata.LIGHT_2, Sonata.HAVOC_2],
+    desc: `Summon a Frostscourge Stalker to attack enemies, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.`,
+    properties: [{ base: 82.8, growth: 10.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Frostscourge Stalker DMG',
+        value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.GLACIO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000400',
+    name: 'Chop Chop: Headless',
+    icon: 'T_IconMonsterHead_31040_UI',
+    skill: 'MstSkil_31040_UI',
+    sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
+    desc: `Summon a Chop Chop: Headless to attack enemies, dealing {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b>.`,
+    properties: [{ base: 82.8, growth: 10.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Headless DMG',
+        value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.FUSION,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000410',
+    name: 'Chop Chop: Leftless',
+    icon: 'T_IconMonsterHead_31041_UI',
+    skill: 'MstSkil_31041_UI',
+    sonata: [Sonata.SKILL, Sonata.REGEN_2],
+    desc: `Summon a Chop Chop: Leftless to attack enemies, dealing {{0}}% <b class="text-spectro">Spectro DMG</b>.`,
+    properties: [{ base: 82.8, growth: 10.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Leftless DMG',
+        value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.SPECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000420',
+    name: 'Chop Chop: Rightless',
+    icon: 'T_IconMonsterHead_31042_UI',
+    skill: 'MstSkil_31042_UI',
+    sonata: [Sonata.SKILL, Sonata.REGEN_2],
+    desc: `Summon a Chop Chop: Rightless to attack enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
+    properties: [{ base: 82.8, growth: 10.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Rightless DMG',
+        value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000430',
+    name: 'Fae Ignis',
+    icon: 'T_IconMonsterHead_31043_UI',
+    skill: 'MstSkil_31043_UI',
+    sonata: [Sonata.LIGHT_2, Sonata.HAVOC_2],
+    desc: `Summon a Fae Ignis to attack enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
+    properties: [{ base: 82.8, growth: 10.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Fae Ignis DMG',
+        value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000440',
+    name: 'Nimbus Wraith',
+    icon: 'T_IconMonsterHead_31044_UI',
+    skill: 'MstSkil_31044_UI',
+    sonata: [Sonata.HAVOC_2, Sonata.SKILL],
+    desc: `Summon a Nimbus Wraith that restores the active Resonator's HP by <span class="text-desc">5%</span> of their Max HP, up to <span class="text-desc">4</span> times.`,
+    properties: [],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Total Healing',
+        value: [{ scaling: 0.05, multiplier: Stats.HP, hits: 4 }],
+        element: TalentProperty.HEAL,
+        property: TalentProperty.HEAL,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000450',
+    name: 'Hocus Pocus',
+    icon: 'T_IconMonsterHead_31045_UI',
+    skill: 'MstSkil_31045_UI',
+    sonata: [Sonata.SKILL, Sonata.COORD],
+    desc: `Summon a Hocus Pocus to attack enemies with <span class="text-desc">3</span> consecutive strikes, each dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
+    properties: [{ base: 27.6, growth: 3.6 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Hocus Pocus DMG',
+        value: [{ scaling: calcRefinement(0.276, 0.036, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000460',
+    name: 'Lottie Lost',
+    icon: 'T_IconMonsterHead_31046_UI',
+    skill: 'MstSkil_31046_UI',
+    sonata: [Sonata.LIGHT, Sonata.ATK, Sonata.REGEN],
+    desc: `Summon a Lottie Lost to attack enemies, dealing {{0}}% <b class="text-spectro">Spectro DMG</b>.`,
+    properties: [{ base: 82.8, growth: 10.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Lottie Lost DMG',
+        value: [{ scaling: calcRefinement(0.828, 0.108, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.SPECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000470',
+    name: 'Diggy Duggy',
+    icon: 'T_IconMonsterHead_31047_UI',
+    skill: 'MstSkil_31047_UI',
+    sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
+    desc: `Transform into Diggy Duggy and jump up into the air to smash onto enemies, dealing {{0}}% <b class="text-slate-400">Physical DMG</b>.`,
+    properties: [{ base: 464.6, growth: 60.6 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Diggy Duggy DMG',
+        value: [{ scaling: calcRefinement(4.646, 0.606, r), multiplier: Stats.ATK }],
+        element: Element.PHYSICAL,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '310000480',
+    name: 'Chest Mimic',
+    icon: 'T_IconMonsterHead_31048_UI',
+    skill: 'MstSkil_31048_UI',
+    sonata: [Sonata.SKILL, Sonata.HAVOC_2, Sonata.COORD],
+    desc: `Summon a Chest Mimic to attack enemies with <span class="text-desc">3</span> consecutive strikes, each dealing {{0}}% <b class="text-spectro">Spectro DMG</b>.`,
+    properties: [{ base: 41.01, growth: 5.35 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Chest Mimic DMG',
+        value: [{ scaling: calcRefinement(0.4101, 0.0535, r), multiplier: Stats.ATK }],
+        element: Element.SPECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '320000220',
+    name: 'Questless Knight',
+    icon: 'T_IconMonsterHead_32022_UI',
+    skill: 'MstSkil_32022_UI',
+    sonata: [Sonata.SKILL, Sonata.HAVOC_2],
+    desc: `Transform into Questless Knight and smash the surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.`,
+    properties: [{ base: 308.2, growth: 40.2 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Questless Knight DMG',
+        value: [{ scaling: calcRefinement(3.082, 0.402, r), multiplier: Stats.ATK }],
+        element: Element.ELECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '320000230',
+    name: 'Diurnus Knight',
+    icon: 'T_IconMonsterHead_32023_UI',
+    skill: 'MstSkil_32023_UI',
+    sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
+    desc: `Transform into Diurnus Knight and charge forward to attack enemies with the sword, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b>. DMG dealt to enemies inflicted by <b>Spectro Frazzle</b> is increased by <span class="text-desc">100%</span>.`,
+    properties: [{ base: 292.1, growth: 38.1 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Diurnus Knight DMG',
+        value: [{ scaling: calcRefinement(2.921, 0.381, r), multiplier: Stats.ATK }],
+        element: Element.SPECTRO,
+        property: TalentProperty.ECHO,
+      })
+      base.ECHO_SCALING.push({
+        name: 'Enhanced Diurnus Knight DMG',
+        value: [{ scaling: calcRefinement(2.921, 0.381, r) * 2, multiplier: Stats.ATK }],
+        element: Element.SPECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '320000240',
+    name: 'Nocturnus Knight',
+    icon: 'T_IconMonsterHead_32024_UI',
+    skill: 'MstSkil_32024_UI',
+    sonata: [Sonata.HAVOC_2, Sonata.SKILL],
+    desc: `Transform into Nocturnus Knight and strike enemies in front of you from the air, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
+    properties: [{ base: 296.7, growth: 38.7 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Nocturnus Knight DMG',
+        value: [{ scaling: calcRefinement(2.967, 0.387, r), multiplier: Stats.ATK }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '320000250',
+    name: 'Abyssal Patricius',
+    icon: 'T_IconMonsterHead_32025_UI',
+    skill: 'MstSkil_32025_UI',
+    sonata: [Sonata.SKILL, Sonata.COORD],
+    desc: `Transform into Abyssal Patricius and charge forward to attack enemies, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.
+    <br />The Resonator with this Echo equipped in the main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b>.`,
+    properties: [{ base: 158.7, growth: 20.4 }],
+    bonus: (base, r) => {
+      base[Stats.GLACIO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Abyssal Patricius',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Abyssal Patricius DMG',
+        value: [{ scaling: calcRefinement(1.587, 0.204, r), multiplier: Stats.ATK }],
+        element: Element.GLACIO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '320000260',
+    name: 'Abyssal Gladius',
+    icon: 'T_IconMonsterHead_32026_UI',
+    skill: 'MstSkil_32027_UI',
+    sonata: [Sonata.HAVOC_2, Sonata.REGEN_2],
+    desc: `Transform into Abyssal Gladius and attack enemies in front of you with the sword, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.
+    <br />Hold the Echo Skill to maintain the Echo form for a while to slash enemies and cast a ranged attack forward, dealing {{0}}% and {{1}}% <b class="text-wuwa-glacio">Glacio DMG</b> respectively.`,
+    properties: [
+      { base: 174.8, growth: 22.8 },
+      { base: 699.2, growth: 91.2 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Abyssal Gladius Slash DMG',
+        value: [{ scaling: calcRefinement(1.748, 0.228, r), multiplier: Stats.ATK }],
+        element: Element.GLACIO,
+        property: TalentProperty.ECHO,
+      })
+      base.ECHO_SCALING.push({
+        name: 'Abyssal Gladius Ranged DMG',
+        value: [{ scaling: calcRefinement(6.992, 0.912, r), multiplier: Stats.ATK }],
+        element: Element.GLACIO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '320000270',
+    name: 'Abyssal Mercator',
+    icon: 'T_IconMonsterHead_32027_UI',
+    skill: 'MstSkil_32026_UI',
+    sonata: [Sonata.SKILL, Sonata.LIGHT_2],
+    desc: `Transform into Abyssal Mercator and summon <span class="text-desc">3</span> Ice Spikes to attack enemies, each dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.`,
+    properties: [{ base: 78.2, growth: 10.2 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Ice Spikes DMG',
+        value: [{ scaling: calcRefinement(0.782, 0.102, r), multiplier: Stats.ATK }],
+        element: Element.GLACIO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '320000280',
+    name: 'Chop Chop',
+    icon: 'T_IconMonsterHead_32028_UI',
+    skill: 'MstSkil_32028_UI',
+    sonata: [Sonata.SKILL, Sonata.REGEN_2],
+    desc: `Summon a Chop Chop to perform a series of consecutive attacks. The first <span class="text-desc">3</span> strikes each deal {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b> and finishing strike deals {{1}}% <b class="text-wuwa-fusion">Fusion DMG</b>.`,
+    properties: [
+      { base: 22.77, growth: 2.97 },
+      { base: 60.72, growth: 7.92 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Strike DMG',
+        value: [{ scaling: calcRefinement(0.2277, 0.0297, r), multiplier: Stats.ATK }],
+        element: Element.FUSION,
+        property: TalentProperty.ECHO,
+      })
+      base.ECHO_SCALING.push({
+        name: 'Finishing Strike DMG',
+        value: [{ scaling: calcRefinement(0.6072, 0.0792, r), multiplier: Stats.ATK }],
+        element: Element.FUSION,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '320000290',
+    name: 'Vitreum Dancer',
+    icon: 'T_IconMonsterHead_32029_UI',
+    skill: 'MstSkil_32029_UI',
+    sonata: [Sonata.LIGHT_2, Sonata.SKILL],
+    desc: `Transform into Vitreum Dancer and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG Bonus</b>.`,
+    properties: [{ base: 323.15, growth: 42.15 }],
+    bonus: (base, r) => {
+      base[Stats.ELECTRO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Vitreum Dancer',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Vitreum Dancer DMG',
+        value: [{ scaling: calcRefinement(3.2315, 0.4215, r), multiplier: Stats.ATK }],
+        element: Element.ELECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '60200032',
+    name: 'Cuddle Wuddle',
+    icon: 'T_IconMonsterHead_32030_UI',
+    skill: 'MstSkil_32030_UI',
+    sonata: [Sonata.FIRE, Sonata.THUNDER, Sonata.SKILL, Sonata.HAVOC_2],
+    desc: `Transform into Cuddle Wuddle and attack enemies with <span class="text-desc">4</span> strikes dealing {{0}}% <b class="text-slate-400">Physical DMG</b> and <span class="text-desc">1</span> strike dealing {{1}}% <b class="text-slate-400">Physical DMG</b>.`,
+    properties: [
+      { base: 74, growth: 9.66 },
+      { base: 197.34, growth: 25.74 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Strike DMG',
+        value: [{ scaling: calcRefinement(0.74, 0.0966, r), multiplier: Stats.ATK }],
+        element: Element.PHYSICAL,
+        property: TalentProperty.ECHO,
+      })
+      base.ECHO_SCALING.push({
+        name: 'Finishing Strike DMG',
+        value: [{ scaling: calcRefinement(1.9734, 0.2574, r), multiplier: Stats.ATK }],
+        element: Element.PHYSICAL,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '330000110',
+    name: 'Lorelei',
+    icon: 'T_IconMonsterHead_33011_UI',
+    skill: 'MstSkil_33011_UI',
+    sonata: [Sonata.HAVOC_2],
+    desc: `Transform into Lorelei and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Liberation DMG Bonus.`,
+    properties: [{ base: 363.4, growth: 47.4 }],
+    bonus: (base, r) => {
+      base[Stats.HAVOC_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Lorelei',
+      })
+      base[Stats.LIB_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Lorelei',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Lorelei DMG',
+        value: [{ scaling: calcRefinement(3.634, 0.474, r), multiplier: Stats.ATK }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '330000120',
+    name: 'Sentry Construct',
+    icon: 'T_IconMonsterHead_33012_UI',
+    skill: 'MstSkil_33012_UI',
+    sonata: [Sonata.SKILL],
+    desc: `Transform into Sentry Construct and attack enemies in front, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>. Each time the Resonator with this Echo casts Resonance Liberation, it enhances the Strike Capacitor.
+    <br />Once Strike Capacitor is at max level, the Echo Skill cooldown will be reset. Use Echo Skill to transform into Sentry Construct and dive into enemies from the air, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b> and freezing the target.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Skill DMG Bonus.`,
+    properties: [{ base: 270, growth: 45 }],
+    bonus: (base, r) => {
+      base[Stats.GLACIO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Sentry Construct',
+      })
+      base[Stats.SKILL_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Sentry Construct',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Sentry Construct DMG',
+        value: [{ scaling: calcRefinement(2.7, 0.45, r), multiplier: Stats.ATK }],
+        element: Element.GLACIO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '330000130',
+    name: 'Dragon of Dirge',
+    icon: 'T_IconMonsterHead_33013_UI',
+    skill: 'MstSkil_33013_UI',
+    sonata: [Sonata.REGEN_2],
+    desc: `Transform into Dragon of Dirge and cast Meteorite of Judgment to attack enemies within the Grief Rift, which summons up to <span class="text-desc">10</span> Meteorite, each dealing {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b>.
+    <br />The Resonator with this Echo equipped in the main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-fusion">Fusion DMG Bonus</b> and <span class="text-desc">12%</span> Basic Attack DMG Bonus.`,
+    properties: [{ base: 35.77, growth: 4.66 }],
+    bonus: (base, r) => {
+      base[Stats.FUSION_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Dragon of Dirge',
+      })
+      base[Stats.BASIC_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Dragon of Dirge',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Meteorite DMG',
+        value: [{ scaling: calcRefinement(0.3577, 0.0466, r), multiplier: Stats.ATK }],
+        element: Element.FUSION,
+        property: TalentProperty.ECHO,
+      })
+      base.ECHO_SCALING.push({
+        name: 'Total Meteorite DMG',
+        value: [{ scaling: calcRefinement(0.3577, 0.0466, r), multiplier: Stats.ATK, hits: 10 }],
+        element: Element.FUSION,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '340000100',
+    name: 'Hecate',
+    icon: 'T_IconMonsterHead_34010_1_UI',
+    skill: 'MstSkil_34010_UI',
+    sonata: [Sonata.COORD],
+    desc: `Summon 3 twirling Crescent Servants around you. Crescent Servants attack enemies with their spinning blades, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>. Triggering a Counterattack with the Echo attacks extends the Crescent Servants' summon duration.
+    <br />The Resonator with this Echo equipped in the main slot has their Coordinated Attack DMG increased by <span class="text-desc">40%</span>.`,
+    properties: [{ base: 29.13, growth: 3.8 }],
+    bonus: (base, r) => {
+      base[Stats.COORD_DMG].push({
+        value: 0.4,
+        name: 'Echo Skill',
+        source: 'Hecate',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Crescent Servants DMG',
+        value: [{ scaling: calcRefinement(0.2913, 0.038, r), multiplier: Stats.ATK }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '60000865',
+    name: 'Nightmare: Feilian Beringal',
+    icon: 'T_IconMonsterHead_YZ_33014_UI',
+    skill: 'T_Mstskil_996_UI',
+    sonata: [Sonata.WIND],
+    desc: `Summon a Nightmare: Feilian Beringal to attack enemies, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b>. The remaining Whirlwind Beam will continuously attack surrounding enemies up to <span class="text-desc">5</span> times, each dealing {{1}}% <b class="text-wuwa-aero">Aero DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b> and <span class="text-desc">12%</span> Heavy Attack DMG Bonus.`,
+    properties: [
+      { base: 104.88, growth: 13.68 },
+      { base: 13.98, growth: 1.83 },
+    ],
+    bonus: (base, r) => {
+      base[Stats.AERO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Feilian Beringal',
+      })
+      base[Stats.HEAVY_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Feilian Beringal',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Initial Strike DMG',
+        value: [{ scaling: calcRefinement(1.0488, 0.1368, r), multiplier: Stats.ATK }],
+        element: Element.AERO,
+        property: TalentProperty.ECHO,
+      })
+      base.ECHO_SCALING.push({
+        name: 'Whirlwind Beam DMG',
+        value: [{ scaling: calcRefinement(0.1398, 0.0183, r), multiplier: Stats.ATK }],
+        element: Element.AERO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '60100715',
+    name: 'Phantom: Diggy Duggy',
+    icon: 'T_IconMonsterGoods_SG_31047_UI',
+    skill: 'MstSkil_31047_UI',
+    sonata: [Sonata.LIGHT, Sonata.REGEN, Sonata.ATK],
+    desc: `Transform into Diggy Duggy and jump up into the air to smash onto enemies, dealing {{0}}% <b class="text-slate-400">Physical DMG</b>.`,
+    properties: [{ base: 464.6, growth: 60.6 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Diggy Duggy DMG',
+        value: [{ scaling: calcRefinement(4.646, 0.606, r), multiplier: Stats.ATK }],
+        element: Element.PHYSICAL,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '60100735',
+    name: 'Phantom: Questless Knight',
+    icon: 'T_IconMonsterGoods_SG_32022_UI',
+    skill: 'MstSkil_32022_UI',
+    sonata: [Sonata.FIRE, Sonata.THUNDER],
+    desc: `Transform into Questless Knight and smash the surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.`,
+    properties: [{ base: 308.2, growth: 40.2 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Questless Knight DMG',
+        value: [{ scaling: calcRefinement(3.082, 0.402, r), multiplier: Stats.ATK }],
+        element: Element.ELECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '60100805',
+    name: 'Phantom: Vitreum Dancer',
+    icon: 'T_IconMonsterGoods_SG_32029_UI',
+    skill: 'MstSkil_32029_UI',
+    sonata: [Sonata.FIRE, Sonata.THUNDER],
+    desc: `Transform into Vitreum Dancer and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG Bonus</b>.`,
+    properties: [{ base: 323.15, growth: 42.15 }],
+    bonus: (base, r) => {
+      base[Stats.ELECTRO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Vitreum Dancer',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Vitreum Dancer DMG',
+        value: [{ scaling: calcRefinement(3.2315, 0.4215, r), multiplier: Stats.ATK }],
+        element: Element.ELECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '60100835',
+    name: 'Phantom: Sentry Construct',
+    icon: 'T_IconMonsterGoods_SG_33009_UI',
+    skill: 'MstSkil_33012_UI',
+    sonata: [Sonata.THUNDER],
+    desc: `Transform into Sentry Construct and attack enemies in front, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>. Each time the Resonator with this Echo casts Resonance Liberation, it enhances the Strike Capacitor.
+    <br />Once Strike Capacitor is at max level, the Echo Skill cooldown will be reset. Use Echo Skill to transform into Sentry Construct and dive into enemies from the air, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b> and freezing the target.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Skill DMG Bonus.`,
+    properties: [{ base: 270, growth: 45 }],
+    bonus: (base, r) => {
+      base[Stats.GLACIO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Sentry Construct',
+      })
+      base[Stats.SKILL_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Sentry Construct',
+      })
+      base.ECHO_SCALING.push({
+        name: 'Sentry Construct DMG',
+        value: [{ scaling: calcRefinement(2.7, 0.45, r), multiplier: Stats.ATK }],
+        element: Element.GLACIO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
 ]
