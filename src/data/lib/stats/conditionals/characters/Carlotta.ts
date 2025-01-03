@@ -166,8 +166,8 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     c6: {
       trace: `Sequence Node 6`,
       title: `As the Curtain Falls, I Remain What I Am`,
-      content: `Shots of Resonance Liberation <b>Death Knell</b> deal higher DMG and shoot out double the number of crystal shards, representing a total increase of <span class="text-desc">186.6%</span> in the DMG Multiplier.
-      <br />Shots of Resonance Liberation <b>Death Knell</b> inflict <b class="text-violet-300">Scattering</b> on targets when hit, during which the target is immobilized. This effect is removed after <span class="text-desc">1.5</span>s or when the target receives DMG.`,
+      content: `Shots of Resonance Liberation <b>Death Knell</b> deal higher DMG and shoot out double the number of crystal shards, representing a total increase of <span class="text-desc">186.6%</span> in the DMG Multiplier of Resonance Liberation <b>Death Knell</b>.
+      <br />Shots of Resonance Liberation <b>Death Knell</b> inflict <b class="text-cyan-200">Scattering</b> on targets when hit, during which the target is immobilized. This effect is removed after <span class="text-desc">1.5</span>s or when the target receives DMG.`,
       image: 'T_IconDevice_KelaitaM6_UI',
     },
   }
