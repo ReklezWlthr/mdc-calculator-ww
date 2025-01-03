@@ -136,21 +136,20 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     c1: {
       trace: `Sequence Node 1`,
       title: `Beauty Blazes Brightest Before It Fades`,
-      content: `Casting Resonance Skill <b>Art of Violence</b> increases <b class="text-wuwa-glacio">Glacio DMG Bonus</b> by <span class="text-desc">25%</span> for <span class="text-desc">15</span>s.
-      <br />When Resonance Skill <b>Chromatic Splendor</b> hits a target inflicted with <b class="text-cyan-200">Dispersion</b>, Carlotta additionally restores <span class="text-desc">30</span> points of <b class="text-yellow">Substance</b>.
-      <br />Carlotta is immune to interruptions when casting Resonance Liberation <b>Death Knell</b>.`,
+      content: `Dealing DMG to targets inflicted with <b class="text-violet-300">Deconstruction</b> increases the Crit. Rate of this attack by <span class="text-desc">12.5%</span>.
+      <br />When Resonance Skill <b>Chromatic Splendor</b> hits a target inflicted with <b class="text-cyan-200">Dispersion</b>, Carlotta additionally restores <span class="text-desc">30</span> points of <b class="text-yellow">Substance</b>.`,
       image: 'T_IconDevice_KelaitaM1_UI',
     },
     c2: {
       trace: `Sequence Node 2`,
       title: `Fallen Petals Give Life to New Blooms`,
-      content: `Dealing DMG to targets inflicted with <b class="text-violet-300">Deconstruction</b> increases the Crit. Rate of this attack by <span class="text-desc">25%</span>.`,
+      content: `The DMG Multiplier of Resonance Liberation <b>Fatal Finale</b> is increased by <span class="text-desc">126%</span>.`,
       image: 'T_IconDevice_KelaitaM2_UI',
     },
     c3: {
       trace: `Sequence Node 3`,
       title: `Adelante, Cortado, Spinning in Grace`,
-      content: `Enable Outro Skill <b>Kaleidoscope Sparks</b>: Deal <span class="text-desc">1</span> additional strike at the end of Outro Skill <b>Closing Remark</b>, dealing <b class="text-wuwa-glacio">Glacio DMG</b> equal to <span class="text-desc">1032.18%</span> of Carlotta's ATK. The DMG Multiplier of Resonance Skill <b>Art of Violence</b> and Resonance Skill <b>Chromatic Splendor</b> is increased by <span class="text-desc">70%</span>.`,
+      content: `Enable Outro Skill <b>Kaleidoscope Sparks</b>: Deal <span class="text-desc">1</span> additional strike at the end of Outro Skill <b>Closing Remark</b>, dealing <b class="text-wuwa-glacio">Glacio DMG</b> equal to <span class="text-desc">1,032.18%</span> of Carlotta's ATK. The DMG Multiplier of Resonance Skill <b>Art of Violence</b> and Resonance Skill <b>Chromatic Splendor</b> is increased by <span class="text-desc">93%</span>.`,
       image: 'T_IconDevice_KelaitaM3_UI',
     },
     c4: {
@@ -162,13 +161,13 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     c5: {
       trace: `Sequence Node 5`,
       title: `Toast to Past, Today, and Every Day to Come`,
-      content: `Casting Resonance Skill <b>Art of Violence</b> increases ATK by <span class="text-desc">10%</span> for <span class="text-desc">20</span>s.`,
+      content: `The DMG Multiplier of Heavy Attack <b>Imminent Oblivion</b> is increased by <span class="text-desc">47%</span>.`,
       image: 'T_IconDevice_KelaitaM5_UI',
     },
     c6: {
       trace: `Sequence Node 6`,
       title: `As the Curtain Falls, I Remain What I Am`,
-      content: `Shots of Resonance Liberation <b>Death Knell</b> deal higher DMG and shoot out double the number of crystal shards, representing a total increase of <span class="text-desc">145.6%</span> in the DMG Multiplier.
+      content: `Shots of Resonance Liberation <b>Death Knell</b> deal higher DMG and shoot out double the number of crystal shards, representing a total increase of <span class="text-desc">186.6%</span> in the DMG Multiplier.
       <br />Shots of Resonance Liberation <b>Death Knell</b> inflict <b class="text-violet-300">Scattering</b> on targets when hit, during which the target is immobilized. This effect is removed after <span class="text-desc">1.5</span>s or when the target receives DMG.`,
       image: 'T_IconDevice_KelaitaM6_UI',
     },
@@ -186,26 +185,10 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     },
     {
       type: 'toggle',
-      id: 'carlotta_c1',
-      text: `S1 Glacio DMG Bonus`,
-      ...talents.c1,
-      show: c >= 1,
-      default: true,
-    },
-    {
-      type: 'toggle',
       id: 'carlotta_c4',
       text: `S4 Skill DMG Bonus`,
       ...talents.c4,
       show: c >= 4,
-      default: true,
-    },
-    {
-      type: 'toggle',
-      id: 'carlotta_c5',
-      text: `S5 ATK Bonus`,
-      ...talents.c5,
-      show: c >= 5,
       default: true,
     },
   ]
@@ -320,7 +303,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           value: [{ scaling: calcScaling(0.7249, skill), multiplier: Stats.ATK, hits: 2 }],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
-          multiplier: c >= 3 ? 1.7 : 1,
+          multiplier: c >= 3 ? 1.93 : 1,
         },
         {
           name: 'Chromatic Splendor DMG',
@@ -330,7 +313,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           ],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
-          multiplier: c >= 3 ? 1.7 : 1,
+          multiplier: c >= 3 ? 1.93 : 1,
         },
       ]
       base.LIB_SCALING = [
@@ -348,13 +331,14 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           ],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
-          multiplier: c >= 6 ? 2.456 : 1,
+          multiplier: c >= 6 ? 2.866 : 1,
         },
         {
           name: `Fatal Finale DMG`,
           value: [{ scaling: calcScaling(5.8336, lib), multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
+          multiplier: c >= 2 ? 2.26 : 1,
         },
       ]
       base.FORTE_SCALING = [
@@ -366,6 +350,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           ],
           element: Element.GLACIO,
           property: TalentProperty.SKILL,
+          multiplier: c >= 5 ? 1.47 : 1,
         },
       ]
       base.INTRO_SCALING = [
@@ -394,20 +379,13 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           name: `Deconstruction`,
           source: 'Self',
         })
-        if (c >= 2) {
+        if (c >= 1) {
           base[Stats.CRIT_RATE].push({
-            value: 0.25,
-            name: `Sequence Node 2`,
+            value: 0.125,
+            name: `Sequence Node 1`,
             source: 'Self',
           })
         }
-      }
-      if (form.carlotta_c1) {
-        base[Stats.GLACIO_DMG].push({
-          value: 0.25,
-          name: `Sequence Node 1`,
-          source: 'Self',
-        })
       }
       if (c >= 3) {
         base.OUTRO_SCALING.push({
@@ -421,13 +399,6 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
         base[Stats.SKILL_DMG].push({
           value: 0.25,
           name: `Sequence Node 4`,
-          source: 'Self',
-        })
-      }
-      if (form.carlotta_c5) {
-        base[Stats.P_ATK].push({
-          value: 0.1,
-          name: `Sequence Node 5`,
           source: 'Self',
         })
       }
