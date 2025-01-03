@@ -136,8 +136,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     c1: {
       trace: `Sequence Node 1`,
       title: `Beauty Blazes Brightest Before It Fades`,
-      content: `Dealing DMG to targets inflicted with <b class="text-violet-300">Deconstruction</b> increases the Crit. Rate of this attack by <span class="text-desc">12.5%</span>.
-      <br />When Resonance Skill <b>Chromatic Splendor</b> hits a target inflicted with <b class="text-cyan-200">Dispersion</b>, Carlotta additionally restores <span class="text-desc">30</span> points of <b class="text-yellow">Substance</b>.`,
+      content: `When Carlotta deals DMG to targets inflicted with <b class="text-violet-300">Deconstruction</b>, the Crit. Rate of this instance of DMG is increased by <span class="text-desc">12.5%</span>. When Resonance Skill <b>Chromatic Splendor</b> hits a target inflicted with <b class="text-cyan-200">Dispersion</b>, Carlotta additionally restores <span class="text-desc">30</span> points of <b class="text-yellow">Substance</b>.`,
       image: 'T_IconDevice_KelaitaM1_UI',
     },
     c2: {
