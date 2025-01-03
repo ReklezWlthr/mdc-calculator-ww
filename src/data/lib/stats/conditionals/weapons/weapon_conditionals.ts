@@ -917,7 +917,7 @@ export const WeaponConditionals: IWeaponContent[] = [
         base[Stats.SKILL_DMG].push({
           value: calcRefinement(0.48, 0.12, r),
           name: 'Passive',
-          source: `Dance and Death`,
+          source: `The Last Dance`,
         })
       }
       return base
