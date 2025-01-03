@@ -208,32 +208,34 @@ export const calculateArtifact = (base: StatsObject, form: Record<string, any>, 
       return x
     })
   }
-  // if (form[Sonata.SKILL]) {
-  //   base[Stats.SKILL_DMG].push({
-  //     name: `5 Piece`,
-  //     source: Sonata.SKILL,
-  //     value: 0.18 * form[Sonata.SKILL],
-  //   })
-  //   base[Stats.GLACIO_DMG].push({
-  //     name: `5 Piece`,
-  //     source: Sonata.SKILL,
-  //     value: 0.18 * form[Sonata.SKILL],
-  //   })
-  // }
-  // if (form[Sonata.LIGHT_2 + '_1']) {
-  //   base[Stats.CRIT_RATE].push({
-  //     name: `5 Piece`,
-  //     source: Sonata.LIGHT_2,
-  //     value: 0.2,
-  //   })
-  // }
-  // if (form[Sonata.LIGHT_2 + '_2']) {
-  //   base[Stats.SPECTRO_DMG].push({
-  //     name: `5 Piece`,
-  //     source: Sonata.LIGHT_2,
-  //     value: 0.15,
-  //   })
-  // }
+  if (form[Sonata.SKILL]) {
+    base[Stats.GLACIO_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.SKILL,
+      value: 0.225 * form[Sonata.SKILL],
+    })
+  }
+  if (form[Sonata.SKILL + '_1']) {
+    base[Stats.SKILL_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.SKILL,
+      value: 0.18 * form[Sonata.SKILL + '_1'],
+    })
+  }
+  if (form[Sonata.LIGHT_2 + '_1']) {
+    base[Stats.CRIT_RATE].push({
+      name: `5 Piece`,
+      source: Sonata.LIGHT_2,
+      value: 0.2,
+    })
+  }
+  if (form[Sonata.LIGHT_2 + '_2']) {
+    base[Stats.SPECTRO_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.LIGHT_2,
+      value: 0.15,
+    })
+  }
 
   return base
 }
@@ -267,20 +269,20 @@ export const calculateTeamArtifact = (base: StatsObject, form: Record<string, an
       value: 0.12,
     })
   }
-  // if (form[`${Sonata.HAVOC_2}_${index}`]) {
-  //   base[Stats.HAVOC_DMG].push({
-  //     name: `5 Piece`,
-  //     source: Sonata.HAVOC_2,
-  //     value: 0.15,
-  //   })
-  // }
-  // if (form[`${Sonata.COORD}_${index}`]) {
-  //   base[Stats.P_ATK].push({
-  //     name: `5 Piece`,
-  //     source: Sonata.COORD,
-  //     value: 0.2,
-  //   })
-  // }
+  if (form[`${Sonata.HAVOC_2}_${index}`]) {
+    base[Stats.HAVOC_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.HAVOC_2,
+      value: 0.15,
+    })
+  }
+  if (form[`${Sonata.COORD}_${index}`]) {
+    base[Stats.P_ATK].push({
+      name: `5 Piece`,
+      source: Sonata.COORD,
+      value: 0.2,
+    })
+  }
 
   return base
 }

@@ -109,7 +109,7 @@ export const SonataDetail = {
       bonus: { stat: Stats.SKILL_DMG, value: 0.12 },
     },
     {
-      desc: `Casting Resonance Liberation grants <span class="text-desc">18%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> and <span class="text-desc">18%</span> Resonance Skill DMG Bonus for <span class="text-desc">5</span>s. This effect stacks up to <span class="text-desc">2</span> times.`,
+      desc: `Casting Resonance Skill grants <span class="text-desc">22.5%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> for <span class="text-desc">15</span>s and casting Resonance Liberation increases Resonance Skill DMG <span class="text-desc">18%</span>, lasting for <span class="text-desc">5</span>s. This effect stacks up to <span class="text-desc">2</span> times.`,
     },
   ],
   [Sonata.LIGHT_2]: [
@@ -128,7 +128,7 @@ export const SonataDetail = {
       bonus: { stat: Stats.HAVOC_DMG, value: 0.1 },
     },
     {
-      desc: `Triggering Outro Skill deals additional <span class="text-desc">480%</span> <b class="text-wuwa-havoc">Havoc DMG</b> to surrounding enemies, and grants the incoming Resonator <span class="text-desc">15%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> for <span class="text-desc">15</span>s.`,
+      desc: `When Outro Skill is triggered, deal additional <span class="text-desc">480%</span> <b class="text-wuwa-havoc">Havoc DMG</b> to surrounding enemies, considered Outro Skill DMG, and grant the incoming Resonator <span class="text-desc">15%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> for <span class="text-desc">15</span>s.`,
       callback: (base: StatsObject) => {
         base.OUTRO_SCALING.push({
           name: `Midnight Veil Outro DMG`,
