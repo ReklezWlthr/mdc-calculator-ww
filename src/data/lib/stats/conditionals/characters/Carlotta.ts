@@ -123,8 +123,8 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     i1: {
       trace: `Inherent Skill 1`,
       title: `Flawless Purity`,
-      content: `After casting Resonance Skill <b>Chromatic Splendor</b>, Carlotta can perform Mid-air Attacks while being immune to any DMG or interruptions before the Mid-air Attack deals DMG.
-      <br />When Carlotta is on the team, the Resoanator on the field's Flight STA cost is reduced by <span class="text-desc">-20%</span>.`,
+      content: `After casting Resonance Skill <b>Chromatic Splendor</b>, Carlotta can perform Mid-Air Attacks while being immune to any DMG or interruptions before the Mid-air Attack deals DMG.
+      <br />When Carlotta is on the team, the active Resonator's Flight STA cost is reduced by <span class="text-desc">20%</span>.`,
       image: 'SP_IconKelaitaD1',
     },
     i2: {
