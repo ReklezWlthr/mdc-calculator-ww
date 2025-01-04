@@ -87,7 +87,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       content: `After casting Outro Skill, the Utility of the incoming Resonator is replaced with <b>Magic Box</b>.
       <br />
       <br /><b>Magic Box</b>
-      <br />- Upon use, pull nearby targets toward the <b>Magic Box</b>, dealing <b class="text-wuwa-havoc">Havoc DMG</b> equal to <span class="text-desc">20%*5</span> of the active Resonator's ATK, considered Utility DMG.
+      <br />- Upon use, pull nearby targets toward the <b>Magic Box</b>, dealing <span class="text-desc">100</span> points of <b class="text-wuwa-havoc">Havoc DMG</b>. This skill is considered Echo Skill that deals Utility DMG.
       <br />- The <b>Magic Box</b> lasts for <span class="text-desc">14</span>s or until the Resonator is switched out.`,
       image: 'SP_IconLuokekeD2',
     },
@@ -401,7 +401,8 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
         if (i !== index)
           member.SKILL_SCALING.push({
             name: 'Magic Box DMG',
-            value: [{ scaling: 0.2, multiplier: Stats.ATK, hits: 5 }],
+            value: [{ scaling: 0, multiplier: Stats.ATK }],
+            flat: 100,
             element: Element.HAVOC,
             property: TalentProperty.UTIL,
           })
