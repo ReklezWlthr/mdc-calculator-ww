@@ -95,7 +95,7 @@ export const damageStringConstruct = (
   const dmgArray = _.map(
     scaling.value,
     (item) =>
-      (item.scaling * (item.override || statForScale[item.multiplier]) + scaling.flat / _.size(scaling.value)) *
+      (item.scaling * (item.override || statForScale[item.multiplier]) + (scaling.flat / _.size(scaling.value) || 0)) *
       (1 + bonusDMG) *
       (scaling.multiplier || 1) *
       (1 + amp) *
