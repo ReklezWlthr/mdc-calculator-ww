@@ -188,7 +188,7 @@ export const damageStringConstruct = (
           {_.map(dmgArray, (item, index) => (
             <div className="flex gap-1">
               {index > 0 && <p className="pl-1">+</p>}
-              <p className="font-bold">{_.round(format(item)).toLocaleString()}</p>
+              <p className="font-bold">{_.round(format(item) + scaling.flat / _.size(dmgArray)).toLocaleString()}</p>
               {scaling.value[index].hits && (
                 <p>
                   {` \u{00d7} `}
