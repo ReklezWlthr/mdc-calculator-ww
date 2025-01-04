@@ -38,7 +38,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     lib: {
       level: lib,
       trace: `Resonance Liberation`,
-      title: `Ta-da, Commedia Improvviso`,
+      title: `Commedia Improvviso!`,
       content: `Roccia's improvised comedy begins! Deal <b class="text-wuwa-havoc">Havoc DMG</b>, considered Heavy Attack DMG. For every <span class="text-desc">0.1%</span> of Roccia's Crit. Rate over <span class="text-desc">50%</span>, this skill increases the ATK of all Resnonators in the team by <span class="text-desc">1</span> point for <span class="text-desc">30</span>s, up to <span class="text-desc">200</span> points.`,
       image: 'SP_IconLuokekeC1',
     },
@@ -119,13 +119,13 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     c5: {
       trace: `Sequence Node 5`,
       title: `When Dreams Are Reborn on Stage`,
-      content: `Increase Resonance Liberation <b>Ta-da, Commedia Improvviso</b>'s DMG Multiplier by <span class="text-desc">20%</span> and Heavy Attack's DMG Multiplier by <span class="text-desc">80%</span>`,
+      content: `Increase Resonance Liberation <b>Commedia Improvviso!</b>'s DMG Multiplier by <span class="text-desc">20%</span> and Heavy Attack's DMG Multiplier by <span class="text-desc">80%</span>`,
       image: 'T_IconDevice_LuokekeM5_UI',
     },
     c6: {
       trace: `Sequence Node 6`,
       title: `When the Golden Wings Fly`,
-      content: `Casting Resonance Liberation <b>Ta-da, Commedia Improvviso</b> grants the following effects for <span class="text-desc">12</span>s:
+      content: `Casting Resonance Liberation <b>Commedia Improvviso!</b> grants the following effects for <span class="text-desc">12</span>s:
       <br />- Basic Attack <b>Real Fantasy</b> ignores enemies' DEF by <span class="text-desc">60%</span>.
       <br />- When Roccia lands after performing Basic Attack <b>Real Fantasy</b> Stage 3, she is launched into mid-air, activating the <b>Beyond Imagination</b>. In this state, Basic Attack becomes Basic Attack <b>Reality Recreation</b>, dealing DMG equal to <span class="text-desc">100%</span> of Basic Attack <b>Real Fantasy</b> Stage 3 DMG, considered Heavy Attack DMG. Roccia is immune to interruptions while casting Basic Attack <b>Reality Recreation</b>.
       <br />- When Roccia lands after performing Basic Attack <b>Reality Recreation</b>, she is launched into mid-air, activating <b>Beyond Imagination</b>. Basic Attack <b>Reality Recreation</b> is only available in the <b>Beyond Imagination</b> state.`,
@@ -271,7 +271,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       ]
       base.LIB_SCALING = [
         {
-          name: 'Ta-da, Commedia Improvviso DMG',
+          name: 'Commedia Improvviso! DMG',
           value: [{ scaling: calcScaling(1.4, lib), multiplier: Stats.ATK, hits: 3 }],
           element: Element.HAVOC,
           property: TalentProperty.HA,
