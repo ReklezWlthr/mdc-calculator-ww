@@ -34,7 +34,7 @@ export const AbilityBlock = observer(
           <span className="mr-2 text-desc">✦</span>Forte<span className="ml-2 text-desc">✦</span>
         </p>
         <div className="flex items-center justify-center gap-3 py-2">
-          <TalentIcon talent={talents?.normal} element={charData?.element} size="w-9 h-9" hideTip />
+          <TalentIcon talent={talents?.normal} element={charData?.element} size="w-9 h-9" modal />
           <div className="space-y-1">
             <p className="text-xs text-primary-lighter">Normal ATK</p>
             <SelectInput
@@ -44,7 +44,7 @@ export const AbilityBlock = observer(
               style="w-14 mr-2"
             />
           </div>
-          <TalentIcon talent={talents?.skill} element={charData?.element} size="w-9 h-9" hideTip />
+          <TalentIcon talent={talents?.skill} element={charData?.element} size="w-9 h-9" modal />
           <div className="space-y-1">
             <p className="text-xs text-primary-lighter">Res. Skill</p>
             <SelectInput
@@ -56,7 +56,7 @@ export const AbilityBlock = observer(
           </div>
         </div>
         <div className="flex items-center justify-center gap-3 py-2">
-          <TalentIcon talent={talents?.forte} element={charData?.element} size="w-9 h-9" hideTip />
+          <TalentIcon talent={talents?.forte} element={charData?.element} size="w-9 h-9" modal />
           <div className="space-y-1">
             <p className="text-xs text-primary-lighter">Forte Circuit</p>
             <SelectInput
@@ -68,7 +68,7 @@ export const AbilityBlock = observer(
           </div>
         </div>
         <div className="flex items-center justify-center gap-3 py-2">
-          <TalentIcon talent={talents?.lib} element={charData?.element} size="w-9 h-9" hideTip />
+          <TalentIcon talent={talents?.lib} element={charData?.element} size="w-9 h-9" modal />
           <div className="space-y-1">
             <p className="text-xs text-primary-lighter">Liberation</p>
             <SelectInput
@@ -78,7 +78,7 @@ export const AbilityBlock = observer(
               style="w-14 mr-2"
             />
           </div>
-          <TalentIcon talent={talents?.intro} element={charData?.element} size="w-9 h-9" hideTip />
+          <TalentIcon talent={talents?.intro} element={charData?.element} size="w-9 h-9" modal />
           <div className="space-y-1">
             <p className="text-xs text-primary-lighter">Intro Skill</p>
             <SelectInput
@@ -93,12 +93,12 @@ export const AbilityBlock = observer(
           <span className="mr-2 text-desc">✦</span>Inherent Skills<span className="ml-2 text-desc">✦</span>
         </p>
         <div className="flex items-center justify-center gap-4 py-2">
-          <TalentIcon talent={talents?.i1} element={charData?.element} size="w-9 h-9" hideTip />
+          <TalentIcon talent={talents?.i1} element={charData?.element} size="w-9 h-9" modal />
           <div className="flex flex-col gap-1.5 whitespace-nowrap">
             <p className="text-xs text-primary-lighter">Inherent 1</p>
             <CheckboxInput checked={char?.i?.i1} onClick={(value) => onChangeInherent('i1', value)} />
           </div>
-          <TalentIcon talent={talents?.i2} element={charData?.element} size="w-9 h-9" hideTip />
+          <TalentIcon talent={talents?.i2} element={charData?.element} size="w-9 h-9" modal />
           <div className="flex flex-col gap-1.5 whitespace-nowrap">
             <p className="text-xs text-primary-lighter">Inherent 2</p>
             <CheckboxInput checked={char?.i?.i2} onClick={(value) => onChangeInherent('i2', value)} />
