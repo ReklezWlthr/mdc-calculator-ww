@@ -95,8 +95,7 @@ export const damageStringConstruct = (
   const dmgArray = _.map(
     scaling.value,
     (item) =>
-      item.scaling *
-      (item.override || statForScale[item.multiplier]) *
+      (item.scaling * (item.override || statForScale[item.multiplier]) + scaling.flat / _.size(scaling.value)) *
       (1 + bonusDMG) *
       (scaling.multiplier || 1) *
       (1 + amp) *
@@ -188,7 +187,7 @@ export const damageStringConstruct = (
           {_.map(dmgArray, (item, index) => (
             <div className="flex gap-1">
               {index > 0 && <p className="pl-1">+</p>}
-              <p className="font-bold">{_.round(format(item) + scaling.flat / _.size(dmgArray)).toLocaleString()}</p>
+              <p className="font-bold">{_.round(format(item)).toLocaleString()}</p>
               {scaling.value[index].hits && (
                 <p>
                   {` \u{00d7} `}
