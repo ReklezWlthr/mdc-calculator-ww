@@ -741,7 +741,7 @@ export const Weapons = [
   },
   {
     id: '21030044',
-    image: 'T_IconWeapon21020034_UI.webp',
+    image: 'T_IconWeapon21030044_UI.webp',
     name: 'Undying Flame',
     rarity: 4,
     baseAtk: 33,

@@ -247,10 +247,6 @@ export const useCalculator = ({
       let x = base
       const mainEcho = team[index]?.equipments?.artifacts?.[0]
       const echoData = _.find(artifactStore.artifacts, ['id', mainEcho])
-      const bonus = findEcho(echoData?.setId)?.bonus
-      if (bonus) {
-        x = bonus(x, echoData?.quality - 1)
-      }
       const sonata = SonataDetail[echoData?.sonata]
       if ((sonata?.[1] as any)?.callback) {
         x = (sonata?.[1] as any)?.callback?.(x)

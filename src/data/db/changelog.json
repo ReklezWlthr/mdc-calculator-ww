@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.2-4",
+    "date": "January 7th, 2025",
+    "desc": [
+      "<b class=\"text-heal\">Fixed</b>: <b>Frosty Resolve</b>'s <b class=\"text-wuwa-glacio\">Glacio DMG Bonus</b> cannot stack.",
+      "<b class=\"text-heal\">Fixed</b>: Innate stats from 2.0 Echoes are now applied in Setup page."
+    ]
+  },
+  {
     "version": "1.0.2-3",
     "date": "January 3rd, 2025",
     "desc": [

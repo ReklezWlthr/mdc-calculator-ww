@@ -219,14 +219,12 @@ export const ArtifactForm = () => {
     },
     {
       trace: 'Sonata',
-      type: 'number',
+      type: 'toggle',
       text: Sonata.SKILL + ' Glacio DMG Bonus',
       title: Sonata.SKILL + ' Glacio DMG Bonus',
-      content: `Casting Resonance Skill grants <span class="text-desc">22.5%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> for <span class="text-desc">15</span>s. This effect stacks up to <span class="text-desc">2</span> times.`,
+      content: `Casting Resonance Skill grants <span class="text-desc">22.5%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> for <span class="text-desc">15</span>s.`,
       show: true,
-      default: 1,
-      min: 0,
-      max: 2,
+      default: true,
       id: Sonata.SKILL,
     },
     {

@@ -1,7 +1,7 @@
 import { getBaseDef, getBaseStat, getMainStat, getSetCount, getWeaponBase, getWeaponBonus } from '../utils/data_format'
 import _ from 'lodash'
 import { Element, IArtifactEquip, ITeamChar, IWeaponEquip, Stats, WeaponType } from '@src/domain/constant'
-import { findCharacter, findWeapon } from '../utils/finder'
+import { findCharacter, findEcho, findWeapon } from '../utils/finder'
 import { Echoes, SonataDetail } from '@src/data/db/artifacts'
 import { baseStatsObject, StatsObject } from '@src/data/lib/stats/baseConstant'
 import WeaponBonus from '@src/data/lib/stats/conditionals/weapons/weapon_bonus'
@@ -145,6 +145,11 @@ export const addArtifactStats = (conditionals: StatsObject, artifacts: IArtifact
         })
     }
   })
+  const mainEcho = artifacts?.[4]
+  const bonus = findEcho(mainEcho?.setId)?.bonus
+  if (bonus) {
+    conditionals = bonus(conditionals, mainEcho?.quality - 1)
+  }
 
   return conditionals
 }

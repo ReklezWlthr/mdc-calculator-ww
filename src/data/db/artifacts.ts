@@ -2043,7 +2043,7 @@ export const Echoes: IArtifact[] = [
     name: 'Lottie Lost',
     icon: 'T_IconMonsterHead_31046_UI',
     skill: 'MstSkil_31046_UI',
-    sonata: [Sonata.LIGHT, Sonata.ATK, Sonata.REGEN],
+    sonata: [Sonata.LIGHT, Sonata.REGEN, Sonata.ATK, Sonata.SKILL, Sonata.REGEN_2],
     desc: `Summon a Lottie Lost to attack enemies, dealing {{0}}% <b class="text-spectro">Spectro DMG</b>.`,
     properties: [{ base: 82.8, growth: 10.8 }],
     bonus: (base, r) => {
