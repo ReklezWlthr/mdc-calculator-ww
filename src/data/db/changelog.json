@@ -4,6 +4,7 @@
     "date": "January 7th, 2025",
     "desc": [
       "<b class=\"text-heal\">Fixed</b>: <b>Frosty Resolve</b>'s <b class=\"text-wuwa-glacio\">Glacio DMG Bonus</b> cannot stack.",
+      "<b class=\"text-heal\">Fixed</b>: <b>Nightmare: Tempest Memphis</b>' Sonata sets were wrong.",
       "<b class=\"text-heal\">Fixed</b>: Innate stats from 2.0 Echoes are now applied in Setup page."
     ]
   },

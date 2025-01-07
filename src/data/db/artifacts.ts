@@ -234,7 +234,7 @@ export const Echoes: IArtifact[] = [
     name: 'Nightmare: Tempest Mephis',
     icon: 'T_IconMonsterHead_YZ_33017_UI',
     skill: 'T_MstSkil_Z_B3_UI',
-    sonata: [Sonata.SKILL, Sonata.THUNDER],
+    sonata: [Sonata.COORD, Sonata.THUNDER],
     desc: `Transform into Nightmare: Tempest Mephis and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
     <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Skill DMG Bonus.`,
     properties: [{ base: 550.85, growth: 71.85 }],

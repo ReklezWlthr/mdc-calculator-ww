@@ -25,26 +25,6 @@ export const EchoFilterModal = observer(
       cost: [],
     })
 
-    const CostIcon = ({ value }: { value: number }) => {
-      const checked = _.includes(params.cost, value)
-      return (
-        <div
-          className={classNames(
-            'w-8 h-8 duration-200 rounded-full cursor-pointer hover:bg-primary-lighter flex items-center justify-center',
-            {
-              'bg-primary-lighter': checked,
-            }
-          )}
-          onClick={() => setParams({ cost: checked ? _.without(params.cost, value) : [...params.cost, value] })}
-          title={`${value} Cost`}
-        >
-          <div className="flex items-center justify-center w-5 h-5 text-xs bg-opacity-75 rounded-full bg-primary ring-2 ring-primary-light">
-            {value}
-          </div>
-        </div>
-      )
-    }
-
     const filteredEchoes = _.orderBy(
       _.filter(Echoes, (item) => {
         const sonataMatch = !_.size(params.sonata) || isSubsetOf(params.sonata, item?.sonata)
@@ -119,7 +99,7 @@ export const EchoFilterModal = observer(
                             />
                             <div className="w-full space-y-1">
                               <p className="w-full text-sm break-all line-clamp-1">{item?.name}</p>
-                              <div className="flex gap-2">
+                              <div className="flex flex-wrap gap-2">
                                 {_.map(item?.sonata, (s) => (
                                   <img src={SonataIcons[s]} className="w-6 h-6" key={s} />
                                 ))}
