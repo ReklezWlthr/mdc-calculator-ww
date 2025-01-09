@@ -83,7 +83,7 @@ const Mortefi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, te
     i1: {
       trace: `Inherent Skill 1`,
       title: `Harmonic Control`,
-      content: `After casting Resonance Skill Passionate ,b>Variation, the damage of Resonance Skill <b>Fury Fugue</b> is increased by <span class="text-desc">25%</span> for <span class="text-desc">8</span>s.`,
+      content: `After casting Resonance Skill <b>Passionate Variation</b>, the damage of Resonance Skill <b>Fury Fugue</b> is increased by <span class="text-desc">25%</span> for <span class="text-desc">8</span>s.`,
       image: 'SP_IconMotefeiD1',
     },
     i2: {
