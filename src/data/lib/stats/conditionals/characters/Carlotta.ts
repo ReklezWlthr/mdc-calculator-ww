@@ -255,7 +255,7 @@ const Carlotta = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           property: TalentProperty.HA,
         },
         {
-          name: 'Customary Greetings DMG',
+          name: 'Containment Tactics DMG',
           value: [
             { scaling: calcScaling(0.1722, normal), multiplier: Stats.ATK, hits: 2 },
             { scaling: calcScaling(0.1722, normal), multiplier: Stats.ATK, hits: 2 },
