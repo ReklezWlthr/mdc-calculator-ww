@@ -2005,7 +2005,7 @@ export const Echoes: IArtifact[] = [
     name: 'Nimbus Wraith',
     icon: 'T_IconMonsterHead_31044_UI',
     skill: 'MstSkil_31044_UI',
-    sonata: [Sonata.HAVOC_2, Sonata.SKILL],
+    sonata: [Sonata.HAVOC_2, Sonata.COORD],
     desc: `Summon a Nimbus Wraith that restores the active Resonator's HP by <span class="text-desc">5%</span> of their Max HP, up to <span class="text-desc">4</span> times.`,
     properties: [],
     bonus: (base, r) => {
@@ -2144,7 +2144,7 @@ export const Echoes: IArtifact[] = [
     name: 'Nocturnus Knight',
     icon: 'T_IconMonsterHead_32024_UI',
     skill: 'MstSkil_32024_UI',
-    sonata: [Sonata.HAVOC_2, Sonata.SKILL],
+    sonata: [Sonata.HAVOC_2, Sonata.COORD],
     desc: `Transform into Nocturnus Knight and strike enemies in front of you from the air, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
     properties: [{ base: 296.7, growth: 38.7 }],
     bonus: (base, r) => {
@@ -2236,7 +2236,7 @@ export const Echoes: IArtifact[] = [
     name: 'Chop Chop',
     icon: 'T_IconMonsterHead_32028_UI',
     skill: 'MstSkil_32028_UI',
-    sonata: [Sonata.SKILL, Sonata.REGEN_2],
+    sonata: [Sonata.COORD, Sonata.REGEN_2],
     desc: `Summon a Chop Chop to perform a series of consecutive attacks. The first <span class="text-desc">3</span> strikes each deal {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b> and finishing strike deals {{1}}% <b class="text-wuwa-fusion">Fusion DMG</b>.`,
     properties: [
       { base: 22.77, growth: 2.97 },
@@ -2264,7 +2264,7 @@ export const Echoes: IArtifact[] = [
     name: 'Vitreum Dancer',
     icon: 'T_IconMonsterHead_32029_UI',
     skill: 'MstSkil_32029_UI',
-    sonata: [Sonata.LIGHT_2, Sonata.SKILL],
+    sonata: [Sonata.LIGHT_2, Sonata.COORD],
     desc: `Transform into Vitreum Dancer and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b>.
     <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-electro">Electro DMG Bonus</b>.`,
     properties: [{ base: 323.15, growth: 42.15 }],
