@@ -102,7 +102,7 @@ const Phoebe = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     i1: {
       trace: `Inherent Skill 1`,
       title: `Presence`,
-      content: `Mid-Air Heavy Attack Attack can be cast <span class="text-desc">1</span> more time.`,
+      content: `Mid-Air Heavy Attack can be cast <span class="text-desc">1</span> more time.`,
       image: 'SP_IconFeibiD1',
     },
     i2: {
