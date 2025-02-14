@@ -444,6 +444,36 @@ export const ModifierPresets = [
     ),
   },
   {
+    name: `Every Flavor Bell-less Crab`,
+    order: 2,
+    type: 'Dish',
+    property: [
+      { stat: Stats.P_ATK, value: 22, flat: false },
+      { stat: Stats.CRIT_DMG, value: 24, flat: false },
+    ],
+    icon: (
+      <img src={getFoodImage('T_IconCook_071_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Wine-Brewed Octopus Clam`,
+    order: 2,
+    type: 'Dish',
+    property: [{ stat: Stats.P_HP, value: 30, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_072_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Riccioli Salt Baked Fish`,
+    order: 2,
+    type: 'Dish',
+    property: [{ stat: Stats.P_DEF, value: 35, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_073_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
     name: `Liondance Companion`,
     order: 3,
     type: `Lingyang's Signature Dish`,
@@ -647,6 +677,24 @@ export const ModifierPresets = [
       <img src={getFoodImage('T_IconCook_050_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
     ),
   },
+  {
+    name: `A Slice of Pizza`,
+    order: 3,
+    type: `Phoebe's Signature Dish`,
+    property: [{ stat: Stats.BASIC_DMG, value: 44, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_070_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  // {
+  //   name: `Purity Strength`,
+  //   order: 3,
+  //   type: `Brant's Signature Dish`,
+  //   property: [{ stat: Stats.HEAVY_DMG, value: 28, flat: false }],
+  //   icon: (
+  //     <img src={getFoodImage('T_IconCook_069_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+  //   ),
+  // },
   {
     name: `Fusion Petrol`,
     order: 4,

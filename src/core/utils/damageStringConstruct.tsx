@@ -67,6 +67,7 @@ export const damageStringConstruct = (
     [Stats.ATK]: stats.getAtk(scaling.atkBonus),
     [Stats.DEF]: stats.getDef(),
     [Stats.HP]: stats.getHP(),
+    [Stats.ER]: stats.getValue(Stats.ER),
   }
 
   const healing = stats.getValue(Stats.HEAL)
@@ -78,7 +79,8 @@ export const damageStringConstruct = (
       ? healing
       : stats.getValue(Stats.ALL_DMG) + elementDmg + talentDmg + (scaling.coord ? stats.getValue(Stats.COORD_DMG) : 0))
   const amp = isDamage
-    ? talentAmp +
+    ? (scaling.amp || 0) +
+      talentAmp +
       elementAmp +
       stats.getValue(StatsObjectKeys.AMP) +
       (scaling.coord ? stats.getValue(StatsObjectKeys.COORD_AMP) : 0)
@@ -115,7 +117,8 @@ export const damageStringConstruct = (
       `<span class="inline-flex items-center h-4">(<b class="inline-flex items-center h-4"><img class="w-4 h-4 mx-1" src="${
         StatIcons[item.multiplier]
       }" />${_.round(
-        item.override || statForScale[item.multiplier]
+        item.override || statForScale[item.multiplier],
+        item.multiplier === Stats.ER ? 2 : 0
       ).toLocaleString()}</b><span class="mx-1"> \u{00d7} </span><b>${toPercentage(item.scaling, 2)}</b>${
         item.hits ? `<span class="ml-1"> \u{00d7} <b class="text-desc">${item.hits}</b></span>` : ''
       })</span>`

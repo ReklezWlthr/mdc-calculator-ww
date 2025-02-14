@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.2-6",
+    "date": "February 14th, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">New Resonator</b>: <b class=\"text-wuwa-spectro\">Phoebe</b>.",
+      "<b class=\"text-yellow\">New Weapons</b>: <b>Luminous Hymn</b> and <b>Ocean's Gift</b>.",
+      "<b class=\"text-heal\">Happy Valentine's Day!</b>"
+    ]
+  },
+  {
     "version": "1.0.2-5",
     "date": "January 24th, 2025",
     "desc": ["<b class=\"text-yellow\">New Weapons</b>: <b>Tragicomedy</b>."]

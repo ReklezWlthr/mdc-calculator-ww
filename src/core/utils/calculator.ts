@@ -76,6 +76,12 @@ export const calculateBase = (conditionals: StatsObject, char: ITeamChar, weapon
 }
 
 export const addArtifactStats = (conditionals: StatsObject, artifacts: IArtifactEquip[]) => {
+  const mainEcho = artifacts?.[0]
+  const bonus = findEcho(mainEcho?.setId)?.bonus
+  if (bonus) {
+    conditionals = bonus(conditionals, mainEcho?.quality - 1)
+  }
+
   const setBonus = getSetCount(artifacts)
   const main = _.reduce(
     artifacts,
@@ -145,11 +151,6 @@ export const addArtifactStats = (conditionals: StatsObject, artifacts: IArtifact
         })
     }
   })
-  const mainEcho = artifacts?.[4]
-  const bonus = findEcho(mainEcho?.setId)?.bonus
-  if (bonus) {
-    conditionals = bonus(conditionals, mainEcho?.quality - 1)
-  }
 
   return conditionals
 }
@@ -161,7 +162,11 @@ export const getTeamOutOfCombat = (chars: ITeamChar[], artifacts: IArtifactEquip
       _.cloneDeep(baseStatsObject),
       i,
       chars,
-      _.filter(artifacts, (item) => _.includes(chars?.[i]?.equipments?.artifacts, item.id)),
+      _.filter(artifacts, (item) => _.includes(chars?.[i]?.equipments?.artifacts, item.id)).sort(
+        (a, b) =>
+          _.findIndex(chars?.[i]?.equipments?.artifacts, (v) => v === a.id) -
+          _.findIndex(chars?.[i]?.equipments?.artifacts, (v) => v === b.id)
+      ),
       applyRes,
       true
     )

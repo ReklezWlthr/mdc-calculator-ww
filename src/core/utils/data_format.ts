@@ -1,6 +1,13 @@
 import { MainStatValue, QualityMultiplier } from '@src/domain/artifact'
 import { Element, IArtifactEquip, ICharacter, ITeamChar, Stats } from '@src/domain/constant'
-import { DefScaling, NormalScaling, TalentScaling, WeaponScaling, WeaponSecondaryScaling } from '@src/domain/scaling'
+import {
+  DefScaling,
+  FlatScaling,
+  NormalScaling,
+  TalentScaling,
+  WeaponScaling,
+  WeaponSecondaryScaling,
+} from '@src/domain/scaling'
 import _ from 'lodash'
 import { findCharacter } from './finder'
 
@@ -90,6 +97,10 @@ export const calcScaling = (base: number, level: number) => {
 
 export const calcRefinement = (base: number, growth: number, refinement: number) => {
   return base + growth * (refinement - 1)
+}
+
+export const calcFlatScaling = (base: number, level: number) => {
+  return base * FlatScaling[level - 1]
 }
 
 export const calcAmplifying = (em: number) => {

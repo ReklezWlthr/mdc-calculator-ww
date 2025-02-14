@@ -38,6 +38,7 @@ export enum Tags {
   SKILL_AMP = 'Resonance Skill DMG Amplification',
   LIB_AMP = 'Resonance Liberation DMG Amplification',
   COORD_AMP = 'Coordinated Attack DMG Amplification',
+  FRAZZLE = 'Spectro Frazzle',
 }
 
 export interface ICharacterStats {
@@ -234,6 +235,7 @@ export const TagsImage = {
   [Tags.SKILL_AMP]: '/SP_RoleLabelD9',
   [Tags.LIB_AMP]: '/SP_RoleLabelD10',
   [Tags.COORD_AMP]: '/SP_RoleLabelD11',
+  [Tags.FRAZZLE]: '/SP_RoleLabelE4',
 }
 
 export enum Stats {

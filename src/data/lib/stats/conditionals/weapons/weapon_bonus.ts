@@ -469,6 +469,28 @@ const WeaponBonus: {
       return base
     },
   },
+  {
+    id: '21020036',
+    scaling: (base, r) => {
+      base[Stats.CRIT_RATE].push({
+        source: `Unflickering Valor`,
+        name: `Passive`,
+        value: calcRefinement(0.08, 0.02, r),
+      })
+      return base
+    },
+  },
+  {
+    id: '21050046',
+    scaling: (base, r) => {
+      base[Stats.P_ATK].push({
+        source: `Luminous Hymn`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
 ]
 
 export default WeaponBonus

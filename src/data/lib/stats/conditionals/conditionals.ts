@@ -26,6 +26,8 @@ import Yinlin from './characters/Yinlin'
 import Youhu from './characters/Youhu'
 import Yuanwu from './characters/Yuanwu'
 import Zhezhi from './characters/Zhezhi'
+import Brant from './characters/Brant'
+import Phoebe from './characters/Phoebe'
 
 export default [
   { id: '1102', conditionals: Sanhua },
@@ -38,6 +40,7 @@ export default [
   { id: '1203', conditionals: Encore },
   { id: '1204', conditionals: Mortefi },
   { id: '1205', conditionals: Changli },
+  { id: '1206', conditionals: Brant },
   { id: '1301', conditionals: Calcharo },
   { id: '1302', conditionals: Yinlin },
   { id: '1303', conditionals: Yuanwu },
@@ -51,6 +54,7 @@ export default [
   { id: '1503', conditionals: Verina },
   { id: '1504', conditionals: Lumi },
   { id: '1505', conditionals: Shorekeeper },
+  { id: '1506', conditionals: Phoebe },
   { id: '1601', conditionals: Taoqi },
   { id: '1602', conditionals: Danjin },
   { id: '1603', conditionals: Camellya },

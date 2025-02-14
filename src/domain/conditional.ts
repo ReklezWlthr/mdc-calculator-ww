@@ -18,6 +18,7 @@ export interface IScaling {
   hit?: number
   coord?: boolean
   atkBonus?: number
+  amp?: number
 }
 
 export interface IEnemyGroup {

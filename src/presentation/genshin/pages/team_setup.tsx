@@ -63,8 +63,9 @@ export const TeamSetup = observer(() => {
   const { teamStore, modalStore, artifactStore } = useStore()
   const selected = teamStore.selected
 
-  const artifactData = _.filter(artifactStore.artifacts, (item) =>
-    _.includes(teamStore.characters[selected]?.equipments?.artifacts, item.id)
+  const artifacts = teamStore.characters[selected]?.equipments?.artifacts
+  const artifactData = _.filter(artifactStore.artifacts, (item) => _.includes(artifacts, item.id)).sort(
+    (a, b) => _.findIndex(artifacts, (v) => v === a.id) - _.findIndex(artifacts, (v) => v === b.id)
   )
 
   const char = teamStore.characters[selected]

@@ -43,6 +43,7 @@ export const PresetModal = observer(({ setCustomValue }: { setCustomValue?: Cust
       Stats.SPECTRO_DMG,
       Stats.HAVOC_DMG,
       Stats.BASIC_DMG,
+      Stats.HEAVY_DMG,
       Stats.SKILL_DMG,
       Stats.LIB_DMG,
     ],

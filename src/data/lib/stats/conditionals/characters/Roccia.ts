@@ -387,7 +387,7 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           const cr = _.round(_.min([_.max([x.getValue(Stats.CRIT_RATE) * 100 - 50, 0]), 20]), 2) / 1e2
           _.forEach(a, (member, i) => {
             member[Stats.ATK].push({
-              name: `Real Fantasy`,
+              name: `Resonance Liberation`,
               source: index === i ? 'Self' : 'Roccia',
               value: 1000 * cr,
               base: 1000,

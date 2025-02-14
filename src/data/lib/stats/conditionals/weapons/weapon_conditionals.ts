@@ -1035,6 +1035,61 @@ export const WeaponConditionals: IWeaponContent[] = [
       return base
     },
   },
+  {
+    type: 'number',
+    text: `Basic ATK Bonus Stacks`,
+    show: true,
+    default: 1,
+    min: 0,
+    max: 2,
+    id: '21020036',
+    scaling: (base, form, r) => {
+      if (form['21020036']) {
+        base[Stats.BASIC_DMG].push({
+          value: calcRefinement(0.24, 0.06, r) * form['21020036'],
+          name: 'Passive',
+          source: `Unflickering Valor`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'number',
+    text: `Spectro Frazzle Bonus Stacks`,
+    show: true,
+    default: 1,
+    min: 0,
+    max: 3,
+    id: '21050046',
+    scaling: (base, form, r) => {
+      if (form['21050046']) {
+        base[Stats.BASIC_DMG].push({
+          value: calcRefinement(0.14, 0.035, r) * form['21050046'],
+          name: 'Passive',
+          source: `Luminous Hymn`,
+        })
+        base[Stats.HEAVY_DMG].push({
+          value: calcRefinement(0.14, 0.035, r) * form['21050046'],
+          name: 'Passive',
+          source: `Luminous Hymn`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Outro Spectro Frazzle DMG Amp.`,
+    show: true,
+    default: true,
+    id: '21050046_1',
+    scaling: (base, form, r) => {
+      if (form['21050046_1']) {
+      }
+      return base
+    },
+  },
 ]
 
 export const WeaponAllyConditionals: IWeaponContent[] = [
