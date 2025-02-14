@@ -325,13 +325,13 @@ const Phoebe = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       base.FORTE_SCALING = [
         {
           name: 'Absolution Litany DMG',
-          value: [{ scaling: calcScaling(3.21, forte), multiplier: Stats.ATK, hits: 3 }],
+          value: [{ scaling: calcScaling(3.21, forte), multiplier: Stats.ATK }],
           element: Element.SPECTRO,
           property: TalentProperty.HA,
         },
         {
           name: 'Utter Confession DMG',
-          value: [{ scaling: calcScaling(0.0945, forte), multiplier: Stats.ATK, hits: 3 }],
+          value: [{ scaling: calcScaling(0.945, forte), multiplier: Stats.ATK }],
           element: Element.SPECTRO,
           property: TalentProperty.SKILL,
         },
