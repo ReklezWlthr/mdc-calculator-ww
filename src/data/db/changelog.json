@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.0.2-7",
+    "date": "February 18th, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">New Resonator</b>: <b class=\"text-wuwa-fusion\">Brant</b>.",
+      "<b class=\"text-yellow\">Added</b>: 5 new Echoes.",
+      "<b class=\"text-heal\">Fixed</b>: Added 5 more Sonata Effects for <b>Hecate</b> which can be obtained from boxes."
+    ]
+  },
+  {
     "version": "1.0.2-6",
     "date": "February 14th, 2025",
     "desc": [

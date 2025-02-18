@@ -2414,7 +2414,7 @@ export const Echoes: IArtifact[] = [
     name: 'Hecate',
     icon: 'T_IconMonsterHead_34010_1_UI',
     skill: 'MstSkil_34010_UI',
-    sonata: [Sonata.COORD],
+    sonata: [Sonata.COORD, Sonata.ICE, Sonata.FIRE, Sonata.THUNDER, Sonata.WIND, Sonata.LIGHT, Sonata.HAVOC],
     desc: `Summon 3 twirling Crescent Servants around you. Crescent Servants attack enemies with their spinning blades, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>. Triggering a Counterattack with the Echo attacks extends the Crescent Servants' summon duration.
     <br />The Resonator with this Echo equipped in the main slot has their Coordinated Attack DMG increased by <span class="text-desc">40%</span>.`,
     properties: [{ base: 29.13, growth: 3.8 }],
@@ -2566,5 +2566,119 @@ export const Echoes: IArtifact[] = [
       return base
     },
     cost: 4,
+  },
+  {
+    id: '6000093',
+    name: 'Golden Junrock',
+    icon: 'T_IconMonsterHead_31049_UI',
+    skill: 'T_Mstskil_31049_UI',
+    sonata: [Sonata.SKILL, Sonata.LIGHT_2],
+    desc: `Summon a Golden Junrock that charges forward, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b> to enemies in its path.`,
+    properties: [{ base: 86.4, growth: 14.4 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Golden Junrock DMG',
+        value: [{ scaling: calcRefinement(0.864, 0.144, r), multiplier: Stats.ATK }],
+        element: Element.SPECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000094',
+    name: 'Calcified Junrock',
+    icon: 'T_IconMonsterHead_31050_UI',
+    skill: 'T_Mstskil_31050_UI',
+    sonata: [Sonata.SKILL, Sonata.REGEN_2],
+    desc: `Summon a Calcified Junrock that restores HP for nearby Resonators in the team by {{0}}% of their Max HP, up to <span class="text-desc">5</span> times.`,
+    properties: [{ base: 1.68, growth: 0.28 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Healing per Tick',
+        value: [{ scaling: calcRefinement(0.0168, 0.0028, r), multiplier: Stats.ATK }],
+        element: TalentProperty.HEAL,
+        property: TalentProperty.HEAL,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000095',
+    name: 'Aero Prism',
+    icon: 'T_IconMonsterHead_31051_UI',
+    skill: 'T_Mstskil_31051_UI',
+    sonata: [Sonata.LIGHT_2, Sonata.REGEN_2],
+    desc: `Summon an Aero Prism to attack enemies, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b>.`,
+    properties: [{ base: 12.84, growth: 2.14 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Aero Prism DMG',
+        value: [{ scaling: calcRefinement(0.1284, 0.0214, r), multiplier: Stats.ATK }],
+        element: Element.AERO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000096',
+    name: 'Rage Against the Statue',
+    icon: 'T_IconMonsterHead_32031_UI',
+    skill: 'T_Mstskil_31031_UI',
+    sonata: [Sonata.LIGHT_2],
+    desc: `Transform into Rage Against the Statue to attack enemies, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b>. Hold the Echo Skill to maintain the Echo form and charge towards enemies, dealing {{1}}% <b class="text-wuwa-spectro">Spectro DMG</b>.`,
+    properties: [
+      { base: 208.8, growth: 34.8 },
+      { base: 313.2, growth: 52.2 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Press DMG',
+          value: [{ scaling: calcRefinement(2.088, 0.348, r), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Hold DMG',
+          value: [{ scaling: calcRefinement(3.132, 0.522, r), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '6000097',
+    name: 'Hurriclaw',
+    icon: 'T_IconMonsterHead_32032_UI',
+    skill: 'T_Mstskil_31032_UI',
+    sonata: [Sonata.REGEN_2],
+    desc: `Transform into Hurriclaw and charge forward, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b> upon hit plus {{0}}% <b class="text-wuwa-aero">Aero DMG</b> with a sweep attack. Hold the Echo Skill to continue charging forward. Use Echo Skill again while charging to perform a sweep attack.`,
+    properties: [{ base: 104.4, growth: 17.4 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'DMG per Hit',
+          value: [{ scaling: calcRefinement(1.044, 0.174, r), multiplier: Stats.ATK }],
+          element: Element.AERO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Total DMG',
+          value: [{ scaling: calcRefinement(2.088, 0.348, r), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.AERO,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 3,
   },
 ]
