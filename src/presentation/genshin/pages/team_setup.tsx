@@ -207,11 +207,11 @@ export const TeamSetup = observer(() => {
                     growth: Array(8).fill(true),
                     i: { i1: true, i2: true },
                     talents: {
-                      forte: maxTalentLevel,
-                      intro: maxTalentLevel,
-                      lib: maxTalentLevel,
-                      normal: maxTalentLevel,
-                      skill: maxTalentLevel,
+                      forte: 10,
+                      intro: 10,
+                      lib: 10,
+                      normal: 10,
+                      skill: 10,
                     },
                   })
                 }}
