@@ -30,6 +30,7 @@ export const SonataIcons = {
   [Sonata.HAVOC_2]: '/asset/icons/T_IconElementAttriDarkAssist.webp',
   [Sonata.COORD]: '/asset/icons/T_IconElementAttriCooperate.webp',
   [Sonata.REGEN_2]: '/asset/icons/T_IconElementAttriEnergy.webp',
+  [Sonata.WIND_2]: '/asset/icons/T_IconElementAttriWindError.webp',
 }
 
 interface ArtifactBlockProps {

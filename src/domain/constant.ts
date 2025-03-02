@@ -39,6 +39,7 @@ export enum Tags {
   LIB_AMP = 'Resonance Liberation DMG Amplification',
   COORD_AMP = 'Coordinated Attack DMG Amplification',
   FRAZZLE = 'Spectro Frazzle',
+  EROSION = 'Aero Erosion',
 }
 
 export interface ICharacterStats {

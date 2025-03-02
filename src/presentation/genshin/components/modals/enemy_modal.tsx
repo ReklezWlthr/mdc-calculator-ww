@@ -179,7 +179,7 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
                   <div className="font-normal">
                     <p>
                       Some enemies in Tower of Adversity have their <b>Attribute RES</b> increased to{' '}
-                      <span className="text-desc">20/60%</span> instead of the usual
+                      <span className="text-desc">20/60%</span> instead of the usual{' '}
                       <span className="text-desc">10/40%</span>. Use this toggle to boost their RES.
                     </p>
                     <p>

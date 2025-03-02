@@ -271,7 +271,7 @@ const Yinlin = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       base.LIB_SCALING = [
         {
           name: 'Thundering Wrath DMG',
-          value: [{ scaling: calcScaling(0.5863, forte), multiplier: Stats.ATK, hits: 7 }],
+          value: [{ scaling: calcScaling(0.5863, lib), multiplier: Stats.ATK, hits: 7 }],
           element: Element.ELECTRO,
           property: TalentProperty.LIB,
         },

@@ -3,6 +3,7 @@ import { Element, IArtifactEquip, ICharacter, ITeamChar, Stats } from '@src/doma
 import {
   DefScaling,
   FlatScaling,
+  HealScaling,
   NormalScaling,
   TalentScaling,
   WeaponScaling,
@@ -101,6 +102,10 @@ export const calcRefinement = (base: number, growth: number, refinement: number)
 
 export const calcFlatScaling = (base: number, level: number) => {
   return base * FlatScaling[level - 1]
+}
+
+export const calcHealScaling = (base: number, level: number) => {
+  return base * HealScaling[level - 1]
 }
 
 export const calcAmplifying = (em: number) => {

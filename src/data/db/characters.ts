@@ -16,6 +16,7 @@ export const Characters = [
     order: '7',
     tags: [Tags.CONCERTO, Tags.BA_AMP],
     growth: [Stats.P_ATK, Stats.GLACIO_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.GLACIO_DMG],
     beta: false,
   },
   {
@@ -33,6 +34,7 @@ export const Characters = [
     order: '6',
     tags: [Tags.SUPPORT, Tags.COORD, Tags.AMP],
     growth: [Stats.P_HP, Stats.HEAL],
+    mark: [Stats.HP, Stats.ER, Stats.HEAL],
     beta: false,
   },
   {
@@ -50,6 +52,7 @@ export const Characters = [
     order: '14',
     tags: [Tags.MAIN_DPS],
     growth: [Stats.P_ATK, Stats.GLACIO_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.GLACIO_DMG],
     beta: false,
   },
   {
@@ -67,6 +70,7 @@ export const Characters = [
     order: '27',
     tags: [Tags.CONCERTO, Tags.BA, Tags.COORD, Tags.REGEN, Tags.GLACIO_AMP, Tags.LIB_AMP],
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.GLACIO_DMG, Stats.BASIC_DMG],
     beta: false,
   },
   {
@@ -85,6 +89,7 @@ export const Characters = [
     tags: [Tags.SUPPORT, Tags.SKILL, Tags.VIBRATION, Tags.COORD_AMP],
     avatarAdjust: 'object-[0_80%]',
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.ER, Stats.HEAL],
     beta: false,
   },
   {
@@ -103,6 +108,7 @@ export const Characters = [
     tags: [Tags.MAIN_DPS, Tags.SKILL],
     avatarAdjust: 'object-[0_80%]',
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.GLACIO_DMG, Stats.SKILL_DMG],
     beta: false,
   },
   {
@@ -120,6 +126,7 @@ export const Characters = [
     order: '2',
     tags: [Tags.MAIN_DPS],
     growth: [Stats.P_ATK, Stats.FUSION_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.FUSION_DMG, Stats.SKILL_DMG],
     beta: false,
   },
   {
@@ -138,6 +145,7 @@ export const Characters = [
     tags: [Tags.MAIN_DPS, Tags.BA],
     avatarAdjust: 'object-[0_80%]',
     growth: [Stats.P_ATK, Stats.FUSION_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.FUSION_DMG, Stats.BASIC_DMG],
     beta: false,
   },
   {
@@ -156,6 +164,7 @@ export const Characters = [
     tags: [Tags.CONCERTO, Tags.LIB, Tags.COORD, Tags.HA_AMP],
     avatarAdjust: 'object-[0_45%]',
     growth: [Stats.P_ATK, Stats.FUSION_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ER, Stats.FUSION_DMG, Stats.LIB_DMG],
     beta: false,
   },
   {
@@ -173,6 +182,7 @@ export const Characters = [
     order: '26',
     tags: [Tags.MAIN_DPS, Tags.SKILL, Tags.FUSION_AMP, Tags.LIB_AMP],
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.FUSION_DMG, Stats.SKILL_DMG],
     beta: false,
   },
   {
@@ -190,6 +200,7 @@ export const Characters = [
     order: '44',
     tags: [Tags.SUPPORT, Tags.BA, Tags.FUSION_AMP, Tags.SKILL_AMP],
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ER, Stats.FUSION_DMG, Stats.BASIC_DMG],
     beta: false,
   },
   {
@@ -208,6 +219,7 @@ export const Characters = [
     tags: [Tags.MAIN_DPS, Tags.LIB],
     avatarAdjust: 'object-[0_45%]',
     growth: [Stats.P_ATK, Stats.CRIT_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ELECTRO_DMG, Stats.LIB_DMG],
     beta: false,
   },
   {
@@ -225,6 +237,7 @@ export const Characters = [
     order: '17',
     tags: [Tags.CONCERTO, Tags.SKILL, Tags.COORD, Tags.ELECTRO_AMP, Tags.LIB_AMP],
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ELECTRO_DMG, Stats.SKILL_DMG],
     beta: false,
   },
   {
@@ -243,6 +256,7 @@ export const Characters = [
     tags: [Tags.CONCERTO, Tags.COORD, Tags.VIBRATION, Tags.INTERRUPT],
     avatarAdjust: 'object-[0_45%]',
     growth: [Stats.P_DEF, Stats.ELECTRO_DMG],
+    mark: [Stats.DEF, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ER, Stats.GLACIO_DMG],
     beta: false,
   },
   {
@@ -260,6 +274,7 @@ export const Characters = [
     order: '24',
     tags: [Tags.MAIN_DPS, Tags.SKILL],
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.SPECTRO_DMG, Stats.SKILL_DMG],
     beta: false,
   },
   {
@@ -278,6 +293,7 @@ export const Characters = [
     tags: [Tags.MAIN_DPS, Tags.LIB],
     avatarAdjust: 'object-[0_45%]',
     growth: [Stats.P_ATK, Stats.CRIT_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ELECTRO_DMG, Stats.LIB_DMG],
     beta: false,
   },
   {
@@ -295,6 +311,7 @@ export const Characters = [
     order: '1',
     tags: [Tags.CONCERTO, Tags.TRACTION, Tags.REGEN],
     growth: [Stats.P_ATK, Stats.AERO_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ER, Stats.AERO_DMG],
     beta: false,
   },
   {
@@ -313,6 +330,7 @@ export const Characters = [
     tags: [Tags.CONCERTO, Tags.AERO_AMP],
     avatarAdjust: 'object-[0_45%]',
     growth: [Stats.P_ATK, Stats.AERO_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.AERO_DMG],
     beta: false,
   },
   {
@@ -331,6 +349,7 @@ export const Characters = [
     tags: [Tags.MAIN_DPS, Tags.HA, Tags.TRACTION],
     avatarAdjust: 'object-[0_45%]',
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.AERO_DMG, Stats.HEAVY_DMG],
     beta: false,
   },
   {
@@ -348,6 +367,7 @@ export const Characters = [
     order: '23',
     tags: [Tags.SUPPORT, Tags.HA, Tags.TRACTION, Tags.LIB_AMP],
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ER],
     beta: false,
   },
   {
@@ -366,6 +386,7 @@ export const Characters = [
     tags: [Tags.SUPPORT, Tags.COORD, Tags.AMP],
     avatarAdjust: 'object-[0_80%]',
     growth: [Stats.P_ATK, Stats.HEAL],
+    mark: [Stats.ATK, Stats.HEAL, Stats.ER],
     beta: false,
   },
   {
@@ -383,6 +404,7 @@ export const Characters = [
     order: '30',
     tags: [Tags.MAIN_DPS, Tags.BA, Tags.SKILL_AMP],
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ELECTRO_DMG, Stats.BASIC_DMG],
     beta: false,
   },
   {
@@ -400,6 +422,7 @@ export const Characters = [
     order: '28',
     tags: [Tags.SUPPORT, Tags.TRACTION, Tags.AMP],
     growth: [Stats.P_HP, Stats.HEAL],
+    mark: [Stats.HP, Stats.ER, Stats.HEAL],
     beta: false,
   },
   {
@@ -417,6 +440,7 @@ export const Characters = [
     order: '45',
     tags: [Tags.MAIN_DPS, Tags.CONCERTO, Tags.FRAZZLE],
     growth: [Stats.P_ATK, Stats.CRIT_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.SPECTRO_DMG, Stats.HEAVY_DMG],
     beta: false,
   },
   {
@@ -434,6 +458,7 @@ export const Characters = [
     order: '9',
     tags: [Tags.SUPPORT, Tags.LIB, Tags.SKILL_AMP],
     growth: [Stats.P_DEF, Stats.HAVOC_DMG],
+    mark: [Stats.DEF, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.HAVOC_DMG, Stats.ER],
     beta: false,
   },
   {
@@ -451,6 +476,7 @@ export const Characters = [
     order: '10',
     tags: [Tags.CONCERTO, Tags.HAVOC_AMP],
     growth: [Stats.P_ATK, Stats.HAVOC_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.HEAVY_DMG, Stats.HAVOC_DMG],
     beta: false,
   },
   {
@@ -468,6 +494,7 @@ export const Characters = [
     order: '29',
     tags: [Tags.MAIN_DPS, Tags.CONCERTO, Tags.BA],
     growth: [Stats.P_ATK, Stats.CRIT_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.HAVOC_DMG, Stats.BASIC_DMG],
     beta: false,
   },
   {
@@ -486,8 +513,28 @@ export const Characters = [
     tags: [Tags.CONCERTO, Tags.HA, Tags.TRACTION, Tags.HAVOC_AMP, Tags.BA_AMP],
     avatarAdjust: 'object-[0_80%]',
     growth: [Stats.P_ATK, Stats.CRIT_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.HAVOC_DMG, Stats.HEAVY_DMG],
     beta: false,
   },
+  // {
+  //   id: '1607',
+  //   name: 'Cantarella',
+  //   stat: {
+  //     baseAtk: 32,
+  //     baseHp: 928,
+  //     baseDef: 90,
+  //   },
+  //   rarity: 5,
+  //   weapon: WeaponType.RECTIFIER,
+  //   element: Element.HAVOC,
+  //   codeName: 'kanteleila',
+  //   order: '34',
+  //   tags: [Tags.SUPPORT, Tags.CONCERTO, Tags.BA, Tags.COORD, Tags.HAVOC_AMP, Tags.SKILL_AMP],
+  //   avatarAdjust: 'object-[0_80%]',
+  //   growth: [Stats.P_ATK, Stats.CRIT_RATE],
+  //   mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.HAVOC_DMG, Stats.BASIC_DMG, Stats.ER],
+  //   beta: false,
+  // },
 
   // The counterpart will have id + 1
   // order for male is 4, female 5
@@ -506,6 +553,7 @@ export const Characters = [
     order: '4',
     tags: [Tags.CONCERTO, Tags.STAGNATE],
     growth: [Stats.P_ATK, Stats.SPECTRO_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.SPECTRO_DMG, Stats.ER],
     beta: false,
   },
   {
@@ -523,6 +571,25 @@ export const Characters = [
     order: '4',
     tags: [Tags.MAIN_DPS],
     growth: [Stats.P_ATK, Stats.HAVOC_DMG],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.HAVOC_DMG],
     beta: false,
   },
+  // {
+  //   id: '1406',
+  //   name: 'Rover (Aero)',
+  //   stat: {
+  //     baseAtk: 35,
+  //     baseHp: 862,
+  //     baseDef: 93,
+  //   },
+  //   rarity: 5,
+  //   weapon: WeaponType.SWORD,
+  //   element: Element.AERO,
+  //   codeName: 'rover',
+  //   order: '4',
+  //   tags: [Tags.SUPPORT, Tags.SKILL, Tags.EROSION],
+  //   growth: [Stats.P_ATK, Stats.HEAL],
+  //   mark: [Stats.ATK, Stats.HEAL, Stats.AERO_DMG, Stats.ER],
+  //   beta: false,
+  // },
 ]

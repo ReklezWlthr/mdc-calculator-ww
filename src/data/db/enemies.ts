@@ -7,6 +7,7 @@ import _ from 'lodash'
 const ElementIndex = _.map(Element)
 
 export const EnemyGroups: IEnemyGroup[] = [
+  // 1 Costs
   {
     id: '310000010',
     name: 'Vanguard Junrock',
@@ -17,18 +18,6 @@ export const EnemyGroups: IEnemyGroup[] = [
     id: '310000251',
     name: 'Hooscamp',
     icon: 'T_IconMonsterGoods_988_UI',
-    res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
-  },
-  {
-    id: '330000010',
-    name: 'Tempest Mephis',
-    icon: 'T_IconMonsterGoods_221_UI',
-    res: [0.1, 0.1, 0.1, 0.4, 0.1, 0.1, 0.1],
-  },
-  {
-    id: '320000111',
-    name: 'Hoochief',
-    icon: 'T_IconMonsterGoods_989_UI',
     res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
   },
   {
@@ -236,6 +225,97 @@ export const EnemyGroups: IEnemyGroup[] = [
     res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
   },
   {
+    id: '310000370',
+    name: 'Galescourge Stalker',
+    icon: 'T_IconMonsterHead_31037_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
+  },
+  {
+    id: '310000380',
+    name: 'Voltscourge Stalker',
+    icon: 'T_IconMonsterHead_31038_UI',
+    res: [0.1, 0.1, 0.1, 0.4, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '310000390',
+    name: 'Frostscourge Stalker',
+    icon: 'T_IconMonsterHead_31039_UI',
+    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '310000400',
+    name: 'Chop Chop: Headless',
+    icon: 'T_IconMonsterHead_31040_UI',
+    res: [0.1, 0.1, 0.4, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '310000410',
+    name: 'Chop Chop: Leftless',
+    icon: 'T_IconMonsterHead_31041_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '310000420',
+    name: 'Chop Chop: Rightless',
+    icon: 'T_IconMonsterHead_31042_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4],
+  },
+  {
+    id: '310000430',
+    name: 'Fae Ignis',
+    icon: 'T_IconMonsterHead_31043_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4],
+  },
+  {
+    id: '310000440',
+    name: 'Nimbus Wraith',
+    icon: 'T_IconMonsterHead_31044_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '310000450',
+    name: 'Hocus Pocus',
+    icon: 'T_IconMonsterHead_31045_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4],
+  },
+  {
+    id: '310000460',
+    name: 'Lottie Lost',
+    icon: 'T_IconMonsterHead_31046_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '310000470',
+    name: 'Diggy Duggy',
+    icon: 'T_IconMonsterHead_31047_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '310000480',
+    name: 'Chest Mimic',
+    icon: 'T_IconMonsterHead_31048_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '310000490',
+    name: 'Golden Junrock',
+    icon: 'T_IconMonsterHead_31049_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '310000500',
+    name: 'Calcified Junrock',
+    icon: 'T_IconMonsterHead_31050_UI',
+    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '310000510',
+    name: 'Aero Prism',
+    icon: 'T_IconMonsterHead_31051_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 1, 0.1, 0.1],
+  },
+  // 3 Costs
+  {
     id: '320000010',
     name: 'Stonewall Bracer',
     icon: 'T_IconMonsterGoods_181_UI',
@@ -296,6 +376,12 @@ export const EnemyGroups: IEnemyGroup[] = [
     res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4],
   },
   {
+    id: '320000111',
+    name: 'Hoochief',
+    icon: 'T_IconMonsterGoods_989_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
+  },
+  {
     id: '320000120',
     name: 'Spearback',
     icon: 'T_IconMonsterGoods_986_UI',
@@ -350,6 +436,79 @@ export const EnemyGroups: IEnemyGroup[] = [
     res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
   },
   {
+    id: '320000220',
+    name: 'Questless Knight',
+    icon: 'T_IconMonsterHead_32022_UI',
+    res: [0.1, 0.1, 0.1, 0.4, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '320000230',
+    name: 'Diurnus Knight',
+    icon: 'T_IconMonsterHead_32023_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '320000240',
+    name: 'Nocturnus Knight',
+    icon: 'T_IconMonsterHead_32024_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4],
+  },
+  {
+    id: '320000250',
+    name: 'Abyssal Patricius',
+    icon: 'T_IconMonsterHead_32025_UI',
+    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '320000260',
+    name: 'Abyssal Gladius',
+    icon: 'T_IconMonsterHead_32026_UI',
+    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '320000270',
+    name: 'Abyssal Mercator',
+    icon: 'T_IconMonsterHead_32027_UI',
+    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '320000280',
+    name: 'Chop Chop',
+    icon: 'T_IconMonsterHead_32028_UI',
+    res: [0.1, 0.1, 0.4, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '320000290',
+    name: 'Vitreum Dancer',
+    icon: 'T_IconMonsterHead_32029_UI',
+    res: [0.1, 0.1, 0.1, 0.4, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '320000300',
+    name: 'Cuddle Wuddle',
+    icon: 'T_IconMonsterHead_32030_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '320000310',
+    name: 'Rage Against the Statue',
+    icon: 'T_IconMonsterHead_32031_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '320000320',
+    name: 'Hurriclaw',
+    icon: 'T_IconMonsterHead_32032_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
+  },
+  // 4 Costs
+  {
+    id: '330000010',
+    name: 'Tempest Mephis',
+    icon: 'T_IconMonsterGoods_221_UI',
+    res: [0.1, 0.1, 0.1, 0.4, 0.1, 0.1, 0.1],
+  },
+  {
     id: '330000020',
     name: 'Inferno Rider',
     icon: 'T_IconMonsterGoods_321_UI',
@@ -392,6 +551,24 @@ export const EnemyGroups: IEnemyGroup[] = [
     res: [0.1, 0.1, 0.4, 0.1, 0.1, 0.1, 0.1],
   },
   {
+    id: '330000110',
+    name: 'Lorelei',
+    icon: 'T_IconMonsterHead_33011_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4],
+  },
+  {
+    id: '330000120',
+    name: 'Sentry Construct',
+    icon: 'T_IconMonsterHead_33012_UI',
+    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '330000100',
+    name: 'Dragon of Dirge',
+    icon: 'T_IconMonsterHead_33013_UI',
+    res: [0.1, 0.1, 0.4, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
     id: '340000020',
     name: 'Bell-Borne Geochelone',
     icon: 'T_IconMonsterGoods_992_UI',
@@ -426,5 +603,11 @@ export const EnemyGroups: IEnemyGroup[] = [
     name: 'Jué',
     icon: 'T_IconMonsterHead_327_UI',
     res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '340000100',
+    name: 'Hecate',
+    icon: 'T_IconMonsterHead_34010_1_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4],
   },
 ]
