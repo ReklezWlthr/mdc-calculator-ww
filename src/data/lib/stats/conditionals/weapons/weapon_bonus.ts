@@ -491,6 +491,17 @@ const WeaponBonus: {
       return base
     },
   },
+  {
+    id: '21050056',
+    scaling: (base, r) => {
+      base[Stats.P_ATK].push({
+        source: `Whispers of Sirens`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
 ]
 
 export default WeaponBonus

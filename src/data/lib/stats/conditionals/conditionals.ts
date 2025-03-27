@@ -28,6 +28,8 @@ import Yuanwu from './characters/Yuanwu'
 import Zhezhi from './characters/Zhezhi'
 import Brant from './characters/Brant'
 import Phoebe from './characters/Phoebe'
+import Cantarella from './characters/Cantarella'
+import ARover from './characters/ARover'
 
 export default [
   { id: '1102', conditionals: Sanhua },
@@ -50,6 +52,7 @@ export default [
   { id: '1403', conditionals: Aalto },
   { id: '1404', conditionals: Jiyan },
   { id: '1405', conditionals: Jianxin },
+  { id: '1406', conditionals: ARover },
   { id: '1501', conditionals: SRover },
   { id: '1503', conditionals: Verina },
   { id: '1504', conditionals: Lumi },
@@ -60,6 +63,7 @@ export default [
   { id: '1603', conditionals: Camellya },
   { id: '1604', conditionals: HRover },
   { id: '1606', conditionals: Roccia },
+  { id: '1607', conditionals: Cantarella },
 
   // Rovers
 ]

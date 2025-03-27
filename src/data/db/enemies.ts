@@ -314,6 +314,42 @@ export const EnemyGroups: IEnemyGroup[] = [
     icon: 'T_IconMonsterHead_31051_UI',
     res: [0.1, 0.1, 0.1, 0.1, 1, 0.1, 0.1],
   },
+  {
+    id: '310000520',
+    name: 'La Guardia',
+    icon: 'T_IconMonsterHead_31052_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '310000530',
+    name: 'Sagittario',
+    icon: 'T_IconMonsterHead_31053_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
+  {
+    id: '310000540',
+    name: 'Sacerdos',
+    icon: 'T_IconMonsterHead_31054_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
+  },
+  {
+    id: '310000550',
+    name: 'Aero Drake',
+    icon: 'T_IconMonsterHead_31055_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
+  },
+  {
+    id: '310000560',
+    name: 'Electro Drake',
+    icon: 'T_IconMonsterHead_31056_UI',
+    res: [0.1, 0.1, 0.1, 0.4, 0.1, 0.1, 0.1],
+  },
+  {
+    id: '310000570',
+    name: 'Glacio Drake',
+    icon: 'T_IconMonsterHead_31057_UI',
+    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
+  },
   // 3 Costs
   {
     id: '320000010',
@@ -501,6 +537,12 @@ export const EnemyGroups: IEnemyGroup[] = [
     icon: 'T_IconMonsterHead_32032_UI',
     res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
   },
+  {
+    id: '320000330',
+    name: 'Capitaneus',
+    icon: 'T_IconMonsterHead_32033_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.4, 0.1],
+  },
   // 4 Costs
   {
     id: '330000010',
@@ -609,5 +651,23 @@ export const EnemyGroups: IEnemyGroup[] = [
     name: 'Hecate',
     icon: 'T_IconMonsterHead_34010_1_UI',
     res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.4],
+  },
+  {
+    id: '340000120',
+    name: 'Fleurdelys',
+    icon: 'T_IconMonsterHead_34012_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
+  },
+  {
+    id: '340000121',
+    name: 'Reminiscence: Fleurdelys',
+    icon: 'T_IconMonsterHead_34012_1_UI',
+    res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
+  },
+  {
+    id: '340000130',
+    name: 'Nightmare: Lampylumen Myriad',
+    icon: 'T_IconMonsterHead_34013_UI',
+    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
   },
 ]

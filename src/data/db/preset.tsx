@@ -31,46 +31,46 @@ export const ModifierPresets = [
     ),
   },
   {
-    name: Sonata.HEAL,
+    name: Sonata.REJUVENATING_GLOW,
     order: 1,
     type: 'Sonata',
     property: [{ stat: Stats.P_ATK, value: 15, flat: false }],
     icon: (
       <div className="flex items-center justify-center w-11 h-11">
-        <img src={SonataIcons[Sonata.HEAL]} className="w-10 h-10" />
+        <img src={SonataIcons[Sonata.REJUVENATING_GLOW]} className="w-10 h-10" />
       </div>
     ),
   },
   {
-    name: Sonata.REGEN,
+    name: Sonata.MOONLIT_CLOUDS,
     order: 1,
     type: 'Sonata',
     property: [{ stat: Stats.P_ATK, value: 22.5, flat: false }],
     icon: (
       <div className="flex items-center justify-center w-11 h-11">
-        <img src={SonataIcons[Sonata.REGEN]} className="w-10 h-10" />
+        <img src={SonataIcons[Sonata.MOONLIT_CLOUDS]} className="w-10 h-10" />
       </div>
     ),
   },
   {
-    name: Sonata.COORD,
+    name: Sonata.EMPYREAN_ANTHEM,
     order: 1,
     type: 'Sonata',
     property: [{ stat: Stats.P_ATK, value: 20, flat: false }],
     icon: (
       <div className="flex items-center justify-center w-11 h-11">
-        <img src={SonataIcons[Sonata.COORD]} className="w-10 h-10" />
+        <img src={SonataIcons[Sonata.EMPYREAN_ANTHEM]} className="w-10 h-10" />
       </div>
     ),
   },
   {
-    name: Sonata.HAVOC_2,
+    name: Sonata.MIDNIGHT_VEIL,
     order: 1,
     type: 'Sonata',
     property: [{ stat: Stats.HAVOC_DMG, value: 15, flat: false }],
     icon: (
       <div className="flex items-center justify-center w-11 h-11">
-        <img src={SonataIcons[Sonata.HAVOC_2]} className="w-10 h-10" />
+        <img src={SonataIcons[Sonata.MIDNIGHT_VEIL]} className="w-10 h-10" />
       </div>
     ),
   },
@@ -686,15 +686,24 @@ export const ModifierPresets = [
       <img src={getFoodImage('T_IconCook_070_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
     ),
   },
-  // {
-  //   name: `Purity Strength`,
-  //   order: 3,
-  //   type: `Brant's Signature Dish`,
-  //   property: [{ stat: Stats.HEAVY_DMG, value: 28, flat: false }],
-  //   icon: (
-  //     <img src={getFoodImage('T_IconCook_069_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
-  //   ),
-  // },
+  {
+    name: `Purity Strength`,
+    order: 3,
+    type: `Brant's Signature Dish`,
+    property: [{ stat: Stats.HEAVY_DMG, value: 28, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_069_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Homemade Panini`,
+    order: 3,
+    type: `Cantarella's Signature Dish`,
+    property: [{ stat: Stats.ER, value: 28, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_074_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
   {
     name: `Fusion Petrol`,
     order: 4,

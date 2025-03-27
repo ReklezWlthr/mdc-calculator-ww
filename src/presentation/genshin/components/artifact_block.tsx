@@ -16,21 +16,21 @@ import { getEchoImage } from '@src/core/utils/fetcher'
 import { Sonata } from '@src/data/db/artifacts'
 
 export const SonataIcons = {
-  [Sonata.FIRE]: '/asset/icons/T_IconElementAttriFire.webp',
-  [Sonata.ICE]: '/asset/icons/T_IconElementAttriIce.webp',
-  [Sonata.THUNDER]: '/asset/icons/T_IconElementAttriThunder.webp',
-  [Sonata.WIND]: '/asset/icons/T_IconElementAttriWind.webp',
-  [Sonata.LIGHT]: '/asset/icons/T_IconElementAttriLight.webp',
-  [Sonata.HAVOC]: '/asset/icons/T_IconElementAttriDark.webp',
-  [Sonata.ATK]: '/asset/icons/T_IconElementAttriAttack.webp',
-  [Sonata.HEAL]: '/asset/icons/T_IconElementAttriCure.webp',
-  [Sonata.REGEN]: '/asset/icons/T_IconElementAttriCloud.webp',
-  [Sonata.SKILL]: '/asset/icons/T_IconElementAttriIceUltimateSkill.webp',
-  [Sonata.LIGHT_2]: '/asset/icons/T_IconElementAttriLightError.webp',
-  [Sonata.HAVOC_2]: '/asset/icons/T_IconElementAttriDarkAssist.webp',
-  [Sonata.COORD]: '/asset/icons/T_IconElementAttriCooperate.webp',
-  [Sonata.REGEN_2]: '/asset/icons/T_IconElementAttriEnergy.webp',
-  // [Sonata.WIND_2]: '/asset/icons/T_IconElementAttriWindError.webp',
+  [Sonata.MOLTEN_RIFT]: '/asset/icons/T_IconElementAttriFire.webp',
+  [Sonata.FREEZING_FROST]: '/asset/icons/T_IconElementAttriIce.webp',
+  [Sonata.VOID_THUNDER]: '/asset/icons/T_IconElementAttriThunder.webp',
+  [Sonata.SIERRA_GALE]: '/asset/icons/T_IconElementAttriWind.webp',
+  [Sonata.CELESTIAL_LIGHT]: '/asset/icons/T_IconElementAttriLight.webp',
+  [Sonata.SUN_SINKING_ECLIPSE]: '/asset/icons/T_IconElementAttriDark.webp',
+  [Sonata.LINGERING_TUNES]: '/asset/icons/T_IconElementAttriAttack.webp',
+  [Sonata.REJUVENATING_GLOW]: '/asset/icons/T_IconElementAttriCure.webp',
+  [Sonata.MOONLIT_CLOUDS]: '/asset/icons/T_IconElementAttriCloud.webp',
+  [Sonata.FROSTY_RESOLVE]: '/asset/icons/T_IconElementAttriIceUltimateSkill.webp',
+  [Sonata.ETERNAL_RADIANCE]: '/asset/icons/T_IconElementAttriLightError.webp',
+  [Sonata.MIDNIGHT_VEIL]: '/asset/icons/T_IconElementAttriDarkAssist.webp',
+  [Sonata.EMPYREAN_ANTHEM]: '/asset/icons/T_IconElementAttriCooperate.webp',
+  [Sonata.TIDEBREAKING_COURAGE]: '/asset/icons/T_IconElementAttriEnergy.webp',
+  [Sonata.GUST_OF_WELKIN]: '/asset/icons/T_IconElementAttriWindError.webp',
 }
 
 interface ArtifactBlockProps {

@@ -9,14 +9,16 @@ export const IntroModal = observer(() => {
       <p className="text-lg font-bold text-white">About</p>
       <Collapsible
         label="Changelogs"
-        childRight={<div className="px-2 py-1 font-bold rounded-md bg-primary">v{_.head(changelog).version}</div>}
+        childRight={
+          <div className="px-2 py-1 font-bold rounded-md bg-primary whitespace-nowrap">
+            Updated {_.head(changelog).date}
+          </div>
+        }
       >
         <div className="space-y-2">
           {_.map(_.slice(changelog, 0, 7), (item) => (
             <div className="space-y-1" key={item.version}>
-              <p className="ml-3 text-amber-200">
-                <b className="text-desc">v{item.version}</b> - {item.date}
-              </p>
+              <p className="ml-3 text-indigo-300">{item.date}</p>
               {_.map(item.desc, (desc) => (
                 <BulletPoint key={desc}>
                   <span dangerouslySetInnerHTML={{ __html: desc }} />
@@ -97,21 +99,13 @@ export const IntroModal = observer(() => {
       <div className="p-3 space-y-1 text-sm transition-all duration-200 rounded-lg bg-primary-darker text-gray">
         <p className="text-sm font-bold text-white">You may also like:</p>
         <BulletPoint color="text-desc">
-          <a
-            className="cursor-pointer focus:outline-none text-blue"
-            href="https://gi-mdc.vercel.app"
-            target="_blank"
-          >
+          <a className="cursor-pointer focus:outline-none text-blue" href="https://gi-mdc.vercel.app" target="_blank">
             MDC Calculator for Genshin Impact
           </a>
           : Damage Calculator for <b>Genshin Impact</b>
         </BulletPoint>
         <BulletPoint color="text-desc">
-          <a
-            className="cursor-pointer focus:outline-none text-blue"
-            href="https://hsr-mdc.vercel.app"
-            target="_blank"
-          >
+          <a className="cursor-pointer focus:outline-none text-blue" href="https://hsr-mdc.vercel.app" target="_blank">
             MDC Calculator for HSR
           </a>
           : Damage Calculator for <b>Honkai: Star Rail</b>

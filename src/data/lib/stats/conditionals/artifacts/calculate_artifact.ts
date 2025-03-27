@@ -29,59 +29,59 @@ export const getArtifactConditionals = (artifacts: IArtifactEquip[]) => {
 }
 
 export const calculateArtifact = (base: StatsObject, form: Record<string, any>, team: ITeamChar[], index: number) => {
-  if (form[Sonata.ATK]) {
+  if (form[Sonata.LINGERING_TUNES]) {
     base[Stats.ATK].push({
       name: `5 Piece`,
-      source: Sonata.ATK,
-      value: 0.05 * form[Sonata.ATK],
+      source: Sonata.LINGERING_TUNES,
+      value: 0.05 * form[Sonata.LINGERING_TUNES],
     })
   }
-  if (form[Sonata.FIRE]) {
+  if (form[Sonata.MOLTEN_RIFT]) {
     base[Stats.FUSION_DMG].push({
       name: `5 Piece`,
-      source: Sonata.FIRE,
+      source: Sonata.MOLTEN_RIFT,
       value: 0.3,
     })
   }
-  if (form[Sonata.ICE]) {
+  if (form[Sonata.FREEZING_FROST]) {
     base[Stats.GLACIO_DMG].push({
       name: `5 Piece`,
-      source: Sonata.ICE,
-      value: 0.1 * form[Sonata.ICE],
+      source: Sonata.FREEZING_FROST,
+      value: 0.1 * form[Sonata.FREEZING_FROST],
     })
   }
-  if (form[Sonata.WIND]) {
+  if (form[Sonata.SIERRA_GALE]) {
     base[Stats.AERO_DMG].push({
       name: `5 Piece`,
-      source: Sonata.WIND,
+      source: Sonata.SIERRA_GALE,
       value: 0.3,
     })
   }
-  if (form[Sonata.THUNDER]) {
+  if (form[Sonata.VOID_THUNDER]) {
     base[Stats.ELECTRO_DMG].push({
       name: `5 Piece`,
-      source: Sonata.THUNDER,
-      value: 0.15 * form[Sonata.THUNDER],
+      source: Sonata.VOID_THUNDER,
+      value: 0.15 * form[Sonata.VOID_THUNDER],
     })
   }
-  if (form[Sonata.LIGHT]) {
+  if (form[Sonata.CELESTIAL_LIGHT]) {
     base[Stats.SPECTRO_DMG].push({
       name: `5 Piece`,
-      source: Sonata.LIGHT,
+      source: Sonata.CELESTIAL_LIGHT,
       value: 0.3,
     })
   }
-  if (form[Sonata.HAVOC]) {
+  if (form[Sonata.SUN_SINKING_ECLIPSE]) {
     base[Stats.HAVOC_DMG].push({
       name: `5 Piece`,
-      source: Sonata.HAVOC,
-      value: 0.075 * form[Sonata.HAVOC],
+      source: Sonata.SUN_SINKING_ECLIPSE,
+      value: 0.075 * form[Sonata.SUN_SINKING_ECLIPSE],
     })
   }
-  if (form[Sonata.HEAL]) {
+  if (form[Sonata.REJUVENATING_GLOW]) {
     base[Stats.P_ATK].push({
       name: `5 Piece`,
-      source: Sonata.HEAL,
+      source: Sonata.REJUVENATING_GLOW,
       value: 0.15,
     })
   }
@@ -208,32 +208,39 @@ export const calculateArtifact = (base: StatsObject, form: Record<string, any>, 
       return x
     })
   }
-  if (form[Sonata.SKILL]) {
+  if (form[Sonata.FROSTY_RESOLVE]) {
     base[Stats.GLACIO_DMG].push({
       name: `5 Piece`,
-      source: Sonata.SKILL,
+      source: Sonata.FROSTY_RESOLVE,
       value: 0.225,
     })
   }
-  if (form[Sonata.SKILL + '_1']) {
+  if (form[Sonata.FROSTY_RESOLVE + '_1']) {
     base[Stats.SKILL_DMG].push({
       name: `5 Piece`,
-      source: Sonata.SKILL,
-      value: 0.18 * form[Sonata.SKILL + '_1'],
+      source: Sonata.FROSTY_RESOLVE,
+      value: 0.18 * form[Sonata.FROSTY_RESOLVE + '_1'],
     })
   }
-  if (form[Sonata.LIGHT_2 + '_1']) {
+  if (form[Sonata.ETERNAL_RADIANCE + '_1']) {
     base[Stats.CRIT_RATE].push({
       name: `5 Piece`,
-      source: Sonata.LIGHT_2,
+      source: Sonata.ETERNAL_RADIANCE,
       value: 0.2,
     })
   }
-  if (form[Sonata.LIGHT_2 + '_2']) {
+  if (form[Sonata.ETERNAL_RADIANCE + '_2']) {
     base[Stats.SPECTRO_DMG].push({
       name: `5 Piece`,
-      source: Sonata.LIGHT_2,
+      source: Sonata.ETERNAL_RADIANCE,
       value: 0.15,
+    })
+  }
+  if (form[Sonata.GUST_OF_WELKIN]) {
+    base[Stats.AERO_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.GUST_OF_WELKIN,
+      value: 0.35,
     })
   }
 
@@ -241,17 +248,24 @@ export const calculateArtifact = (base: StatsObject, form: Record<string, any>, 
 }
 
 export const calculateTeamArtifact = (base: StatsObject, form: Record<string, any>, index: number) => {
-  if (form[Sonata.HEAL]) {
+  if (form[Sonata.REJUVENATING_GLOW]) {
     base[Stats.P_ATK].push({
       name: `5 Piece`,
-      source: Sonata.HEAL,
+      source: Sonata.REJUVENATING_GLOW,
       value: 0.15,
     })
   }
-  if (form[`${Sonata.REGEN}_${index}`]) {
+  if (form[Sonata.GUST_OF_WELKIN]) {
+    base[Stats.AERO_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.GUST_OF_WELKIN,
+      value: 0.15,
+    })
+  }
+  if (form[`${Sonata.MOONLIT_CLOUDS}_${index}`]) {
     base[Stats.P_ATK].push({
       name: `5 Piece`,
-      source: Sonata.REGEN,
+      source: Sonata.MOONLIT_CLOUDS,
       value: 0.225,
     })
   }
@@ -269,17 +283,17 @@ export const calculateTeamArtifact = (base: StatsObject, form: Record<string, an
       value: 0.12,
     })
   }
-  if (form[`${Sonata.HAVOC_2}_${index}`]) {
+  if (form[`${Sonata.MIDNIGHT_VEIL}_${index}`]) {
     base[Stats.HAVOC_DMG].push({
       name: `5 Piece`,
-      source: Sonata.HAVOC_2,
+      source: Sonata.MIDNIGHT_VEIL,
       value: 0.15,
     })
   }
-  if (form[`${Sonata.COORD}_${index}`]) {
+  if (form[`${Sonata.EMPYREAN_ANTHEM}_${index}`]) {
     base[Stats.P_ATK].push({
       name: `5 Piece`,
-      source: Sonata.COORD,
+      source: Sonata.EMPYREAN_ANTHEM,
       value: 0.2,
     })
   }

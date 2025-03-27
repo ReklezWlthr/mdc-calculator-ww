@@ -237,6 +237,7 @@ export const TagsImage = {
   [Tags.LIB_AMP]: '/SP_RoleLabelD10',
   [Tags.COORD_AMP]: '/SP_RoleLabelD11',
   [Tags.FRAZZLE]: '/SP_RoleLabelE4',
+  [Tags.EROSION]: '/SP_RoleLabelE3',
 }
 
 export enum Stats {

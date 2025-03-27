@@ -522,22 +522,22 @@ export const Weapons = [
     },
     beta: false,
   },
-  // {
-  //   id: '21020046',
-  //   image: '',
-  //   name: `Bloodpact's Pledge`,
-  //   rarity: 5,
-  //   baseAtk: 47,
-  //   ascStat: Stats.ER,
-  //   baseStat: 0.086,
-  //   type: WeaponType.SWORD,
-  //   desc: {
-  //     name: 'Harmonious Vibrancy',
-  //     detail: `Providing Healing increases Resonance Skill DMG by {{0}}% for <span class="text-desc">6</span>s. When Rover: Aero casts Resonance Skill <b>Unbound Flow</b>, <b class="text-wuwa-aero">Aero DMG</b> dealt by nearby Resonators on the field is Amplified by {{0}}% for <span class="text-desc">30</span>s.`,
-  //     properties: [{ base: 10, growth: 4 }],
-  //   },
-  //   beta: false,
-  // },
+  {
+    id: '21020046',
+    image: 'T_IconWeapon21020026_UI.webp',
+    name: `Bloodpact's Pledge`,
+    rarity: 5,
+    baseAtk: 47,
+    ascStat: Stats.ER,
+    baseStat: 0.086,
+    type: WeaponType.SWORD,
+    desc: {
+      name: 'Harmonious Vibrancy',
+      detail: `Providing Healing increases Resonance Skill DMG by {{0}}% for <span class="text-desc">6</span>s. When Rover: Aero casts Resonance Skill <b>Unbound Flow</b>, <b class="text-wuwa-aero">Aero DMG</b> dealt by nearby Resonators on the field is Amplified by {{0}}% for <span class="text-desc">30</span>s.`,
+      properties: [{ base: 10, growth: 4 }],
+    },
+    beta: false,
+  },
   {
     id: '21020053',
     image: 'T_IconWeapon21020053_UI.webp',
@@ -1423,7 +1423,7 @@ export const Weapons = [
   },
   {
     id: '21050056',
-    image: '',
+    image: 'T_IconWeapon21050030_UI.webp',
     name: 'Whispers of Sirens',
     rarity: 5,
     baseAtk: 33,
@@ -1432,14 +1432,12 @@ export const Weapons = [
     type: WeaponType.RECTIFIER,
     desc: {
       name: 'Astral Evolvement',
-      detail: `Increases ATK by {{0}}%. Casting Echo Skill within <span class="text-desc">10</span>s after casting Intro Skill grants <span class="text-desc">1</span> stack of <b>Gentle Dreams</b>. Echoes with the same name can only trigger this effect once, stacking up to <span class="text-desc">3</span> times, lasting for <span class="text-desc">10</span>s. Switching to another Resonator ends this effect early.
+      detail: `Increases ATK by {{0}}%. Casting Echo Skill within <span class="text-desc">10</span>s after casting Intro Skill or Basic Attacks grants <span class="text-desc">1</span> stack of <b>Gentle Dream</b>. Echoes with the same name can only trigger this effect once, stacking up to <span class="text-desc">3</span> times, lasting for <span class="text-desc">10</span>s. When reaching <span class="text-desc">2</span> stacks, casting Echo Skill no longer resets the duration of this effect. This effect activates up to once per <span class="text-desc">10</span>s. Switching to another Resonator ends this effect early.
       <br />With <span class="text-desc">1</span> stack: Grant {{1}}% Basic Attack DMG Bonus.
-      <br />With <span class="text-desc">2</span> stacks: Ignore {{2}}% of the target's <b class="text-wuwa-havoc">Havoc RES</b>.
-      <br />With <span class="text-desc">3</span> stacks: The wielder gains {{1}}% Basic Attack DMG Bonus and ignores {{2}}% of the target's <b class="text-wuwa-havoc">Havoc RES</b> for <span class="text-desc">27</span>s when <b>Gentle Dreams</b> ends early. Switching back to the wielder ends the effect immediately.`,
+      <br />With <span class="text-desc">2</span> stacks: Ignore {{0}}% of the target's <b class="text-wuwa-havoc">Havoc RES</b>.`,
       properties: [
         { base: 12, growth: 3 },
         { base: 40, growth: 10 },
-        { base: 10, growth: 2.5 },
       ],
     },
     beta: false,

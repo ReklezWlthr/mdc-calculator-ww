@@ -1090,6 +1090,74 @@ export const WeaponConditionals: IWeaponContent[] = [
       return base
     },
   },
+  {
+    type: 'toggle',
+    text: `Basic ATK DMG Bonus (1 Stack)`,
+    show: true,
+    default: true,
+    id: '21050056_1',
+    scaling: (base, form, r) => {
+      if (form['21050056_1']) {
+        base[Stats.BASIC_DMG].push({
+          value: calcRefinement(0.4, 0.1, r),
+          name: 'Gentle Dreams',
+          source: `Whispers of Sirens`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Havoc RES PEN (2 Stacks)`,
+    show: true,
+    default: true,
+    id: '21050056_2',
+    scaling: (base, form, r) => {
+      if (form['21050056_2']) {
+        base.HAVOC_RES_PEN.push({
+          value: calcRefinement(0.12, 0.03, r),
+          name: 'Gentle Dreams',
+          source: `Whispers of Sirens`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `On-Heal Skill DMG Bonus`,
+    show: true,
+    default: true,
+    id: '21020046',
+    scaling: (base, form, r) => {
+      if (form['21020046']) {
+        base[Stats.SKILL_DMG].push({
+          value: calcRefinement(0.1, 0.04, r),
+          name: 'Passive',
+          source: `Bloodpact's Pledge`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Aero Rover: Aero DMG AMP`,
+    show: true,
+    default: true,
+    id: '21020046_1',
+    scaling: (base, form, r) => {
+      if (form[`21020046_1`]) {
+        base.AERO_AMP.push({
+          value: calcRefinement(0.1, 0.04, r),
+          name: 'Passive',
+          source: `Bloodpact's Pledge`,
+        })
+      }
+      return base
+    },
+  },
 ]
 
 export const WeaponAllyConditionals: IWeaponContent[] = [
@@ -1105,6 +1173,23 @@ export const WeaponAllyConditionals: IWeaponContent[] = [
           value: calcRefinement(0.1, 0.025, r),
           name: 'Static Mist',
           source: own.NAME,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Aero DMG AMP`,
+    show: true,
+    default: true,
+    id: '21020046_1',
+    scaling: (base, form, r, { own, owner }) => {
+      if (form[`21020046_1_${owner}`]) {
+        base.AERO_AMP.push({
+          value: calcRefinement(0.1, 0.04, r),
+          name: 'Passive',
+          source: `Bloodpact's Pledge`,
         })
       }
       return base

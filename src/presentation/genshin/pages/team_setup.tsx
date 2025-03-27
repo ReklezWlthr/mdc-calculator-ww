@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { CharacterBlock } from '../components/character_block'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
@@ -128,6 +128,23 @@ export const TeamSetup = observer(() => {
   const [mobileTab, setMobileTab] = useState('forte')
 
   const maxTalentLevel = _.max([1, (char.ascension - 1) * 2])
+
+  useEffect(() => {
+    const enemyLevel = 84
+    const charLevel = 90
+    const def = 792 + 8 * enemyLevel
+    const cdMod = charLevel * 8 + 800
+    const defMult = cdMod / (def + cdMod)
+    const base = {
+      60: 128,
+      90: 1117,
+    }
+    const stackGrowth = 0.8125
+    const res = 0.9
+    console.log(
+      _.map([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item) => base[charLevel] * (1 + stackGrowth * (item - 1)) * res * defMult)
+    )
+  }, [])
 
   return (
     <div className="w-full overflow-y-auto customScrollbar mobile:overflow-visible">
