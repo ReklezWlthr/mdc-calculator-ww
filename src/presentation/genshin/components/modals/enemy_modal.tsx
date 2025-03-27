@@ -162,8 +162,8 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
             <div className="flex items-center gap-3" key={key}>
               <p className={classNames('whitespace-nowrap text-sm w-full', item)}>{key} RES</p>
               <TextInput
-                type="number"
-                value={res[key].toString()}
+                type={res[key] !== Infinity ? 'number' : 'text'}
+                value={res[key] !== Infinity ? res[key].toString() : 'Immune'}
                 onChange={(value) => store.setRes(key, value as any as number)}
                 style="!w-[75px] shrink-0"
                 disabled={!!enemyData}

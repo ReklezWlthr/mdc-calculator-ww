@@ -108,25 +108,25 @@ export const EnemyGroups: IEnemyGroup[] = [
     id: '310000140',
     name: 'Glacio Prism',
     icon: 'T_IconMonsterGoods_141_UI',
-    res: [0.1, 1, 0.1, 0.1, 0.1, 0.1, 0.1],
+    res: [0.1, Infinity, 0.1, 0.1, 0.1, 0.1, 0.1],
   },
   {
     id: '310000150',
     name: 'Fusion Prism',
     icon: 'T_IconMonsterGoods_151_UI',
-    res: [0.1, 0.1, 1, 0.1, 0.1, 0.1, 0.1],
+    res: [0.1, 0.1, Infinity, 0.1, 0.1, 0.1, 0.1],
   },
   {
     id: '310000160',
     name: 'Spectro Prism',
     icon: 'T_IconMonsterGoods_161_UI',
-    res: [0.1, 0.1, 0.1, 0.1, 0.1, 1, 0.1],
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, Infinity, 0.1],
   },
   {
     id: '310000170',
     name: 'Havoc Prism',
     icon: 'T_IconMonsterGoods_171_UI',
-    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 1],
+    res: [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, Infinity],
   },
   {
     id: '310000180',
@@ -312,7 +312,7 @@ export const EnemyGroups: IEnemyGroup[] = [
     id: '310000510',
     name: 'Aero Prism',
     icon: 'T_IconMonsterHead_31051_UI',
-    res: [0.1, 0.1, 0.1, 0.1, 1, 0.1, 0.1],
+    res: [0.1, 0.1, 0.1, 0.1, Infinity, 0.1, 0.1],
   },
   {
     id: '310000520',
