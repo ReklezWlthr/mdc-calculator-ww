@@ -22,7 +22,7 @@ const Cantarella = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel,
       <br />Consume STA to attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />
       <br /><b>Heavy Attack - Delusive Dive</b>
-      <br />When Cantarella has <b class="text-desc">Trance</b>, Heavy Attack becomes <b>Delusive Dive</b>, dealing <b class="text-wuwa-havoc">Havoc DMG</b> to the target, and then Cantarella enters <b class="text-fuchsia-300">Mirage</b>. While in <b class="text-fuchsia-300">Mirage</b>, casting <b>Delusive Dive</b> does not activate <b class="text-fuchsia-300">Mirage</b> again. Can be cast in water.
+      <br />When Cantarella has <b class="text-[#E44A8F]">Trance</b>, Heavy Attack becomes <b>Delusive Dive</b>, dealing <b class="text-wuwa-havoc">Havoc DMG</b> to the target, and then Cantarella enters <b class="text-fuchsia-300">Mirage</b>. While in <b class="text-fuchsia-300">Mirage</b>, casting <b>Delusive Dive</b> does not activate <b class="text-fuchsia-300">Mirage</b> again. Can be cast in water.
       <br />
       <br /><b>Mid-Air Attack</b>
       <br />Consume STA to perform Plunging Attack, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
@@ -68,35 +68,35 @@ const Cantarella = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel,
       title: `Between Illusion and Reality`,
       content: `<b class="text-fuchsia-300">Mirage</b>
       <br />- Basic Attack becomes Basic Attack <b>Phantom Sting</b>. Perform up to 3 consecutive attacks, dealing <b class="text-wuwa-havoc">Havoc DMG</b>. Can be cast in mid-air. When cast mid-air, Basic Attack <b>Phantom Sting</b> consumes STA, and the combo does not reset when Cantarella is airborne.
-      <br />- Hitting the target with Basic Attack <b>Phantom Sting</b> consumes <span class="text-desc">1</span> point of <b class="text-desc">Trance</b> to obtain <span class="text-desc">1</span> point of <b class="text-amber-500">Shiver</b> and heal all nearby Resonators in the team.
+      <br />- Hitting the target with Basic Attack <b>Phantom Sting</b> consumes <span class="text-desc">1</span> point of <b class="text-[#E44A8F]">Trance</b> to obtain <span class="text-desc">1</span> point of <b class="text-fuchsia-200">Shiver</b> and heal all nearby Resonators in the team.
       <br />- The third stage of Basic Attack <b>Phantom Sting</b> triggers <span class="text-desc">3</span> Coordinated Attacks, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />- Mid-Air Attack becomes <b>Abysmal Vortex</b>. Press Jump to perform a Plunging Attack at the cost of STA, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />- Dodge Counter becomes Dodge Counter <b>Shadowy Sweep</b>. Attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>. Press Normal Attack right after casting the skill to cast Basic Attack <b>Phantom Sting</b> Stage 2.
-      <br />- When Mid-air Attack <b>Abysmal Vortex</b> or Dodge Counter <b>Shadowy Sweep</b> hits a target, consume <span class="text-desc">1</span> point of <b class="text-desc">Trance</b> to obtain <span class="text-desc">1</span> point of <b class="text-amber-500">Shiver</b> and heal all nearby Resonators in the team.
+      <br />- When Mid-air Attack <b>Abysmal Vortex</b> or Dodge Counter <b>Shadowy Sweep</b> hits a target, consume <span class="text-desc">1</span> point of <b class="text-[#E44A8F]">Trance</b> to obtain <span class="text-desc">1</span> point of <b class="text-fuchsia-200">Shiver</b> and heal all nearby Resonators in the team.
       <br />- <b class="text-fuchsia-300">Mirage</b> lasts for <span class="text-desc">8</span>s.
-      <br />- <b class="text-fuchsia-300">Mirage</b> ends when all <b class="text-desc">Trance</b> is depleted.
+      <br />- <b class="text-fuchsia-300">Mirage</b> ends when all <b class="text-[#E44A8F]">Trance</b> is depleted.
       <br />
       <br /><b>Forte Circuit - Perception Drain</b>
-      <br />If Cantarella has <span class="text-desc">3</span> points of <b class="text-amber-500">Shiver</b> in <b class="text-fuchsia-300">Mirage</b>, Resonance Skill becomes <b>Perception Drain</b>.
-      <br />Consume all <b class="text-amber-500">Shiver</b> to attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>, considered Basic Attack DMG. Send the target into <b class="text-violet-300">Hazy Dream</b> and heal all Resonators in the team.
+      <br />If Cantarella has <span class="text-desc">3</span> points of <b class="text-fuchsia-200">Shiver</b> in <b class="text-fuchsia-300">Mirage</b>, Resonance Skill becomes <b>Perception Drain</b>.
+      <br />Consume all <b class="text-fuchsia-200">Shiver</b> to attack the target, dealing <b class="text-wuwa-havoc">Havoc DMG</b>, considered Basic Attack DMG. Send the target into <b class="text-violet-300">Hazy Dream</b> and heal all Resonators in the team.
       <br />Casting this skill is also considered as casting Echo Skill.
       <br />Can be cast in mid-air.
       <br />
       <br /><b>Abyssal Rebirth</b>
       <br />After casting Intro Skill, Cantarella enters <b>Abyssal Rebirth</b>, which lasts for <span class="text-desc">25</span>s and can be activated once every <span class="text-desc">25</span>s. In the duration, for up to <span class="text-desc">6</span> times, when Resonators in the team cast Echo Skill, Cantarella recovers <span class="text-desc">6</span> points of Concerto Energy. Echoes with the same name can trigger this effect once. When in water, Cantarella's swimming speed increases and STA cost decreases.
       <br />
-      <br /><b class="text-desc">Trance</b>
-      <br />- Cantarella can hold up to <span class="text-desc">5</span> points of <b class="text-desc">Trance</b>.
-      <br />- Casting Intro Skill recovers <span class="text-desc">1</span> points of <b class="text-desc">Trance</b>.
-      <br />- Hitting the target with Basic Attack Stage 3 recovers <span class="text-desc">1</span> points of <b class="text-desc">Trance</b>.
-      <br />- Casting Resonance Skill <b>Graceful Step</b> recovers <span class="text-desc">1</span> points of <b class="text-desc">Trance</b>.
-      <br />- Casting Resonance Liberation <b>Flowing Suffocation</b> recovers <span class="text-desc">2</span> points of <b class="text-desc">Trance</b>.
-      <br />- When in the water, recover <span class="text-desc">1</span> point of <b class="text-desc">Trance</b> every <span class="text-desc">5</span>s.
+      <br /><b class="text-[#E44A8F]">Trance</b>
+      <br />- Cantarella can hold up to <span class="text-desc">5</span> points of <b class="text-[#E44A8F]">Trance</b>.
+      <br />- Casting Intro Skill recovers <span class="text-desc">1</span> points of <b class="text-[#E44A8F]">Trance</b>.
+      <br />- Hitting the target with Basic Attack Stage 3 recovers <span class="text-desc">1</span> points of <b class="text-[#E44A8F]">Trance</b>.
+      <br />- Casting Resonance Skill <b>Graceful Step</b> recovers <span class="text-desc">1</span> points of <b class="text-[#E44A8F]">Trance</b>.
+      <br />- Casting Resonance Liberation <b>Flowing Suffocation</b> recovers <span class="text-desc">2</span> points of <b class="text-[#E44A8F]">Trance</b>.
+      <br />- When in the water, recover <span class="text-desc">1</span> point of <b class="text-[#E44A8F]">Trance</b> every <span class="text-desc">5</span>s.
       <br />
-      <br /><b class="text-amber-500">Shiver</b>
-      <br />Cantarella can hold up to <span class="text-desc">3</span> points of <b class="text-amber-500">Shiver</b>.
-      <br />- Hitting the target with Basic Attack <b>Phantom Sting</b> recovers <span class="text-desc">1</span> point of <b class="text-amber-500">Shiver</b>.
-      <br />- When Mid-Air Attack <b>Abysmal Vortex</b> or Dodge Counter <b>Shadowy Sweep</b> hits a target, restore <span class="text-desc">1</span> point of <b class="text-amber-500">Shiver</b>`,
+      <br /><b class="text-fuchsia-200">Shiver</b>
+      <br />Cantarella can hold up to <span class="text-desc">3</span> points of <b class="text-fuchsia-200">Shiver</b>.
+      <br />- Hitting the target with Basic Attack <b>Phantom Sting</b> recovers <span class="text-desc">1</span> point of <b class="text-fuchsia-200">Shiver</b>.
+      <br />- When Mid-Air Attack <b>Abysmal Vortex</b> or Dodge Counter <b>Shadowy Sweep</b> hits a target, restore <span class="text-desc">1</span> point of <b class="text-fuchsia-200">Shiver</b>`,
       image: 'SP_IconKanteleilaY',
     },
     intro: {
@@ -132,7 +132,7 @@ const Cantarella = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel,
     c1: {
       trace: `Sequence Node 1`,
       title: `Embrace the Endless Waves`,
-      content: `Casting Resonance Skill recovers <span class="text-desc">1</span> point of <b class="text-desc">Trance</b>. The DMG Multiplier of Resonance Skill <b>Graceful Step</b>, Resonance Skill <b>Flickering Reverie</b>, and Forte Circuit <b>Perception Drain</b> is increased by <span class="text-desc">50%</span>. Immune to interruptions while casting <b>Perception Drain</b>.`,
+      content: `Casting Resonance Skill recovers <span class="text-desc">1</span> point of <b class="text-[#E44A8F]">Trance</b>. The DMG Multiplier of Resonance Skill <b>Graceful Step</b>, Resonance Skill <b>Flickering Reverie</b>, and Forte Circuit <b>Perception Drain</b> is increased by <span class="text-desc">50%</span>. Immune to interruptions while casting <b>Perception Drain</b>.`,
       image: 'T_IconDevice_KanteleilaM1_UI',
     },
     c2: {
