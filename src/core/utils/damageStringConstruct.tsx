@@ -148,7 +148,7 @@ export const damageStringConstruct = (
           2
         )}</b>  <i class="text-[10px]">MULT</i> )`
       : ''
-  }${elementAmp > 1 ? ` \u{00d7} <b class="text-amber-400">${toPercentage(elementAmp, 2)}</b>` : ''}${
+  }${
     isDamage
       ? ` \u{00d7} <b class="text-orange-300">${toPercentage(
           defMult,

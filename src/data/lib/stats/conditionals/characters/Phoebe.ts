@@ -168,10 +168,9 @@ const Phoebe = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       type: 'toggle',
       id: 'silent_prayer',
       text: `Silent Prayer`,
-      ...talents.forte,
+      ...talents.outro,
       show: true,
-      default: true,
-      debuff: true,
+      default: false,
     },
     {
       type: 'toggle',
@@ -217,6 +216,8 @@ const Phoebe = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     allyContent: [],
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
+
+      base.DoT = true
 
       base.BASIC_SCALING = [
         {
@@ -368,6 +369,11 @@ const Phoebe = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           source: 'Self',
           value: 0.1,
         })
+        base.FRAZZLE_AMP.push({
+          name: `Silent Prayer`,
+          source: 'Self',
+          value: 1,
+        })
       }
       if (i.i2 && !!form.forte_state) {
         base[Stats.SPECTRO_DMG].push({
@@ -406,6 +412,11 @@ const Phoebe = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           name: `Silent Prayer`,
           source: 'Phoebe',
           value: 0.1,
+        })
+        base.FRAZZLE_AMP.push({
+          name: `Silent Prayer`,
+          source: 'Phoebe',
+          value: 1,
         })
       }
       if (form.phoebe_c4) {

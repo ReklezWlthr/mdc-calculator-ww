@@ -129,23 +129,6 @@ export const TeamSetup = observer(() => {
 
   const maxTalentLevel = _.max([1, (char.ascension - 1) * 2])
 
-  useEffect(() => {
-    const enemyLevel = 84
-    const charLevel = 90
-    const def = 792 + 8 * enemyLevel
-    const cdMod = charLevel * 8 + 800
-    const defMult = cdMod / (def + cdMod)
-    const base = {
-      60: 128,
-      90: 1117,
-    }
-    const stackGrowth = 0.8125
-    const res = 0.9
-    console.log(
-      _.map([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item) => base[charLevel] * (1 + stackGrowth * (item - 1)) * res * defMult)
-    )
-  }, [])
-
   return (
     <div className="w-full overflow-y-auto customScrollbar mobile:overflow-visible">
       <div className="grid grid-cols-12 tablet:grid-cols-12 justify-center w-full gap-5 p-5 tablet:max-w-[1100px] max-w-[1240px] mx-auto mobile:grid-cols-4">

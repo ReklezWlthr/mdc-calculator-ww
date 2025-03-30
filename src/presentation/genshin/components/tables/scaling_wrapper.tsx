@@ -6,6 +6,7 @@ import { TooltipModal } from '@src/presentation/components/tooltip_modal'
 import classNames from 'classnames'
 import _ from 'lodash'
 import { observer } from 'mobx-react-lite'
+import { DOT_NAME } from './debuff_wrapper'
 
 interface ScalingWrapperProps {
   children: React.ReactNode | React.ReactNode[]
@@ -77,7 +78,11 @@ export const TalentIcon = observer(
             { 'group-hover:ring-offset-4': !hideTip }
           )}
         >
-          <img src={getTalentIcon(talent?.image)} className="w-full h-full scale-[90%]" loading="lazy" />
+          <img
+            src={type === DOT_NAME ? talent?.image : getTalentIcon(talent?.image)}
+            className="w-full h-full scale-[90%]"
+            loading="lazy"
+          />
           <div className="hidden">?</div>
         </div>
         {hideTip && showUpgrade && !!upgraded && (

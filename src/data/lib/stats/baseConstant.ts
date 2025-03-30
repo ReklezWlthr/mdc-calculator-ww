@@ -149,6 +149,11 @@ export const baseStatsObject = {
   OUTRO_SCALING: [] as IScaling[],
   ECHO_SCALING: [] as IScaling[],
 
+  // DoTs
+  DoT: false,
+
+  FRAZZLE_AMP: [] as StatsArray[],
+
   getAtk: function (statBonus?: number) {
     return (
       _.floor(this.BASE_ATK * (1 + _.sumBy(this[Stats.P_ATK], 'value') + (statBonus || 0))) +

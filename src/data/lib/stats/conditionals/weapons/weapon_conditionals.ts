@@ -1056,7 +1056,7 @@ export const WeaponConditionals: IWeaponContent[] = [
   },
   {
     type: 'number',
-    text: `Spectro Frazzle Bonus Stacks`,
+    text: `Basic & Heavy ATK Bonus`,
     show: true,
     default: 1,
     min: 0,
@@ -1086,6 +1086,11 @@ export const WeaponConditionals: IWeaponContent[] = [
     id: '21050046_1',
     scaling: (base, form, r) => {
       if (form['21050046_1']) {
+        base.FRAZZLE_AMP.push({
+          value: calcRefinement(0.5, 0.125, r),
+          name: 'Passive',
+          source: `Luminous Hymn`,
+        })
       }
       return base
     },

@@ -167,6 +167,8 @@ const ARover = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
+      base.DoT = true
+
       base.BASIC_SCALING = [
         {
           name: 'Stage 1 DMG',

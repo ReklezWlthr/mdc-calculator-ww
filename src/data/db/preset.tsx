@@ -1,4 +1,4 @@
-import { getEchoImage, getFoodImage } from '@src/core/utils/fetcher'
+import { getEchoImage, getFoodImage, getSideAvatar } from '@src/core/utils/fetcher'
 import { findEcho } from '@src/core/utils/finder'
 import { Stats } from '@src/domain/constant'
 import { SonataIcons } from '@src/presentation/genshin/components/artifact_block'
@@ -6,6 +6,30 @@ import classNames from 'classnames'
 import { Sonata } from './artifacts'
 
 export const ModifierPresets = [
+  {
+    name: 'Inner Stellarealm',
+    order: -1,
+    type: 'Shorekeeper: Liberation',
+    property: [{ stat: Stats.CRIT_RATE, value: 12.5, flat: false }],
+    icon: <img src={getSideAvatar('28')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />,
+  },
+  {
+    name: 'Supernal Stellarealm',
+    order: -1,
+    type: 'Shorekeeper: Liberation',
+    property: [
+      { stat: Stats.CRIT_RATE, value: 12.5, flat: false },
+      { stat: Stats.CRIT_DMG, value: 25, flat: false },
+    ],
+    icon: <img src={getSideAvatar('28')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />,
+  },
+  {
+    name: 'Commedia Improvviso!',
+    order: -1,
+    type: 'Roccia: Liberation',
+    property: [{ stat: Stats.ATK, value: 200, flat: true }],
+    icon: <img src={getSideAvatar('33')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />,
+  },
   {
     name: 'Fallacy of No Return',
     order: 0,

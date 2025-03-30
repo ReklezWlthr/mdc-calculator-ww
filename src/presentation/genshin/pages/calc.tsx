@@ -20,6 +20,8 @@ import { StatsModal } from '../components/modals/stats_modal'
 import { Echoes } from '@src/data/db/artifacts'
 import { ITalentDisplay } from '@src/domain/conditional'
 import { formatWeaponString } from '@src/core/utils/data_format'
+import { Element } from '@src/domain/constant'
+import { DoTWrapper } from '../components/tables/debuff_wrapper'
 
 export const Calculator = observer(({}: {}) => {
   const { teamStore, modalStore, calculatorStore, settingStore, artifactStore } = useStore()
@@ -152,6 +154,12 @@ export const Calculator = observer(({}: {}) => {
                         <ScalingSubRows key={item.name} scaling={item} />
                       ))}
                     </ScalingWrapper>
+                  </>
+                )}
+                {mainComputed?.DoT && (
+                  <>
+                    <div className="w-full my-2 border-t-2 border-primary-border" />
+                    <DoTWrapper element={mainComputed?.ELEMENT} />
                   </>
                 )}
                 <div className="h-2" />

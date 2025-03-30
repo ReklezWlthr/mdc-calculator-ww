@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.2-10",
+    "date": "March 30th, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">Added</b>: Calculation for <b class=\"text-wuwa-spectro\">Spectro Frazzle</b> and <b class=\"text-wuwa-aero\">Aero Erosion</b>.",
+      "<b class=\"text-yellow\">Added</b>: New Presets for Maxed Out Buffs from <b class=\"text-wuwa-spectro\">Shorekeeper</b> and <b class=\"text-wuwa-havoc\">Roccia</b>."
+    ]
+  },
+  {
     "version": "1.0.2-9",
     "date": "March 27th, 2025",
     "desc": [

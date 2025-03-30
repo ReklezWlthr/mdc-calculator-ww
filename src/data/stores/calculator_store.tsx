@@ -15,6 +15,7 @@ export interface CalculatorStoreType {
   dmgMode: string
   toa: boolean
   custom: { name: StatsObjectKeysT; value: number; debuff: boolean }[][]
+  stacks: Record<string, number>
   setValue: <k extends keyof this>(key: k, value: this[k]) => void
   initForm: (initData: Record<string, any>[]) => void
   setFormValue: (index: number, key: string, value: any) => void
@@ -31,6 +32,7 @@ export class CalculatorStore {
   computedStats: StatsObject[]
   res: Record<Element, number>
   level: number | string
+  stacks: Record<string, number>
   selected: number
   toa: boolean
   custom: { name: StatsObjectKeysT; value: number; debuff: boolean; toggled: boolean }[][]
@@ -43,6 +45,10 @@ export class CalculatorStore {
     this.selected = 0
     this.level = 1
     this.toa = false
+    this.stacks = {
+      [Element.SPECTRO]: 1,
+      [Element.AERO]: 1,
+    }
     this.res = {
       [Element.PHYSICAL]: 10,
       [Element.GLACIO]: 10,
@@ -108,7 +114,7 @@ export class CalculatorStore {
   }
 
   getResMult = (element: Element, resPen: number) => {
-    const res = this.res[element] / 100 - (resPen)
+    const res = this.res[element] / 100 - resPen
     if (res < 0) return 1 - res / 2
     if (res >= 0.8) return 1 / (5 * res + 1)
     return 1 - res
