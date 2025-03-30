@@ -401,8 +401,9 @@ const Roccia = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
         if (i !== index)
           member.SKILL_SCALING.push({
             name: 'Magic Box DMG',
-            value: [{ scaling: 0, multiplier: Stats.ATK }],
-            flat: 100,
+            value: [],
+            flat: 5,
+            hit: 20,
             element: Element.HAVOC,
             property: TalentProperty.UTIL,
           })

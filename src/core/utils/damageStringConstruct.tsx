@@ -36,7 +36,7 @@ export const damageStringConstruct = (
   if (!scaling || !stats || !level) return
 
   const element = scaling.element
-  const isDamage = !_.includes([TalentProperty.SHIELD, TalentProperty.HEAL], scaling.property)
+  const isDamage = !_.includes([TalentProperty.SHIELD, TalentProperty.HEAL, TalentProperty.UTIL], scaling.property)
 
   const talentDmg = stats.getValue(Stats[`${TalentStatMap[scaling.property]}_DMG`]) || 0
   const talentFlat = stats.getValue(`${TalentStatMap[scaling.property]}_F_DMG`) || 0
@@ -73,7 +73,7 @@ export const damageStringConstruct = (
   const healing = stats.getValue(Stats.HEAL)
   const bonusDMG =
     (scaling.bonus || 0) +
-    (TalentProperty.SHIELD === scaling.property
+    (_.includes([TalentProperty.SHIELD, TalentProperty.UTIL], scaling.property)
       ? 0
       : TalentProperty.HEAL === scaling.property
       ? healing
@@ -93,7 +93,7 @@ export const damageStringConstruct = (
     (scaling.flat || 0) +
     elementFlat +
     talentFlat
-  const dmg = raw * (1 + bonusDMG) * (scaling.multiplier || 1) * (1 + amp) * enemyMod
+  const dmg = raw * (1 + bonusDMG) * (scaling.multiplier || 1) * (1 + amp) * enemyMod * (scaling.hit || 1)
   const dmgArray = _.map(
     scaling.value,
     (item) =>
@@ -124,8 +124,13 @@ export const damageStringConstruct = (
       })</span>`
   )
   const baseScaling = _.join(scalingArray, ' + ')
-  const shouldWrap = !!totalFlat || scaling.value.length > 1
-  const baseWithFlat = totalFlat ? _.join([baseScaling, _.round(totalFlat).toLocaleString()], ' + ') : baseScaling
+  const shouldWrap = totalFlat && !!scaling.value.length
+  const baseWithFlat = totalFlat
+    ? _.join(
+        _.filter([baseScaling, _.round(totalFlat).toLocaleString()], (item) => !!item),
+        ' + '
+      )
+    : baseScaling
 
   const formulaString = `<b class="${PropertyColor[scaling.property] || 'text-red'}">${_.round(
     dmg
@@ -213,7 +218,7 @@ export const damageStringConstruct = (
           Component DMG Bonus: <span className="text-desc">{toPercentage(scaling.bonus)}</span>
         </p>
       )}
-      {!!elementDmg && (
+      {!!elementDmg && scaling.property !== TalentProperty.UTIL && (
         <p className="text-xs">
           {element} DMG Bonus: <span className="text-desc">{toPercentage(elementDmg)}</span>
         </p>
