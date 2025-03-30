@@ -158,15 +158,6 @@ const Lingyang = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     },
     {
       type: 'toggle',
-      id: 'striding_lion',
-      text: `Striding Lion`,
-      ...talents.forte,
-      show: true,
-      default: true,
-      sync: true,
-    },
-    {
-      type: 'toggle',
       id: 'lingyang_c4',
       text: `S4 Team Glacio DMG Bonus`,
       ...talents.c4,
@@ -193,74 +184,47 @@ const Lingyang = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
-      base.BASIC_SCALING = form.striding_lion
-        ? [
-            {
-              name: `Feral Gyrate Stage 1 DMG`,
-              value: [
-                { scaling: calcScaling(0.438, forte), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(0.584, forte), multiplier: Stats.ATK },
-              ],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: `Feral Gyrate Stage 2 DMG`,
-              value: [{ scaling: calcScaling(0.1598, forte), multiplier: Stats.ATK, hits: 6 }],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: `Stormy Kicks DMG`,
-              value: [
-                { scaling: calcScaling(0.1838, forte), multiplier: Stats.ATK, hits: 8 },
-                { scaling: calcScaling(0.9665, forte), multiplier: Stats.ATK },
-              ],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.3, normal), multiplier: Stats.ATK }],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.4, normal), multiplier: Stats.ATK }],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.3665, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 4 DMG',
-              value: [
-                { scaling: calcScaling(0.1027, normal), multiplier: Stats.ATK, hits: 5 },
-                { scaling: calcScaling(0.2199, normal), multiplier: Stats.ATK },
-              ],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 5 DMG',
-              value: [{ scaling: calcScaling(0.767, normal), multiplier: Stats.ATK }],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Feral Roars DMG',
-              value: [{ scaling: calcScaling(0.4, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.GLACIO,
-              property: TalentProperty.BA,
-            },
-          ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.3, normal), multiplier: Stats.ATK }],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.4, normal), multiplier: Stats.ATK }],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.3665, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [
+            { scaling: calcScaling(0.1027, normal), multiplier: Stats.ATK, hits: 5 },
+            { scaling: calcScaling(0.2199, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 5 DMG',
+          value: [{ scaling: calcScaling(0.767, normal), multiplier: Stats.ATK }],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Feral Roars DMG',
+          value: [{ scaling: calcScaling(0.4, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
+        },
+      ]
       base.HEAVY_SCALING = [
         {
           name: 'Heavy Attack DMG',
@@ -285,42 +249,20 @@ const Lingyang = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           property: TalentProperty.BA,
         },
       ]
-      base.SKILL_SCALING = form.striding_lion
-        ? [
-            {
-              name: `Mountain Roamer DMG`,
-              value: [{ scaling: calcScaling(0.4169, forte), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.GLACIO,
-              property: TalentProperty.SKILL,
-            },
-            ...(i.i2
-              ? [
-                  {
-                    name: `Enhanced Mountain Roamer DMG`,
-                    value: [
-                      { scaling: calcScaling(0.4169, forte), multiplier: Stats.ATK, hits: 2 },
-                      { scaling: calcScaling(0.4169, forte) * 1.5, multiplier: Stats.ATK, hits: 2 },
-                    ],
-                    element: Element.GLACIO,
-                    property: TalentProperty.SKILL,
-                  },
-                ]
-              : []),
-          ]
-        : [
-            {
-              name: 'Ancient Arts DMG',
-              value: [{ scaling: calcScaling(0.667, skill), multiplier: Stats.ATK }],
-              element: Element.GLACIO,
-              property: TalentProperty.SKILL,
-            },
-            {
-              name: 'Furious Punches DMG',
-              value: [{ scaling: calcScaling(0.3835, skill), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.GLACIO,
-              property: TalentProperty.SKILL,
-            },
-          ]
+      base.SKILL_SCALING = [
+        {
+          name: 'Ancient Arts DMG',
+          value: [{ scaling: calcScaling(0.667, skill), multiplier: Stats.ATK }],
+          element: Element.GLACIO,
+          property: TalentProperty.SKILL,
+        },
+        {
+          name: 'Furious Punches DMG',
+          value: [{ scaling: calcScaling(0.3835, skill), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.GLACIO,
+          property: TalentProperty.SKILL,
+        },
+      ]
       base.LIB_SCALING = [
         {
           name: `Strive: Lion's Vigor DMG`,
@@ -338,6 +280,49 @@ const Lingyang = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           value: [{ scaling: calcScaling(0.867, forte), multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.HA,
+        },
+        {
+          name: `Feral Gyrate Stage 1 DMG`,
+          value: [
+            { scaling: calcScaling(0.438, forte), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.584, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: `Feral Gyrate Stage 2 DMG`,
+          value: [{ scaling: calcScaling(0.1598, forte), multiplier: Stats.ATK, hits: 6 }],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: `Mountain Roamer DMG`,
+          value: [{ scaling: calcScaling(0.4169, forte), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.GLACIO,
+          property: TalentProperty.SKILL,
+        },
+        ...(i.i2
+          ? [
+              {
+                name: `Enhanced Mountain Roamer DMG`,
+                value: [
+                  { scaling: calcScaling(0.4169, forte), multiplier: Stats.ATK, hits: 2 },
+                  { scaling: calcScaling(0.4169, forte) * 1.5, multiplier: Stats.ATK, hits: 2 },
+                ],
+                element: Element.GLACIO,
+                property: TalentProperty.SKILL,
+              },
+            ]
+          : []),
+        {
+          name: `Stormy Kicks DMG`,
+          value: [
+            { scaling: calcScaling(0.1838, forte), multiplier: Stats.ATK, hits: 8 },
+            { scaling: calcScaling(0.9665, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.GLACIO,
+          property: TalentProperty.BA,
         },
         {
           name: `Tail Strike DMG`,

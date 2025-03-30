@@ -144,15 +144,6 @@ const XLY = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team: 
 
   const content: IContent[] = [
     {
-      type: 'toggle',
-      id: 'intuition',
-      text: `Intuition`,
-      ...talents.lib,
-      show: true,
-      default: true,
-      sync: true,
-    },
-    {
       type: 'number',
       id: 'xly_i1',
       text: `I1 Electro DMG Bonus`,
@@ -198,72 +189,49 @@ const XLY = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team: 
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
-      base.BASIC_SCALING = form.intuition
-        ? [
-            {
-              name: 'Pivot - Impale Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.6019, skill), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Pivot - Impale Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.3065, skill), multiplier: Stats.ATK, hits: 4 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Pivot - Impale Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.6703, skill), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.1665, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.501, normal), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.2, normal), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 4 DMG',
-              value: [
-                { scaling: calcScaling(0.2668, normal), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(0.1334, normal), multiplier: Stats.ATK },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 5 DMG',
-              value: [{ scaling: calcScaling(1, normal), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.HEAVY_SCALING = form.intuition
-        ? []
-        : [
-            {
-              name: 'Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.4165, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.HA,
-            },
-          ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.1665, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.501, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.2, normal), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [
+            { scaling: calcScaling(0.2668, normal), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.1334, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 5 DMG',
+          value: [{ scaling: calcScaling(1, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.HEAVY_SCALING = [
+        {
+          name: 'Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.4165, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.HA,
+        },
+      ]
       base.MID_AIR_SCALING = [
         {
           name: 'Mid-Air Attack DMG',
@@ -273,50 +241,24 @@ const XLY = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team: 
           property: TalentProperty.BA,
         },
       ]
-      base.DODGE_SCALING = form.intuition
-        ? [
-            {
-              name: 'Unfathomed DMG',
-              scale: Stats.ATK,
-              value: [
-                { scaling: calcScaling(0.1953, lib), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(1.5622, lib), multiplier: Stats.ATK },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.LIB,
-            },
-          ]
-        : [
-            {
-              name: 'Dodge Counter DMG',
-              scale: Stats.ATK,
-              value: [{ scaling: calcScaling(1.2, normal), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.SKILL_SCALING = form.intuition
-        ? [
-            {
-              name: 'Divergence DMG',
-              value: [
-                { scaling: calcScaling(0.2494, lib), multiplier: Stats.ATK, hits: 3 },
-                { scaling: calcScaling(0.8729, lib), multiplier: Stats.ATK, hits: 2 },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.SKILL,
-              bonus: form.xly_c3 ? 0.63 : 0,
-            },
-          ]
-        : [
-            {
-              name: 'Deduction DMG',
-              value: [{ scaling: calcScaling(1, skill), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.SKILL,
-              bonus: form.xly_c3 ? 0.63 : 0,
-            },
-          ]
+      base.DODGE_SCALING = [
+        {
+          name: 'Dodge Counter DMG',
+          scale: Stats.ATK,
+          value: [{ scaling: calcScaling(1.2, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.SKILL_SCALING = [
+        {
+          name: 'Deduction DMG',
+          value: [{ scaling: calcScaling(1, skill), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.SKILL,
+          bonus: form.xly_c3 ? 0.63 : 0,
+        },
+      ]
       base.LIB_SCALING = [
         {
           name: 'Cogitation Model DMG',
@@ -324,6 +266,44 @@ const XLY = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team: 
           element: Element.ELECTRO,
           property: TalentProperty.LIB,
           multiplier: c >= 5 ? 2 : 1,
+        },
+        {
+          name: 'Pivot - Impale Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.6019, lib), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Pivot - Impale Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.3065, lib), multiplier: Stats.ATK, hits: 4 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Pivot - Impale Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.6703, lib), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Divergence DMG',
+          value: [
+            { scaling: calcScaling(0.2494, lib), multiplier: Stats.ATK, hits: 3 },
+            { scaling: calcScaling(0.8729, lib), multiplier: Stats.ATK, hits: 2 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.SKILL,
+          bonus: form.xly_c3 ? 0.63 : 0,
+        },
+        {
+          name: 'Unfathomed DMG',
+          scale: Stats.ATK,
+          value: [
+            { scaling: calcScaling(0.1953, lib), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(1.5622, lib), multiplier: Stats.ATK },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.LIB,
         },
       ]
       const law = {

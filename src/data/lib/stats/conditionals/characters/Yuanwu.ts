@@ -138,15 +138,6 @@ const Yuanwu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
   const content: IContent[] = [
     {
       type: 'toggle',
-      id: 'lightning_infused',
-      text: `Lightning Infused`,
-      ...talents.forte,
-      show: true,
-      default: true,
-      sync: true,
-    },
-    {
-      type: 'toggle',
       id: 'yuanwu_c5',
       text: `S5 Liberation DMG Bonus`,
       ...talents.c5,
@@ -173,109 +164,52 @@ const Yuanwu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
-      base.BASIC_SCALING = form.lightning_infused
-        ? [
-            {
-              name: `Lightning Infused Basic Attack Stage 1 DMG`,
-              value: [{ scaling: calcScaling(0.1235, forte), multiplier: Stats.DEF }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: `Lightning Infused Basic Attack Stage 2 DMG`,
-              value: [{ scaling: calcScaling(0.1303, forte), multiplier: Stats.DEF, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: `Lightning Infused Basic Attack Stage 3 DMG`,
-              value: [
-                { scaling: calcScaling(0.055, forte), multiplier: Stats.DEF, hits: 2 },
-                { scaling: calcScaling(0.0824, forte), multiplier: Stats.DEF, hits: 2 },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: `Lightning Infused Basic Attack Stage 4 DMG`,
-              value: [{ scaling: calcScaling(0.0577, forte), multiplier: Stats.DEF, hits: 5 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: `Lightning Infused Basic Attack Stage 5 DMG`,
-              value: [
-                { scaling: calcScaling(0.0824, forte), multiplier: Stats.DEF, hits: 3 },
-                { scaling: calcScaling(0.1647, forte), multiplier: Stats.DEF },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: `Thunderweaver DMG`,
-              value: [
-                { scaling: calcScaling(0.156, forte), multiplier: Stats.DEF },
-                { scaling: calcScaling(0.104, forte), multiplier: Stats.DEF, hits: 2 },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.247, normal), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.2606, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 3 DMG',
-              value: [
-                { scaling: calcScaling(0.1099, normal), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(0.1648, normal), multiplier: Stats.ATK, hits: 2 },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 4 DMG',
-              value: [{ scaling: calcScaling(0.2606, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 5 DMG',
-              value: [
-                { scaling: calcScaling(0.247, normal), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(0.3294, normal), multiplier: Stats.ATK },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.HEAVY_SCALING = form.lightning_infused
-        ? [
-            {
-              name: 'Lightning Infused Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.156, forte), multiplier: Stats.DEF }],
-              element: Element.ELECTRO,
-              property: TalentProperty.HA,
-            },
-          ]
-        : [
-            {
-              name: 'Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.8, normal), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.HA,
-            },
-          ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.247, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.2606, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [
+            { scaling: calcScaling(0.1099, normal), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.1648, normal), multiplier: Stats.ATK, hits: 2 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [{ scaling: calcScaling(0.2606, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 5 DMG',
+          value: [
+            { scaling: calcScaling(0.247, normal), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.3294, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.HEAVY_SCALING = [
+        {
+          name: 'Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.8, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.HA,
+        },
+      ]
       base.MID_AIR_SCALING = [
         {
           name: 'Mid-Air Attack DMG',
@@ -284,26 +218,14 @@ const Yuanwu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           property: TalentProperty.BA,
         },
       ]
-      base.DODGE_SCALING = form.lightning_infused
-        ? [
-            {
-              name: 'Lightning Infused Dodge Counter DMG',
-              value: [
-                { scaling: calcScaling(0.2176, forte), multiplier: Stats.DEF },
-                { scaling: calcScaling(0.1632, forte), multiplier: Stats.DEF, hits: 2 },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Dodge Counter DMG',
-              value: [{ scaling: calcScaling(0.576, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
+      base.DODGE_SCALING = [
+        {
+          name: 'Dodge Counter DMG',
+          value: [{ scaling: calcScaling(0.576, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
       base.SKILL_SCALING = [
         {
           name: 'Thunder Wedge DMG',
@@ -319,7 +241,7 @@ const Yuanwu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           ],
           element: Element.ELECTRO,
           property: TalentProperty.SKILL,
-          coord: true
+          coord: true,
         },
         {
           name: 'Thunder Wedge Detonation DMG',
@@ -349,6 +271,66 @@ const Yuanwu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           element: Element.ELECTRO,
           property: TalentProperty.SKILL,
           multiplier: i.i1 ? 1.4 : 1,
+        },
+        {
+          name: `Lightning Infused Basic Attack Stage 1 DMG`,
+          value: [{ scaling: calcScaling(0.1235, forte), multiplier: Stats.DEF }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: `Lightning Infused Basic Attack Stage 2 DMG`,
+          value: [{ scaling: calcScaling(0.1303, forte), multiplier: Stats.DEF, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: `Lightning Infused Basic Attack Stage 3 DMG`,
+          value: [
+            { scaling: calcScaling(0.055, forte), multiplier: Stats.DEF, hits: 2 },
+            { scaling: calcScaling(0.0824, forte), multiplier: Stats.DEF, hits: 2 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: `Lightning Infused Basic Attack Stage 4 DMG`,
+          value: [{ scaling: calcScaling(0.0577, forte), multiplier: Stats.DEF, hits: 5 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: `Lightning Infused Basic Attack Stage 5 DMG`,
+          value: [
+            { scaling: calcScaling(0.0824, forte), multiplier: Stats.DEF, hits: 3 },
+            { scaling: calcScaling(0.1647, forte), multiplier: Stats.DEF },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Lightning Infused Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.156, forte), multiplier: Stats.DEF }],
+          element: Element.ELECTRO,
+          property: TalentProperty.HA,
+        },
+        {
+          name: 'Lightning Infused Dodge Counter DMG',
+          value: [
+            { scaling: calcScaling(0.2176, forte), multiplier: Stats.DEF },
+            { scaling: calcScaling(0.1632, forte), multiplier: Stats.DEF, hits: 2 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: `Thunderweaver DMG`,
+          value: [
+            { scaling: calcScaling(0.156, forte), multiplier: Stats.DEF },
+            { scaling: calcScaling(0.104, forte), multiplier: Stats.DEF, hits: 2 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
         },
       ]
       base.INTRO_SCALING = [

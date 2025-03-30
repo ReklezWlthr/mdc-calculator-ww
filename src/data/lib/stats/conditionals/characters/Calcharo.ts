@@ -140,15 +140,6 @@ const Calcharo = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
   const content: IContent[] = [
     {
       type: 'toggle',
-      id: 'deathblade',
-      text: `Deathblade Gear`,
-      ...talents.lib,
-      show: true,
-      default: true,
-      sync: true,
-    },
-    {
-      type: 'toggle',
       id: 'cal_i1',
       text: `I1 Liberation DMG Bonus`,
       ...talents.i1,
@@ -165,8 +156,16 @@ const Calcharo = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     },
     {
       type: 'toggle',
+      id: 'cal_c3',
+      text: `S3 Electro DMG Bonus`,
+      ...talents.c3,
+      show: c >= 3,
+      default: true,
+    },
+    {
+      type: 'toggle',
       id: 'cal_c4',
-      text: `S4 Team ELectro DMG Bonus`,
+      text: `S4 Team Electro DMG Bonus`,
       ...talents.c4,
       show: c >= 4,
       default: true,
@@ -183,91 +182,46 @@ const Calcharo = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
-      base.BASIC_SCALING = form.deathblade
-        ? [
-            {
-              name: 'Hounds Roar Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.443, lib), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Hounds Roar Stage 2 DMG',
-              value: [
-                { scaling: calcScaling(0.1772, lib), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(0.2658, lib), multiplier: Stats.ATK, hits: 2 },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Hounds Roar Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.8241, lib), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Hounds Roar Stage 4 DMG',
-              value: [{ scaling: calcScaling(0.1782, lib), multiplier: Stats.ATK, hits: 6 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Hounds Roar Stage 5 DMG',
-              value: [{ scaling: calcScaling(0.7554, lib), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.23, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.5, normal), multiplier: Stats.ATK }],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 3 DMG',
-              value: [
-                { scaling: calcScaling(0.4284, normal), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.2142, normal), multiplier: Stats.ATK, hits: 3 },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 4 DMG',
-              value: [
-                { scaling: calcScaling(0.3999, normal), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(0.5332, normal), multiplier: Stats.ATK },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.HEAVY_SCALING = form.deathblade
-        ? [
-            {
-              name: 'Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.312, lib), multiplier: Stats.ATK, hits: 5 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.LIB,
-            },
-          ]
-        : [
-            {
-              name: 'Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.208, normal), multiplier: Stats.ATK, hits: 5 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.HA,
-            },
-          ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.23, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.5, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [
+            { scaling: calcScaling(0.4284, normal), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.2142, normal), multiplier: Stats.ATK, hits: 3 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [
+            { scaling: calcScaling(0.3999, normal), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.5332, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.HEAVY_SCALING = [
+        {
+          name: 'Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.208, normal), multiplier: Stats.ATK, hits: 5 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.HA,
+        },
+      ]
       base.MID_AIR_SCALING = [
         {
           name: 'Mid-Air Attack DMG',
@@ -276,26 +230,17 @@ const Calcharo = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           property: TalentProperty.BA,
         },
       ]
-      base.DODGE_SCALING = form.deathblade
-        ? [
-            {
-              name: 'Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.2867, lib), multiplier: Stats.ATK, hits: 6 }],
-              element: Element.ELECTRO,
-              property: TalentProperty.LIB,
-            },
-          ]
-        : [
-            {
-              name: 'Dodge Counter DMG',
-              value: [
-                { scaling: calcScaling(0.3344, normal), multiplier: Stats.ATK, hits: 5 },
-                { scaling: calcScaling(0.4299, normal), multiplier: Stats.ATK },
-              ],
-              element: Element.ELECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
+      base.DODGE_SCALING = [
+        {
+          name: 'Dodge Counter DMG',
+          value: [
+            { scaling: calcScaling(0.3344, normal), multiplier: Stats.ATK, hits: 5 },
+            { scaling: calcScaling(0.4299, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
       base.SKILL_SCALING = [
         {
           name: 'Extermination Order Stage 1 DMG',
@@ -335,6 +280,51 @@ const Calcharo = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           element: Element.ELECTRO,
           property: TalentProperty.INTRO,
           bonus: c >= 5 ? 0.5 : 0,
+        },
+        {
+          name: 'Hounds Roar Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.443, lib), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Hounds Roar Stage 2 DMG',
+          value: [
+            { scaling: calcScaling(0.1772, lib), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.2658, lib), multiplier: Stats.ATK, hits: 2 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Hounds Roar Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.8241, lib), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Hounds Roar Stage 4 DMG',
+          value: [{ scaling: calcScaling(0.1782, lib), multiplier: Stats.ATK, hits: 6 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Hounds Roar Stage 5 DMG',
+          value: [{ scaling: calcScaling(0.7554, lib), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Deathblade Gear: Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.312, lib), multiplier: Stats.ATK, hits: 5 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.LIB,
+        },
+        {
+          name: 'Deathblade Gear: Dodge Counter DMG',
+          value: [{ scaling: calcScaling(0.2867, lib), multiplier: Stats.ATK, hits: 6 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.LIB,
         },
       ]
       base.FORTE_SCALING = [
@@ -395,7 +385,7 @@ const Calcharo = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           value: 0.3,
         })
       }
-      if (c >= 3 && form.deathblade) {
+      if (form.cal_c3) {
         base[Stats.ELECTRO_DMG].push({
           name: `Sequence Node 3`,
           source: 'Self',

@@ -164,17 +164,12 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
 
   const content: IContent[] = [
     {
-      type: 'element',
-      id: 'lumi_mode',
-      text: `Light Mode`,
-      ...talents.skill,
-      show: true,
-      default: 'yellow',
-      options: [
-        { name: 'Yellow Light', value: 'yellow' },
-        { name: 'Red Light', value: 'red' },
-      ],
-      sync: true,
+      type: 'toggle',
+      id: 'lumi_i1',
+      text: `I1 Electro DMG Bonus`,
+      ...talents.i1,
+      show: i.i1,
+      default: true,
     },
     {
       type: 'toggle',
@@ -221,114 +216,95 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
-      base.BASIC_SCALING =
-        form.lumi_mode === 'yellow'
-          ? [
-              {
-                name: 'Yellow Light: Basic Attack DMG',
-                value: [{ scaling: calcScaling(0.16, skill), multiplier: Stats.ATK, hits: 3 }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-            ]
-          : [
-              {
-                name: 'Red Light: Basic Attack 1 DMG',
-                value: [{ scaling: calcScaling(0.456, normal), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-              {
-                name: 'Red Light: Basic Attack 2 DMG',
-                value: [
-                  { scaling: calcScaling(0.5415, normal), multiplier: Stats.ATK },
-                  { scaling: calcScaling(0.1083, normal), multiplier: Stats.ATK, hits: 5 },
-                ],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-              {
-                name: 'Red Light: Basic Attack 3 DMG',
-                value: [
-                  { scaling: calcScaling(0.3249, normal), multiplier: Stats.ATK },
-                  { scaling: calcScaling(0.7581, normal), multiplier: Stats.ATK },
-                ],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-            ]
-      base.HEAVY_SCALING =
-        form.lumi_mode === 'yellow'
-          ? []
-          : [
-              {
-                name: 'Red Light: Heavy Attack DMG',
-                value: [{ scaling: calcScaling(0.3325, normal), multiplier: Stats.ATK, hits: 2 }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-            ]
-      base.MID_AIR_SCALING =
-        form.lumi_mode === 'yellow'
-          ? [
-              {
-                name: 'Yellow Light: Plunging Attack DMG',
-                scale: Stats.ATK,
-                value: [{ scaling: calcScaling(0.48, normal), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-            ]
-          : [
-              {
-                name: 'Red Light: Plunging Attack DMG',
-                scale: Stats.ATK,
-                value: [{ scaling: calcScaling(0.57, normal), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-            ]
-      base.DODGE_SCALING =
-        form.lumi_mode === 'yellow'
-          ? [
-              {
-                name: 'Glitter DMG',
-                scale: Stats.ATK,
-                value: [{ scaling: calcScaling(0.32, lib), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-            ]
-          : [
-              {
-                name: 'Red Light: Dodge Counter DMG',
-                scale: Stats.ATK,
-                value: [
-                  { scaling: calcScaling(0.8415, normal), multiplier: Stats.ATK },
-                  { scaling: calcScaling(0.1683, normal), multiplier: Stats.ATK, hits: 5 },
-                ],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-            ]
-      base.SKILL_SCALING =
-        form.lumi_mode === 'yellow'
-          ? [
-              {
-                name: 'Pounce DMG',
-                value: [{ scaling: calcScaling(0.912, lib), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.SKILL,
-              },
-            ]
-          : [
-              {
-                name: 'Rebound DMG',
-                value: [{ scaling: calcScaling(0.874, skill), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.SKILL,
-              },
-            ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Yellow Light: Basic Attack DMG',
+          value: [{ scaling: calcScaling(0.16, skill), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Red Light: Basic Attack 1 DMG',
+          value: [{ scaling: calcScaling(0.456, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Red Light: Basic Attack 2 DMG',
+          value: [
+            { scaling: calcScaling(0.5415, normal), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.1083, normal), multiplier: Stats.ATK, hits: 5 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Red Light: Basic Attack 3 DMG',
+          value: [
+            { scaling: calcScaling(0.3249, normal), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.7581, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.HEAVY_SCALING = [
+        {
+          name: 'Red Light: Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.3325, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.MID_AIR_SCALING = [
+        {
+          name: 'Yellow Light: Plunging Attack DMG',
+          scale: Stats.ATK,
+          value: [{ scaling: calcScaling(0.48, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Red Light: Plunging Attack DMG',
+          scale: Stats.ATK,
+          value: [{ scaling: calcScaling(0.57, normal), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.DODGE_SCALING = [
+        {
+          name: 'Glitter DMG',
+          scale: Stats.ATK,
+          value: [{ scaling: calcScaling(0.32, lib), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Red Light: Dodge Counter DMG',
+          scale: Stats.ATK,
+          value: [
+            { scaling: calcScaling(0.8415, normal), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.1683, normal), multiplier: Stats.ATK, hits: 5 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.SKILL_SCALING = [
+        {
+          name: 'Pounce DMG',
+          value: [{ scaling: calcScaling(0.912, lib), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.SKILL,
+        },
+        {
+          name: 'Rebound DMG',
+          value: [{ scaling: calcScaling(0.874, skill), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.SKILL,
+        },
+      ]
       base.LIB_SCALING = [
         {
           name: 'Cogitation Model DMG',
@@ -337,70 +313,59 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
           property: TalentProperty.LIB,
         },
       ]
-      base.FORTE_SCALING =
-        form.lumi_mode === 'yellow'
-          ? [
-              {
-                name: 'Glare DMG',
-                value: [{ scaling: calcScaling(0.41, forte), multiplier: Stats.ATK, hits: 2 }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-              {
-                name: 'Energized Pounce DMG',
-                value: [{ scaling: calcScaling(0.922, forte), multiplier: Stats.ATK, hits: 2 }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-                defPen: c >= 2 ? 0.2 : 0,
-              },
-              {
-                name: 'Laser Beam DMG',
-                value: [{ scaling: calcScaling(0.375, forte), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-                multiplier: form.lumi_c5 ? 2 : 1,
-              },
-            ]
-          : [
-              {
-                name: 'Red Spotlight: Basic Attack 1 DMG',
-                value: [{ scaling: calcScaling(0.6048, forte), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-              {
-                name: 'Red Spotlight: Basic Attack 2 DMG',
-                value: [
-                  { scaling: calcScaling(0.6957, forte), multiplier: Stats.ATK },
-                  { scaling: calcScaling(0.1392, forte), multiplier: Stats.ATK, hits: 5 },
-                ],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-              {
-                name: 'Red Spotlight: Basic Attack 3 DMG',
-                value: [
-                  { scaling: calcScaling(0.4715, forte), multiplier: Stats.ATK },
-                  { scaling: calcScaling(1.1, forte), multiplier: Stats.ATK },
-                ],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-              },
-              {
-                name: 'Energized Rebound DMG',
-                value: [{ scaling: calcScaling(1.266, forte), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-                defPen: c >= 2 ? 0.2 : 0,
-              },
-              {
-                name: 'Laser Beam DMG',
-                value: [{ scaling: calcScaling(0.375, forte), multiplier: Stats.ATK }],
-                element: Element.ELECTRO,
-                property: TalentProperty.BA,
-                multiplier: form.lumi_c5 ? 2 : 1,
-              },
-            ]
+      base.FORTE_SCALING = [
+        {
+          name: 'Glare DMG',
+          value: [{ scaling: calcScaling(0.41, forte), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Red Spotlight: Basic Attack 1 DMG',
+          value: [{ scaling: calcScaling(0.6048, forte), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Red Spotlight: Basic Attack 2 DMG',
+          value: [
+            { scaling: calcScaling(0.6957, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.1392, forte), multiplier: Stats.ATK, hits: 5 },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Red Spotlight: Basic Attack 3 DMG',
+          value: [
+            { scaling: calcScaling(0.4715, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(1.1, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Energized Pounce DMG',
+          value: [{ scaling: calcScaling(0.922, forte), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+          defPen: c >= 2 ? 0.2 : 0,
+        },
+        {
+          name: 'Energized Rebound DMG',
+          value: [{ scaling: calcScaling(1.266, forte), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+          defPen: c >= 2 ? 0.2 : 0,
+        },
+        {
+          name: 'Laser Beam DMG',
+          value: [{ scaling: calcScaling(0.375, forte), multiplier: Stats.ATK }],
+          element: Element.ELECTRO,
+          property: TalentProperty.BA,
+          multiplier: form.lumi_c5 ? 2 : 1,
+        },
+      ]
       base.INTRO_SCALING = [
         {
           name: `Special Delivery DMG`,
@@ -410,7 +375,7 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
         },
       ]
 
-      if (form.lumi_mode === 'red' && i.i1) {
+      if (form.lumi_i1) {
         base[Stats.ELECTRO_DMG].push({
           name: `Inherent Skill 1`,
           source: 'Self',

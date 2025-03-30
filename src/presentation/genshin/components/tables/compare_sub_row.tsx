@@ -39,7 +39,7 @@ export const CompareSubRows = observer(
       damageStringConstruct(setupStore, scaling[index], stats[index], level[index].level[level[index].selected])
     )
 
-    const noCrit = _.includes([TalentProperty.HEAL, TalentProperty.SHIELD], property)
+    const noCrit = _.includes([TalentProperty.HEAL, TalentProperty.SHIELD, TalentProperty.UTIL], property)
 
     const getDmg = (obj: StringConstructor) => {
       return (

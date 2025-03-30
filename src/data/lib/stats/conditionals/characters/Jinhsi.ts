@@ -154,16 +154,6 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
 
   const content: IContent[] = [
     {
-      type: 'toggle',
-      id: 'incarnation',
-      text: `Incarnation`,
-      ...talents.forte,
-      content: incarnation,
-      show: true,
-      default: true,
-      sync: true,
-    },
-    {
       type: 'number',
       id: 'incandescence',
       text: `Incandescence`,
@@ -214,133 +204,69 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
-      base.BASIC_SCALING = form.incarnation
-        ? [
-            {
-              name: 'Incarnation - Basic Attack 1 DMG',
-              value: [{ scaling: calcScaling(0.4458, forte), multiplier: Stats.ATK }],
-              element: Element.SPECTRO,
-              property: TalentProperty.SKILL,
-            },
-            {
-              name: 'Incarnation - Basic Attack 2 DMG',
-              value: [
-                { scaling: calcScaling(0.3922, forte), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.1308, forte), multiplier: Stats.ATK, hits: 2 },
-              ],
-              element: Element.SPECTRO,
-              property: TalentProperty.SKILL,
-            },
-            {
-              name: 'Incarnation - Basic Attack 3 DMG',
-              value: [
-                { scaling: calcScaling(0.5002, forte), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.3335, forte), multiplier: Stats.ATK },
-              ],
-              element: Element.SPECTRO,
-              property: TalentProperty.SKILL,
-            },
-            {
-              name: 'Incarnation - Basic Attack 4 DMG',
-              value: [
-                { scaling: calcScaling(0.0939, forte), multiplier: Stats.ATK, hits: 6 },
-                { scaling: calcScaling(0.3756, forte), multiplier: Stats.ATK },
-              ],
-              element: Element.SPECTRO,
-              property: TalentProperty.SKILL,
-            },
-          ]
-        : [
-            {
-              name: 'Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.3343, normal), multiplier: Stats.ATK }],
-              element: Element.SPECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.55048, normal), multiplier: Stats.ATK }],
-              element: Element.SPECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.65816, normal), multiplier: Stats.ATK }],
-              element: Element.SPECTRO,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 4 DMG',
-              value: [{ scaling: calcScaling(0.86027, normal), multiplier: Stats.ATK }],
-              element: Element.SPECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.HEAVY_SCALING = form.incarnation
-        ? [
-            {
-              name: 'Incarnation - Heavy Attack DMG',
-              value: [
-                { scaling: calcScaling(0.24, forte), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.56, forte), multiplier: Stats.ATK },
-              ],
-              element: Element.SPECTRO,
-              property: TalentProperty.HA,
-            },
-          ]
-        : [
-            {
-              name: 'Heavy Attack DMG',
-              value: [
-                { scaling: calcScaling(0.12, normal), multiplier: Stats.ATK, hits: 5 },
-                { scaling: calcScaling(0.18, normal), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.42, normal), multiplier: Stats.ATK },
-              ],
-              element: Element.SPECTRO,
-              property: TalentProperty.HA,
-            },
-          ]
-      base.MID_AIR_SCALING = form.incarnation
-        ? []
-        : [
-            {
-              name: 'Mid-Air Attack DMG',
-              scale: Stats.ATK,
-              value: [
-                { scaling: calcScaling(0.062, normal), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.124, normal), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.434, normal), multiplier: Stats.ATK },
-              ],
-              element: Element.SPECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.DODGE_SCALING = form.incarnation
-        ? [
-            {
-              name: 'Incarnation - Dodge Counter DMG',
-              scale: Stats.ATK,
-              value: [
-                { scaling: calcScaling(0.2208, forte), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.1656, forte), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(0.5519, forte), multiplier: Stats.ATK },
-              ],
-              element: Element.SPECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Dodge Counter DMG',
-              scale: Stats.ATK,
-              value: [
-                { scaling: calcScaling(0.0738, normal), multiplier: Stats.ATK, hits: 7 },
-                { scaling: calcScaling(0.2214, normal), multiplier: Stats.ATK },
-              ],
-              element: Element.SPECTRO,
-              property: TalentProperty.BA,
-            },
-          ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.3343, normal), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.55048, normal), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.65816, normal), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [{ scaling: calcScaling(0.86027, normal), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.HEAVY_SCALING = [
+        {
+          name: 'Heavy Attack DMG',
+          value: [
+            { scaling: calcScaling(0.12, normal), multiplier: Stats.ATK, hits: 5 },
+            { scaling: calcScaling(0.18, normal), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.42, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.SPECTRO,
+          property: TalentProperty.HA,
+        },
+      ]
+      base.MID_AIR_SCALING = [
+        {
+          name: 'Mid-Air Attack DMG',
+          scale: Stats.ATK,
+          value: [
+            { scaling: calcScaling(0.062, normal), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.124, normal), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.434, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.SPECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.DODGE_SCALING = [
+        {
+          name: 'Dodge Counter DMG',
+          scale: Stats.ATK,
+          value: [
+            { scaling: calcScaling(0.0738, normal), multiplier: Stats.ATK, hits: 7 },
+            { scaling: calcScaling(0.2214, normal), multiplier: Stats.ATK },
+          ],
+          element: Element.SPECTRO,
+          property: TalentProperty.BA,
+        },
+      ]
       base.SKILL_SCALING = [
         {
           name: 'Trailing Lights of Eons DMG',
@@ -375,6 +301,59 @@ const Jinhsi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
         },
       ]
       base.FORTE_SCALING = [
+        {
+          name: 'Incarnation - Basic Attack 1 DMG',
+          value: [{ scaling: calcScaling(0.4458, forte), multiplier: Stats.ATK }],
+          element: Element.SPECTRO,
+          property: TalentProperty.SKILL,
+        },
+        {
+          name: 'Incarnation - Basic Attack 2 DMG',
+          value: [
+            { scaling: calcScaling(0.3922, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.1308, forte), multiplier: Stats.ATK, hits: 2 },
+          ],
+          element: Element.SPECTRO,
+          property: TalentProperty.SKILL,
+        },
+        {
+          name: 'Incarnation - Basic Attack 3 DMG',
+          value: [
+            { scaling: calcScaling(0.5002, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.3335, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.SPECTRO,
+          property: TalentProperty.SKILL,
+        },
+        {
+          name: 'Incarnation - Basic Attack 4 DMG',
+          value: [
+            { scaling: calcScaling(0.0939, forte), multiplier: Stats.ATK, hits: 6 },
+            { scaling: calcScaling(0.3756, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.SPECTRO,
+          property: TalentProperty.SKILL,
+        },
+        {
+          name: 'Incarnation - Heavy Attack DMG',
+          value: [
+            { scaling: calcScaling(0.24, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.56, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.SPECTRO,
+          property: TalentProperty.HA,
+        },
+        {
+          name: 'Incarnation - Dodge Counter DMG',
+          scale: Stats.ATK,
+          value: [
+            { scaling: calcScaling(0.2208, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.1656, forte), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.5519, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.SPECTRO,
+          property: TalentProperty.BA,
+        },
         {
           name: 'Crescent Divinity DMG',
           value: [

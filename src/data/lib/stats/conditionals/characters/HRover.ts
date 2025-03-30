@@ -159,121 +159,54 @@ const HRover = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
-      base.BASIC_SCALING = form.dark_surge
-        ? [
-            {
-              name: 'Umbra: Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.2835, forte), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Umbra: Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.4725, forte), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Umbra: Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.783, forte), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Umbra: Stage 4 DMG',
-              value: [
-                { scaling: calcScaling(0.1868, forte), multiplier: Stats.ATK, hits: 3 },
-                { scaling: calcScaling(0.5603, forte), multiplier: Stats.ATK },
-              ],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Umbra: Stage 5 DMG',
-              value: [
-                { scaling: calcScaling(0.1435, forte), multiplier: Stats.ATK, hits: 4 },
-                { scaling: calcScaling(0.5738, forte), multiplier: Stats.ATK },
-              ],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: c >= 5 ? 1.5 : 1,
-            },
-            {
-              name: 'Thwackblade DMG',
-              value: [
-                { scaling: calcScaling(0.637, forte), multiplier: Stats.ATK },
-                { scaling: calcScaling(0.05, forte), multiplier: Stats.ATK, hits: 4 },
-              ],
-              element: Element.HAVOC,
-              property: TalentProperty.HA,
-            },
-          ]
-        : [
-            {
-              name: 'Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.285, normal), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.285, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.4275, normal), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 4 DMG',
-              value: [{ scaling: calcScaling(0.2027, normal), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 5 DMG',
-              value: [{ scaling: calcScaling(0.475, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.HEAVY_SCALING = form.dark_surge
-        ? [
-            {
-              name: 'Umbra: Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.648, forte), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.HA,
-            },
-          ]
-        : [
-            {
-              name: 'Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.48, normal), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.HA,
-            },
-          ]
-      base.MID_AIR_SCALING = form.dark_surge
-        ? [
-            {
-              name: 'Umbra: Plunging Attack DMG',
-              value: [{ scaling: calcScaling(0.62, forte), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Mid-Air Attack DMG',
-              value: [{ scaling: calcScaling(0.589, normal), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-            },
-          ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.285, normal), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.285, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.4275, normal), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [{ scaling: calcScaling(0.2027, normal), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 5 DMG',
+          value: [{ scaling: calcScaling(0.475, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.HEAVY_SCALING = [
+        {
+          name: 'Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.48, normal), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.HA,
+        },
+      ]
+      base.MID_AIR_SCALING = [
+        {
+          name: 'Mid-Air Attack DMG',
+          value: [{ scaling: calcScaling(0.589, normal), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+      ]
       base.DODGE_SCALING = form.dark_surge
         ? [
             {
@@ -291,26 +224,14 @@ const HRover = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
               property: TalentProperty.BA,
             },
           ]
-      base.SKILL_SCALING = form.dark_surge
-        ? [
-            {
-              name: 'Lifetaker DMG',
-              value: [
-                { scaling: calcScaling(1.39, forte), multiplier: Stats.ATK, hits: 2 },
-                { scaling: calcScaling(0.05, forte), multiplier: Stats.ATK, hits: 4 },
-              ],
-              element: Element.HAVOC,
-              property: TalentProperty.SKILL,
-            },
-          ]
-        : [
-            {
-              name: 'Wingblade DMG',
-              value: [{ scaling: calcScaling(0.144, skill), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.HAVOC,
-              property: TalentProperty.SKILL,
-            },
-          ]
+      base.SKILL_SCALING = [
+        {
+          name: 'Wingblade DMG',
+          value: [{ scaling: calcScaling(0.144, skill), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.HAVOC,
+          property: TalentProperty.SKILL,
+        },
+      ]
       base.LIB_SCALING = [
         {
           name: 'Deadening Abyss DMG',
@@ -325,6 +246,73 @@ const HRover = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           value: [{ scaling: calcScaling(1.1475, forte), multiplier: Stats.ATK }],
           element: Element.HAVOC,
           property: TalentProperty.HA,
+        },
+        {
+          name: 'Umbra: Basic Attack Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.2835, forte), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Umbra: Basic Attack Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.4725, forte), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Umbra: Basic Attack Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.783, forte), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Umbra: Basic Attack Stage 4 DMG',
+          value: [
+            { scaling: calcScaling(0.1868, forte), multiplier: Stats.ATK, hits: 3 },
+            { scaling: calcScaling(0.5603, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Umbra: Basic Attack Stage 5 DMG',
+          value: [
+            { scaling: calcScaling(0.1435, forte), multiplier: Stats.ATK, hits: 4 },
+            { scaling: calcScaling(0.5738, forte), multiplier: Stats.ATK },
+          ],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: c >= 5 ? 1.5 : 1,
+        },
+        {
+          name: 'Thwackblade DMG',
+          value: [
+            { scaling: calcScaling(0.637, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.05, forte), multiplier: Stats.ATK, hits: 4 },
+          ],
+          element: Element.HAVOC,
+          property: TalentProperty.HA,
+        },
+        {
+          name: 'Umbra: Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.648, forte), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.HA,
+        },
+        {
+          name: 'Umbra: Plunging Attack DMG',
+          value: [{ scaling: calcScaling(0.62, forte), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Lifetaker DMG',
+          value: [
+            { scaling: calcScaling(1.39, forte), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.05, forte), multiplier: Stats.ATK, hits: 4 },
+          ],
+          element: Element.HAVOC,
+          property: TalentProperty.SKILL,
         },
       ]
       base.INTRO_SCALING = [

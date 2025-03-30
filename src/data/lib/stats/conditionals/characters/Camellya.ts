@@ -167,15 +167,6 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
   const content: IContent[] = [
     {
       type: 'toggle',
-      id: 'blossom',
-      text: `Blossom Mode`,
-      ...talents.skill,
-      show: true,
-      default: true,
-      sync: true,
-    },
-    {
-      type: 'toggle',
       id: 'budding',
       text: `Budding Mode`,
       ...talents.forte,
@@ -234,132 +225,71 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
         ? (c >= 6 ? (form.camellya_c6 ? 2.5 : 1.5) : 0) + 0.5 + form.crimson_buds * 0.05
         : 0
 
-      base.BASIC_SCALING = form.blossom
-        ? [
-            {
-              name: 'Vining Waltz 1 DMG',
-              value: [{ scaling: calcScaling(0.4845, normal), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-            {
-              name: 'Vining Waltz 2 DMG',
-              value: [{ scaling: calcScaling(0.2295, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-            {
-              name: 'Vining Waltz 3 DMG',
-              value: [{ scaling: calcScaling(0.1104, normal), multiplier: Stats.ATK, hits: 6 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-            {
-              name: 'Vining Waltz 4 DMG',
-              value: [{ scaling: calcScaling(0.34, normal), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-          ]
-        : [
-            {
-              name: 'Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.3145, normal), multiplier: Stats.ATK }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-            {
-              name: 'Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.2338, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-            {
-              name: 'Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.255, normal), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-            {
-              name: 'Stage 4 DMG',
-              value: [{ scaling: calcScaling(0.1242, normal), multiplier: Stats.ATK, hits: 20 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-            {
-              name: 'Stage 5 DMG',
-              value: [{ scaling: calcScaling(0.2423, normal), multiplier: Stats.ATK, hits: 4 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-          ]
-      base.HEAVY_SCALING = form.blossom
-        ? [
-            {
-              name: 'Blazing Waltz DMG',
-              value: [{ scaling: calcScaling(0.1104, normal), multiplier: Stats.ATK, hits: 19 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-          ]
-        : [
-            {
-              name: 'Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.4433, normal), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.HAVOC,
-              property: i.i1 ? TalentProperty.BA : TalentProperty.HA,
-            },
-          ]
-      base.MID_AIR_SCALING = form.blossom
-        ? [
-            {
-              name: 'Vining Ronde DMG',
-              value: [{ scaling: calcScaling(0.2664, normal), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-          ]
-        : [
-            {
-              name: 'Plunging Attack DMG',
-              scale: Stats.ATK,
-              value: [{ scaling: calcScaling(0.33, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-          ]
-      base.DODGE_SCALING = form.blossom
-        ? [
-            {
-              name: 'Atonement DMG',
-              value: [{ scaling: calcScaling(0.57, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-          ]
-        : [
-            {
-              name: 'Dodge Counter DMG',
-              scale: Stats.ATK,
-              value: [{ scaling: calcScaling(0.5, normal), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.HAVOC,
-              property: TalentProperty.BA,
-              multiplier: 1 + sweetDream,
-            },
-          ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.3145, normal), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.2338, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.255, normal), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [{ scaling: calcScaling(0.1242, normal), multiplier: Stats.ATK, hits: 20 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Stage 5 DMG',
+          value: [{ scaling: calcScaling(0.2423, normal), multiplier: Stats.ATK, hits: 4 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+      ]
+      base.HEAVY_SCALING = [
+        {
+          name: 'Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.4433, normal), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: i.i1 ? TalentProperty.BA : TalentProperty.HA,
+        },
+      ]
+      base.MID_AIR_SCALING = [
+        {
+          name: 'Plunging Attack DMG',
+          scale: Stats.ATK,
+          value: [{ scaling: calcScaling(0.33, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+      ]
+      base.DODGE_SCALING = [
+        {
+          name: 'Dodge Counter DMG',
+          scale: Stats.ATK,
+          value: [{ scaling: calcScaling(0.5, normal), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+      ]
       base.SKILL_SCALING = [
         {
           name: 'Crimson Blossom DMG',
@@ -369,8 +299,58 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
           multiplier: 1 + sweetDream,
         },
         {
+          name: 'Vining Waltz 1 DMG',
+          value: [{ scaling: calcScaling(0.4845, skill), multiplier: Stats.ATK }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Vining Waltz 2 DMG',
+          value: [{ scaling: calcScaling(0.2295, skill), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Vining Waltz 3 DMG',
+          value: [{ scaling: calcScaling(0.1104, skill), multiplier: Stats.ATK, hits: 6 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Vining Waltz 4 DMG',
+          value: [{ scaling: calcScaling(0.34, skill), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Blazing Waltz DMG',
+          value: [{ scaling: calcScaling(0.1104, skill), multiplier: Stats.ATK, hits: 19 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+
+        {
           name: 'Floral Ravage DMG',
           value: [{ scaling: calcScaling(0.2646, skill), multiplier: Stats.ATK, hits: 5 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Vining Ronde DMG',
+          value: [{ scaling: calcScaling(0.2664, skill), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: 1 + sweetDream,
+        },
+        {
+          name: 'Atonement DMG',
+          value: [{ scaling: calcScaling(0.57, skill), multiplier: Stats.ATK, hits: 2 }],
           element: Element.HAVOC,
           property: TalentProperty.BA,
           multiplier: 1 + sweetDream,
