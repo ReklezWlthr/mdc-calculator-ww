@@ -1481,7 +1481,7 @@ export const Weapons = [
     rarity: 4,
     baseAtk: 37,
     ascStat: Stats.P_ATK,
-    baseStat: 0.041,
+    baseStat: 0.0405,
     type: WeaponType.RECTIFIER,
     desc: {
       name: 'Intergalactic Gaze',
