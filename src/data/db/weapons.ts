@@ -1426,7 +1426,7 @@ export const Weapons = [
     image: 'T_IconWeapon21050030_UI.webp',
     name: 'Whispers of Sirens',
     rarity: 5,
-    baseAtk: 33,
+    baseAtk: 40,
     ascStat: Stats.CRIT_DMG,
     baseStat: 0.16,
     type: WeaponType.RECTIFIER,

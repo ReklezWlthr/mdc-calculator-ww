@@ -6,6 +6,7 @@
       "<b class=\"text-yellow\">Added</b>: Calculation for <b class=\"text-wuwa-spectro\">Spectro Frazzle</b> and <b class=\"text-wuwa-aero\">Aero Erosion</b>.",
       "<b class=\"text-yellow\">Added</b>: New Presets for Maxed Out Buffs from <b class=\"text-wuwa-spectro\">Shorekeeper</b> and <b class=\"text-wuwa-havoc\">Roccia</b>.",
       "<b class=\"text-yellow\">Fixed</b>: <b class=\"text-wuwa-havoc\">Roccia</b>'s <b>Magic Box</b> now correctly deals <span class=\"text-desc\">20</span> instances of fixed DMG.",
+      "<b class=\"text-yellow\">Fixed</b>: <b>Whispers of Sirens</b>'s Base ATK",
       "<b class=\"text-yellow\">Updated</b>: Alternate move sets are now shown separately."
     ]
   },
