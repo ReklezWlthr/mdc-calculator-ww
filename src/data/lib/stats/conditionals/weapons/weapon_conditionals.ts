@@ -398,7 +398,7 @@ export const WeaponConditionals: IWeaponContent[] = [
     text: `Skill ATK Bonus`,
     show: true,
     default: true,
-    id: '210520084',
+    id: '21050084',
     scaling: (base, form, r) => {
       if (form['21050084']) {
         base[Stats.P_ATK].push({
