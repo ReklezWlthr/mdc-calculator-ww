@@ -1,5 +1,12 @@
 [
   {
+    "version": "1.0.2-11",
+    "date": "April 2nd, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">Fixed</b>: <b class=\"text-wuwa-havoc\">Cantarella</b>'s <b>Phantom Sting</b> Stage 3 and <b>Tidal Surge</b> now correctly labeled as Coordinated Attacks."
+    ]
+  },
+  {
     "version": "1.0.2-10",
     "date": "March 30th, 2025",
     "desc": [

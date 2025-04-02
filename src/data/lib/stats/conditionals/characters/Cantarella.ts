@@ -326,10 +326,18 @@ const Cantarella = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel,
         },
         {
           name: 'Phantom Sting Stage 3 DMG',
-          value: [{ scaling: calcScaling(0.325, forte), multiplier: Stats.ATK, hits: 4 }],
+          value: [{ scaling: calcScaling(0.325, forte), multiplier: Stats.ATK }],
           element: Element.HAVOC,
           property: TalentProperty.BA,
           multiplier: c >= 6 ? 1.8 : 1,
+        },
+        {
+          name: 'Phantom Sting Stage 3 Coordinated DMG',
+          value: [{ scaling: calcScaling(0.325, forte), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: TalentProperty.BA,
+          multiplier: c >= 6 ? 1.8 : 1,
+          coord: true,
         },
         {
           name: 'Abysmal Vortex DMG',
@@ -377,12 +385,16 @@ const Cantarella = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel,
         },
         {
           name: `Tidal Surge DMG`,
-          value: [
-            { scaling: calcScaling(0.085, intro), multiplier: Stats.ATK, hits: 3 },
-            { scaling: calcScaling(0.595, intro), multiplier: Stats.ATK },
-          ],
+          value: [{ scaling: calcScaling(0.595, intro), multiplier: Stats.ATK }],
           element: Element.HAVOC,
           property: TalentProperty.INTRO,
+        },
+        {
+          name: `Tidal Surge Coordinated DMG`,
+          value: [{ scaling: calcScaling(0.085, intro), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.HAVOC,
+          property: TalentProperty.INTRO,
+          coord: true,
         },
       ]
 
