@@ -1,5 +1,5 @@
 import { StatsObject } from '@src/data/lib/stats/baseConstant'
-import { Element, ITalentLevel, ITeamChar, Stats, TalentProperty } from './constant'
+import { Element, ITalentLevel, ITeamChar, Stats, TalentProperty, TalentSubType } from './constant'
 
 export interface IScaling {
   name: string
@@ -19,6 +19,7 @@ export interface IScaling {
   coord?: boolean
   atkBonus?: number
   amp?: number
+  subType?: TalentSubType
 }
 
 export interface IEnemyGroup {

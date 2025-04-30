@@ -1087,7 +1087,7 @@ export const WeaponConditionals: IWeaponContent[] = [
     scaling: (base, form, r) => {
       if (form['21050046_1']) {
         base.FRAZZLE_AMP.push({
-          value: calcRefinement(0.5, 0.125, r),
+          value: calcRefinement(0.3, 0.075, r),
           name: 'Passive',
           source: `Luminous Hymn`,
         })
@@ -1163,6 +1163,45 @@ export const WeaponConditionals: IWeaponContent[] = [
       return base
     },
   },
+  {
+    type: 'toggle',
+    text: `Aero DMG Bonus`,
+    show: true,
+    default: true,
+    id: '21030017_1',
+    scaling: (base, form, r) => {
+      if (form[`21030017_1`]) {
+        base[Stats.AERO_DMG].push({
+          value: calcRefinement(0.24, 0.06, r),
+          name: 'Passive',
+          source: `Woodland Aria`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `On-Liberation Bonuses`,
+    show: true,
+    default: true,
+    id: '21040036',
+    scaling: (base, form, r) => {
+      if (form['21040036']) {
+        base.FRAZZLE_AMP.push({
+          value: calcRefinement(0.5, 0.125, r),
+          name: 'Passive',
+          source: `Blazing Justice`,
+        })
+        base.DEF_PEN.push({
+          value: calcRefinement(0.08, 0.02, r),
+          name: 'Passive',
+          source: `Blazing Justice`,
+        })
+      }
+      return base
+    },
+  },
 ]
 
 export const WeaponAllyConditionals: IWeaponContent[] = [
@@ -1215,6 +1254,23 @@ export const WeaponTeamConditionals: IWeaponContent[] = [
           value: calcRefinement(0.14, 0.035, r),
           name: 'Passive',
           source: `Stellar Symphony`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Aero RES Shred`,
+    show: true,
+    default: true,
+    id: '21030017_2',
+    scaling: (base, form, r) => {
+      if (form['21030017_2']) {
+        base.AERO_RES_PEN.push({
+          value: calcRefinement(0.1, 0.015, r),
+          name: 'Passive',
+          source: `Woodland Aria`,
         })
       }
       return base

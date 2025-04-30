@@ -314,46 +314,46 @@ const Aalto = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
         base.BASIC_SCALING.push(
           {
             name: 'Hazey Transition Stage 1 DMG',
-            value: [{ scaling: calcScaling(0.16, normal), multiplier: Stats.ATK }],
+            value: [{ scaling: calcScaling(0.16, normal) / 4, multiplier: Stats.ATK }],
+            hit: 2,
             element: Element.AERO,
             property: TalentProperty.BA,
-            multiplier: 0.5,
           },
           {
             name: 'Hazey Transition Stage 2 DMG',
-            value: [{ scaling: calcScaling(0.2667, normal), multiplier: Stats.ATK }],
+            value: [{ scaling: calcScaling(0.2667, normal) / 4, multiplier: Stats.ATK }],
+            hit: 2,
             element: Element.AERO,
             property: TalentProperty.BA,
-            multiplier: 0.5,
           },
           {
             name: 'Hazey Transition Stage 3 DMG',
-            value: [{ scaling: calcScaling(0.24, normal), multiplier: Stats.ATK, hits: 2 }],
+            value: [{ scaling: calcScaling(0.24, normal) / 4, multiplier: Stats.ATK, hits: 2 }],
+            hit: 2,
             element: Element.AERO,
             property: TalentProperty.BA,
-            multiplier: 0.5,
           },
           {
             name: 'Hazey Transition Stage 4 DMG',
-            value: [{ scaling: calcScaling(0.2534, normal), multiplier: Stats.ATK, hits: 2 }],
+            value: [{ scaling: calcScaling(0.2534, normal) / 4, multiplier: Stats.ATK, hits: 2 }],
+            hit: 2,
             element: Element.AERO,
             property: TalentProperty.BA,
-            multiplier: 0.5,
           },
           {
             name: 'Hazey Transition Stage 5 DMG',
-            value: [{ scaling: calcScaling(0.904, normal), multiplier: Stats.ATK }],
+            value: [{ scaling: calcScaling(0.904, normal) / 4, multiplier: Stats.ATK }],
+            hit: 2,
             element: Element.AERO,
             property: TalentProperty.BA,
-            multiplier: 0.5,
           }
         )
         base.MID_AIR_SCALING.push({
           name: 'Hazey Transition Mid-Air Attack DMG',
-          value: [{ scaling: calcScaling(0.3, normal), multiplier: Stats.ATK }],
+          value: [{ scaling: calcScaling(0.3, normal) / 4, multiplier: Stats.ATK }],
+          hit: 2,
           element: Element.AERO,
           property: TalentProperty.BA,
-          multiplier: 0.5,
         })
       }
 

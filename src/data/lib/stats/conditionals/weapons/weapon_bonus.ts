@@ -502,6 +502,28 @@ const WeaponBonus: {
       return base
     },
   },
+  {
+    id: '21030017',
+    scaling: (base, r) => {
+      base[Stats.P_ATK].push({
+        source: `Woodland Aria`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
+  {
+    id: '21040036',
+    scaling: (base, r) => {
+      base[Stats.P_ATK].push({
+        source: `Blazing Justice`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
 ]
 
 export default WeaponBonus

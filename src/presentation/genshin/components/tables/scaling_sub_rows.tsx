@@ -34,7 +34,7 @@ export const ScalingSubRows = observer(({ scaling }: ScalingSubRowsProps) => {
         title={
           <div className="flex items-center justify-between">
             <p>{scaling.name}</p>
-            <p className="text-xs font-normal text-gray">
+            <p className="text-xs font-normal text-gray shrink-0">
               {scaling.property} - <span className={ElementColor[scaling.element]}>{scaling.element}</span>
             </p>
           </div>

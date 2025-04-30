@@ -14,7 +14,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       <br />- <b>Sweet Dream</b>: Increase the DMG Multiplier of Normal Attack, Basic Attack <b>Vining Waltz</b>, Basic Attack <b>Vining Ronde</b>, Dodge Counter <b>Atonement</b> , Resonance Skill <b>Crimson Blossom</b>, and Resonance Skill <b>Floral Ravage</b> by <span class="text-desc">50%</span>.
       <br />- Casting <b>Ephemeral</b> consumes all <b class="text-rose-300">Crimson Buds</b>. Each <b class="text-rose-300">Crimson Bud</b> consumed additionally increases the DMG Multiplier of <b>Sweet Dream</b> by <span class="text-desc">5%</span>, up to <span class="text-desc">50%</span>.
       <br />- When in <b class="text-desc">Budding Mode</b>, Camellya cannot gain <b class="text-rose-300">Crimson Buds</b>.
-      <br />- When in <b class="text-desc">Budding Mode</b>, the Energy Regen Multiplier of Normal Attack, Basic Attack <b>Vining Waltz</b>, Basic Attack <b>Vining Ronde</b>, Dodge Counter <b>Atonement</b> , Resonance Skill <b>Crimson Blossom</b>, and Resonance Skill <b>Floral Ravage</b> is reduced to <span class="text-desc">0%</span>.
+      <br />- When in <b class="text-desc">Budding Mode</b>, the Energy Regen Multiplier of Normal Attack, Basic Attack <b>Vining Waltz</b>, Basic Attack <b>Blazing Waltz</b>, Basic Attack <b>Vining Ronde</b>, Dodge Counter <b>Atonement</b> , Resonance Skill <b>Crimson Blossom</b>, and Resonance Skill <b>Floral Ravage</b> is reduced to <span class="text-desc">0%</span>.
       <br />- <b class="text-desc">Budding Mode</b> ends when Camellya is switched off the field.
       <br />- <b class="text-desc">Budding Mode</b> ends when all <b class="text-red">Crimson Pistils</b> are consumed.`
 
@@ -76,7 +76,7 @@ const Camellya = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       level: forte,
       trace: `Forte Circuit`,
       title: `Vegetative Universe`,
-      content: `Hitting a target with Normal Attack, Basic Attack <b>Vining Waltz</b>, Basic Attack <b>Vining Ronde</b>, Dodge Counter <b>Atonement</b>, Resonance Skill <b>Crimson Blossom</b>, and Resonance Skill <b>Floral Ravage</b> consumes <b class="text-red">Crimson Pistils</b>. The Energy Regen Multiplier of this attack is increased by <span class="text-desc">150%</span>.
+      content: `Hitting a target with Normal Attack, Basic Attack <b>Vining Waltz</b>, Basic Attack <b>Blazing Waltz</b>, Basic Attack <b>Vining Ronde</b>, Dodge Counter <b>Atonement</b>, Resonance Skill <b>Crimson Blossom</b>, and Resonance Skill <b>Floral Ravage</b> consumes <b class="text-red">Crimson Pistils</b>. The Energy Regen Multiplier of this attack is increased by <span class="text-desc">150%</span>.
       <br />Consuming <span class="text-desc">10</span> <b class="text-red">Crimson Pistils</b> recovers <span class="text-desc">4</span> Concerto Energy and obtains <span class="text-desc">1</span> <b class="text-rose-300">Crimson Bud(s)</b>. Each <b class="text-rose-300">Bud</b> lasts for <span class="text-desc">15</span>s, stacking up to <span class="text-desc">10</span> times.
       <br />
       <br /><b>Forte Circuit: Ephemeral</b>

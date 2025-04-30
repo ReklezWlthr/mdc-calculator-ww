@@ -23,7 +23,7 @@ const Danjin = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
       <br />
       <br /><b>Mid-Air Attack</b>
       <br />Consume STA to perform a Mid-Air Plunging Attack, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
-
+      <br />
       <br /><b>Dodge Counter</b>
       <br />Use Basic Attack after a successful Dodge to launch an attack, dealing <b class="text-wuwa-havoc">Havoc DMG</b>.
       <br />

@@ -1,6 +1,15 @@
 [
   {
     "version": "1.0.2-11",
+    "date": "April 30th, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">New Resonators</b>: <b class=\"text-wuwa-spectro\">Zani</b>",
+      "<b class=\"text-yellow\">New Weapons</b>: <b>Blazing Justice</b>",
+      "<b class=\"text-yellow\">New Feature</b>: ER Requirement"
+    ]
+  },
+  {
+    "version": "1.0.2-11",
     "date": "April 2nd, 2025",
     "desc": [
       "<b class=\"text-yellow\">Fixed</b>: <b class=\"text-wuwa-havoc\">Cantarella</b>'s <b>Phantom Sting</b> Stage 3 and <b>Tidal Surge</b> now correctly labeled as Coordinated Attacks."

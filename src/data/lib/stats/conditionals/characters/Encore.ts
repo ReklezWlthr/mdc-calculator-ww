@@ -148,14 +148,6 @@ const Encore = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
   const content: IContent[] = [
     {
       type: 'toggle',
-      id: 'cosmos_rave',
-      text: `Cosmos Rave`,
-      ...talents.lib,
-      show: true,
-      default: true,
-    },
-    {
-      type: 'toggle',
       id: 'encore_i1',
       text: `I1 DMG Bonus`,
       ...talents.i1,
@@ -210,82 +202,46 @@ const Encore = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
 
-      base.BASIC_SCALING = form.cosmos_rave
-        ? [
-            {
-              name: 'Cosmos: Frolicking Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.4536, lib), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Cosmos: Frolicking Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.2837, lib), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Cosmos: Frolicking Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.319, lib), multiplier: Stats.ATK, hits: 4 }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Cosmos: Frolicking Stage 4 DMG',
-              value: [{ scaling: calcScaling(0.9759, lib), multiplier: Stats.ATK, hits: 3 }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Stage 1 DMG',
-              value: [{ scaling: calcScaling(0.28, normal), multiplier: Stats.ATK }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 2 DMG',
-              value: [{ scaling: calcScaling(0.333, normal), multiplier: Stats.ATK }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 3 DMG',
-              value: [{ scaling: calcScaling(0.3335, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Stage 4 DMG',
-              value: [{ scaling: calcScaling(0.1925, normal), multiplier: Stats.ATK, hits: 4 }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-            {
-              name: 'Woolies DMG',
-              value: [{ scaling: calcScaling(1.2, normal), multiplier: Stats.ATK }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.HEAVY_SCALING = form.cosmos_rave
-        ? [
-            {
-              name: 'Cosmos: Heavy Attack DMG',
-              value: [{ scaling: calcScaling(1.0944, normal), multiplier: Stats.ATK }],
-              element: Element.FUSION,
-              property: TalentProperty.HA,
-            },
-          ]
-        : [
-            {
-              name: 'Heavy Attack DMG',
-              value: [{ scaling: calcScaling(0.941, normal), multiplier: Stats.ATK }],
-              element: Element.FUSION,
-              property: TalentProperty.HA,
-            },
-          ]
+      base.BASIC_SCALING = [
+        {
+          name: 'Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.28, normal), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.333, normal), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.3335, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Stage 4 DMG',
+          value: [{ scaling: calcScaling(0.1925, normal), multiplier: Stats.ATK, hits: 4 }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Woolies DMG',
+          value: [{ scaling: calcScaling(1.2, normal), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.HEAVY_SCALING = [
+        {
+          name: 'Heavy Attack DMG',
+          value: [{ scaling: calcScaling(0.941, normal), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.HA,
+        },
+      ]
       base.MID_AIR_SCALING = [
         {
           name: 'Mid-Air Attack DMG',
@@ -295,48 +251,73 @@ const Encore = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           property: TalentProperty.BA,
         },
       ]
-      base.DODGE_SCALING = form.cosmos_rave
-        ? [
-            {
-              name: 'Cosmos: Dodge Counter DMG',
-              value: [{ scaling: calcScaling(0.3319, normal), multiplier: Stats.ATK, hits: 4 }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-          ]
-        : [
-            {
-              name: 'Dodge Counter DMG',
-              scale: Stats.ATK,
-              value: [{ scaling: calcScaling(0.6334, normal), multiplier: Stats.ATK, hits: 2 }],
-              element: Element.FUSION,
-              property: TalentProperty.BA,
-            },
-          ]
-      base.SKILL_SCALING = form.cosmos_rave
-        ? [
-            {
-              name: 'Cosmos Rampage DMG',
-              value: [{ scaling: calcScaling(0.3185, normal), multiplier: Stats.ATK, hits: 4 }],
-              element: Element.FUSION,
-              property: TalentProperty.SKILL,
-            },
-          ]
-        : [
-            {
-              name: 'Flaming Woolies DMG',
-              value: [{ scaling: calcScaling(0.3853, skill), multiplier: Stats.ATK, hits: 8 }],
-              element: Element.FUSION,
-              property: TalentProperty.SKILL,
-            },
-            {
-              name: 'Energetic Welcome DMG',
-              value: [{ scaling: calcScaling(1.706, skill), multiplier: Stats.ATK }],
-              element: Element.FUSION,
-              property: TalentProperty.SKILL,
-            },
-          ]
-      base.LIB_SCALING = []
+      base.DODGE_SCALING = [
+        {
+          name: 'Dodge Counter DMG',
+          scale: Stats.ATK,
+          value: [{ scaling: calcScaling(0.6334, normal), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+      ]
+      base.SKILL_SCALING = [
+        {
+          name: 'Flaming Woolies DMG',
+          value: [{ scaling: calcScaling(0.3853, skill), multiplier: Stats.ATK, hits: 8 }],
+          element: Element.FUSION,
+          property: TalentProperty.SKILL,
+        },
+        {
+          name: 'Energetic Welcome DMG',
+          value: [{ scaling: calcScaling(1.706, skill), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.SKILL,
+        },
+      ]
+      base.LIB_SCALING = [
+        {
+          name: 'Cosmos: Frolicking Stage 1 DMG',
+          value: [{ scaling: calcScaling(0.4536, lib), multiplier: Stats.ATK, hits: 2 }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Cosmos: Frolicking Stage 2 DMG',
+          value: [{ scaling: calcScaling(0.2837, lib), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Cosmos: Frolicking Stage 3 DMG',
+          value: [{ scaling: calcScaling(0.319, lib), multiplier: Stats.ATK, hits: 4 }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Cosmos: Frolicking Stage 4 DMG',
+          value: [{ scaling: calcScaling(0.9759, lib), multiplier: Stats.ATK, hits: 3 }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Cosmos: Heavy Attack DMG',
+          value: [{ scaling: calcScaling(1.0944, normal), multiplier: Stats.ATK }],
+          element: Element.FUSION,
+          property: TalentProperty.HA,
+        },
+        {
+          name: 'Cosmos: Dodge Counter DMG',
+          value: [{ scaling: calcScaling(0.3319, normal), multiplier: Stats.ATK, hits: 4 }],
+          element: Element.FUSION,
+          property: TalentProperty.BA,
+        },
+        {
+          name: 'Cosmos Rampage DMG',
+          value: [{ scaling: calcScaling(0.3185, normal), multiplier: Stats.ATK, hits: 4 }],
+          element: Element.FUSION,
+          property: TalentProperty.SKILL,
+        },
+      ]
       base.FORTE_SCALING = [
         {
           name: 'Cloudy Frenzy DMG',
@@ -408,7 +389,7 @@ const Encore = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           value: 0.35,
         })
       }
-      if (form.encore_c6 && form.cosmos_rave) {
+      if (form.encore_c6) {
         base[Stats.P_ATK].push({
           name: `Sequence Node 6`,
           source: 'Self',

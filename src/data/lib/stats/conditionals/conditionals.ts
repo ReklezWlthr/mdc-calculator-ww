@@ -30,6 +30,8 @@ import Brant from './characters/Brant'
 import Phoebe from './characters/Phoebe'
 import Cantarella from './characters/Cantarella'
 import ARover from './characters/ARover'
+import Ciaccona from './characters/Ciaccona'
+import Zani from './characters/Zani'
 
 export default [
   { id: '1102', conditionals: Sanhua },
@@ -53,11 +55,13 @@ export default [
   { id: '1404', conditionals: Jiyan },
   { id: '1405', conditionals: Jianxin },
   { id: '1406', conditionals: ARover },
+  { id: '1407', conditionals: Ciaccona },
   { id: '1501', conditionals: SRover },
   { id: '1503', conditionals: Verina },
   { id: '1504', conditionals: Lumi },
   { id: '1505', conditionals: Shorekeeper },
   { id: '1506', conditionals: Phoebe },
+  { id: '1507', conditionals: Zani },
   { id: '1601', conditionals: Taoqi },
   { id: '1602', conditionals: Danjin },
   { id: '1603', conditionals: Camellya },

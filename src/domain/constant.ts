@@ -10,6 +10,7 @@ export enum GenshinPage {
   INVENTORY = 'inventory',
   CHAR = 'char',
   COMPARE = 'compare',
+  ROTATION = 'rotation',
 }
 
 export enum Tags {
@@ -178,6 +179,7 @@ export const DefaultWeaponName = {
 }
 
 export enum TalentProperty {
+  NA = 'Normal Attack',
   BA = 'Basic Attack',
   HA = 'Heavy Attack',
   SKILL = 'Resonance Skill',
@@ -190,6 +192,11 @@ export enum TalentProperty {
   ECHO = 'Echo Skill',
   UTIL = 'Utility Skill',
   DODGE = 'Dodge Counter',
+  FORTE = 'Forte Circuit',
+}
+
+export enum TalentSubType {
+  FRAZZLE = 'Spectro Frazzle',
 }
 
 export enum Element {

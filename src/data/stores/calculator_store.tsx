@@ -1,4 +1,4 @@
-import { Element, ICharStore } from '@src/domain/constant'
+import { Element } from '@src/domain/constant'
 import _ from 'lodash'
 import { makeAutoObservable } from 'mobx'
 import { enableStaticRendering } from 'mobx-react-lite'
@@ -71,7 +71,6 @@ export class CalculatorStore {
     const mergedData = _.map(initData, (item, index) =>
       _.mapValues(item, (value, key) => {
         const old = this.form[index]?.[key]
-        console.log(key, old, value)
         return _.isUndefined(old) ? value : old
       })
     )

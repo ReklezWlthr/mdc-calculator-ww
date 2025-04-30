@@ -1,6 +1,6 @@
 import { StatsObject, StatsObjectKeys, TalentStatMap } from '@src/data/lib/stats/baseConstant'
 import { IScaling } from '@src/domain/conditional'
-import { Element, StatIcons, Stats, TalentProperty } from '@src/domain/constant'
+import { Element, StatIcons, Stats, TalentProperty, TalentSubType } from '@src/domain/constant'
 import { toPercentage } from '@src/core/utils/converter'
 import _ from 'lodash'
 import { CalculatorStore } from '@src/data/stores/calculator_store'
@@ -37,6 +37,10 @@ export const damageStringConstruct = (
 
   const element = scaling.element
   const isDamage = !_.includes([TalentProperty.SHIELD, TalentProperty.HEAL, TalentProperty.UTIL], scaling.property)
+
+  const subTypeAmp = {
+    [TalentSubType.FRAZZLE]: stats.getValue(StatsObjectKeys.FRAZZLE_AMP) || 0,
+  }
 
   const talentDmg = stats.getValue(Stats[`${TalentStatMap[scaling.property]}_DMG`]) || 0
   const talentFlat = stats.getValue(`${TalentStatMap[scaling.property]}_F_DMG`) || 0
@@ -83,7 +87,8 @@ export const damageStringConstruct = (
       talentAmp +
       elementAmp +
       stats.getValue(StatsObjectKeys.AMP) +
-      (scaling.coord ? stats.getValue(StatsObjectKeys.COORD_AMP) : 0)
+      (scaling.coord ? stats.getValue(StatsObjectKeys.COORD_AMP) : 0) +
+      (subTypeAmp[scaling.subType] || 0)
     : 0
   const raw =
     _.sumBy(
@@ -191,7 +196,7 @@ export const damageStringConstruct = (
         <p className="font-bold text-white">
           <span className="text-desc">✦</span> DMG Per Hit
         </p>
-        <div className="flex">
+        <div className="flex flex-wrap">
           {_.map(dmgArray, (item, index) => (
             <div className="flex gap-1">
               {index > 0 && <p className="pl-1">+</p>}

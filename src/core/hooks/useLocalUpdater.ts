@@ -4,6 +4,7 @@ import _ from 'lodash'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { findCharacter } from '../utils/finder'
+import { EnergyData } from '@src/data/db/energy'
 
 export const useLocalUpdater = (game: string) => {
   const router = useRouter()
@@ -36,6 +37,29 @@ export const useLocalUpdater = (game: string) => {
       return 'Your changes may not be saved. You can turn on Auto Save in Settings'
     }
   }, [])
+
+  useEffect(() => {
+    // calculatorStore.setValue('team', _.cloneDeep(teamStore?.characters))
+    const temp = _.cloneDeep(energyStore.meta)
+    const result: EnergyMeta[] = Array(3).fill(null)
+
+    _.forEach(teamStore.characters, (char, index) => {
+      if (!char) return
+      const oldData = _.find(temp, (item) => item?.cId === char.cId)
+      result[index] = oldData || {
+        cId: char.cId,
+        add: { 'Additional Energy': 0 },
+        rpb: 1,
+        skill: _.map(EnergyData[char.cId], (item) => ({
+          proc: item?.default,
+          value: item?.energy,
+          name: item?.name,
+        })),
+      }
+    })
+
+    energyStore.setValue('meta', result)
+  }, [...teamStore.characters])
 
   useEffect(() => {
     const string = JSON.stringify({

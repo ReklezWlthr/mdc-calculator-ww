@@ -153,6 +153,7 @@ export const baseStatsObject = {
   DoT: false,
 
   FRAZZLE_AMP: [] as StatsArray[],
+  EROSION_AMP: [] as StatsArray[],
 
   getAtk: function (statBonus?: number) {
     return (

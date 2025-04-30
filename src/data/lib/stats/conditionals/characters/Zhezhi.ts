@@ -267,7 +267,7 @@ const Zhezhi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           value: [{ scaling: calcScaling(0.328, lib), multiplier: Stats.ATK }],
           element: Element.GLACIO,
           property: TalentProperty.BA,
-          coord: true
+          coord: true,
         },
       ]
       base.FORTE_SCALING = [
@@ -343,6 +343,7 @@ const Zhezhi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, tea
           element: Element.GLACIO,
           property: TalentProperty.BA,
           multiplier: 1.2,
+          coord: true,
         })
       }
 

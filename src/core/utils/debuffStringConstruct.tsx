@@ -36,6 +36,7 @@ export const debuffStringConstruct = (
       break
     }
     case Element.AERO: {
+      amp = stats.getValue(StatsObjectKeys.EROSION_AMP)
       const growth = 2.5
       raw = stack ? 1653.5 * (growth * (stack - 1) || 1) : 0
       break

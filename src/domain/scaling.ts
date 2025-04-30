@@ -138,7 +138,7 @@ export const WeaponScaling = {
   },
 }
 
-export const TalentScaling = [1, 1.082, 1.164, 1.279, 1.361, 1.45525, 1.5865, 1.7175, 1.84875, 1.98825]
+export const TalentScaling = [1, 1.082, 1.164, 1.288, 1.3608, 1.4551, 1.5863, 1.7175, 1.8487, 1.9881]
 
 export const FlatScaling = [1, 1.12, 1.25, 1.4, 1.58, 1.75, 1.78, 1.82, 1.85, 1.9]
 

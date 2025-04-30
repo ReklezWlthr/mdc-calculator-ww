@@ -39,7 +39,7 @@ const Youhu = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       level: skill,
       trace: `Resonance Skill`,
       title: `Scroll Divination`,
-      content: `Youhu smashes her scroll down at the enemy, dealing Glacio DMG, restoring HP for all party members nearby, and performs <b>Lucky Draw</b> once.
+      content: `Youhu smashes her scroll down at the enemy, dealing <b class="text-wuwa-glacio">Glacio DMG</b>, restoring HP for all party members nearby, and performs <b>Lucky Draw</b> once.
       <br />
       <br /><b>Lucky Draw</b>
       <br />Youhu obtains a random <b class="text-desc">Antique</b> after the <b>Lucky Draw</b>. With an <b class="text-desc">Antique</b>, her next Basic Attack will activate the corresponding <b>Antique Appraisal</b>.

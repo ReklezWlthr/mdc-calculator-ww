@@ -12,6 +12,7 @@ import { MyCharacters } from './my_chars'
 import { useStore } from '@src/data/providers/app_store_provider'
 import { IntroModal } from '../components/modals/intro_modal'
 import { ComparePage } from './compare'
+import { Rotation } from './rotation'
 
 const InternalPage = ({ page }: { page: GenshinPage }) => {
   switch (page) {
@@ -29,6 +30,8 @@ const InternalPage = ({ page }: { page: GenshinPage }) => {
       return <MyCharacters />
     case GenshinPage.COMPARE:
       return <ComparePage />
+    case GenshinPage.ROTATION:
+      return <Rotation />
     default:
       return
   }
