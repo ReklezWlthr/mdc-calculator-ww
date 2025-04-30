@@ -11,7 +11,6 @@ export interface EnergyStoreType {
   meta: EnergyMeta[]
   fixedEnergy: IFixedEnergy[][]
   setValue: <k extends keyof this>(key: k, value: this[k]) => void
-  setParticle: (type: 'particles' | 'orbs', element: Element, value: any) => void
   setMetaData: (index: number, path: _.PropertyPath, value: any) => void
   getEnergyFrom: (index: number) => number
   getTotalEnergy: (of: number) => number
