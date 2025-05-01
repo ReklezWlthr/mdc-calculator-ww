@@ -394,10 +394,16 @@ const Zani = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
           property: TalentProperty.LIB,
         },
       ]
+      const nightfallScaling = calcScaling(0.05, forte)
+      const total = form.blaze_consumed || 0
       base.FORTE_SCALING = [
         {
           name: 'Daybreak DMG',
-          value: [{ scaling: calcScaling(1, forte), multiplier: Stats.ATK }],
+          value: [
+            { scaling: calcScaling(0.25, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.6, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.15, forte), multiplier: Stats.ATK },
+          ],
           element: Element.SPECTRO,
           property: TalentProperty.HA,
           subType: TalentSubType.FRAZZLE,
@@ -405,7 +411,11 @@ const Zani = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
         },
         {
           name: 'Dawning DMG',
-          value: [{ scaling: calcScaling(2.133, forte), multiplier: Stats.ATK }],
+          value: [
+            { scaling: calcScaling(0.7466, forte), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.1706, forte), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.2347, forte), multiplier: Stats.ATK, hits: 2 },
+          ],
           element: Element.SPECTRO,
           property: TalentProperty.HA,
           subType: TalentSubType.FRAZZLE,
@@ -414,11 +424,22 @@ const Zani = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
         {
           name: 'Nightfall DMG',
           value: [
-            { scaling: calcScaling(0.68, forte), multiplier: Stats.ATK },
-            { scaling: calcScaling(1.32, forte), multiplier: Stats.ATK },
-            ...(form.blaze_consumed
-              ? [{ scaling: calcScaling(0.05, forte) * (form.blaze_consumed || 0), multiplier: Stats.ATK }]
-              : []),
+            { scaling: calcScaling(0.26, forte) + nightfallScaling * _.min([total, 5]), multiplier: Stats.ATK },
+            { scaling: calcScaling(0.08, forte), multiplier: Stats.ATK, hits: 2 },
+            {
+              scaling: calcScaling(0.26, forte) + nightfallScaling * _.min([_.max([total - 5, 0]), 5]),
+              multiplier: Stats.ATK,
+            },
+            {
+              scaling: calcScaling(0.4, forte) + nightfallScaling * _.min([_.max([total - 10, 0]), 15]),
+              multiplier: Stats.ATK,
+            },
+            { scaling: calcScaling(0.04, forte), multiplier: Stats.ATK, hits: 2 },
+            { scaling: calcScaling(0.14, forte), multiplier: Stats.ATK },
+            {
+              scaling: calcScaling(0.7, forte) + nightfallScaling * _.min([_.max([total - 25, 0]), 15]),
+              multiplier: Stats.ATK,
+            },
           ],
           element: Element.SPECTRO,
           property: TalentProperty.HA,

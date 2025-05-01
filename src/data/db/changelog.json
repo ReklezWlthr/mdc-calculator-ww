@@ -1,6 +1,11 @@
 [
   {
-    "version": "1.0.2-11",
+    "version": "1.1.0-1",
+    "date": "May 1st, 2025",
+    "desc": ["<b class=\"text-yellow\">Updated</b>: <b class=\"text-wuwa-spectro\">Zani</b>'s <b>Nightfall</b> scaling"]
+  },
+  {
+    "version": "1.1.0",
     "date": "April 30th, 2025",
     "desc": [
       "<b class=\"text-yellow\">New Resonators</b>: <b class=\"text-wuwa-spectro\">Zani</b>",

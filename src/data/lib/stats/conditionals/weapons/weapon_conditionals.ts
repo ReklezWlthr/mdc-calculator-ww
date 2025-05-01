@@ -1182,7 +1182,7 @@ export const WeaponConditionals: IWeaponContent[] = [
   },
   {
     type: 'toggle',
-    text: `On-Liberation Bonuses`,
+    text: `Basic Attack Bonuses`,
     show: true,
     default: true,
     id: '21040036',

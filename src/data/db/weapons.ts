@@ -1061,7 +1061,7 @@ export const Weapons = [
     type: WeaponType.GAUNTLET,
     desc: {
       name: 'Darkness Breaker',
-      detail: `Increases ATK by {{0}}%. Casting Resonance Liberation grants the following effects: Dealing damage ignores {{1}}% of the target's DEF and Amplifies <b class="text-wuwa-spectro">Spectro Frazzle</b> DMG dealt by {{2}}% for <span class="text-desc">14</span>s. Retriggering the effect resets its duration.`,
+      detail: `Increases ATK by {{0}}%. Casting Basic Attack grants the following effects: Dealing damage ignores {{1}}% of the target's DEF and Amplifies <b class="text-wuwa-spectro">Spectro Frazzle</b> DMG dealt by {{2}}% for <span class="text-desc">14</span>s. Retriggering the effect resets its duration.`,
       properties: [
         { base: 12, growth: 3 },
         { base: 8, growth: 2 },
