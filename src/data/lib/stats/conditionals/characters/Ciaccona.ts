@@ -278,7 +278,7 @@ const Ciaccona = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
         },
         {
           name: `Total Symphonic Poem: Tonic DMG`,
-          value: [{ scaling: calcScaling(0.0324, lib), multiplier: Stats.ATK, hits: 19 }],
+          value: [{ scaling: calcScaling(0.0308, lib), multiplier: Stats.ATK, hits: 20 }],
           element: Element.AERO,
           property: TalentProperty.LIB,
           defPen: c >= 4 ? 0.45 : 0,

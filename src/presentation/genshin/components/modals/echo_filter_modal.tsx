@@ -98,14 +98,16 @@ export const EchoFilterModal = observer(
                               className="rounded-full ring-2 ring-gray ring-offset-[3px] ring-offset-primary-dark w-11 h-11"
                             />
                             <div className="w-full space-y-1">
-                              <p className="w-full text-sm break-all line-clamp-1">{item?.name}</p>
+                              <div className="flex gap-2">
+                                <p className="w-full text-sm break-all line-clamp-1">{item?.name}</p>
+                                <div className="text-xs bg-primary-light px-1.5 py-0.5 rounded-full shrink-0 font-bold">
+                                  {item?.cost}C
+                                </div>
+                              </div>
                               <div className="flex flex-wrap gap-2">
                                 {_.map(item?.sonata, (s) => (
                                   <img src={SonataIcons[s]} className="w-6 h-6" key={s} />
                                 ))}
-                                <div className="text-xs bg-primary-light px-1.5 py-0.5 rounded-md">
-                                  {item?.cost} Cost
-                                </div>
                               </div>
                             </div>
                           </div>

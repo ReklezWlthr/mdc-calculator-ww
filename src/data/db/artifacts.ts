@@ -2647,7 +2647,7 @@ export const Echoes: IArtifact[] = [
   },
   {
     id: '6000099',
-    name: 'La Sagittario',
+    name: 'Sagittario',
     icon: 'T_IconMonsterHead_31053_UI',
     skill: 'T_Mstskil_31053',
     sonata: [Sonata.ETERNAL_RADIANCE, Sonata.GUST_OF_WELKIN],
