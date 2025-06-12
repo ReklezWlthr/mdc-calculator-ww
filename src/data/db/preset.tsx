@@ -520,6 +520,72 @@ export const ModifierPresets = [
     ),
   },
   {
+    name: `Saltimbocca`,
+    order: 2,
+    type: 'Dish',
+    property: [{ stat: Stats.LIB_DMG, value: 40, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_083_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Glory Roast Platter`,
+    order: 2,
+    type: 'Dish',
+    property: [{ stat: Stats.HEAL, value: 50, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_082_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Frosted Cream Blizzard`,
+    order: 2,
+    type: 'Dish',
+    property: [{ stat: Stats.HEAL, value: 25, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_084_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Solis`,
+    order: 2,
+    type: 'Dish',
+    property: [{ stat: Stats.ER, value: 30, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_086_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Bamboo Iris Crisps`,
+    order: 2,
+    type: 'Dish',
+    property: [{ stat: Stats.P_ATK, value: 35, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_079_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Seasalt Popcorn`,
+    order: 2,
+    type: 'Dish',
+    property: [
+      { stat: Stats.HEAL, value: 10, flat: false },
+      { stat: Stats.P_HP, value: 20, flat: false },
+    ],
+    icon: (
+      <img src={getFoodImage('T_IconCook_085_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Bubbly Buddy`,
+    order: 2,
+    type: 'Dish',
+    property: [{ stat: Stats.HEAVY_DMG, value: 30, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_080_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
     name: `Liondance Companion`,
     order: 3,
     type: `Lingyang's Signature Dish`,
@@ -748,6 +814,36 @@ export const ModifierPresets = [
     property: [{ stat: Stats.ER, value: 28, flat: false }],
     icon: (
       <img src={getFoodImage('T_IconCook_074_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Pasta Bocadillo`,
+    order: 3,
+    type: `Ciaccona's Signature Dish`,
+    property: [
+      { stat: Stats.HEAL, value: 8, flat: false },
+      { stat: Stats.P_HP, value: 12, flat: false },
+    ],
+    icon: (
+      <img src={getFoodImage('T_IconCook_075_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Knight-Errand's Essential`,
+    order: 3,
+    type: `Cartethyia's Signature Dish`,
+    property: [{ stat: Stats.HEAL, value: 34, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_077_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
+    ),
+  },
+  {
+    name: `Heartpour`,
+    order: 3,
+    type: `Lupa's Signature Dish`,
+    property: [{ stat: Stats.ER, value: 34, flat: false }],
+    icon: (
+      <img src={getFoodImage('T_IconCook_078_UI')} className="w-10 h-10 rounded-full ring-2 ring-primary-lighter" />
     ),
   },
   {
