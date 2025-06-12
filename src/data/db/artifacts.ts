@@ -2853,7 +2853,7 @@ export const Echoes: IArtifact[] = [
     skill: 'T_MstSkil_34012_UI',
     sonata: [Sonata.GUST_OF_WELKIN, Sonata.WINDWARD],
     desc: `Summon the Windcleaver to attack the target, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b> <span class="text-desc">8</span> times and {{1}}% <b class="text-wuwa-aero">Aero DMG</b> once.
-    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">10%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b>. If this Resonator is Rover: Aero or ???, grant another <span class="text-desc">10%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b>.`,
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">10%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b>. When Rover: Aero or Cartethyia equips this Echo, they gain <span class="text-desc">10%</span> more <b class="text-wuwa-aero">Aero DMG Bonus</b>.`,
     properties: [
       { base: 18.24, growth: 3.04 },
       { base: 91.2, growth: 15.2 },
