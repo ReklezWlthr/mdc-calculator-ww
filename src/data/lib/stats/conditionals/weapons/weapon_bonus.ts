@@ -524,6 +524,28 @@ const WeaponBonus: {
       return base
     },
   },
+  {
+    id: '21010036',
+    scaling: (base, r) => {
+      base[Stats.P_ATK].push({
+        source: `Wildfire Mark`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
+  {
+    id: '21020056',
+    scaling: (base, r) => {
+      base[Stats.P_HP].push({
+        source: `Defier's Thorn`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
 ]
 
 export default WeaponBonus

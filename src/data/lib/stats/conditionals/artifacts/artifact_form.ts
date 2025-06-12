@@ -269,11 +269,32 @@ export const ArtifactForm = () => {
       default: true,
       id: Sonata.GUST_OF_WELKIN,
     },
+    {
+      trace: 'Sonata',
+      type: 'toggle',
+      text: Sonata.WINDWARD,
+      title: Sonata.WINDWARD,
+      content: SonataDetail[Sonata.WINDWARD][1].desc,
+      show: true,
+      default: true,
+      id: Sonata.WINDWARD,
+    },
+    {
+      trace: 'Sonata',
+      type: 'toggle',
+      text: Sonata.FLAMING_CLAWPRINT,
+      title: Sonata.FLAMING_CLAWPRINT,
+      content: SonataDetail[Sonata.FLAMING_CLAWPRINT][1].desc,
+      show: true,
+      default: true,
+      id: Sonata.FLAMING_CLAWPRINT,
+    },
   ]
 
   const teamContent: IContent[] = [
     findContentById(content, Sonata.REJUVENATING_GLOW),
     findContentById(content, Sonata.GUST_OF_WELKIN),
+    findContentById(content, Sonata.FLAMING_CLAWPRINT),
     findContentById(content, '6000061'),
     findContentById(content, '390080005'),
   ]

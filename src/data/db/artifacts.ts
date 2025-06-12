@@ -19,6 +19,8 @@ export enum Sonata {
   EMPYREAN_ANTHEM = `Empyrean Anthem`,
   TIDEBREAKING_COURAGE = 'Tidebreaking Courage',
   GUST_OF_WELKIN = 'Gusts of Welkin',
+  WINDWARD = 'Windward Pilgrimage',
+  FLAMING_CLAWPRINT = 'Flaming Clawprint',
 }
 
 export const SonataDetail = {
@@ -179,6 +181,24 @@ export const SonataDetail = {
     },
     {
       desc: `Inflicting <b class="text-wuwa-aero">Aero Erosion</b> upon enemies increases <b class="text-wuwa-aero">Aero DMG</b> for other Resonators in the team by <span class="text-desc">15%</span>, and for the equipped Resonator by an additional <span class="text-desc">20%</span>, lasting for <span class="text-desc"></span>s.`,
+    },
+  ],
+  [Sonata.WINDWARD]: [
+    {
+      desc: `<b class="text-wuwa-aero">Aero DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.AERO_DMG, value: 0.1 },
+    },
+    {
+      desc: `Hitting a target with <b class="text-wuwa-aero">Aero Erosion</b> increases Crit. Rate by <span class="text-desc">10%</span> and grants <span class="text-desc">30%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b>, lasting for <span class="text-desc">10</span>s.`,
+    },
+  ],
+  [Sonata.FLAMING_CLAWPRINT]: [
+    {
+      desc: `<b class="text-wuwa-fusion">Fusion DMG</b> + <span class="text-desc">10%</span>.`,
+      bonus: { stat: Stats.FUSION_DMG, value: 0.1 },
+    },
+    {
+      desc: `Casting Resonance Liberation increases <b class="text-wuwa-fusion">Fusion DMG</b> of Resonators in the team by <span class="text-desc">15%</span> and the caster's Resonance Liberation DMG by <span class="text-desc">20%</span>, lasting for <span class="text-desc">35</span>s.`,
     },
   ],
 }
@@ -2616,7 +2636,7 @@ export const Echoes: IArtifact[] = [
     name: 'La Guardia',
     icon: 'T_IconMonsterHead_31052_UI',
     skill: '',
-    sonata: [Sonata.MIDNIGHT_VEIL, Sonata.GUST_OF_WELKIN],
+    sonata: [Sonata.MIDNIGHT_VEIL, Sonata.GUST_OF_WELKIN, Sonata.FLAMING_CLAWPRINT],
     desc: `Transform into La Guardia and attack nearby targets, dealing {{0}}% <b class="text-slate-400">Physical DMG</b>.
     <br />Hold the Echo Skill to maintain the Echo form for a while to slash enemies and cast a ranged attack forward. The slash deals {{0}}% <b class="text-slate-400">Physical DMG</b>, and the ranged attack deals {{1}}% <b class="text-slate-400">Physical DMG</b> up to <span class="text-desc">15</span> times.`,
     properties: [
@@ -2650,7 +2670,7 @@ export const Echoes: IArtifact[] = [
     name: 'Sagittario',
     icon: 'T_IconMonsterHead_31053_UI',
     skill: 'T_Mstskil_31053',
-    sonata: [Sonata.ETERNAL_RADIANCE, Sonata.GUST_OF_WELKIN],
+    sonata: [Sonata.ETERNAL_RADIANCE, Sonata.GUST_OF_WELKIN, Sonata.FLAMING_CLAWPRINT],
     desc: `Transform into Sagittario to move a certain distance and perform a ranged attack, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b>.
     <br />Getting attacked while moving in the Sagittario form triggers form triggers a damage avoiding enhanced Dodge Counter, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b> once and 53.64% <b class="text-wuwa-spectro">Spectro DMG</b> <span class="text-desc">5</span> times.`,
     properties: [
@@ -2684,7 +2704,7 @@ export const Echoes: IArtifact[] = [
     name: 'Sacerdos',
     icon: 'T_IconMonsterHead_31054_UI',
     skill: 'T_Mstskil_31054',
-    sonata: [Sonata.GUST_OF_WELKIN],
+    sonata: [Sonata.GUST_OF_WELKIN, Sonata.WINDWARD],
     desc: `Summon a Sacerdos to attack enemies, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b> <span class="text-desc">2</span> times.`,
     properties: [{ base: 43.2, growth: 7.2 }],
     bonus: (base, r) => {
@@ -2703,7 +2723,7 @@ export const Echoes: IArtifact[] = [
     name: 'Aero Drake',
     icon: 'T_IconMonsterHead_31055_UI',
     skill: 'T_Mstskil_31055_UI',
-    sonata: [Sonata.TIDEBREAKING_COURAGE, Sonata.GUST_OF_WELKIN],
+    sonata: [Sonata.TIDEBREAKING_COURAGE, Sonata.GUST_OF_WELKIN, Sonata.FLAMING_CLAWPRINT],
     desc: `Summon an Aero Drake to attack enemies, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b>.`,
     properties: [{ base: 86.4, growth: 14.4 }],
     bonus: (base, r) => {
@@ -2722,7 +2742,7 @@ export const Echoes: IArtifact[] = [
     name: 'Electro Drake',
     icon: 'T_IconMonsterHead_31056_UI',
     skill: 'T_Mstskil_31056_UI',
-    sonata: [Sonata.MIDNIGHT_VEIL, Sonata.GUST_OF_WELKIN],
+    sonata: [Sonata.MIDNIGHT_VEIL, Sonata.GUST_OF_WELKIN, Sonata.FLAMING_CLAWPRINT],
     desc: `Summon an Electro Drake to attack enemies, dealing {{0}}% <b class="text-wuwa-electro">Electro DMG</b> <span class="text-desc">3</span> times.`,
     properties: [{ base: 28.8, growth: 4.8 }],
     bonus: (base, r) => {
@@ -2741,7 +2761,7 @@ export const Echoes: IArtifact[] = [
     name: 'Glacio Drake',
     icon: 'T_IconMonsterHead_31057_UI',
     skill: 'T_Mstskil_31057_UI',
-    sonata: [Sonata.GUST_OF_WELKIN],
+    sonata: [Sonata.GUST_OF_WELKIN, Sonata.WINDWARD],
     desc: `Summon an Glacio Drake to attack enemies, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b> <span class="text-desc">5</span> times.`,
     properties: [{ base: 17.28, growth: 2.88 }],
     bonus: (base, r) => {
@@ -2760,7 +2780,7 @@ export const Echoes: IArtifact[] = [
     name: 'Capitaneus',
     icon: 'T_IconMonsterHead_32033_UI',
     skill: 'T_MstSkil_32033_UI',
-    sonata: [Sonata.ETERNAL_RADIANCE, Sonata.GUST_OF_WELKIN],
+    sonata: [Sonata.ETERNAL_RADIANCE, Sonata.GUST_OF_WELKIN, Sonata.WINDWARD],
     desc: `Summon a Capitaneus to jump up and smash enemies, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b>. This attack generates <span class="text-desc">4</span> extra Merciless Judgements, each dealing {{1}}% <b class="text-wuwa-spectro">Spectro DMG</b>.
     <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-spectro">Spectro DMG Bonus</b> and <span class="text-desc">12%</span> Heavy Attack DMG Bonus.`,
     properties: [
@@ -2831,7 +2851,7 @@ export const Echoes: IArtifact[] = [
     name: 'Reminiscence: Fleurdelys',
     icon: 'T_IconMonsterHead_34012_1_UI',
     skill: 'T_MstSkil_34012_UI',
-    sonata: [Sonata.GUST_OF_WELKIN],
+    sonata: [Sonata.GUST_OF_WELKIN, Sonata.WINDWARD],
     desc: `Summon the Windcleaver to attack the target, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b> <span class="text-desc">8</span> times and {{1}}% <b class="text-wuwa-aero">Aero DMG</b> once.
     <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">10%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b>. If this Resonator is Rover: Aero or ???, grant another <span class="text-desc">10%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b>.`,
     properties: [
@@ -2851,6 +2871,206 @@ export const Echoes: IArtifact[] = [
           { scaling: calcRefinement(0.912, 0.301524, r), multiplier: Stats.ATK },
         ],
         element: Element.AERO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '6000107',
+    name: 'Fusion Drake',
+    icon: 'T_IconMonsterHead_31058_UI',
+    skill: 'T_MstSkil_31058_UI',
+    sonata: [Sonata.WINDWARD, Sonata.FLAMING_CLAWPRINT],
+    desc: `Summon a Fusion Drake to attack enemies, dealing {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b> <span class="text-desc">3</span> times.`,
+    properties: [{ base: 17.28, growth: 2.88 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Fusion Drake DMG',
+        value: [{ scaling: calcRefinement(0.1728, 0.0288, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.FUSION,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000108',
+    name: 'Spectro Drake',
+    icon: 'T_IconMonsterHead_31059_UI',
+    skill: 'T_MstSkil_31059_UI',
+    sonata: [Sonata.WINDWARD, Sonata.FLAMING_CLAWPRINT],
+    desc: `Summon a Spectro Drake to attack enemies, dealing {{0}}% <b class="text-wuwa-spectro">Spectro DMG</b> <span class="text-desc">3</span> times.`,
+    properties: [{ base: 28.8, growth: 4.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Spectro Drake DMG',
+        value: [{ scaling: calcRefinement(0.288, 0.048, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.SPECTRO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000109',
+    name: 'Havoc Drake',
+    icon: 'T_IconMonsterHead_31060_UI',
+    skill: 'T_MstSkil_31060_UI',
+    sonata: [Sonata.WINDWARD, Sonata.FLAMING_CLAWPRINT],
+    desc: `Summon a Havoc Drake to attack enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b> <span class="text-desc">3</span> times.`,
+    properties: [{ base: 86.4, growth: 14.1 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Havoc Drake DMG',
+        value: [{ scaling: calcRefinement(0.864, 0.144, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000110',
+    name: `Devotee's Flesh`,
+    icon: 'T_IconMonsterHead_31061_UI',
+    skill: 'T_MstSkil_31061_UI',
+    sonata: [Sonata.GUST_OF_WELKIN, Sonata.WINDWARD, Sonata.FLAMING_CLAWPRINT],
+    desc: `Summon a Devotee's Flesh to attack enemies, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b> <span class="text-desc">3</span> times.`,
+    properties: [{ base: 28.8, growth: 4.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: `Devotee's Flesh DMG`,
+        value: [{ scaling: calcRefinement(0.288, 0.048, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.AERO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000111',
+    name: `Pilgrim's Shell`,
+    icon: 'T_IconMonsterHead_32034_UI',
+    skill: 'T_MstSkil_32034_UI',
+    sonata: [Sonata.WINDWARD, Sonata.FLAMING_CLAWPRINT],
+    desc: `Transform into a Pilgrim's Shell to attack nearby enemies, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b>.`,
+    properties: [{ base: 178.8, growth: 29.8 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: `Pilgrim's Shell DMG`,
+        value: [{ scaling: calcRefinement(1.788, 0.298, r), multiplier: Stats.ATK }],
+        element: Element.AERO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '6000112',
+    name: `Kerasaur`,
+    icon: 'T_IconMonsterHead_31062_UI',
+    skill: 'T_MstSkil_32034_UI',
+    sonata: [Sonata.WINDWARD, Sonata.FLAMING_CLAWPRINT],
+    desc: `Transform into Kerasaur to leap into the air and slam down, dealing {{0}}% Aero DMG. Shortly after hitting the target, Press Echo Skill again to charge at the target, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Liberation DMG Bonus.`,
+    properties: [{ base: 178.8, growth: 29.8 }],
+    bonus: (base, r) => {
+      base[Stats.AERO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Kerasaur',
+      })
+      base[Stats.LIB_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Kerasaur',
+      })
+      base.ECHO_SCALING.push({
+        name: `Kerasaur DMG`,
+        value: [{ scaling: calcRefinement(1.788, 0.298, r), multiplier: Stats.ATK }],
+        element: Element.AERO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
+  },
+  {
+    id: '6000113',
+    name: `Nightmares - Kelpie`,
+    icon: 'T_IconMonsterHead_33021_UI',
+    skill: 'T_MstSkil_33021_UI',
+    sonata: [Sonata.GUST_OF_WELKIN, Sonata.WINDWARD],
+    desc: `Transform into Nightmare - Kelpie to attack nearby targets, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-glacio">Glacio DMG Bonus</b> and <span class="text-desc">12%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b>.
+    <br />Performing Outro Skill summons Nightmares - Kelpie to deal {{0}}% <b class="text-wuwa-aero">Aero DMG</b>.`,
+    properties: [{ base: 270, growth: 45 }],
+    bonus: (base, r) => {
+      base[Stats.AERO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmares - Kelpie',
+      })
+      base[Stats.GLACIO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmares - Kelpie',
+      })
+      base.ECHO_SCALING.push(
+        {
+          name: `Active DMG`,
+          value: [{ scaling: calcRefinement(2.7, 0.45, r), multiplier: Stats.ATK }],
+          element: Element.GLACIO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: `Outro DMG`,
+          value: [{ scaling: calcRefinement(2.7, 0.45, r), multiplier: Stats.ATK }],
+          element: Element.AERO,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '6000114',
+    name: `Lioness of Glory`,
+    icon: 'T_IconMonsterHead_33022_UI',
+    skill: 'T_MstSkil_33022_UI',
+    sonata: [Sonata.FLAMING_CLAWPRINT],
+    desc: `Summon the Halberd of Glory to strike nearby targets, dealing {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b>, followed by an additional {{1}}% Fusion DMG after a short delay.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-fusion">Fusion DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Liberation DMG Bonus.`,
+    properties: [
+      { base: 54.72, growth: 9.12 },
+      { base: 127.68, growth: 21.28 },
+    ],
+    bonus: (base, r) => {
+      base[Stats.FUSION_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Lioness of Glory',
+      })
+      base[Stats.LIB_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Lioness of Glory',
+      })
+      base.ECHO_SCALING.push({
+        name: `Halberd of Glory DMG`,
+        value: [
+          { scaling: calcRefinement(0.6472, 0.0912, r), multiplier: Stats.ATK },
+          { scaling: calcRefinement(1.2768, 0.2128, r), multiplier: Stats.ATK },
+        ],
+        element: Element.FUSION,
         property: TalentProperty.ECHO,
       })
       return base

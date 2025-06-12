@@ -38,6 +38,8 @@ export const baseStatsObject = {
   [Stats.ER]: [{ name: 'Base Value', source: 'Self', value: 1 }] as StatsArray[],
   [Stats.HEAL]: [] as StatsArray[],
 
+  I_HEAL: [] as StatsArray[],
+
   X_EM: [] as StatsArray[],
 
   // DMG Bonuses

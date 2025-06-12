@@ -77,6 +77,9 @@ export const EnemyModal = observer(({ stats, compare }: { stats: StatsObject; co
             value={enemy}
             placeholder="Custom"
           />
+          <p className="text-xs italic text-zinc-400">
+            The Nightmare variant of each enemy shares the same RES with their base form.
+          </p>
         </div>
         <div className="space-y-1 shrink-0">
           <p className="text-sm">Level</p>

@@ -194,7 +194,7 @@ export const TeamSetup = observer(() => {
             <div className="px-3 py-2 text-xs text-center rounded-lg text-gray bg-primary-dark">
               Click to quickly max out some parts of the Resonator
               <p className="italic text-desc">
-                Note: Maxed Forte levels will not exceed the current Resonator's Ascension
+                Note: Maxed Forte levels cannot exceed the current Resonator's Ascension
               </p>
             </div>
             <div className="grid grid-cols-3 gap-2">
@@ -231,8 +231,6 @@ export const TeamSetup = observer(() => {
                 title="Forte"
                 onClick={() =>
                   teamStore.setMemberInfo(selected, {
-                    growth: Array(8).fill(true),
-                    i: { i1: true, i2: true },
                     talents: {
                       forte: maxTalentLevel,
                       intro: maxTalentLevel,
@@ -240,6 +238,24 @@ export const TeamSetup = observer(() => {
                       normal: maxTalentLevel,
                       skill: maxTalentLevel,
                     },
+                  })
+                }
+                small
+              />
+              <PrimaryButton
+                title="Inherent"
+                onClick={() =>
+                  teamStore.setMemberInfo(selected, {
+                    i: { i1: true, i2: true },
+                  })
+                }
+                small
+              />
+              <PrimaryButton
+                title="Stat Bonus"
+                onClick={() =>
+                  teamStore.setMemberInfo(selected, {
+                    growth: Array(8).fill(true),
                   })
                 }
                 small

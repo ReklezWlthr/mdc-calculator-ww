@@ -1202,6 +1202,57 @@ export const WeaponConditionals: IWeaponContent[] = [
       return base
     },
   },
+  {
+    type: 'toggle',
+    text: `Liberation Bonuses`,
+    show: true,
+    default: true,
+    id: '21010036_1',
+    scaling: (base, form, r) => {
+      if (form['21010036_1']) {
+        base[Stats.LIB_DMG].push({
+          value: calcRefinement(0.24, 0.06, r),
+          name: 'Passive',
+          source: `Wildfire Mark`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `DEF Ignore`,
+    show: true,
+    default: true,
+    id: '21020056',
+    scaling: (base, form, r) => {
+      if (form['21020056']) {
+        base.DEF_PEN.push({
+          value: calcRefinement(0.08, 0.02, r),
+          name: 'Passive',
+          source: `Defier's Thorn`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Global DMG AMP`,
+    show: true,
+    default: true,
+    id: '21020056_2',
+    scaling: (base, form, r) => {
+      if (form['21020056_2']) {
+        base.AMP.push({
+          value: calcRefinement(0.2, 0.05, r),
+          name: 'Passive',
+          source: `Defier's Thorn`,
+        })
+      }
+      return base
+    },
+  },
 ]
 
 export const WeaponAllyConditionals: IWeaponContent[] = [
@@ -1271,6 +1322,23 @@ export const WeaponTeamConditionals: IWeaponContent[] = [
           value: calcRefinement(0.1, 0.015, r),
           name: 'Passive',
           source: `Woodland Aria`,
+        })
+      }
+      return base
+    },
+  },
+  {
+    type: 'toggle',
+    text: `Team DMG Bonus`,
+    show: true,
+    default: true,
+    id: '21010036_2',
+    scaling: (base, form, r) => {
+      if (form['21010036_2']) {
+        base[Stats.ALL_DMG].push({
+          value: calcRefinement(0.24, 0.06, r),
+          name: 'Passive',
+          source: `Wildfire Mark`,
         })
       }
       return base

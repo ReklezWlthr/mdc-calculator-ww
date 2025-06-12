@@ -243,6 +243,30 @@ export const calculateArtifact = (base: StatsObject, form: Record<string, any>, 
       value: 0.35,
     })
   }
+  if (form[Sonata.WINDWARD]) {
+    base[Stats.CRIT_RATE].push({
+      name: `5 Piece`,
+      source: Sonata.WINDWARD,
+      value: 0.1,
+    })
+    base[Stats.AERO_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.WINDWARD,
+      value: 0.3,
+    })
+  }
+  if (form[Sonata.FLAMING_CLAWPRINT]) {
+    base[Stats.AERO_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.FLAMING_CLAWPRINT,
+      value: 0.15,
+    })
+    base[Stats.LIB_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.FLAMING_CLAWPRINT,
+      value: 0.2,
+    })
+  }
 
   return base
 }
@@ -259,6 +283,13 @@ export const calculateTeamArtifact = (base: StatsObject, form: Record<string, an
     base[Stats.AERO_DMG].push({
       name: `5 Piece`,
       source: Sonata.GUST_OF_WELKIN,
+      value: 0.15,
+    })
+  }
+  if (form[Sonata.FLAMING_CLAWPRINT]) {
+    base[Stats.AERO_DMG].push({
+      name: `5 Piece`,
+      source: Sonata.FLAMING_CLAWPRINT,
       value: 0.15,
     })
   }

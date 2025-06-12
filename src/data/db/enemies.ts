@@ -664,10 +664,4 @@ export const EnemyGroups: IEnemyGroup[] = [
     icon: 'T_IconMonsterHead_34012_1_UI',
     res: [0.1, 0.1, 0.1, 0.1, 0.4, 0.1, 0.1],
   },
-  {
-    id: '340000130',
-    name: 'Nightmare: Lampylumen Myriad',
-    icon: 'T_IconMonsterHead_34013_UI',
-    res: [0.1, 0.4, 0.1, 0.1, 0.1, 0.1, 0.1],
-  },
 ]

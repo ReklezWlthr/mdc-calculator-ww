@@ -31,6 +31,8 @@ export const SonataIcons = {
   [Sonata.EMPYREAN_ANTHEM]: '/asset/icons/T_IconElementAttriCooperate.webp',
   [Sonata.TIDEBREAKING_COURAGE]: '/asset/icons/T_IconElementAttriEnergy.webp',
   [Sonata.GUST_OF_WELKIN]: '/asset/icons/T_IconElementAttriWindError.webp',
+  [Sonata.WINDWARD]: '/asset/icons/T_IconElementAttriWindErrorA.webp',
+  [Sonata.FLAMING_CLAWPRINT]: '/asset/icons/T_IconElementAttriFireUltimateSkill.webp',
 }
 
 interface ArtifactBlockProps {

@@ -32,6 +32,8 @@ import Cantarella from './characters/Cantarella'
 import ARover from './characters/ARover'
 import Ciaccona from './characters/Ciaccona'
 import Zani from './characters/Zani'
+import Carte from './characters/Carte'
+import Lupa from './characters/Lupa'
 
 export default [
   { id: '1102', conditionals: Sanhua },
@@ -45,6 +47,7 @@ export default [
   { id: '1204', conditionals: Mortefi },
   { id: '1205', conditionals: Changli },
   { id: '1206', conditionals: Brant },
+  { id: '1207', conditionals: Lupa },
   { id: '1301', conditionals: Calcharo },
   { id: '1302', conditionals: Yinlin },
   { id: '1303', conditionals: Yuanwu },
@@ -56,6 +59,7 @@ export default [
   { id: '1405', conditionals: Jianxin },
   { id: '1406', conditionals: ARover },
   { id: '1407', conditionals: Ciaccona },
+  { id: '1409', conditionals: Carte },
   { id: '1501', conditionals: SRover },
   { id: '1503', conditionals: Verina },
   { id: '1504', conditionals: Lumi },

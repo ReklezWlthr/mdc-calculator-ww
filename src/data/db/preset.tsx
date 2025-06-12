@@ -110,6 +110,17 @@ export const ModifierPresets = [
     ),
   },
   {
+    name: Sonata.FLAMING_CLAWPRINT,
+    order: 1,
+    type: 'Sonata',
+    property: [{ stat: Stats.FUSION_DMG, value: 15, flat: false }],
+    icon: (
+      <div className="flex items-center justify-center w-11 h-11">
+        <img src={SonataIcons[Sonata.FLAMING_CLAWPRINT]} className="w-10 h-10" />
+      </div>
+    ),
+  },
+  {
     name: 'Jinzhou Skewers',
     order: 2,
     type: 'Dish',

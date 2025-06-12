@@ -183,6 +183,7 @@ export const StatsModal = observer(
               <AttributeBlock stats={stats} stat="Crit. Rate" array={stats[Stats.CRIT_RATE]} />
               <AttributeBlock stats={stats} stat="Crit. DMG" array={stats[Stats.CRIT_DMG]} />
               <AttributeBlock stats={stats} stat="Healing Bonus" array={stats[Stats.HEAL]} />
+              <AttributeBlock stats={stats} stat="Incoming Healing Bonus" array={stats[StatsObjectKeys.I_HEAL]} />
               <AttributeBlock stats={stats} stat="Energy Regen" array={stats[Stats.ER]} />
             </div>
           </div>

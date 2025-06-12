@@ -197,6 +197,7 @@ export enum TalentProperty {
 
 export enum TalentSubType {
   FRAZZLE = 'Spectro Frazzle',
+  EROSION = 'Aero Erosion',
 }
 
 export enum Element {

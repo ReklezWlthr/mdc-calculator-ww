@@ -40,6 +40,7 @@ export const damageStringConstruct = (
 
   const subTypeAmp = {
     [TalentSubType.FRAZZLE]: stats.getValue(StatsObjectKeys.FRAZZLE_AMP) || 0,
+    [TalentSubType.EROSION]: stats.getValue(StatsObjectKeys.EROSION_AMP) || 0,
   }
 
   const talentDmg = stats.getValue(Stats[`${TalentStatMap[scaling.property]}_DMG`]) || 0
@@ -74,7 +75,7 @@ export const damageStringConstruct = (
     [Stats.ER]: stats.getValue(Stats.ER),
   }
 
-  const healing = stats.getValue(Stats.HEAL)
+  const healing = stats.getValue(Stats.HEAL) + stats.getValue(StatsObjectKeys.I_HEAL)
   const bonusDMG =
     (scaling.bonus || 0) +
     (_.includes([TalentProperty.SHIELD, TalentProperty.UTIL], scaling.property)
