@@ -201,7 +201,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
       trace: `Sequence Node 3`,
       title: `Hanged Prisoner in the Tower`,
       content: `Basic Attack - Fleurdelys Stage 5, Mid-Air Attack - Fleurdelys Stage 5, Enhanced Heavy Attack - Fleurdelys, and Resonance Skill - <b>May Tempest Break the Tides</b> now inflict <span class="text-desc">2</span> stacks of <b class="text-wuwa-aero">Aero Erosion</b> on the targets hit.
-      <br />The DMG Multiplier of Resonance Skill - <b>Blade of Howling Squall</b> is increased by <span class="text-desc">100%</span>.`,
+      <br />The DMG Multiplier of Resonance Liberation - <b>Blade of Howling Squall</b> is increased by <span class="text-desc">100%</span>.`,
       image: 'T_IconDevice_KatixiyaM3_UI',
     },
     c4: {
@@ -304,6 +304,8 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
     ],
     preCompute: (x: StatsObject, form: Record<string, any>) => {
       const base = _.cloneDeep(x)
+
+      base.DoT = true
 
       base.BASIC_SCALING = [
         {

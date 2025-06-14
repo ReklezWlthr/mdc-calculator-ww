@@ -1,5 +1,12 @@
 [
   {
+    "version": "1.1.0-4",
+    "date": "June 14th, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">Updated</b>: <b class=\"text-wuwa-aero\">Aero Erosion</b>'s Tooltip description and stack limit."
+    ]
+  },
+  {
     "version": "1.1.0-3",
     "date": "June 12th, 2025",
     "desc": [

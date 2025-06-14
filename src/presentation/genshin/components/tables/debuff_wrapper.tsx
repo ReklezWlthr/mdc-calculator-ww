@@ -37,7 +37,8 @@ export const DoTWrapper = observer(({ element, level }: DoTWrapperProps) => {
       title: 'Spectro Frazzle',
       trace: DOT_NAME,
       content: `While <b class="text-wuwa-spectro">Spectro Frazzle</b> lasts, the number of its stacks is periodically reduced by <span class="text-wuwa-spectro">1</span> to deal <b class="text-wuwa-spectro">Spectro DMG</b> to the target.
-      <br />The building up of <b class="text-wuwa-spectro">Spectro Frazzle</b> greatly increases the DMG it deals, up to <span class="text-wuwa-spectro">10</span> times.`,
+      <br />The building up of <b class="text-wuwa-spectro">Spectro Frazzle</b> greatly increases the DMG it deals, up to <span class="text-wuwa-spectro">10</span> times.
+      <br /><b class="text-wuwa-spectro">Spectro Frazzle</b>'s DMG scales with the level of the last Resonator that apply the stack(s).`,
       image: '/asset/icons/SP_RoleLabelE4.webp',
       max: 10,
     },
@@ -46,9 +47,13 @@ export const DoTWrapper = observer(({ element, level }: DoTWrapperProps) => {
       trace: DOT_NAME,
       content: `While <b class="text-wuwa-aero">Aero Erosion</b> lasts, it deals periodic <b class="text-wuwa-aero">Aero DMG</b> to the target.
       <br />The damage of <b class="text-wuwa-aero">Aero Erosion</b> scales with its stacks, up to <span class="text-wuwa-spectro">3</span> times.
-      <br />- Aero Rover's Outro Skill <b>Aeolian Realm</b> increases <b class="text-wuwa-aero">Aero Erosion</b>'s maximum stack count by <span class="text-wuwa-spectro">3</span>.`,
+      <br /><b class="text-wuwa-aero">Aero Erosion</b>'s DMG scales with the level of the last Resonator that apply the stack(s).
+      <br />
+      <br />- Aero Rover's Outro Skill <b>Aeolian Realm</b> increases <b class="text-wuwa-aero">Aero Erosion</b>'s maximum stack count by <span class="text-wuwa-spectro">3</span>.
+      <br />- Cartethyia's S2 increases <b class="text-wuwa-aero">Aero Erosion</b>'s maximum stack count by <span class="text-wuwa-spectro">3</span> during her Resonance Liberation.
+      `,
       image: '/asset/icons/SP_RoleLabelE3.webp',
-      max: 6,
+      max: 9,
     },
   }
   const type = DoTList[element]
