@@ -20,6 +20,7 @@ export interface IScaling {
   atkBonus?: number
   amp?: number
   subType?: TalentSubType
+  vul?: number
 }
 
 export interface IEnemyGroup {

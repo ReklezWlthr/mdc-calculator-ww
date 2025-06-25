@@ -57,6 +57,7 @@ export const damageStringConstruct = (
     (stats.getValue(StatsObjectKeys.DEF_PEN) || 0) +
     (scaling.defPen || 0) +
     (stats.getValue(`${TalentStatMap[scaling.property]}_DEF_PEN`) || 0)
+  const vul = 1 + (scaling.vul || 0)
 
   const defMult = calculatorStore.getDefMult(level, defPen, stats.getValue(StatsObjectKeys.DEF_REDUCTION)) || 1
   const resMult = isDamage
@@ -99,15 +100,13 @@ export const damageStringConstruct = (
     (scaling.flat || 0) +
     elementFlat +
     talentFlat
-  const dmg = raw * (1 + bonusDMG) * (scaling.multiplier || 1) * (1 + amp) * enemyMod * (scaling.hit || 1)
+  const modifiers = (1 + bonusDMG) * (scaling.multiplier || 1) * (1 + amp) * enemyMod * vul
+  const dmg = raw * modifiers * (scaling.hit || 1)
   const dmgArray = _.map(
     scaling.value,
     (item) =>
       (item.scaling * (item.override || statForScale[item.multiplier]) + (scaling.flat / _.size(scaling.value) || 0)) *
-      (1 + bonusDMG) *
-      (scaling.multiplier || 1) *
-      (1 + amp) *
-      enemyMod
+      modifiers
   )
 
   const totalCr = _.max([_.min([stats.getValue(Stats.CRIT_RATE) + (scaling.cr || 0) + talentCr, 1]), 0])
@@ -158,6 +157,10 @@ export const damageStringConstruct = (
           scaling.multiplier - 1,
           2
         )}</b>  <i class="text-[10px]">MULT</i> )`
+      : ''
+  }${
+    vul !== 1
+      ? ` \u{00d7} (1 + <b class="text-rose-400">${toPercentage(vul - 1, 2)}</b>  <i class="text-[10px]">VULN</i> )`
       : ''
   }${
     isDamage

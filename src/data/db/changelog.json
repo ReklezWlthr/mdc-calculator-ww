@@ -1,5 +1,12 @@
 [
   {
+    "version": "1.1.0-5",
+    "date": "June 14th, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">Fixed</b>: <b class=\"text-wuwa-aero\">Carthethyia</b>'s S6 now becomes a new multiplier (Vulnerability) instead of a DMG Bonus."
+    ]
+  },
+  {
     "version": "1.1.0-4",
     "date": "June 14th, 2025",
     "desc": [

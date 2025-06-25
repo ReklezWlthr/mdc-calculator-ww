@@ -412,7 +412,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           element: Element.AERO,
           property: TalentProperty.LIB,
           amp: (form.carte_lib || 0) * 0.2,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
           multiplier: c >= 3 ? 2 : 1,
         },
       ]
@@ -422,7 +422,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           value: [{ scaling: calcScaling(0.0327, forte), multiplier: Stats.HP }],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Stage 2 DMG',
@@ -432,7 +432,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Stage 3 DMG',
@@ -442,14 +442,14 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Stage 4 DMG',
           value: [{ scaling: calcScaling(0.0138, forte), multiplier: Stats.HP, hits: 4 }],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Stage 5 DMG',
@@ -459,7 +459,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Dodge Counter DMG',
@@ -469,14 +469,14 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Upward Cut DMG',
           value: [{ scaling: calcScaling(0.0229, forte), multiplier: Stats.HP, hits: 2 }],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Heavy Attack DMG',
@@ -486,7 +486,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Enhanced Heavy Attack DMG',
@@ -496,7 +496,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Mid-Air Attack 1 DMG',
@@ -506,7 +506,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Mid-Air Attack 2 DMG',
@@ -516,14 +516,14 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'Fleurdelys - Mid-Air Attack 3 DMG',
           value: [{ scaling: calcScaling(0.0111, forte), multiplier: Stats.HP }],
           element: Element.AERO,
           property: TalentProperty.BA,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: `Sword to Answer Waves' Call DMG`,
@@ -533,7 +533,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.SKILL,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
         {
           name: 'May Tempest Break the Tides DMG',
@@ -543,7 +543,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.SKILL,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
       ]
       base.INTRO_SCALING = [
@@ -565,7 +565,7 @@ const Carte = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team
           ],
           element: Element.AERO,
           property: TalentProperty.INTRO,
-          bonus: c >= 6 ? 0.4 : 0,
+          vul: c >= 6 ? 0.4 : 0,
         },
       ]
 
