@@ -1,5 +1,10 @@
 [
   {
+    "version": "1.1.0-6",
+    "date": "June 30th, 2025",
+    "desc": ["<b class=\"text-yellow\">New Weapon</b>: <b>Wildfire Mark</b>"]
+  },
+  {
     "version": "1.1.0-5",
     "date": "June 14th, 2025",
     "desc": [
@@ -18,7 +23,7 @@
     "date": "June 12th, 2025",
     "desc": [
       "<b class=\"text-yellow\">New Resonator</b>: <b class=\"text-wuwa-aero\">Carthethyia</b>, and <b class=\"text-wuwa-fusion\">Lupa</b>",
-      "<b class=\"text-yellow\">New Weapons</b>: <b>Defier's Thorn</b>",
+      "<b class=\"text-yellow\">New Weapon</b>: <b>Defier's Thorn</b>",
       "<b class=\"text-yellow\">Added</b>: <b>Wayward Pilgrimage</b> and <b>Flaming Clawprint</b> Sonata Effect plus 8 new Echoes",
       "<b class=\"text-yellow\">Added</b>: New Dish Presets"
     ]
@@ -28,7 +33,7 @@
     "date": "May 23rd, 2025",
     "desc": [
       "<b class=\"text-yellow\">New Resonator</b>: <b class=\"text-wuwa-aero\">Ciaccona</b>",
-      "<b class=\"text-yellow\">New Weapons</b>: <b>Woodland Aria</b>"
+      "<b class=\"text-yellow\">New Weapon</b>: <b>Woodland Aria</b>"
     ]
   },
   {
@@ -41,7 +46,7 @@
     "date": "April 30th, 2025",
     "desc": [
       "<b class=\"text-yellow\">New Resonator</b>: <b class=\"text-wuwa-spectro\">Zani</b>",
-      "<b class=\"text-yellow\">New Weapons</b>: <b>Blazing Justice</b>",
+      "<b class=\"text-yellow\">New Weapon</b>: <b>Blazing Justice</b>",
       "<b class=\"text-yellow\">New Feature</b>: ER Requirement"
     ]
   },
