@@ -275,6 +275,7 @@ export enum Stats {
   ATTR_DMG = 'Attribute DMG%',
   OUTRO_DMG = 'Outro DMG%',
   COORD_DMG = 'Coordinated Attack DMG%',
+  ECHO_DMG = 'Echo Skill DMG%',
 }
 
 export const StatIcons = {

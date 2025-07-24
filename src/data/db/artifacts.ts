@@ -2,6 +2,7 @@ import { calcRefinement } from '@src/core/utils/data_format'
 import { Element, IArtifact, Stats, TalentProperty } from '@src/domain/constant'
 import _ from 'lodash'
 import { StatsObject } from '../lib/stats/baseConstant'
+import { CharStats } from './characters'
 
 export enum Sonata {
   FREEZING_FROST = 'Freezing Frost',
@@ -21,6 +22,7 @@ export enum Sonata {
   GUST_OF_WELKIN = 'Gusts of Welkin',
   WINDWARD = 'Windward Pilgrimage',
   FLAMING_CLAWPRINT = 'Flaming Clawprint',
+  DREAM = 'Dream of the Lost',
 }
 
 export const SonataDetail = {
@@ -201,6 +203,29 @@ export const SonataDetail = {
       desc: `Casting Resonance Liberation increases <b class="text-wuwa-fusion">Fusion DMG</b> of Resonators in the team by <span class="text-desc">15%</span> and the caster's Resonance Liberation DMG by <span class="text-desc">20%</span>, lasting for <span class="text-desc">35</span>s.`,
     },
   ],
+  [Sonata.DREAM]: [
+    {
+      desc: `Holding <span class="text-desc">0</span> Resonance Energy increases Crit. Rate by <span class="text-desc">20%</span> and grants <span class="text-desc">35%</span> Echo Skill DMG Bonus.`,
+    },
+  ],
+}
+
+export const SonataBonusFunc = {
+  [Sonata.DREAM]: (base: StatsObject, char: CharStats, setCount: number) => {
+    if (!char?.stat?.energy && setCount === 3) {
+      base[Stats.CRIT_RATE].push({
+        name: `3 Piece`,
+        source: Sonata.DREAM,
+        value: 0.2,
+      })
+      base[Stats.ECHO_DMG].push({
+        name: `3 Piece`,
+        source: Sonata.DREAM,
+        value: 0.35,
+      })
+    }
+    return base
+  },
 }
 
 export const Echoes: IArtifact[] = [
@@ -1095,7 +1120,7 @@ export const Echoes: IArtifact[] = [
     properties: [{ base: 123.43, growth: 16.1 }],
     bonus: (base, r) => {
       base.ECHO_SCALING.push({
-        name: 'Counterattack DMG',
+        name: 'Havoc Warrior DMG',
         value: [{ scaling: calcRefinement(1.2343, 0.161, r), multiplier: Stats.ATK, hits: 3 }],
         element: Element.HAVOC,
         property: TalentProperty.ECHO,
@@ -2016,7 +2041,7 @@ export const Echoes: IArtifact[] = [
     name: 'Fae Ignis',
     icon: 'T_IconMonsterHead_31043_UI',
     skill: 'MstSkil_31043_UI',
-    sonata: [Sonata.ETERNAL_RADIANCE, Sonata.MIDNIGHT_VEIL],
+    sonata: [Sonata.ETERNAL_RADIANCE, Sonata.MIDNIGHT_VEIL, Sonata.DREAM],
     desc: `Summon a Fae Ignis to attack enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.`,
     properties: [{ base: 82.8, growth: 10.8 }],
     bonus: (base, r) => {
@@ -2272,7 +2297,7 @@ export const Echoes: IArtifact[] = [
     name: 'Chop Chop',
     icon: 'T_IconMonsterHead_32028_UI',
     skill: 'MstSkil_32028_UI',
-    sonata: [Sonata.EMPYREAN_ANTHEM, Sonata.TIDEBREAKING_COURAGE],
+    sonata: [Sonata.EMPYREAN_ANTHEM, Sonata.TIDEBREAKING_COURAGE, Sonata.DREAM],
     desc: `Summon a Chop Chop to perform a series of consecutive attacks. The first <span class="text-desc">3</span> strikes each deal {{0}}% <b class="text-wuwa-fusion">Fusion DMG</b> and finishing strike deals {{1}}% <b class="text-wuwa-fusion">Fusion DMG</b>.`,
     properties: [
       { base: 22.77, growth: 2.97 },
@@ -3076,5 +3101,137 @@ export const Echoes: IArtifact[] = [
       return base
     },
     cost: 4,
+  },
+  {
+    id: '6000115',
+    name: `Nightmare: Hecate`,
+    icon: 'T_IconMonsterHead_34016_UI',
+    skill: 'MstSkil_34010_UI',
+    sonata: [Sonata.DREAM],
+    desc: `Transform into Nightmare: Hecate. Leap up and smash down, dealing <span class="text-desc">3</span> stages of damage, each dealing <b class="text-wuwa-havoc">Havoc DMG</b> equal to {{0}}% of her ATK.
+    <br />The Resonator with the Echo equipped in the main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> and <span class="text-desc">20%</span> Echo Skill DMG Bonus.`,
+    properties: [{ base: 101.59, growth: 16.93 }],
+    bonus: (base, r) => {
+      base[Stats.HAVOC_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Nightmare: Hecate',
+      })
+      base[Stats.ECHO_DMG].push({
+        value: 0.2,
+        name: 'Echo Skill',
+        source: 'Nightmare: Hecate',
+      })
+      base.ECHO_SCALING.push({
+        name: `Nightmare: Hecate DMG`,
+        value: [{ scaling: calcRefinement(1.0159, 0.1693, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '6000116',
+    name: `Reminiscence: Fenrico`,
+    icon: 'T_IconMonsterHead_34015_2_UI',
+    skill: 'T_Mstskil_34015_UI',
+    sonata: [Sonata.DREAM],
+    desc: `Summon the Talons of Decree to attack nearby enemies, dealing {{0}}% <b class="text-wuwa-aero">Aero DMG</b>.
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-aero">Aero DMG Bonus</b> and <span class="text-desc">12%</span> Heavy Attack DMG Bonus.`,
+    properties: [{ base: 182.4, growth: 30.4 }],
+    bonus: (base, r) => {
+      base[Stats.AERO_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Reminiscence: Fenrico',
+      })
+      base[Stats.HEAVY_DMG].push({
+        value: 0.12,
+        name: 'Echo Skill',
+        source: 'Reminiscence: Fenrico',
+      })
+      base.ECHO_SCALING.push({
+        name: `Talons of Decree DMG`,
+        value: [{ scaling: calcRefinement(1.824, 0.304, r), multiplier: Stats.ATK, hits: 2 }],
+        element: Element.AERO,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 4,
+  },
+  {
+    id: '6000117',
+    name: 'Nightmare: Havoc Warrior',
+    icon: 'T_IconMonsterHead_31063_UI',
+    skill: 'T_MstSkil_Z_Z8_UI',
+    sonata: [Sonata.DREAM],
+    desc: `Transform into Havoc Warrior to attack up to <span class="text-desc">3</span> times, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b> each time.`,
+    properties: [{ base: 123.43, growth: 16.1 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Nightmare: Havoc Warrior DMG',
+        value: [{ scaling: calcRefinement(1.2343, 0.161, r), multiplier: Stats.ATK, hits: 3 }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000118',
+    name: 'Nightmare: Glacio Predator',
+    icon: 'T_IconMonsterHead_31064_UI',
+    skill: 'T_MstSkil_Z_Z9_UI',
+    sonata: [Sonata.DREAM],
+    desc: `Summon a Glacio Predator that throws an ice spear, dealing {{0}}% <b class="text-wuwa-glacio">Glacio DMG</b> on hit. Deal {{1}}% <b class="text-wuwa-glacio">Glacio DMG</b> up to <span class="text-desc">10</span> times during the charging time, and {{2}}% <b class="text-wuwa-glacio">Glacio DMG</b> when the spear explodes.`,
+    properties: [
+      { base: 33.12, growth: 4.32 },
+      { base: 3.31, growth: 0.43 },
+      { base: 16.56, growth: 2.16 },
+    ],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push(
+        {
+          name: 'Ice Spear DMG',
+          value: [{ scaling: calcRefinement(0.3312, 0.0432, r), multiplier: Stats.ATK }],
+          element: Element.GLACIO,
+          property: TalentProperty.ECHO,
+        },
+        {
+          name: 'Lance Field DMG',
+          value: [
+            { scaling: calcRefinement(0.0331, 0.0043, r), multiplier: Stats.ATK, hits: 10 },
+            { scaling: calcRefinement(0.1656, 0.00402163, r), multiplier: Stats.ATK },
+          ],
+          element: Element.GLACIO,
+          property: TalentProperty.ECHO,
+        }
+      )
+      return base
+    },
+    cost: 1,
+  },
+  {
+    id: '6000119',
+    name: 'Nightmare: Tambourinist',
+    icon: 'T_IconMonsterHead_32043_UI',
+    skill: 'T_MstSkil_205_UI',
+    sonata: [Sonata.DREAM],
+    desc: `Summon a Tambourinist that plays out <b>Melodies of Annihilation</b>. Any Resonator on the team gains the following effect for <span class="text-desc">10</span>s upon obtaining a <b>Melody of Annihilation</b>>: When the Resonator hits a target, the Tambourinist deals {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b> to the target, up to <span class="text-desc">10</span> times.`,
+    properties: [{ base: 10.35, growth: 1.35 }],
+    bonus: (base, r) => {
+      base.ECHO_SCALING.push({
+        name: 'Melodies of Annihilation DMG',
+        value: [{ scaling: calcRefinement(0.1035, 0.0135, r), multiplier: Stats.ATK }],
+        element: Element.HAVOC,
+        property: TalentProperty.ECHO,
+      })
+      return base
+    },
+    cost: 3,
   },
 ]

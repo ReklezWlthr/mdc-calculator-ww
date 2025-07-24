@@ -1538,6 +1538,26 @@ export const Weapons = [
     beta: false,
   },
   {
+    id: '21050066',
+    image: 'T_IconWeapon21050066_UI.webp',
+    name: 'Lethean Elegy',
+    rarity: 5,
+    baseAtk: 47,
+    ascStat: Stats.CRIT_RATE,
+    baseStat: 0.054,
+    type: WeaponType.RECTIFIER,
+    desc: {
+      name: 'Underworld Requiem',
+      detail: `ATK is increased by {{0}}%. Within <span class="text-desc">12</span>s after dealing Echo Skill DMG, gain {{1}}% Resonance Skill DMG Bonus and {{1}}% Echo Skill DMG Amplification, and ignore {{2}}% of the target's DEF when dealing damage.`,
+      properties: [
+        { base: 12, growth: 3 },
+        { base: 32, growth: 8 },
+        { base: 8, growth: 2 },
+      ],
+    },
+    beta: false,
+  },
+  {
     id: '21050074',
     image: 'T_IconWeapon21050074_UI.webp',
     name: 'Augment',

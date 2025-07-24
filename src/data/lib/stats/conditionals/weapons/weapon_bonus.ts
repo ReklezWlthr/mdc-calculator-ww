@@ -546,6 +546,17 @@ const WeaponBonus: {
       return base
     },
   },
+  {
+    id: '21050066',
+    scaling: (base, r) => {
+      base[Stats.P_ATK].push({
+        source: `Lethean Elegy`,
+        name: `Passive`,
+        value: calcRefinement(0.12, 0.03, r),
+      })
+      return base
+    },
+  },
 ]
 
 export default WeaponBonus

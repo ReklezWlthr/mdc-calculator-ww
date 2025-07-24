@@ -12,7 +12,7 @@ import { GhostButton } from '@src/presentation/components/ghost.button'
 import { BuildModal } from '../components/modals/build_modal'
 import { findCharacter } from '@src/core/utils/finder'
 import { getResonanceCount, getSetCount } from '@src/core/utils/data_format'
-import { Echoes, SonataDetail } from '@src/data/db/artifacts'
+import { Echoes, Sonata, SonataDetail } from '@src/data/db/artifacts'
 import { Tooltip } from '@src/presentation/components/tooltip'
 import { CommonModal } from '@src/presentation/components/common_modal'
 import { CharacterSelect } from '../components/character_select'
@@ -30,6 +30,27 @@ import classNames from 'classnames'
 
 export const SetToolTip = observer(({ item, set }: { item: number; set: string }) => {
   const setDetail = SonataDetail[set]
+  if (set === Sonata.DREAM) {
+    return (
+      item >= 3 && (
+        <Tooltip
+          title={set}
+          body={
+            <div className="space-y-1">
+              <p dangerouslySetInnerHTML={{ __html: `<b>3 Piece:</b> ${setDetail?.[0]?.desc}` }} />
+            </div>
+          }
+          style="w-[400px]"
+          key={set}
+        >
+          <div className="flex items-center justify-between w-full gap-3 text-xs text-white cursor-default">
+            <p className="w-full line-clamp-2">{set}</p>
+            <p className="px-2 py-0.5 rounded-lg bg-primary-lighter bg-opacity-40">3</p>
+          </div>
+        </Tooltip>
+      )
+    )
+  }
   const count = item < 5 ? (item < 2 ? 0 : 2) : 5
   return (
     item >= 2 && (

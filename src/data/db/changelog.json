@@ -1,5 +1,14 @@
 [
   {
+    "version": "1.1.0-3",
+    "date": "July 24th, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">New Resonator</b>: <b class=\"text-wuwa-havoc\">Phrolova</b>",
+      "<b class=\"text-yellow\">New Weapon</b>: <b>Lethean Elegy</b>",
+      "<b class=\"text-yellow\">Added</b>: <b>Dream of the Lost</b> Sonata Effect plus 5 new Echoes"
+    ]
+  },
+  {
     "version": "1.1.0-6",
     "date": "June 30th, 2025",
     "desc": ["<b class=\"text-yellow\">New Weapon</b>: <b>Wildfire Mark</b>"]

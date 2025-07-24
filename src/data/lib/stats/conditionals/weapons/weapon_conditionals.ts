@@ -1253,6 +1253,33 @@ export const WeaponConditionals: IWeaponContent[] = [
       return base
     },
   },
+  {
+    type: 'toggle',
+    text: `On-Echo Bonuses`,
+    show: true,
+    default: true,
+    id: '21050066',
+    scaling: (base, form, r) => {
+      if (form['21050066']) {
+        base.DEF_PEN.push({
+          value: calcRefinement(0.08, 0.02, r),
+          name: 'Passive',
+          source: `Lethean Elegy`,
+        })
+        base.ECHO_AMP.push({
+          value: calcRefinement(0.32, 0.08, r),
+          name: 'Passive',
+          source: `Lethean Elegy`,
+        })
+        base[Stats.SKILL_DMG].push({
+          value: calcRefinement(0.32, 0.08, r),
+          name: 'Passive',
+          source: `Lethean Elegy`,
+        })
+      }
+      return base
+    },
+  },
 ]
 
 export const WeaponAllyConditionals: IWeaponContent[] = [

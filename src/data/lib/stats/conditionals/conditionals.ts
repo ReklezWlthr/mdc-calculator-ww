@@ -34,6 +34,7 @@ import Ciaccona from './characters/Ciaccona'
 import Zani from './characters/Zani'
 import Carte from './characters/Carte'
 import Lupa from './characters/Lupa'
+import Phrolova from './characters/Phrolova'
 
 export default [
   { id: '1102', conditionals: Sanhua },
@@ -72,6 +73,7 @@ export default [
   { id: '1604', conditionals: HRover },
   { id: '1606', conditionals: Roccia },
   { id: '1607', conditionals: Cantarella },
+  { id: '1608', conditionals: Phrolova },
 
   // Rovers
 ]

@@ -228,7 +228,7 @@ export const Characters = [
     element: Element.FUSION,
     codeName: 'lupa',
     order: '46',
-    tags: [Tags.CONCERTO, Tags.LIB, Tags.BA_AMP],
+    tags: [Tags.CONCERTO, Tags.LIB, Tags.FUSION_AMP, Tags.BA_AMP],
     growth: [Stats.P_ATK, Stats.CRIT_RATE],
     mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.ER, Stats.FUSION_DMG, Stats.LIB_DMG],
     beta: false,
@@ -442,7 +442,7 @@ export const Characters = [
     element: Element.AERO,
     codeName: 'katixiya',
     order: '40',
-    tags: [Tags.MAIN_DPS, Tags.AMP, Tags.EROSION],
+    tags: [Tags.MAIN_DPS, Tags.TRACTION, Tags.AERO_AMP, Tags.EROSION],
     growth: [Stats.P_HP, Stats.CRIT_RATE],
     mark: [Stats.HP, Stats.CRIT_RATE, Stats.CRIT_DMG],
     beta: false,
@@ -640,6 +640,26 @@ export const Characters = [
     mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.HAVOC_DMG, Stats.BASIC_DMG, Stats.ER],
     beta: false,
   },
+  {
+    id: '1608',
+    name: 'Phrolova',
+    stat: {
+      baseAtk: 35,
+      baseHp: 862,
+      baseDef: 93,
+      energy: 0,
+    },
+    rarity: 5,
+    weapon: WeaponType.RECTIFIER,
+    element: Element.HAVOC,
+    codeName: 'FuLuoLuo',
+    order: '41',
+    tags: [Tags.MAIN_DPS, Tags.SKILL, Tags.HAVOC_AMP, Tags.HA_AMP],
+    avatarAdjust: 'object-[0_80%]',
+    growth: [Stats.P_ATK, Stats.CRIT_RATE],
+    mark: [Stats.ATK, Stats.CRIT_RATE, Stats.CRIT_DMG, Stats.HAVOC_DMG, Stats.SKILL_DMG, Stats.ER],
+    beta: false,
+  },
 
   // The counterpart will have id + 1
   // order for male is 4, female 5
@@ -701,3 +721,5 @@ export const Characters = [
     beta: false,
   },
 ]
+
+export type CharStats = (typeof Characters)[number]

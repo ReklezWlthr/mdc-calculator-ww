@@ -49,6 +49,8 @@ export const CustomModal = observer(({ setCustomValue }: { setCustomValue?: Cust
       { name: Stats.SKILL_DMG, value: Stats.SKILL_DMG },
       { name: Stats.LIB_DMG, value: Stats.LIB_DMG },
       { name: Stats.OUTRO_DMG, value: Stats.OUTRO_DMG },
+      { name: Stats.COORD_DMG, value: Stats.COORD_DMG },
+      { name: Stats.ECHO_DMG, value: Stats.ECHO_DMG },
     ],
     amp: [
       { name: 'DMG Amplify', value: StatsObjectKeys.AMP },

@@ -42,6 +42,8 @@ export const baseStatsObject = {
 
   X_EM: [] as StatsArray[],
 
+  VUL: [] as StatsArray[],
+
   // DMG Bonuses
   [Stats.FUSION_DMG]: [] as StatsArray[],
   [Stats.GLACIO_DMG]: [] as StatsArray[],
@@ -51,6 +53,7 @@ export const baseStatsObject = {
   [Stats.HAVOC_DMG]: [] as StatsArray[],
   [Stats.ALL_DMG]: [] as StatsArray[],
   [Stats.ATTR_DMG]: [] as StatsArray[],
+  [Stats.ECHO_DMG]: [] as StatsArray[],
 
   AMP: [] as StatsArray[],
   FUSION_AMP: [] as StatsArray[],
@@ -119,6 +122,7 @@ export const baseStatsObject = {
   SKILL_AMP: [] as StatsArray[],
   LIB_AMP: [] as StatsArray[],
   COORD_AMP: [] as StatsArray[],
+  ECHO_AMP: [] as StatsArray[],
 
   BASIC_F_DMG: [] as StatsArray[],
   HEAVY_F_DMG: [] as StatsArray[],
@@ -194,6 +198,7 @@ export const TalentStatMap = {
   [TalentProperty.HA]: 'HEAVY',
   [TalentProperty.SKILL]: 'SKILL',
   [TalentProperty.LIB]: 'LIB',
+  [TalentProperty.ECHO]: 'ECHO',
 }
 
 export type StatsObject = typeof baseStatsObject

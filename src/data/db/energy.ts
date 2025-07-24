@@ -13,7 +13,7 @@ export const CharacterEnergyNote = {
   '1403': `The default values only depict the rotation when playing him as a Sub-DPS. Aalto's rotation when playing him as a Main DPS is very flexible and can vary from person to person. Feel free to adjust the rotation accordingly.
   <br />For the players who want to utilize Aalto's Mid-Air Attacks, do note that you can fire up to around <span class="text-desc">7~9</span> shots per jump.`,
   '1405': `Jianxin is one of the Resonators with no clear rotation. The default values only serve as a guideline. You should adjust your rotation according to your team and how you want to play her.`,
-  '1505': `You can ignore Shorekeeper's ER Requirement most of the time since she will be built with absurdly high amount of ER anyway. Because of that, her rotation will mainly contribute to her teammates' Energy gain more that herself's.`,
+  '1505': `You can ignore Shorekeeper's ER Requirement most of the time since she will be built with absurdly high amount of ER anyway. Because of that, her rotation will mainly contribute to her teammates' Energy gain more than herself's.`,
   '1506': `Phoebe has 2 playstyles: Main DPS (<b>Absolution</b>) and <b class="text-wuwa-spectro">Frazzle</b> Support (<b>Confession</b>). The default value is for her <b>Absolution</b> form.
   <br />For basic <b>Confession</b> rotation, change all the <span class="text-desc">4</span> to <span class="text-desc">2</span>, and switch the value from <b>Absolute Litany</b> to <b>Utter Confession</b>.
   <br />Generally, <b>Confession</b> requires around <span class="text-desc">12%~15%</span> more Energy Regen.`,
@@ -22,6 +22,7 @@ export const CharacterEnergyNote = {
   '1603': `Camellya cannot regenerate Energy during <b class="text-desc">Budding Mode</b>, instead any attack that consumes <b class="text-red">Crimson Pistil</b> will scale with <span class="text-desc">2.5</span> times as much Energy Regen.
   <br />For account for this, <b class="text-red">DO NOT</b> include any ability cast during <b class="text-desc">Budding Mode</b> and multiply the amount of casts that consumes <b class="text-red">Crimson Pistil</b> by <span class="text-desc">2.5</span>.
   <br />Every attack can consume <b class="text-red">Crimson Pistil</b>, except Intro Skill <b>Everblooming</b>, and Resonance Skill <b>Ephemeral</b>.`,
+  '1608': `Phrolova's does not use Resonance Energy to cast Resonance Liberation. Because of that, her rotation will only contribute to her teammates' Energy gain rather than herself's.`,
 }
 
 export const FlatEnergy = [
@@ -713,25 +714,25 @@ export const EnergyData = {
   ],
   '1409': [
     { name: 'Basic Attack Stage 1', energy: 0.7, type: TalentProperty.NA, default: 0 },
-    { name: 'Basic Attack Stage 2', energy: 0.58 * 2 + 0.77, type: TalentProperty.NA, default: 0 },
-    { name: 'Basic Attack Stage 3', energy: 0.63 * 4, type: TalentProperty.NA, default: 0 },
-    { name: 'Basic Attack Stage 4', energy: 0.37 * 3 + 1.11, type: TalentProperty.NA, default: 0 },
+    { name: 'Basic Attack Stage 2', energy: 0.58 * 2 + 0.77, type: TalentProperty.NA, default: 1 },
+    { name: 'Basic Attack Stage 3', energy: 0.63 * 4, type: TalentProperty.NA, default: 1 },
+    { name: 'Basic Attack Stage 4', energy: 0.37 * 3 + 1.11, type: TalentProperty.NA, default: 1 },
     { name: 'Heavy Attack', energy: 0.42 * 3 + 1.25, type: TalentProperty.NA, default: 0 },
     { name: 'Mid-Air Attack (0~1 Sword)', energy: 1.33, type: TalentProperty.NA, default: 0 },
     { name: 'Mid-Air Attack (2 Swords)', energy: 0.45 * 3, type: TalentProperty.NA, default: 0 },
     { name: 'Mid-Air Attack (3 Swords)', energy: 0.45 * 3, type: TalentProperty.NA, default: 0 },
     { name: 'Dodge Counter', energy: 0.63 * 4, type: TalentProperty.NA, default: 0 },
 
-    { name: 'Sword to Bear Their Names', energy: 3.8 * 3 + 4.88, type: TalentProperty.SKILL, default: 0 },
+    { name: 'Sword to Bear Their Names', energy: 3.8 * 3 + 4.88, type: TalentProperty.SKILL, default: 1 },
 
     { name: `Cartethyia - Sword to Mark Tide's Trace`, energy: 10, type: TalentProperty.INTRO, default: 1 },
     { name: `Fleurdelys - Sword to Call for Freedom`, energy: 0.53 + 1.23, type: TalentProperty.INTRO, default: 0 },
 
-    { name: 'Fleurdelys - Basic Attack Stage 1', energy: 0.75, type: TalentProperty.FORTE, default: 0 },
-    { name: 'Fleurdelys - Basic Attack Stage 2', energy: 0.39 * 3 + 0.77, type: TalentProperty.FORTE, default: 0 },
-    { name: 'Fleurdelys - Basic Attack Stage 3', energy: 0.45 * 3 + 0.9, type: TalentProperty.FORTE, default: 0 },
-    { name: 'Fleurdelys - Basic Attack Stage 4', energy: 0.45 * 5, type: TalentProperty.FORTE, default: 0 },
-    { name: 'Fleurdelys - Basic Attack Stage 5', energy: 0.4 + 1.59, type: TalentProperty.FORTE, default: 0 },
+    { name: 'Fleurdelys - Basic Attack Stage 1', energy: 0.75, type: TalentProperty.FORTE, default: 2 },
+    { name: 'Fleurdelys - Basic Attack Stage 2', energy: 0.39 * 3 + 0.77, type: TalentProperty.FORTE, default: 2 },
+    { name: 'Fleurdelys - Basic Attack Stage 3', energy: 0.45 * 3 + 0.9, type: TalentProperty.FORTE, default: 2 },
+    { name: 'Fleurdelys - Basic Attack Stage 4', energy: 0.45 * 5, type: TalentProperty.FORTE, default: 2 },
+    { name: 'Fleurdelys - Basic Attack Stage 5', energy: 0.4 + 1.59, type: TalentProperty.FORTE, default: 2 },
     { name: 'Fleurdelys - Upward Cut', energy: 0.76 * 2, type: TalentProperty.FORTE, default: 0 },
     { name: 'Fleurdelys - Heavy Attack', energy: 0.53 + 1.23, type: TalentProperty.FORTE, default: 0 },
     { name: 'Fleurdelys - Enhanced Heavy Attack', energy: 0.96 * 2 + 0.48, type: TalentProperty.FORTE, default: 0 },
@@ -739,8 +740,8 @@ export const EnergyData = {
     { name: 'Fleurdelys - Mid-Air Attack 2', energy: 0.52 * 2 + 1.03, type: TalentProperty.FORTE, default: 0 },
     { name: 'Fleurdelys - Mid-Air Attack 3', energy: 0.48, type: TalentProperty.FORTE, default: 0 },
     { name: 'Fleurdelys - Dodge Counter', energy: 0.45 * 3 + 0.9, type: TalentProperty.FORTE, default: 0 },
-    { name: `Sword to Answer Waves' Call`, energy: 0.18 * 4 + 1.61, type: TalentProperty.FORTE, default: 0 },
-    { name: 'May Tempest Break the Tides', energy: 0.66 * 2 + 2.5 * 3, type: TalentProperty.FORTE, default: 0 },
+    { name: `Sword to Answer Waves' Call`, energy: 0.18 * 4 + 1.61, type: TalentProperty.FORTE, default: 1 },
+    { name: 'May Tempest Break the Tides', energy: 0.66 * 2 + 2.5 * 3, type: TalentProperty.FORTE, default: 1 },
   ],
   '1501': [
     { name: 'Basic Attack Stage 1', energy: 0.5, type: TalentProperty.NA, default: 1 },
@@ -1041,5 +1042,30 @@ export const EnergyData = {
     { name: 'Mid-Air Attack: Abysmal Vortex', energy: 0.66 + 0.99, type: TalentProperty.FORTE, default: 0 },
     { name: 'Resonance Skill: Perception Drain', energy: 10.55 * 2, type: TalentProperty.FORTE, default: 1 },
     { name: 'Dodge Counter: Shadowy Sweep', energy: 0.56 * 3, type: TalentProperty.FORTE, default: 0 },
+  ],
+  '1608': [
+    { name: 'Basic Attack Stage 1', energy: 0.84 * 2, type: TalentProperty.NA, default: 0 },
+    { name: 'Basic Attack Stage 2', energy: 1.5, type: TalentProperty.NA, default: 0 },
+    { name: 'Basic Attack Stage 3', energy: 0.62 + 0.42 * 6, type: TalentProperty.NA, default: 1 },
+    { name: 'Heavy Attack', energy: 1.26 * 2, type: TalentProperty.NA, default: 0 },
+    { name: 'Scarlet Coda', energy: 0.35 * 2 + 0.13 * 8 + 5.19, type: TalentProperty.NA, default: 1 },
+    { name: 'Mid-Air Attack', energy: 2, type: TalentProperty.NA, default: 0 },
+    { name: 'Dodge Counter', energy: 1.92, type: TalentProperty.NA, default: 0 },
+    { name: 'Whispers in a Fleeting Dream', energy: 6.67, type: TalentProperty.SKILL, default: 1 },
+    { name: 'Curtain Call - Hecate', energy: 2.93, type: TalentProperty.LIB, default: 0 },
+    { name: `Suite of Quietus`, energy: 10, type: TalentProperty.INTRO, default: 1 },
+    { name: `Suite of Immortality`, energy: 10, type: TalentProperty.INTRO, default: 0 },
+    {
+      name: 'Basic Attack: Movement of Fate and Finality',
+      energy: 0.24 * 4 + 0.75 * 3,
+      type: TalentProperty.FORTE,
+      default: 1,
+    },
+    {
+      name: 'Resonance Skill: Murmurs in a Haunting Dream',
+      energy: 0.15 * 4 + 0.3 + 2.05,
+      type: TalentProperty.FORTE,
+      default: 1,
+    },
   ],
 }

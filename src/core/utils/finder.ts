@@ -9,6 +9,8 @@ export const findWeapon = (wId: string) => _.find(Weapons, (item) => item.id ===
 
 export const findCharacter = (cId: string) => _.find(GIChar, (item) => item.id === cId)
 
+export const findCharacterByName = (name: string) => _.find(GIChar, (item) => item.name === name)
+
 export const findEcho = (id: string) => _.find(Echoes, (item) => item.id === id)
 
 export const findEnemy = (name: string) => _.find(EnemyGroups, (item) => item.name === name)
