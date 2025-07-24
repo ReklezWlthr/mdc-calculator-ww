@@ -1044,9 +1044,9 @@ export const EnergyData = {
     { name: 'Dodge Counter: Shadowy Sweep', energy: 0.56 * 3, type: TalentProperty.FORTE, default: 0 },
   ],
   '1608': [
-    { name: 'Basic Attack Stage 1', energy: 0.84 * 2, type: TalentProperty.NA, default: 0 },
-    { name: 'Basic Attack Stage 2', energy: 1.5, type: TalentProperty.NA, default: 0 },
-    { name: 'Basic Attack Stage 3', energy: 0.62 + 0.42 * 6, type: TalentProperty.NA, default: 1 },
+    { name: 'Basic Attack Stage 1', energy: 0.84 * 2, type: TalentProperty.NA, default: 1 },
+    { name: 'Basic Attack Stage 2', energy: 1.5, type: TalentProperty.NA, default: 1 },
+    { name: 'Basic Attack Stage 3', energy: 0.62 + 0.42 * 6, type: TalentProperty.NA, default: 2 },
     { name: 'Heavy Attack', energy: 1.26 * 2, type: TalentProperty.NA, default: 0 },
     { name: 'Scarlet Coda', energy: 0.35 * 2 + 0.13 * 8 + 5.19, type: TalentProperty.NA, default: 1 },
     { name: 'Mid-Air Attack', energy: 2, type: TalentProperty.NA, default: 0 },
@@ -1059,7 +1059,7 @@ export const EnergyData = {
       name: 'Basic Attack: Movement of Fate and Finality',
       energy: 0.24 * 4 + 0.75 * 3,
       type: TalentProperty.FORTE,
-      default: 1,
+      default: 2,
     },
     {
       name: 'Resonance Skill: Murmurs in a Haunting Dream',
