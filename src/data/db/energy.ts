@@ -1053,8 +1053,7 @@ export const EnergyData = {
     { name: 'Dodge Counter', energy: 1.92, type: TalentProperty.NA, default: 0 },
     { name: 'Whispers in a Fleeting Dream', energy: 6.67, type: TalentProperty.SKILL, default: 1 },
     { name: 'Curtain Call - Hecate', energy: 2.93, type: TalentProperty.LIB, default: 0 },
-    { name: `Suite of Quietus`, energy: 10, type: TalentProperty.INTRO, default: 1 },
-    { name: `Suite of Immortality`, energy: 10, type: TalentProperty.INTRO, default: 0 },
+    { name: `Suite of Quietus / Suite of Immortality`, energy: 10, type: TalentProperty.INTRO, default: 1 },
     {
       name: 'Basic Attack: Movement of Fate and Finality',
       energy: 0.24 * 4 + 0.75 * 3,
