@@ -285,12 +285,17 @@ const Phrolova = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
             { scaling: calcScaling(0.0623, normal), multiplier: Stats.ATK, hits: 8 },
             { scaling: calcScaling(2.4903, normal), multiplier: Stats.ATK },
             ...(form.lingering_note
-              ? [{ scaling: calcScaling(0.4153, normal) * form.lingering_note, multiplier: Stats.ATK }]
+              ? [
+                  {
+                    scaling: (calcScaling(0.4153, normal) + (c >= 2 ? 0.75 : 0)) * form.lingering_note,
+                    multiplier: Stats.ATK,
+                  },
+                ]
               : []),
           ],
           element: Element.HAVOC,
           property: TalentProperty.SKILL,
-          multiplier: c >= 1 ? 1.75 : 1,
+          multiplier: c >= 2 ? 1.75 : 1,
         },
       ]
       base.MID_AIR_SCALING = [
