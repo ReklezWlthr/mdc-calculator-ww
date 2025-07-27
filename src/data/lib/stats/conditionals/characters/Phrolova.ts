@@ -281,17 +281,26 @@ const Phrolova = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
         {
           name: 'Scarlet Coda DMG',
           value: [
-            { scaling: calcScaling(0.1661, normal), multiplier: Stats.ATK, hits: 2 },
-            { scaling: calcScaling(0.0623, normal), multiplier: Stats.ATK, hits: 8 },
-            { scaling: calcScaling(2.4903, normal), multiplier: Stats.ATK },
-            ...(form.lingering_note
-              ? [
-                  {
-                    scaling: (calcScaling(0.4153, normal) + (c >= 2 ? 0.75 : 0)) * form.lingering_note,
-                    multiplier: Stats.ATK,
-                  },
-                ]
-              : []),
+            {
+              scaling:
+                calcScaling(0.1661, normal) +
+                (form.lingering_note ? calcScaling(0.4153, normal) * 0.05 * form.lingering_note : 0),
+              multiplier: Stats.ATK,
+              hits: 2,
+            },
+            {
+              scaling:
+                calcScaling(0.0623, normal) +
+                (form.lingering_note ? calcScaling(0.4153, normal) * 0.01875 * form.lingering_note : 0),
+              multiplier: Stats.ATK,
+              hits: 8,
+            },
+            {
+              scaling:
+                calcScaling(2.4903, normal) +
+                (form.lingering_note ? calcScaling(0.4153, normal) * 0.75 * form.lingering_note : 0),
+              multiplier: Stats.ATK,
+            },
           ],
           element: Element.HAVOC,
           property: TalentProperty.SKILL,
