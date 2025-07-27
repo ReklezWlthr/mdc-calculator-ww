@@ -10,6 +10,11 @@ import { calcFlatScaling, calcHealScaling, calcScaling } from '@src/core/utils/d
 const Phrolova = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team: ITeamChar[]) => {
   const { normal, skill, lib, forte, intro } = t
 
+  const aftersound = `<b class="text-wuwa-havoc">Aftersound</b>
+      <br />Phrolova can hold up to <span class="text-desc">24</span> stacks of <b class="text-wuwa-havoc">Aftersound</b>.
+      <br />When Phrolova is not the active Resonator, casting <b>Enhanced Attack - Hecate: Strings</b>, <b>Enhanced Attack - Hecate: Winds</b>, and <b>Enhanced Attack - Hecate: Cadenza</b> grants <span class="text-desc">1</span> stack of <b class="text-wuwa-havoc">Aftersound</b>.
+      <br />When Phrolova is out of combat, all stacks of <b class="text-wuwa-havoc">Aftersound</b> are removed every <span class="text-desc">30</span>s.`
+
   const talents: ITalent = {
     normal: {
       level: normal,
@@ -103,10 +108,7 @@ const Phrolova = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
       <br /><b>Resonance Skill - Murmurs in a Haunting Dream</b>
       <br />When in <b class="text-wuwa-fusion">Reincarnate</b>, press Resonance Skill on the ground to cast <b>Murmurs in a Haunting Dream</b>, dealing <b class="text-wuwa-havoc">Havoc DMG</b> (considered Resonance Skill DMG) and ending <b class="text-wuwa-fusion">Reincarnate</b> afterwards.
       <br />
-      <br /><b class="text-wuwa-havoc">Aftersound</b>
-      <br />Phrolova can hold up to <span class="text-desc">24</span> stacks of <b class="text-wuwa-havoc">Aftersound</b>.
-      <br />When Phrolova is not the active Resonator, casting <b>Enhanced Attack - Hecate: Strings</b>, <b>Enhanced Attack - Hecate: Winds</b>, and <b>Enhanced Attack - Hecate: Cadenza</b> grants <span class="text-desc">1</span> stack of <b class="text-wuwa-havoc">Aftersound</b>.
-      <br />When Phrolova is out of combat, all stacks of <b class="text-wuwa-havoc">Aftersound</b> are removed every <span class="text-desc">30</span>s.
+      <br />${aftersound}
       <br />
       <br /><b class="text-violet-400">Volatile Note</b>
       <br />Phrolova can hold up to <span class="text-desc">6</span> <b class="text-violet-400">Volatile Notes</b>. When <b class="text-violet-400">Volatile Notes</b> reaches the max number, gaining new <b class="text-violet-400">Volatile Notes</b> moves all <b class="text-violet-400">Volatile Notes</b> one slot to the left, and the leftmost <b class="text-rose-600">Volatile Note - Strings</b> or <b class="text-indigo-500">Volatile Note - Winds</b> will be removed.
@@ -201,11 +203,24 @@ const Phrolova = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
     {
       type: 'number',
       id: 'lingering_note',
-      text: `Aftersound Stacks`,
-      ...talents.normal,
+      text: `Aftersound`,
       show: true,
       default: 10,
       min: 0,
+      max: 24,
+      content: aftersound,
+      title: 'Aftersound',
+      trace: 'Forte Circuit',
+    },
+    {
+      type: 'number',
+      id: 'aftersound_overcap',
+      text: `I2 Aftersound Overcap`,
+      ...talents.i2,
+      show: true,
+      default: 0,
+      min: 0,
+      max: 100,
     },
     {
       type: 'toggle',
@@ -284,21 +299,21 @@ const Phrolova = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
             {
               scaling:
                 calcScaling(0.1661, normal) +
-                (form.lingering_note ? calcScaling(0.4153, normal) * 0.05 * form.lingering_note : 0),
+                calcScaling(0.4153, normal) * 0.05 * _.min([form.lingering_note || 0, 24]),
               multiplier: Stats.ATK,
               hits: 2,
             },
             {
               scaling:
                 calcScaling(0.0623, normal) +
-                (form.lingering_note ? calcScaling(0.4153, normal) * 0.01875 * form.lingering_note : 0),
+                calcScaling(0.4153, normal) * 0.01875 * _.min([form.lingering_note || 0, 24]),
               multiplier: Stats.ATK,
               hits: 8,
             },
             {
               scaling:
                 calcScaling(2.4903, normal) +
-                (form.lingering_note ? calcScaling(0.4153, normal) * 0.75 * form.lingering_note : 0),
+                calcScaling(0.4153, normal) * 0.75 * _.min([form.lingering_note || 0, 24]),
               multiplier: Stats.ATK,
             },
           ],
@@ -443,7 +458,10 @@ const Phrolova = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, t
         base[Stats.CRIT_DMG].push({
           name: `Inherent Skill 2`,
           source: 'Self',
-          value: 0.025 * _.min([form.lingering_note, 24]) + _.min([1, 0.01 * _.max([form.lingering_note - 24, 0])]),
+          value: 0.025 * _.min([form.lingering_note, 24]) + 0.01 * (form.aftersound_overcap || 0),
+          base: '2.5%',
+          multiplier: _.min([form.lingering_note, 24]).toString(),
+          flat: form.aftersound_overcap ? `(1% × ${form.aftersound_overcap})` : null,
         })
       }
       if (c >= 3) {
