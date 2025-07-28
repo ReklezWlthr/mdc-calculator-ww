@@ -2380,7 +2380,7 @@ export const Echoes: IArtifact[] = [
     skill: 'MstSkil_33011_UI',
     sonata: [Sonata.MIDNIGHT_VEIL],
     desc: `Transform into Lorelei and attack surrounding enemies, dealing {{0}}% <b class="text-wuwa-havoc">Havoc DMG</b>.
-    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> and <span class="text-desc">12%</span> Resonance Liberation DMG Bonus.`,
+    <br />The Resonator with this Echo equipped in their main slot gains <span class="text-desc">12%</span> <b class="text-wuwa-havoc">Havoc DMG Bonus</b> and <span class="text-desc">12%</span> Basic Attack DMG Bonus.`,
     properties: [{ base: 363.4, growth: 47.4 }],
     bonus: (base, r) => {
       base[Stats.HAVOC_DMG].push({
@@ -2388,7 +2388,7 @@ export const Echoes: IArtifact[] = [
         name: 'Echo Skill',
         source: 'Lorelei',
       })
-      base[Stats.LIB_DMG].push({
+      base[Stats.BASIC_DMG].push({
         value: 0.12,
         name: 'Echo Skill',
         source: 'Lorelei',

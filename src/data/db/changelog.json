@@ -1,5 +1,12 @@
 [
   {
+    "version": "1.1.0-4",
+    "date": "July 28th, 2025",
+    "desc": [
+      "<b class=\"text-yellow\">Fixed</b>: <b>Lorelei</b> now correctly gives Basic Attack DMG Bonus instead of Liberation DMG Bonus."
+    ]
+  },
+  {
     "version": "1.1.0-3",
     "date": "July 24th, 2025",
     "desc": [
