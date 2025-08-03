@@ -1266,7 +1266,7 @@ export const WeaponConditionals: IWeaponContent[] = [
           name: 'Passive',
           source: `Lethean Elegy`,
         })
-        base[Stats.ECHO_DMG].push({
+        base.ECHO_AMP.push({
           value: calcRefinement(0.32, 0.08, r),
           name: 'Passive',
           source: `Lethean Elegy`,
