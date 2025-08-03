@@ -254,6 +254,7 @@ export const StatsModal = observer(
               <AttributeBlock stats={stats} stat="Coordinated Attack AMP" array={stats.COORD_AMP} />
               <AttributeBlock stats={stats} stat="Spectro Frazzle AMP" array={stats.FRAZZLE_AMP} />
               <AttributeBlock stats={stats} stat="Aero Erosion AMP" array={stats.EROSION_AMP} />
+              <AttributeBlock stats={stats} stat="Echo Skill AMP" array={stats.ECHO_AMP} />
             </div>
           </div>
         </Collapsible>

@@ -307,7 +307,7 @@ const Lumi = (c: number, i: { i1: boolean; i2: boolean }, t: ITalentLevel, team:
       ]
       base.LIB_SCALING = [
         {
-          name: 'Cogitation Model DMG',
+          name: 'Squeakie Express DMG',
           value: [{ scaling: calcScaling(4.8, lib), multiplier: Stats.ATK }],
           element: Element.ELECTRO,
           property: TalentProperty.LIB,
